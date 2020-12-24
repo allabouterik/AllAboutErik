@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: eoinom/AllAboutErik
+  repo: allabouterik/AllAboutErik
   branch: main
 
 media_folder: "static/uploads"
