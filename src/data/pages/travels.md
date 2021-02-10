@@ -167,5 +167,4 @@ videos:
     thumbnailImg:
       - https://res.cloudinary.com/all-about-erik/image/upload/v1612997578/Travels/Cabo.jpg
     duration: 1589
-    width: ""
 ---
