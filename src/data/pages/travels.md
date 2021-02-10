@@ -202,7 +202,7 @@ videos:
     url: 'https://player.vimeo.com/video/476493806'
   - duration: 1589
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/v1612997578/Travels/Cabo.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1612997578/Travels/Cabo.jpg
     title: Cabo
     url: 'https://player.vimeo.com/video/510406588'
 ---
