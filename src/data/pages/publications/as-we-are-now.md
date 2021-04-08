@@ -30,10 +30,10 @@ mainTextBottom: The two decades in which skeleton imagery gained greatest
 bookImages:
   width: 566
   height: 778
-  commonPathStdRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588289251/Publications/1.%20As%20We%20Are%20Now/Book%20Images/FullScreen/
-  commonFilenameHiRes: AsWeAreNow-_zoomed-_sm
-  commonPathHiRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588289312/Publications/1.%20As%20We%20Are%20Now/Book%20Images/Zoomed%20sm/
+  commonPathStdRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Publications/1.%20As%20We%20Are%20Now/Book%20Images/FullScreen/
   commonFilenameStdRes: AsWeAreNow-_Fullscreen
+  commonPathHiRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Publications/1.%20As%20We%20Are%20Now/Book%20Images/Zoomed%20sm/
+  commonFilenameHiRes: AsWeAreNow-_zoomed-_sm
   orientation: portrait
   commonFilenameStartNum: 1
   commonFilenameLastNum: 141

@@ -268,14 +268,14 @@ export default {
   padding-bottom: 15px;
 }
 
-.publicationsContainer {
-  margin-bottom: 88px;
-}
-
 .publicationsContainer,
 .publicationsRow {
   padding: 0;
   max-width: var(--publicationsDivWidth);
+}
+
+.publicationsContainer {
+  padding-bottom: 88px;
 }
 
 .publicationsCols {

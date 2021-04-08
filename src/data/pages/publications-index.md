@@ -58,5 +58,10 @@ publications:
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1586824930/Publications/05-shamans_vol2_midyxh.jpg
     title: Shamans Volume Two
+  - thumbnailHoverImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1617918157/Publications/06-dreams-of-empire-rollover.jpg
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1617918157/Publications/06-dreams-of-empire.jpg
+    title: Dreams of Empire
 ---
 

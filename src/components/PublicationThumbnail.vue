@@ -44,7 +44,7 @@ export default {
 
 * {
   --defaultWidth: 357.8px;
-  --defaultHeight: 626px;
+  --defaultHeight: 575px;
   --scale: 1.0;
 }
 

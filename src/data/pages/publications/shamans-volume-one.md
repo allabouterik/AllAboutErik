@@ -28,10 +28,10 @@ mainTextBottom: "Illustrated with over 400 fully annotated colour plates, the
 bookImages:
   width: 713
   height: 620
-  commonPathStdRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588289608/Publications/4.%20Shamans%20Vol1%20and%20Vol2/Book%20Images/Vol1%20-%20FullScreen/
-  commonFilenameHiRes: Shamans_Supernaturals_Animal_Spirits-Zm_sm
-  commonPathHiRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588289767/Publications/4.%20Shamans%20Vol1%20and%20Vol2/Book%20Images/Vol1%20-%20Zoomed%20sm/
+  commonPathStdRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Publications/4.%20Shamans%20Vol1%20and%20Vol2/Book%20Images/Vol1%20-%20FullScreen/
   commonFilenameStdRes: Shamans_Supernaturals_Animal_Spirits
+  commonPathHiRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Publications/4.%20Shamans%20Vol1%20and%20Vol2/Book%20Images/Vol1%20-%20Zoomed%20sm/
+  commonFilenameHiRes: Shamans_Supernaturals_Animal_Spirits-Zm_sm
   orientation: landscape
   commonFilenameStartNum: 1
   commonFilenameLastNum: 232

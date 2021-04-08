@@ -34,9 +34,9 @@ bookImages:
   width: 590
   height: 778
   commonPathStdRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Publications/3.%20Animal%20Myth%20and%20Magic/Book%20Images/FullScreen/
-  commonFilenameHiRes: Animal_Myth_and_Magic_without_red_pages_
-  commonPathHiRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Publications/3.%20Animal%20Myth%20and%20Magic/Book%20Images/Large%20File%20Size/
   commonFilenameStdRes: Animal_Myth_and_Magic_without_red_pages_
+  commonPathHiRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Publications/3.%20Animal%20Myth%20and%20Magic/Book%20Images/Large%20File%20Size/
+  commonFilenameHiRes: Animal_Myth_and_Magic_without_red_pages_
   orientation: portrait
   commonFilenameStartNum: 1
   commonFilenameLastNum: 164
