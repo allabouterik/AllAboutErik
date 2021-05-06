@@ -205,5 +205,35 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1612997578/Travels/Cabo.jpg
     title: Cabo
     url: 'https://player.vimeo.com/video/510406588'
+  - duration: 189
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/durban.jpg
+    title: Durban
+    url: 'https://player.vimeo.com/video/543349577'
+  - duration: 473
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/madagascar.jpg
+    title: Madagascar
+    url: 'https://player.vimeo.com/video/543313401'
+  - duration: 358
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/mombasa.jpg
+    title: Mombasa
+    url: 'https://player.vimeo.com/video/542319845'
+  - duration: 329
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/mozambique-maputo.jpg
+    title: Mozambique Maputo
+    url: 'https://player.vimeo.com/video/543330394'
+  - duration: 442
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/zanzibar.jpg
+    title: Zanzibar
+    url: 'https://player.vimeo.com/video/543292227'
+  - duration: 1677
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/swahili-coast.jpg
+    title: Spice, Slaves, and Ivory. The Swahili Coast.
+    url: 'https://player.vimeo.com/video/542393976'
 ---
 
