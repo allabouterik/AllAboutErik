@@ -207,33 +207,38 @@ videos:
     url: 'https://player.vimeo.com/video/510406588'
   - duration: 189
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/durban.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/durban.jpg
     title: Durban
     url: 'https://player.vimeo.com/video/543349577'
   - duration: 473
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/madagascar.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/madagascar.jpg
     title: Madagascar
     url: 'https://player.vimeo.com/video/543313401'
   - duration: 358
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/mombasa.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/mombasa.jpg
     title: Mombasa
     url: 'https://player.vimeo.com/video/542319845'
   - duration: 329
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/mozambique-maputo.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/mozambique-maputo.jpg
     title: Mozambique Maputo
     url: 'https://player.vimeo.com/video/543330394'
   - duration: 442
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/zanzibar.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/zanzibar.jpg
     title: Zanzibar
     url: 'https://player.vimeo.com/video/543292227'
   - duration: 1677
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/v1620341217/Travels/swahili-coast.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/swahili-coast.jpg
     title: Spice, Slaves, and Ivory. The Swahili Coast.
     url: 'https://player.vimeo.com/video/542393976'
+  - duration: 1418
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1623968393/Travels/china.jpg
+    title: China
+    url: 'https://player.vimeo.com/video/562914916'
 ---
 
