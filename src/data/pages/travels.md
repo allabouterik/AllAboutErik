@@ -240,5 +240,17 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1623968393/Travels/china.jpg
     title: China
     url: 'https://player.vimeo.com/video/562914916'
+
+  - duration: 1292
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1630447001/Travels/puligia.jpg
+    title: Puligia
+    url: 'https://player.vimeo.com/video/594832524'
+
+  - duration: 293
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1630447002/Travels/florence.jpg
+    title: Florence
+    url: 'https://player.vimeo.com/video/581294680'
 ---
 
