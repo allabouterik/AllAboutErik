@@ -25,12 +25,8 @@
           <g-image alt="Play symbol" src="~/assets/images/playarrowcircle-black.png" class="thumbnailPlayVideoImg" />
         </b-col>
       </b-row>
-
     </b-container>
-
   </div>
-
-  
 </template>
 
 
@@ -155,6 +151,7 @@ export default {
 }
 
 .showOnHover {
+  display: block;
   opacity: 0;
   transition: all 0.3s ease-in 0.2s;
 }
