@@ -252,5 +252,22 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1630447002/Travels/florence.jpg
     title: Florence
     url: 'https://player.vimeo.com/video/581294680'
----
 
+  - duration: 781
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1639097272/Travels/java.jpg
+    title: Jogjakarta, Java
+    url: 'https://player.vimeo.com/video/646241946'
+
+  - duration: 220
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1639097272/Travels/angkor.jpg
+    title: Angkor Wat
+    url: 'https://player.vimeo.com/video/653024668'
+
+  - duration: 219
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1639097272/Travels/petra.jpg
+    title: Petra, the Lost City
+    url: 'https://player.vimeo.com/video/653020718'
+---
