@@ -6,6 +6,7 @@
       :audioDuration="$page.Travels.edges[0].node.bgAudioDuration"
       :audioFadeInDuration="$page.Travels.edges[0].node.bgAudioFadeInDuration"
       :audioFadeOutDuration="$page.Travels.edges[0].node.bgAudioFadeOutDuration"
+      :playMusic="playMusic"
     />
 
     <header id="header" :style="headerStyle">
@@ -31,9 +32,12 @@
         <b-col cols="12" sm="6" lg="4" xl="3"
           v-for="(video, index) in videos" 
           :key="video.title" 
-          @click="videoIndex = index" 
           class="mb-2 mb-sm-3 px-2 px-sm-1" >
           
+          @click="
+            videoIndex = index;
+            setStorage();
+          "
           <video-thumbnail-travels :video="video" />
 
         </b-col>
@@ -99,8 +103,13 @@ export default {
 
   data() {
     return {
-      videoIndex: null
-    }
+      videoIndex: null,
+      playMusic: true,
+    };
+  },
+
+  created() {
+    this.playMusic = !this.videoPreviouslyViewed();
   },
 
   computed: {
@@ -123,6 +132,13 @@ export default {
       return {
         '--headerBgImg': 'url(' + this.headerBgImg + ')'
       }
+
+  methods: {
+    setStorage() {
+      sessionStorage.setItem("travelVideoViewed", "true");
+    },
+    videoPreviouslyViewed() {
+      return sessionStorage.getItem("travelVideoViewed") === "true";
     },
   },
 
