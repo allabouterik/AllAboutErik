@@ -132,6 +132,8 @@ export default {
       return {
         '--headerBgImg': 'url(' + this.headerBgImg + ')'
       }
+    }
+  },
 
   methods: {
     setStorage() {
