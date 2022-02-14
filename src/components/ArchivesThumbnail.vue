@@ -159,6 +159,10 @@ https://codepen.io/beije/pen/zxjeae */
   box-shadow: none;
 }
 
+.showOnHover {
+  display: block;
+}
+
 .hideOnHover,
 .thumbnailContainer:hover .showOnHover,
 .thumbnailContainer:hover .thumbnailImgContainer {
