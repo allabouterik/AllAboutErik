@@ -270,4 +270,10 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1639097272/Travels/petra.jpg
     title: Petra, the Lost City
     url: 'https://player.vimeo.com/video/653020718'
+
+  - duration: 757
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1644861509/Travels/hong-kong.jpg
+    title: Hong Kong
+    url: 'https://player.vimeo.com/video/676475499'
 ---
