@@ -7,8 +7,8 @@
 
   <div v-else-if="addBtnToDOM" id="backToTopContainer">
     <button v-scroll-to="{ el:'body', duration:1500, easing:'ease' }" id="scrollToTopBtn" class="hide">
-      <g-image alt="back to top" src="../assets/images/back-to-top-1line-white-150px.png" class="hideOnHover" />
-      <g-image alt="back to top" src="../assets/images/back-to-top-1line-yellow-150px.png" class="showOnHover" />
+      <g-image immediate alt="back to top" src="../assets/images/back-to-top-1line-white-150px.png" class="hideOnHover" />
+      <g-image immediate alt="back to top" src="../assets/images/back-to-top-1line-yellow-150px.png" class="showOnHover" />
     </button>    
   </div>
 </template>

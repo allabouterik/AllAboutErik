@@ -5,23 +5,23 @@
 
         <div :style="navLinksVisibility" class="navLinksContainer">
           <g-link :to="'/musical-journey/musical-friends/' + prev_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_friend.title" class="nav_link nav_link_small" id="nav_prev">
-            <g-image alt="previous" src="../assets/images/prev-white.png" class="hideOnHover" />
-            <g-image alt="previous" src="../assets/images/prev-yellow.png" class="showOnHover" />
+            <g-image immediate alt="previous" src="../assets/images/prev-white.png" class="hideOnHover" />
+            <g-image immediate alt="previous" src="../assets/images/prev-yellow.png" class="showOnHover" />
           </g-link>
 
           <g-link :to="'/musical-journey/musical-friends/' + prev_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_friend.title" class="nav_link nav_link_big" id="nav_previous">
-            <g-image alt="previous" src="../assets/images/previous-white.png" class="hideOnHover" />
-            <g-image alt="previous" src="../assets/images/previous-yellow.png" class="showOnHover" />
+            <g-image immediate alt="previous" src="../assets/images/previous-white.png" class="hideOnHover" />
+            <g-image immediate alt="previous" src="../assets/images/previous-yellow.png" class="showOnHover" />
           </g-link>
 
           <g-link :to="'/musical-journey/musical-friends/' + next_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_friend.title" class="nav_link nav_link_small" id="nav_next">
-            <g-image alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-            <g-image alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+            <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
+            <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
           </g-link>
 
           <g-link :to="'/musical-journey/musical-friends/' + next_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_friend.title" class="nav_link nav_link_big" id="nav_next">
-            <g-image alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-            <g-image alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+            <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
+            <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
           </g-link>
         </div>
 
@@ -58,13 +58,13 @@
                 <b-col>
                   <div :style="navLinksVisibility" class="backToMenuContainer">
                     <g-link to="/musical-journey/musical-friends/menu/" class="nav_link nav_link_big pt-3" id="nav_back">
-                      <g-image alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-1line-white.png" class="hideOnHover" />
-                      <g-image alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-1line-yellow.png" class="showOnHover" />
+                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-1line-white.png" class="hideOnHover" />
+                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-1line-yellow.png" class="showOnHover" />
                     </g-link>
                     
                     <g-link to="/musical-journey/musical-friends/menu/" class="nav_link nav_link_small pt-3" id="nav_back">
-                      <g-image alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-white.png" class="hideOnHover" />
-                      <g-image alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-yellow.png" class="showOnHover" />
+                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-white.png" class="hideOnHover" />
+                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-yellow.png" class="showOnHover" />
                     </g-link>
 
                   </div>

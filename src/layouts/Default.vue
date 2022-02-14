@@ -1,8 +1,8 @@
 <template>
   <div class="layout">
       <div class="openbtn">
-        <img alt="Open navigation menu" src="../assets/images/menu-open.png" immediate=true @click="mainNavIsOpen = true" />
-        <img alt="Open navigation menu" src="../assets/images/menu-open-hover.png" immediate=true @click="mainNavIsOpen = true" class="img-hover"/>
+        <img alt="Open navigation menu" src="../assets/images/menu-open.png" @click="mainNavIsOpen = true" />
+        <img alt="Open navigation menu" src="../assets/images/menu-open-hover.png" @click="mainNavIsOpen = true" class="img-hover"/>
       </div>
     
     <!-- Main navigation menu -->
@@ -10,8 +10,8 @@
       <simplebar class="simple-scrollbar" data-simplebar-auto-hide="true">
         <div>
           <div class="closebtn">
-            <img alt="Close navigation menu" src="../assets/images/menu-close.png" immediate=true @click="closeNav()"/>
-            <img alt="Close navigation menu" src="../assets/images/menu-close-hover.png" immediate=true @click="closeNav()" class="img-hover"/>
+            <img alt="Close navigation menu" src="../assets/images/menu-close.png" @click="closeNav()"/>
+            <img alt="Close navigation menu" src="../assets/images/menu-close-hover.png" @click="closeNav()" class="img-hover"/>
           </div>
 
           <nav v-for="edge in $static.NavItems.edges" :key="edge.node.text">

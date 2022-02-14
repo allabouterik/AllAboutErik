@@ -3,8 +3,8 @@
     <div v-on:[eventName]="closeLargeImg()" class="pb-5">
 
       <g-link to="/archives/menu" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="Back to Archives menu" class="backToArchives">
-        <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-3 pt-md-2" />
-        <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-3 pt-md-2" />
+        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-3 pt-md-2" />
+        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-3 pt-md-2" />
       </g-link>
 
       <header id="header" class="px-3">
@@ -90,25 +90,25 @@
           <b-row no-gutters align-v="center" id="navLinksRow" class="pt-2">
             <b-col style="text-align:left">
               <g-link :to="'/archives/' + prev_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_archive.title" class="nav_link nav_link_big" id="nav_previous">
-                <g-image alt="previous" src="../assets/images/previous-white.png" class="hideOnHover" />
-                <g-image alt="previous" src="../assets/images/previous-yellow.png" class="showOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/previous-white.png" class="hideOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/previous-yellow.png" class="showOnHover" />
               </g-link>
 
               <g-link :to="'/archives/' + prev_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_archive.title" class="nav_link nav_link_small" id="nav_prev">
-                <g-image alt="previous" src="../assets/images/prev-white.png" class="hideOnHover" />
-                <g-image alt="previous" src="../assets/images/prev-yellow.png" class="showOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/prev-white.png" class="hideOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/prev-yellow.png" class="showOnHover" />
               </g-link>
             </b-col>
             
             <b-col style="text-align:right">
               <g-link :to="'/archives/' + next_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_archive.title" class="nav_link nav_link_big" id="nav_next">
-                <g-image alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-                <g-image alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
               </g-link>
               
               <g-link :to="'/archives/' + next_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_archive.title" class="nav_link nav_link_small" id="nav_next">
-                <g-image alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-                <g-image alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
               </g-link>
             </b-col>
           </b-row>

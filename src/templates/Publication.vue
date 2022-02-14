@@ -69,13 +69,13 @@
           <b-row no-gutters align-v="start" align-h="center">
             <b-col cols="">
               <g-link :to="'/publications/' + prevPublication.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prevPublication.title" class="nav_link nav_link_small" id="nav_prev">
-                <g-image alt="previous" src="../assets/images/previous-publication-2lines-white.png" class="hideOnHover" />
-                <g-image alt="previous" src="../assets/images/previous-publication-2lines-yellow.png" class="showOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/previous-publication-2lines-white.png" class="hideOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/previous-publication-2lines-yellow.png" class="showOnHover" />
               </g-link>
 
               <g-link :to="'/publications/' + prevPublication.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prevPublication.title" class="nav_link nav_link_big" id="nav_prev">
-                <g-image alt="previous" src="../assets/images/previous-publication-1line-white.png" class="hideOnHover" />
-                <g-image alt="previous" src="../assets/images/previous-publication-1line-yellow.png" class="showOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/previous-publication-1line-white.png" class="hideOnHover" />
+                <g-image immediate alt="previous" src="../assets/images/previous-publication-1line-yellow.png" class="showOnHover" />
               </g-link>
             </b-col>
             
@@ -113,13 +113,13 @@
             
             <b-col cols="" order="2" order-lg="3">
               <g-link :to="'/publications/' + nextPublication.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="nextPublication.title" class="nav_link nav_link_small" id="nav_next">
-                <g-image alt="previous" src="../assets/images/next-publication-2lines-white.png" class="hideOnHover" />
-                <g-image alt="previous" src="../assets/images/next-publication-2lines-yellow.png" class="showOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-publication-2lines-white.png" class="hideOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-publication-2lines-yellow.png" class="showOnHover" />
               </g-link>
 
               <g-link :to="'/publications/' + nextPublication.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="nextPublication.title" class="nav_link nav_link_big" id="nav_next">
-                <g-image alt="previous" src="../assets/images/next-publication-1line-white.png" class="hideOnHover" />
-                <g-image alt="previous" src="../assets/images/next-publication-1line-yellow.png" class="showOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-publication-1line-white.png" class="hideOnHover" />
+                <g-image immediate alt="next" src="../assets/images/next-publication-1line-yellow.png" class="showOnHover" />
               </g-link>
             </b-col>            
           </b-row>
@@ -127,13 +127,13 @@
           <b-row no-gutters>
             <b-col>
               <g-link :to="{ path: '/publications/', query: { playMusic: 'false' }}" class="nav_link nav_link_big" id="nav_back">
-                <g-image alt="Back to publications menu" src="../assets/images/back-to-publications-menu-1line-white.png" class="hideOnHover" />
-                <g-image alt="Back to publications menu" src="../assets/images/back-to-publications-menu-1line-yellow.png" class="showOnHover" />
+                <g-image immediate alt="Back to publications menu" src="../assets/images/back-to-publications-menu-1line-white.png" class="hideOnHover" />
+                <g-image immediate alt="Back to publications menu" src="../assets/images/back-to-publications-menu-1line-yellow.png" class="showOnHover" />
               </g-link>
               
               <g-link :to="{ path: '/publications/', query: { playMusic: 'false' }}" class="nav_link nav_link_small" id="nav_back">
-                <g-image alt="Back to publications menu" src="../assets/images/back-to-publications-menu-3lines-white.png" class="hideOnHover" />
-                <g-image alt="Back to publications menu" src="../assets/images/back-to-publications-menu-3lines-yellow.png" class="showOnHover" />
+                <g-image immediate alt="Back to publications menu" src="../assets/images/back-to-publications-menu-3lines-white.png" class="hideOnHover" />
+                <g-image immediate alt="Back to publications menu" src="../assets/images/back-to-publications-menu-3lines-yellow.png" class="showOnHover" />
               </g-link>
             </b-col>
           </b-row>

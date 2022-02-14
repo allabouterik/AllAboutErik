@@ -18,13 +18,13 @@
         <b-row no-gutters align-v="center" id="navLinksRow">
           <b-col cols="2" lg="" xl="4">
             <g-link :to="'/collections/' + prevCollection.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prevCollection.title" class="nav_link nav_link_small" id="nav_prev">
-              <g-image alt="previous" src="../assets/images/previous-collection-2lines-white.png" class="hideOnHover" />
-              <g-image alt="previous" src="../assets/images/previous-collection-2lines-yellow.png" class="showOnHover" />
+              <g-image immediate alt="previous" src="../assets/images/previous-collection-2lines-white.png" class="hideOnHover" />
+              <g-image immediate alt="previous" src="../assets/images/previous-collection-2lines-yellow.png" class="showOnHover" />
             </g-link>
 
             <g-link :to="'/collections/' + prevCollection.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prevCollection.title" class="nav_link nav_link_big" id="nav_prev">
-              <g-image alt="previous" src="../assets/images/previous-collection-1line-white.png" class="hideOnHover" />
-              <g-image alt="previous" src="../assets/images/previous-collection-1line-yellow.png" class="showOnHover" />
+              <g-image immediate alt="previous" src="../assets/images/previous-collection-1line-white.png" class="hideOnHover" />
+              <g-image immediate alt="previous" src="../assets/images/previous-collection-1line-yellow.png" class="showOnHover" />
             </g-link>
           </b-col>
           
@@ -34,13 +34,13 @@
           
           <b-col cols="2" lg="" xl="4">
             <g-link :to="'/collections/' + nextCollection.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="nextCollection.title" class="nav_link nav_link_small" id="nav_next">
-              <g-image alt="previous" src="../assets/images/next-collection-2lines-white.png" class="hideOnHover" />
-              <g-image alt="previous" src="../assets/images/next-collection-2lines-yellow.png" class="showOnHover" />
+              <g-image immediate alt="next" src="../assets/images/next-collection-2lines-white.png" class="hideOnHover" />
+              <g-image immediate alt="next" src="../assets/images/next-collection-2lines-yellow.png" class="showOnHover" />
             </g-link>
 
             <g-link :to="'/collections/' + nextCollection.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="nextCollection.title" class="nav_link nav_link_big" id="nav_next">
-              <g-image alt="previous" src="../assets/images/next-collection-1line-white.png" class="hideOnHover" />
-              <g-image alt="previous" src="../assets/images/next-collection-1line-yellow.png" class="showOnHover" />
+              <g-image immediate alt="next" src="../assets/images/next-collection-1line-white.png" class="hideOnHover" />
+              <g-image immediate alt="next" src="../assets/images/next-collection-1line-yellow.png" class="showOnHover" />
             </g-link>
           </b-col>            
         </b-row>
@@ -107,8 +107,8 @@
       </div>
 
       <g-link v-if="!isOldTime" :to="{ path: '/collections/', query: { playMusic: 'false' }}" class="nav_link pt-3" id="nav_back">
-        <g-image alt="Back to collections menu" src="../assets/images/back-to-collections-menu-1line-white.png" class="hideOnHover" />
-        <g-image alt="Back to collections menu" src="../assets/images/back-to-collections-menu-1line-yellow.png" class="showOnHover" />
+        <g-image immediate alt="Back to collections menu" src="../assets/images/back-to-collections-menu-1line-white.png" class="hideOnHover" />
+        <g-image immediate alt="Back to collections menu" src="../assets/images/back-to-collections-menu-1line-yellow.png" class="showOnHover" />
       </g-link>
 
     </div>

@@ -3,8 +3,8 @@
     <div v-on:[eventName]="closeLargeImg()" class="pb-5">
 
       <g-link to="/archives/menu" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="Back to Archives menu" class="backToArchives">
-        <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-0 pt-md-2" />
-        <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-0 pt-md-2" />
+        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-0 pt-md-2" />
+        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-0 pt-md-2" />
       </g-link>
       
       <header id="header">

@@ -76,8 +76,8 @@
 
           <!-- BACK TO ARCHIVES LINK (AT TOP) -->
           <g-link to="/archives/menu" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="Back to Archives menu" class="backToArchives">
-            <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-3 pt-md-2" />
-            <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-3 pt-md-2" />
+            <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-3 pt-md-2" />
+            <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-3 pt-md-2" />
           </g-link>
         </header>
 
@@ -85,8 +85,8 @@
         <template v-else-if="s.backLink">
           <template v-if="titleSlug == 'my-dad-earl'">
             <g-link to="/archives/menu" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="Back to Archives menu" class="backToArchivesEndEarl">
-              <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left.png"  class="backToArchivesEndImg"/>
-              <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left-yellow.png" class="backToArchivesEndImg-hover" />
+              <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left.png"  class="backToArchivesEndImg"/>
+              <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left-yellow.png" class="backToArchivesEndImg-hover" />
             </g-link>
 
             <g-link :to="`/archives/${titleSlug}-gallery`" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="View the Gallery" class="toEarlGalleryEnd">
@@ -97,8 +97,8 @@
 
           <template v-else>
             <g-link to="/archives/menu" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="Back to Archives menu" class="backToArchivesEnd">
-              <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left.png"  class="backToArchivesEndImg"/>
-              <g-image alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left-yellow.png" class="backToArchivesEndImg-hover" />
+              <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left.png"  class="backToArchivesEndImg"/>
+              <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-with-arrow-on-left-yellow.png" class="backToArchivesEndImg-hover" />
             </g-link>
           </template>
         </template>
