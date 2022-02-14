@@ -126,10 +126,10 @@ export default {
           // console.log('fadeAudioOut, this.audio.volume = ' + this.audio.volume);
           this.audioFinished = false
           if ((this.audio.currentTime >= fadeOutPoint) && (this.audio.volume != 0.0)) {
-            this.audio.volume = Math.max(0.0, (this.audioDuration - this.audio.currentTime) / this.audioFadeOutDuration);
+            this.audio.volume = Math.max(0.0, Math.min(this.maxVolume, (this.audioDuration - this.audio.currentTime) / this.audioFadeOutDuration));
           }
           else if (this.leavingPage) {
-            this.audio.volume = Math.max(0.0, (this.audioTimeAtStartPageLeave + this.pageFadeOutDuration - this.audio.currentTime) / this.pageFadeOutDuration);
+            this.audio.volume = Math.max(0.0, Math.min(this.maxVolume, (this.audioTimeAtStartPageLeave + this.pageFadeOutDuration - this.audio.currentTime) / this.pageFadeOutDuration));
           }
 
           if (this.audio.volume < 0.05 && this.audio.currentTime > 1) {
