@@ -139,6 +139,7 @@ export default {
 }
 
 .showOnHover {
+  display: block;
   opacity: 0;
   transition: all 0.3s ease-in 0.2s;
 }

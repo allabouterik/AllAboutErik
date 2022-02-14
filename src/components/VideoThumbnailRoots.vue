@@ -236,6 +236,7 @@ https://codepen.io/beije/pen/zxjeae */
 }
 
 .showOnHover {
+  display: block;
   opacity: 0;
   transition: all 0.4s ease-in 0.1s;
 }
