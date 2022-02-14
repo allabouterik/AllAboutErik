@@ -32,8 +32,8 @@
             <div v-else v-html="node.content" class="collections_headerText" />
 
             <g-link :to="{ path: '/collections/', query: { playMusic: 'false' }}" class="nav_link py-2" id="nav_back">
-              <g-image alt="Back to collections menu" src="../../assets/images/back-to-collections-menu-1line-black.png" class="hideOnHover" />
-              <g-image alt="Back to collections menu" src="../../assets/images/back-to-collections-menu-1line-yellow.png" class="showOnHover" />
+              <g-image immediate alt="Back to collections menu" src="../../assets/images/back-to-collections-menu-1line-black.png" class="hideOnHover" />
+              <g-image immediate alt="Back to collections menu" src="../../assets/images/back-to-collections-menu-1line-yellow.png" class="showOnHover" />
             </g-link>
           </b-col>
           
