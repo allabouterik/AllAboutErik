@@ -297,7 +297,6 @@ export default {
       return elements[0];
     },
     setVideoLoaded(index) {
-      console.log('in setVideoLoaded, index = ' + index);
       const el = this.getVideoElByIndex(index);
       this.isVideoLoaded = !el ? false : el.classList.contains('loaded');
     },
