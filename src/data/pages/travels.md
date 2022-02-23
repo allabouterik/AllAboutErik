@@ -276,4 +276,16 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1644861509/Travels/hong-kong.jpg
     title: Hong Kong
     url: 'https://player.vimeo.com/video/676475499'
+
+  - duration: 1052
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1645655192/Travels/turkey.jpg
+    title: Turkey
+    url: 'https://player.vimeo.com/video/668003843'
+
+  - duration: 386
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1645655192/Travels/burma.jpg
+    title: Burma
+    url: 'https://player.vimeo.com/video/670871116'
 ---
