@@ -16,13 +16,21 @@
     <b-container fluid id="mainContainer" class="mb-3 pb-5 px-1">
 
       <!-- MAIN VIDEO -->
-      <b-row no-gutters align-h="center" align-v="center" id="mainVideoContainer" class="my-2 my-sm-3 px-2 px-sm-3">
-        <b-col cols="12" align-self="center" style="max-width: 960px">          
-          <iframe 
-            :src="mainVideoUrl + '?autoplay=1&loop=1&muted=1&color=505050'" 
-            width="960" height="540" 
+      <b-row
+        no-gutters
+        align-h="center"
+        align-v="center"
+        id="mainVideoContainer"
+        class="my-2 my-sm-3 px-2 px-sm-3"
+      >
+        <b-col cols="12" align-self="center" style="max-width: 960px">
+          <iframe
+            :src="mainVideoUrl + '?autoplay=1&loop=1&muted=1&color=505050'"
+            width="960"
+            height="540"
             frameborder="0"
-            id="mainVideo" />
+            id="mainVideo"
+          />
           <span v-html="mainVideoText" id="mainVideoText" class="" />
         </b-col>
       </b-row>
@@ -35,7 +43,7 @@
           class="mb-2 mb-sm-3 px-2 px-sm-1"          
           @click="videoIndex = index; setStorage();"
         >
-          <video-thumbnail-travels :video="video" />
+          <VideoThumbnailTravels :video="video" />
         </b-col>
       </b-row>
 

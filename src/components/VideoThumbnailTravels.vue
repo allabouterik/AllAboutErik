@@ -1,20 +1,27 @@
 <template>
   <div class="videoThumbnailContainer">              
     <div>
-      <g-image :alt="video.title" v-if="video.thumbnailImg != null" :src="video.thumbnailImg" class="thumbnailImg"/>
+      <img
+        v-if="video.thumbnailImg != null"
+        :alt="video.title"
+        :src="video.thumbnailImg"
+        width="566"
+        height="362"
+        class="thumbnailImg"
+      />
     </div>
 
     <div class="thumbnailImgTextOverlay">
       <div class="showOnHover">
         <h4 class="playVideoText mb-1 mb-sm-2 mb-lg-4">PLAY VIDEO</h4>
-        <span v-if="video.duration != null" class="videoDurationText ">
-          {{ durationInMinsText(video.duration) }} 
+        <span v-if="video.duration != null" class="videoDurationText">
+          {{ durationInMinsText(video.duration) }}
         </span>
       </div>
     </div>
 
     <b-container fluid class="captionBanner p-2">
-      <b-row align-h="center" align-v="center" style="height:100%">
+      <b-row align-h="center" align-v="center" style="height: 100%">
         <b-col align-self="center">
           <h4 class="videoTitle">{{ video.title }}</h4>
         </b-col>
@@ -25,8 +32,8 @@
 
 
 <script scoped>
-export default { 
-  name: 'VideoThumbnailTravels',
+export default {
+  name: "VideoThumbnailTravels",
 
   props: {
     video: {
@@ -36,26 +43,22 @@ export default {
 
   methods: {
     durationInMinsText(secs) {
-      let mins = Math.floor(secs / 60)
+      let mins = Math.floor(secs / 60);
       if (mins >= 60) {
-        let hrs = Math.floor(mins / 60)
-        mins = mins - (hrs * 60)
-        if (mins < 10)
-          mins = '0' + mins
-        if (hrs == 1)
-          return '1 hr ' + mins + ' min'
-        else
-          return hrs + ' hrs ' + mins + ' min'
-      }
-      else {
-        secs = secs - (mins * 60)
-        if (secs < 10)
-          secs = '0' + secs
-        return mins + ':' + secs + ' min'
+        let hrs = Math.floor(mins / 60);
+        mins = mins - hrs * 60;
+        if (mins < 10) mins = "0" + mins;
+        if (hrs == 1) return "1 hr " + mins + " min";
+        else return hrs + " hrs " + mins + " min";
+      } else {
+        secs = secs - mins * 60;
+        if (secs < 10) secs = "0" + secs;
+        return;
+        mins + ":" + secs + " min";
       }
     }
   }
-}
+};
 </script>
 
 
