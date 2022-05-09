@@ -1090,8 +1090,7 @@ body {
   padding: 0px;  
 }
 .slideText {
-  /deep/ p {
-    // margin-bottom: 0;
+  ::v-deep p {
     margin: auto 0;
   }
 }
