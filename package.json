@@ -26,6 +26,7 @@
     "markdown-it": "^11.0.0",
     "netlify-cms": "^2.10.54",
     "plyr": "^3.6.2",
+    "sass": "^1.51.0",
     "simplebar-vue": "^1.5.1",
     "vue": "^2.6.10",
     "vue-material-design-icons": "^4.7.1",
@@ -34,7 +35,6 @@
   },
   "devDependencies": {
     "eslint-plugin-gridsome": "^1.5.0",
-    "node-sass": "^4.14.1",
     "sass-loader": "^9.0.2",
     "vue-eslint-parser": "^7.1.0",
     "webpack-bundle-analyzer": "^3.8.0"
