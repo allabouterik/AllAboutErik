@@ -288,4 +288,10 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1645655192/Travels/burma.jpg
     title: Burma
     url: 'https://player.vimeo.com/video/670871116'
+
+  - duration: 596
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1652126970/Travels/egypt.jpg
+    title: Egypt
+    url: 'https://player.vimeo.com/video/703897109'
 ---
