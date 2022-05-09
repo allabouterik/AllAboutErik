@@ -1,5 +1,5 @@
 <template>
-  <div class="videoThumbnailContainer">              
+  <div class="videoThumbnailContainer">
     <div>
       <img
         v-if="video.thumbnailImg != null"
@@ -37,7 +37,7 @@ export default {
 
   props: {
     video: {
-      type: Object
+      type: Object,
     },
   },
 
@@ -53,19 +53,18 @@ export default {
       } else {
         secs = secs - mins * 60;
         if (secs < 10) secs = "0" + secs;
-        return;
-        mins + ":" + secs + " min";
+        return mins + ":" + secs + " min";
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lora:700i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora:700i&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
@@ -84,14 +83,14 @@ export default {
 .thumbnailImg {
   width: 100%;
   max-width: 100%;
-  height: auto;  
+  height: auto;
   position: relative;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
 
 .thumbnailImgTextOverlay {
-  color: #FFFFFF;
+  color: #ffffff;
   position: absolute;
   text-align: center;
   top: 36%;
@@ -101,8 +100,8 @@ export default {
 }
 
 .playVideoText {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "Open Sans Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 300;
   font-size: 2.3125rem;
   line-height: 2.3125rem;
@@ -112,8 +111,8 @@ export default {
 
 .videoDurationText {
   display: inline;
-  font-family: 'Lora', serif;
-  font-feature-settings: 'liga';
+  font-family: "Lora", serif;
+  font-feature-settings: "liga";
   font-weight: 700;
   font-size: 1.375rem;
   line-height: 2.125rem;
@@ -121,19 +120,19 @@ export default {
 }
 
 .captionBanner {
-  color: white; 
+  color: white;
   background-color: black;
-  width: 100%; 
+  width: 100%;
   height: 115px;
-  position: block; 
-  bottom: 0; 
+  position: block;
+  bottom: 0;
   font-size: 14px;
-  transition: all 0.3s ease-in 0.0s;
+  transition: all 0.3s ease-in 0s;
 }
 
 .videoTitle {
-  font-family: 'NeueHaasGroteskText Pro55';
-  font-feature-settings: 'liga';
+  font-family: "NeueHaasGroteskText Pro55";
+  font-feature-settings: "liga";
   font-weight: 400;
   font-size: 1.0625rem;
   line-height: 1.375rem;
@@ -153,11 +152,9 @@ export default {
   opacity: 0.5;
 }
 .videoThumbnailContainer:hover .captionBanner {
-  color: black; 
+  color: black;
   background-color: white;
 }
-
-
 
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
@@ -172,9 +169,8 @@ export default {
   }
 }
 
-
 /* Extra small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 575.98px) {  
+@media only screen and (max-width: 575.98px) {
   .playVideoText {
     font-size: calc(1.875rem + 7 * (100vw - 375px) / (576 - 375));
     line-height: calc(1.875rem + 7 * (100vw - 375px) / (576 - 375));
@@ -253,7 +249,7 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
   .videoTitle {
     font-size: calc(1rem + 1 * (100vw - 992px) / (1200 - 992));
     line-height: calc(1.3125rem + 1 * (100vw - 992px) / (1200 - 992));
@@ -263,5 +259,4 @@ export default {
     height: calc(100px + 15 * (100vw - 992px) / (1200 - 992));
   }
 }
-
 </style>
