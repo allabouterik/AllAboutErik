@@ -39,7 +39,7 @@
 
                 <div style="width:100%;height:100%;position:relative;">
                   <iframe 
-                    :src="videos[videoIndex].url + '?autoplay=0&color=505050&title=0&byline=0&portrait=0'"
+                    :src="videos[videoIndex].url + (isVimeoUrl(videos[videoIndex].url) ? '?autoplay=0&color=505050&title=0&byline=0&portrait=0' : '')"
                     style="width:100%;height:100%;" 
                     frameborder="0" 
                     webkitallowfullscreen mozallowfullscreen allowfullscreen 
@@ -314,6 +314,9 @@ export default {
        || index === this.currentIndex
        || index === this.currentIndex - 1
        || index === this.currentIndex + 1;
+    },
+    isVimeoUrl(url) {
+      return url.includes('player.vimeo.com');
     },
     bindEvents() {
       document.addEventListener('keydown', this.keyDownHandler, false);
