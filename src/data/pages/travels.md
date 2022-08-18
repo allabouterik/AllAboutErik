@@ -294,4 +294,22 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1652126970/Travels/egypt.jpg
     title: Egypt
     url: 'https://player.vimeo.com/video/703897109'
+
+  - duration: 1090
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1660855444/Travels/thailand.jpg
+    title: Thailand
+    url: 'https://player.vimeo.com/video/738795454'
+
+  - duration: 258
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1660855444/Travels/belize.jpg
+    title: Belize
+    url: 'https://player.vimeo.com/video/732268984'
+
+  - duration: 682
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1660855444/Travels/northern-spain.jpg
+    title: Northern Spain
+    url: 'https://player.vimeo.com/video/740558851'
 ---
