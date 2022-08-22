@@ -4,7 +4,8 @@
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@gridsome/cli": "^0.3.3",
@@ -34,6 +35,8 @@
     "vue-scrollto": "^2.17.1"
   },
   "devDependencies": {
+    "cypress": "^10.6.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-gridsome": "^1.5.0",
     "sass-loader": "^9.0.2",
     "vue-eslint-parser": "^7.1.0",
