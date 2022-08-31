@@ -3,7 +3,11 @@
     <span v-b-tooltip.hover="{ variant: 'light' }" :title="tooltipText">
       <img v-if="audioPlaying && !audioMuted" alt="Mute background music" src="../assets/images/sound-playing.png" class="audioIcon" @click="clickAudioIcon()" />
       <img v-else alt="Play background music" src="../assets/images/sound-muted.png" class="audioIcon" @click="clickAudioIcon()" />          
-    </span>    
+    </span>
+    <audio controls ref="audioEl" style="display:none;">
+      <source :src="this.audioFile" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>  
   </div>
 </template>
 
@@ -181,8 +185,8 @@ export default {
   },
 
   mounted() {
-    this.audio = new Audio(this.audioFile)
-    if (this.playMusic) {      
+    this.audio = this.$refs.audioEl;
+    if (this.playMusic) {
       this.playAndFadeAudio()
     }
 
