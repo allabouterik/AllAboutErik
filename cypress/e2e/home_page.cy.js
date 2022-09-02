@@ -16,17 +16,19 @@ describe('The Home Page', () => {
       .should('have.attr', 'alt')
       .should('include', 'Mute background music');
   });
-  
+
   const expectPlayingAudio = () => {
-    cy.get('.soundIconContainer').find('audio').should((els) => {
-      let audible = false;
-      els.each((i, el) => {
-        if (el.duration > 0 && !el.paused && !el.muted) {
-          audible = true;
-        }
+    cy.get('.soundIconContainer')
+      .find('audio')
+      .should((els) => {
+        let audible = false;
+        els.each((i, el) => {
+          if (el.duration > 0 && !el.paused && !el.muted) {
+            audible = true;
+          }
+        });
+        expect(audible).to.eq(true);
       });
-      expect(audible).to.eq(true);
-    });
   };
 
   it('audio is playing', () => {
