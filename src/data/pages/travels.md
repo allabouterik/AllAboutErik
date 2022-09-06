@@ -34,11 +34,11 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/samba_mofqhz.jpg
     title: Carnival in Brazil
     url: 'https://player.vimeo.com/video/129839794'
-  - duration: 486
+  - duration: 1768
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_malabar_gwxbtk.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_kmen3j.jpg
     title: India - Mumbai to the Malibar Coast
-    url: 'https://player.vimeo.com/video/269707078'
+    url: 'https://player.vimeo.com/video/309568795'
   - duration: 717
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/singapore_vrzl3t.jpg
