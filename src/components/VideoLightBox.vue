@@ -7,13 +7,8 @@
       @touchmove="touchmoveHandler"
       @touchend="touchendHandler"
     >
-      <div
-        class="video-lightbox__modal"
-        :style="`background: ${background}`"
-      >
-        <div
-          :class="['video-lightbox__spinner', !isVideoLoaded || 'hide']"
-        >
+      <div class="video-lightbox__modal" :style="`background: ${background}`">
+        <div :class="['video-lightbox__spinner', !isVideoLoaded || 'hide']">
           <div
             class="video-lightbox__dot"
             :style="`border-color: ${interfaceColor}`"
@@ -32,21 +27,30 @@
             <li
               v-for="(video, videoIndex) in formattedVideos"
               :key="videoIndex"
-              :style="`transform: translate3d(${currentIndex * -100}%, 0px, 0px);`"
+              :style="`transform: translate3d(${
+                currentIndex * -100
+              }%, 0px, 0px);`"
               class="video-lightbox__video-container"
             >
               <div class="video-lightbox__video" :style="videoContainerCss">
-
-                <div style="width:100%;height:100%;position:relative;">
-                  <iframe 
-                    :src="videos[videoIndex].url + (isVimeoUrl(videos[videoIndex].url) ? '?autoplay=0&color=505050&title=0&byline=0&portrait=0' : '')"
-                    style="width:100%;height:100%;" 
-                    frameborder="0" 
-                    webkitallowfullscreen mozallowfullscreen allowfullscreen 
+                <div style="width: 100%; height: 100%; position: relative">
+                  <iframe
+                    :src="
+                      videos[videoIndex].url +
+                      (isVimeoUrl(videos[videoIndex].url)
+                        ? '?autoplay=0&color=505050&title=0&byline=0&portrait=0'
+                        : '')
+                    "
+                    style="width: 100%; height: 100%"
+                    frameborder="0"
+                    webkitallowfullscreen
+                    mozallowfullscreen
+                    allowfullscreen
                     :ref="`lg-vid-${videoIndex}`"
-                    @load="videoLoaded($event, videoIndex)" 
+                    @load="videoLoaded($event, videoIndex)"
                     class="videoFrame"
-                    :id="'video_' + videoIndex" >
+                    :id="'video_' + videoIndex"
+                  >
                   </iframe>
                 </div>
 
@@ -57,7 +61,6 @@
                 >
                   {{ video.caption || video.title }}
                 </div>
-
               </div>
             </li>
           </ul>
@@ -65,57 +68,60 @@
 
         <div id="leftArrowContainer" v-if="currentIndex > 0" @click="prev()">
           <img
-            alt="Left arrow, click for previous video" 
-            src="../assets/images/arrow-left.png" 
+            alt="Left arrow, click for previous video"
+            src="../assets/images/arrow-left.png"
             id="prevVideoImg"
-            class="video-lightbox__prev arrowImg" 
+            class="video-lightbox__prev arrowImg"
           />
           <img
-            alt="Left arrow, click for previous video" 
-            src="../assets/images/arrow-left-hover.png" 
+            alt="Left arrow, click for previous video"
+            src="../assets/images/arrow-left-hover.png"
             id="prevVideoImg-hover"
-            class="video-lightbox__prev arrowImg" 
+            class="video-lightbox__prev arrowImg"
           />
         </div>
 
-        <div id="rightArrowContainer" v-if="currentIndex + 1 < videos.length" @click="next()">
+        <div
+          id="rightArrowContainer"
+          v-if="currentIndex + 1 < videos.length"
+          @click="next()"
+        >
           <img
-            alt="Right arrow, click for next video" 
-            src="../assets/images/arrow-right.png" 
+            alt="Right arrow, click for next video"
+            src="../assets/images/arrow-right.png"
             id="nextVideoImg"
             class="video-lightbox__next arrowImg"
           />
           <img
-            alt="Right arrow, click for next video" 
-            src="../assets/images/arrow-right-hover.png" 
+            alt="Right arrow, click for next video"
+            src="../assets/images/arrow-right-hover.png"
             id="nextVideoImg-hover"
-            class="video-lightbox__next arrowImg" 
+            class="video-lightbox__next arrowImg"
           />
         </div>
 
         <div id="closeImgContainer" @click="close()">
           <img
-            alt="Close icon, click to close lightbox" 
-            src="../assets/images/lightbox-close.png" 
+            alt="Close icon, click to close lightbox"
+            src="../assets/images/lightbox-close.png"
             id="closeImg"
-            class="video-lightbox__close" 
+            class="video-lightbox__close"
           />
           <img
-            alt="Close icon, click to close lightbox" 
-            src="../assets/images/lightbox-close-hover.png" 
+            alt="Close icon, click to close lightbox"
+            src="../assets/images/lightbox-close-hover.png"
             id="closeImg-hover"
-            class="video-lightbox__close" 
+            class="video-lightbox__close"
           />
         </div>
-
       </div>
     </div>
   </transition>
 </template>
 
 <script>
-import Player from '@vimeo/player'
-import { EventBus } from '../event-bus'
+import Player from "@vimeo/player";
+import { EventBus } from "../event-bus";
 
 const keyMap = {
   LEFT: 37,
@@ -142,19 +148,19 @@ export default {
     },
     interfaceColor: {
       type: String,
-      default: 'rgba(255, 255, 255, 0.8)',
+      default: "rgba(255, 255, 255, 0.8)",
     },
     titlePosition: {
       type: String,
-      default: 'left'
-    }
+      default: "left",
+    },
   },
 
   data() {
     return {
       currentIndex: this.index,
       isVideoLoaded: false,
-      bodyOverflowStyle: '',
+      bodyOverflowStyle: "",
       touch: {
         count: 0,
         x: 0,
@@ -163,65 +169,76 @@ export default {
         flag: false,
       },
       windowWidth: 0,
-      windowHeight: 0
+      windowHeight: 0,
     };
   },
 
   computed: {
     formattedVideos() {
-      return this.videos.map(video => (typeof video === 'string'
-        ? { url: video } : video
-      ));
+      return this.videos.map((video) =>
+        typeof video === "string" ? { url: video } : video
+      );
     },
     videoContainerCss() {
-      let css = {}
-      css.width = (0.8 * this.windowWidth) + 'px'
-      css.height = (0.8 * this.windowHeight) + 'px'
-      return css
+      let css = {};
+      css.width = 0.8 * this.windowWidth + "px";
+      css.height = 0.8 * this.windowHeight + "px";
+      return css;
     },
     containerWidth() {
-      return 0.8 * this.windowWidth
+      return 0.8 * this.windowWidth;
     },
     containerHeight() {
-      return 0.8 * this.windowHeight
+      return 0.8 * this.windowHeight;
     },
     containerAspectRatio() {
-      return this.containerWidth / this.containerHeight
+      return this.containerWidth / this.containerHeight;
     },
     videoAspectRatio() {
-      if (this.formattedVideos[this.currentIndex].hasOwnProperty('width') && this.formattedVideos[this.currentIndex].width > 0 &&
-      this.formattedVideos[this.currentIndex].hasOwnProperty('height') && this.formattedVideos[this.currentIndex].height > 0) {
-        return this.formattedVideos[this.currentIndex].width / this.formattedVideos[this.currentIndex].height
-      }
-      else {
-        return 1502.22 / 845.0
+      if (
+        this.formattedVideos[this.currentIndex].hasOwnProperty("width") &&
+        this.formattedVideos[this.currentIndex].width > 0 &&
+        this.formattedVideos[this.currentIndex].hasOwnProperty("height") &&
+        this.formattedVideos[this.currentIndex].height > 0
+      ) {
+        return (
+          this.formattedVideos[this.currentIndex].width /
+          this.formattedVideos[this.currentIndex].height
+        );
+      } else {
+        return 1502.22 / 845.0;
       }
     },
     heightGoverns() {
-      return this.containerAspectRatio >= this.videoAspectRatio
+      return this.containerAspectRatio >= this.videoAspectRatio;
     },
     actualVidHeight() {
-      return this.heightGoverns ? this.containerHeight : this.containerWidth / this.videoAspectRatio
+      return this.heightGoverns
+        ? this.containerHeight
+        : this.containerWidth / this.videoAspectRatio;
     },
     actualVidWidth() {
-      return this.heightGoverns ? this.containerHeight * this.videoAspectRatio : this.containerWidth
+      return this.heightGoverns
+        ? this.containerHeight * this.videoAspectRatio
+        : this.containerWidth;
     },
     videoTitleCss() {
-      let css = {}
-      css.padding = 0
-      css.bottom = ((this.containerHeight - this.actualVidHeight) / 2 - 40) + 'px';
-      css.width = '100%';
-      css.textAlign = this.titlePosition
-      return css
-    }
+      let css = {};
+      css.padding = 0;
+      css.bottom =
+        (this.containerHeight - this.actualVidHeight) / 2 - 40 + "px";
+      css.width = "100%";
+      css.textAlign = this.titlePosition;
+      return css;
+    },
   },
 
   watch: {
     index(val) {
       if (!document) return;
       this.currentIndex = val;
-      if (this.disableScroll && typeof val === 'number') {
-        document.body.style.overflow = 'hidden';
+      if (this.disableScroll && typeof val === "number") {
+        document.body.style.overflow = "hidden";
       } else if (this.disableScroll && !val) {
         document.body.style.overflow = this.bodyOverflowStyle;
       }
@@ -232,19 +249,19 @@ export default {
   },
 
   mounted() {
-    this.windowWidth = window.innerWidth
-    this.windowHeight = window.innerHeight
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
 
     this.$nextTick(() => {
-      window.addEventListener('resize', () => {        
-        this.windowWidth = window.innerWidth
-        this.windowHeight = window.innerHeight 
+      window.addEventListener("resize", () => {
+        this.windowWidth = window.innerWidth;
+        this.windowHeight = window.innerHeight;
       });
-    })    
+    });
 
     if (!document) return;
     this.bodyOverflowStyle = document.body.style.overflow;
-    this.bindEvents();    
+    this.bindEvents();
   },
 
   beforeDestroy() {
@@ -257,39 +274,39 @@ export default {
 
   methods: {
     close() {
-      this.$emit('close');
+      this.$emit("close");
     },
     prev() {
       if (this.currentIndex === 0) return;
-      this.pauseVideo(this.currentIndex)
+      this.pauseVideo(this.currentIndex);
       this.currentIndex -= 1;
-      this.$emit('slide', { index: this.currentIndex });
+      this.$emit("slide", { index: this.currentIndex });
     },
     next() {
       if (this.currentIndex === this.videos.length - 1) return;
-      this.pauseVideo(this.currentIndex)
-      this.currentIndex += 1
-      this.$emit('slide', { index: this.currentIndex });
+      this.pauseVideo(this.currentIndex);
+      this.currentIndex += 1;
+      this.$emit("slide", { index: this.currentIndex });
     },
-    pauseVideo (index) {
-      var iframe = document.getElementById('video_' + index)
-      var player = new Player(iframe)
+    pauseVideo(index) {
+      var iframe = document.getElementById("video_" + index);
+      var player = new Player(iframe);
       player.pause();
     },
-    stopVideo (index) {
-      var iframe = document.getElementById('video_' + index)
-      if ( iframe ) {
+    stopVideo(index) {
+      var iframe = document.getElementById("video_" + index);
+      if (iframe) {
         var iframeSrc = iframe.src;
         iframe.src = iframeSrc;
       }
     },
     videoLoaded($event, videoIndex) {
-      EventBus.$emit('lightboxMediaLoaded');    // used to mute page background music      
+      EventBus.$emit("lightboxMediaLoaded"); // used to mute page background music
       const { target } = $event;
-      target.classList.add('loaded');
+      target.classList.add("loaded");
       if (videoIndex === this.currentIndex) {
-        this.setVideoLoaded(videoIndex)
-        this.storeVideoAspectRatio()
+        this.setVideoLoaded(videoIndex);
+        this.storeVideoAspectRatio();
       }
     },
     getVideoElByIndex(index) {
@@ -298,31 +315,33 @@ export default {
     },
     setVideoLoaded(index) {
       const el = this.getVideoElByIndex(index);
-      this.isVideoLoaded = !el ? false : el.classList.contains('loaded');
+      this.isVideoLoaded = !el ? false : el.classList.contains("loaded");
     },
     storeVideoAspectRatio() {
       if (this.isVideoLoaded === true) {
-        let video = this.videos[this.currentIndex]
-        if (video.hasOwnProperty('width') && video.hasOwnProperty('height'))
-          this.videoAspectRatio = video.width / video.height
+        let video = this.videos[this.currentIndex];
+        if (video.hasOwnProperty("width") && video.hasOwnProperty("height"))
+          this.videoAspectRatio = video.width / video.height;
       }
     },
     shouldPreload(index) {
       const el = this.getVideoElByIndex(index) || {};
       const { src } = el;
-      return !!src
-       || index === this.currentIndex
-       || index === this.currentIndex - 1
-       || index === this.currentIndex + 1;
+      return (
+        !!src ||
+        index === this.currentIndex ||
+        index === this.currentIndex - 1 ||
+        index === this.currentIndex + 1
+      );
     },
     isVimeoUrl(url) {
-      return url.includes('player.vimeo.com');
+      return url.includes("player.vimeo.com");
     },
     bindEvents() {
-      document.addEventListener('keydown', this.keyDownHandler, false);
+      document.addEventListener("keydown", this.keyDownHandler, false);
     },
     unbindEvents() {
-      document.removeEventListener('keydown', this.keyDownHandler, false);
+      document.removeEventListener("keydown", this.keyDownHandler, false);
     },
     touchstartHandler(event) {
       this.touch.count += 1;
@@ -365,18 +384,21 @@ export default {
           break;
       }
     },
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -415,7 +437,7 @@ export default {
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: left .4s ease, transform .4s ease, -webkit-transform .4s ease;
+    transition: left 0.4s ease, transform 0.4s ease, -webkit-transform 0.4s ease;
   }
   &__video {
     & {
@@ -431,9 +453,9 @@ export default {
         max-width: 100%;
         max-height: 100vh;
         opacity: 0;
-        transition: opacity .2s;
+        transition: opacity 0.2s;
       }
-      &.loaded{
+      &.loaded {
         opacity: 1;
       }
     }
@@ -445,9 +467,9 @@ export default {
     margin: 0 auto;
     box-sizing: border-box;
 
-    color: #FFFFFF;    
-    font-family: 'NeueHaasGroteskText Pro55', sans-serif;
-    font-feature-settings: 'liga';
+    color: #ffffff;
+    font-family: "NeueHaasGroteskText Pro55", sans-serif;
+    font-feature-settings: "liga";
     font-size: 1.3125rem; /* 21px with 16px default size */
     font-weight: 400;
     letter-spacing: 5px;
@@ -527,13 +549,15 @@ export default {
   }
 }
 // transition fade on opening / closing of lightbox
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   position: fixed;
   z-index: 1000;
   // transition: opacity 0.2s;
   transition: opacity 0.5s ease;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   position: fixed;
   opacity: 0;
   z-index: 1000;
@@ -549,12 +573,12 @@ export default {
 }
 
 .arrowImg {
-  width: 7.0%;
+  width: 7%;
   max-width: 26px;
   min-width: 15px;
   padding: 0;
 }
-#prevVideoImg-hover, 
+#prevVideoImg-hover,
 #leftArrowContainer:hover #prevVideoImg {
   display: none;
 }
@@ -562,7 +586,7 @@ export default {
   display: inline;
 }
 
-#nextVideoImg-hover, 
+#nextVideoImg-hover,
 #rightArrowContainer:hover #nextVideoImg {
   display: none;
 }
@@ -570,8 +594,9 @@ export default {
   display: inline;
 }
 
-#closeImg, #closeImg-hover {
-  width: 7.0%;
+#closeImg,
+#closeImg-hover {
+  width: 7%;
   max-width: 38px;
   min-width: 15px;
   padding: 0;
@@ -590,7 +615,7 @@ export default {
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media only screen and (max-width: 575.98px) {
-  .video-lightbox{
+  .video-lightbox {
     &__text {
       font-size: 0.8125rem; /* 13px with 16px default size */
     }
@@ -609,15 +634,15 @@ export default {
 
 /* Small devices (landscape phones, 576px and up) */
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
-  .video-lightbox{
+  .video-lightbox {
     &__text {
       font-size: 0.9375rem; /* 15px with 16px default size */
     }
     &__next {
-      right: 3.0%;
+      right: 3%;
     }
     &__prev {
-      left: 3.0%;
+      left: 3%;
     }
     &__close {
       top: 20px;
@@ -627,8 +652,8 @@ export default {
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 991.98px) { 
-  .video-lightbox{
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+  .video-lightbox {
     &__text {
       font-size: 1.0625rem; /* 17px with 16px default size */
     }
@@ -646,8 +671,8 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) {  
-  .video-lightbox{
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  .video-lightbox {
     &__text {
       font-size: 1.1875rem; /* 19px with 16px default size */
     }
