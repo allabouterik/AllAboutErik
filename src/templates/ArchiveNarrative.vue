@@ -161,25 +161,36 @@
                 v-b-tooltip.hover.bottom="{ variant: 'secondary' }"
                 title="Back to Archives menu"
                 class="backToArchivesEnd"
+                :class="{
+                  backToArchivesEndFamilyTrip:
+                    titleSlug == 'family-trip-to-europe-57',
+                }"
               >
                 <g-image
                   immediate
                   alt="Back to Archives"
                   src="~/assets/images/back-to-archives-with-arrow-on-left.png"
                   class="backToArchivesEndImg"
+                  :class="{
+                    backToArchivesEndImgFamilyTrip:
+                      titleSlug == 'family-trip-to-europe-57',
+                  }"
                 />
                 <g-image
                   immediate
                   alt="Back to Archives"
                   src="~/assets/images/back-to-archives-with-arrow-on-left-yellow.png"
                   class="backToArchivesEndImg-hover"
+                  :class="{
+                    'backToArchivesEndImgFamilyTrip-hover':
+                      titleSlug == 'family-trip-to-europe-57',
+                  }"
                 />
               </g-link>
             </template>
           </template>
 
           <div
-            v-else
             v-for="(txtObj, iText) in s.txtArr"
             :key="iText"
             class="slideTextContainer"
@@ -597,7 +608,7 @@ export default {
           const txtObj = layout.textList[t];
           if (
             !txtObj.hasOwnProperty("sectionNo") ||
-            txtObj.sectionNo > sections.length
+            txtObj.sectionNo > sections.length - 1
           )
             continue;
           const sectionIndex = txtObj.sectionNo;
@@ -873,17 +884,23 @@ export default {
   left: 50%;
   top: 22vh;
   transform: translate3d(-50%, -50%, 0);
+  z-index: 2000;
+}
+.backToArchivesEndFamilyTrip {
+  left: 83%;
+  top: 33vh;
 }
 .backToArchivesEndEarl {
   position: absolute;
   left: 40%;
-  top: 6vh;
+  top: 7vh;
   transform: translate3d(-50%, -50%, 0);
+  z-index: 2000;
 }
 .toEarlGalleryEnd {
   position: absolute;
   left: 60%;
-  top: -6vh;
+  top: -10vh;
   transform: translate3d(-50%, -50%, 0);
 }
 .backToArchivesEndImg,
@@ -893,6 +910,12 @@ export default {
   max-width: 350px;
   height: auto;
   padding: 16px;
+}
+.backToArchivesEndImgFamilyTrip,
+.backToArchivesEndImgFamilyTrip-hover {
+  width: 23vw;
+  min-width: 200px;
+  max-width: 230px;
 }
 .backToArchivesEndImg {
   display: inline-block;
