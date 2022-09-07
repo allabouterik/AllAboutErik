@@ -164,6 +164,7 @@
                 :class="{
                   backToArchivesEndFamilyTrip:
                     titleSlug == 'family-trip-to-europe-57',
+                  portraitMode: aspectRatio < portraitTablet.maxAspect,
                 }"
               >
                 <g-image
@@ -539,9 +540,11 @@ export default {
     currentLayout() {
       let layout = {};
       if (this.aspectRatio < this.portraitTablet.maxAspect) {
-        if (this.windowWidth < 541)
+        if (this.windowWidth < 541 && this.node.mobileLayout) {
           layout = { ...this.portraitMobile, ...this.node.mobileLayout };
-        else layout = { ...this.portraitTablet, ...this.node.portraitLayout };
+        } else {
+          layout = { ...this.portraitTablet, ...this.node.portraitLayout };
+        }
       } else if (this.aspectRatio < this.square.maxAspect) {
         layout = { ...this.square, ...this.node.squareLayout };
       } else if (this.aspectRatio < this.fiveBySeven.maxAspect) {
@@ -890,6 +893,10 @@ export default {
   left: 83%;
   top: 33vh;
 }
+.backToArchivesEndFamilyTrip.portraitMode {
+  left: 50%;
+  top: 0vh;
+}
 .backToArchivesEndEarl {
   position: absolute;
   left: 40%;
@@ -916,6 +923,13 @@ export default {
   width: 23vw;
   min-width: 200px;
   max-width: 230px;
+}
+.backToArchivesEndFamilyTrip.portraitMode .backToArchivesEndImgFamilyTrip,
+.backToArchivesEndFamilyTrip.portraitMode
+  .backToArchivesEndImgFamilyTrip-hover {
+  width: 60vw;
+  min-width: 200px;
+  max-width: 250px;
 }
 .backToArchivesEndImg {
   display: inline-block;
