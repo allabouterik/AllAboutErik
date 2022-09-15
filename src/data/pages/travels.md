@@ -309,7 +309,7 @@ videos:
 
   - duration: 682
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1660855444/Travels/northern-spain.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1663283022/Travels/northern-spain.jpg
     title: Northern Spain
     url: 'https://player.vimeo.com/video/740558851'
 ---
