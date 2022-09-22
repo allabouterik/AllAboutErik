@@ -289,9 +289,17 @@ export default {
       this.$emit("slide", { index: this.currentIndex });
     },
     pauseVideo(index) {
-      var iframe = document.getElementById("video_" + index);
-      var player = new Player(iframe);
-      player.pause();
+      const iframe = document.querySelector(`iframe#video_${index}`);
+      if (iframe == null) {
+        console.error('Cannot pause video as video iframe not found');
+        return;
+      }
+      if (iframe.src.includes('vimeo')) {
+        const player = new Player(iframe);
+        player.pause();
+      } else {
+        console.error('Cannot pause video as src is not from vimeo');
+      }
     },
     stopVideo(index) {
       var iframe = document.getElementById("video_" + index);
