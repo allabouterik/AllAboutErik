@@ -531,4 +531,13 @@ export default {
   }
 }
 
+@media only screen and (min-width: 1200px) and (max-width: 1330px) {
+  .videoSubText {
+    font-size: 1.25rem;
+  }
+  .playIconRow {
+    padding-bottom: 10px !important;
+  }
+}
+
 </style>
