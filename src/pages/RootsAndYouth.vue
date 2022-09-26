@@ -1,51 +1,61 @@
 <template>
-  <Layout> 
-
+  <Layout>
     <BackgroundMusic
       :audioFile="$page.RootsAndYouth.edges[0].node.bgAudio"
       :audioDuration="$page.RootsAndYouth.edges[0].node.bgAudioDuration"
-      :audioFadeInDuration="$page.RootsAndYouth.edges[0].node.bgAudioFadeInDuration"
-      :audioFadeOutDuration="$page.RootsAndYouth.edges[0].node.bgAudioFadeOutDuration"
+      :audioFadeInDuration="
+        $page.RootsAndYouth.edges[0].node.bgAudioFadeInDuration
+      "
+      :audioFadeOutDuration="
+        $page.RootsAndYouth.edges[0].node.bgAudioFadeOutDuration
+      "
     />
-    
-    <b-container fluid class="main-col">
 
+    <b-container fluid class="main-col">
       <!-- HEADER SLIDESHOW -->
-      <b-row no-gutters style="max-height:1224px; width:auto;" class="mb-1 px-1">
+      <b-row
+        no-gutters
+        style="max-height: 1224px; width: auto"
+        class="mb-1 px-1"
+      >
         <b-col class="slideshowCol">
-          
           <slideshow-images :slides="slides" />
-          
+
           <b-container fluid class="slideshowOverlay">
             <b-row>
               <b-col class="mainContent">
-                
-                <g-image alt="Roots and Youth title image" v-if="titleImg != null" :src="titleImg" id="titleImg" class="mb-md-1 mb-lg-2 mb-xl-3"/>
-                
-                <span v-html="mainText" id="mainText" />    
+                <g-image
+                  alt="Roots and Youth title image"
+                  v-if="titleImg != null"
+                  :src="titleImg"
+                  id="titleImg"
+                  class="mb-md-1 mb-lg-2 mb-xl-3"
+                />
+
+                <span v-html="mainText" id="mainText" />
 
                 <!-- Scroll with arrow images - hidden on xs (e.g. portrait mobile devices) -->
                 <ScrollDownArrow
                   scrollToElement="#videos"
                   class="d-none d-sm-inline"
                 />
-
               </b-col>
             </b-row>
           </b-container>
-
         </b-col>
       </b-row>
 
       <!-- VIDEOS -->
       <b-row no-gutters id="videos" class="mb-1">
-        <b-col cols="12" lg="6" 
-          v-for="(video, index) in videos" 
-          :key="video.title" @click="videoIndex = index" 
-          class="my-1 px-1" >
-
+        <b-col
+          cols="12"
+          lg="6"
+          v-for="(video, index) in videos"
+          :key="video.title"
+          @click="videoIndex = index"
+          class="my-1 px-1"
+        >
           <video-thumbnail-roots :video="video" />
-
         </b-col>
       </b-row>
 
@@ -53,42 +63,62 @@
       <b-row v-if="fullVideo != null" no-gutters class="mb-0 px-1">
         <b-col>
           <b-row id="completeFilmContainer" class="mx-0 mb-2">
-            <b-col class="completeFilmContent" @click="videoIndex = allVideos.length-1">
+            <b-col
+              class="completeFilmContent"
+              @click="videoIndex = allVideos.length - 1"
+            >
               <b-row align-v="center" align-h="center" class="mb-0 py-4">
-
-                <b-col cols="auto" id="completeFilmPlayIconCol" style="text-align:right" class="pr-1">
-                  <g-image alt="Play symbol" src="~/assets/images/playarrowcircle-black.png" id="fullVideoPlayImg"/>
-                  <g-image alt="Play symbol" src="~/assets/images/playarrowcircle-hover.png" id="fullVideoPlayImg-hover"/>
+                <b-col
+                  cols="auto"
+                  id="completeFilmPlayIconCol"
+                  style="text-align: right"
+                  class="pr-1"
+                >
+                  <g-image
+                    alt="Play symbol"
+                    src="~/assets/images/playarrowcircle-black.png"
+                    id="fullVideoPlayImg"
+                  />
+                  <g-image
+                    alt="Play symbol"
+                    src="~/assets/images/playarrowcircle-hover.png"
+                    id="fullVideoPlayImg-hover"
+                  />
                 </b-col>
 
-                <b-col cols="auto" id="completeFilmIconTextCol" style="text-align:left" class="pl-1">
-                  <p class="playFilmText mb-0">
-                    PLAY FILM
-                  </p>
-                  <p v-if="fullVideo.duration != null" class="fullVideoDurationText mb-2">
-                    {{ durationInMinsText(fullVideo.duration) }} 
+                <b-col
+                  cols="auto"
+                  id="completeFilmIconTextCol"
+                  style="text-align: left"
+                  class="pl-1"
+                >
+                  <p class="playFilmText mb-0">PLAY FILM</p>
+                  <p
+                    v-if="fullVideo.duration != null"
+                    class="fullVideoDurationText mb-2"
+                  >
+                    {{ durationInMinsText(fullVideo.duration) }}
                   </p>
                 </b-col>
 
                 <b-col cols="auto">
-                  <p id="completeFilmSubText" class="mb-0 mt-1">{{ fullVideo.text }} </p>  
+                  <p id="completeFilmSubText" class="mb-0 mt-1">
+                    {{ fullVideo.text }}
+                  </p>
                 </b-col>
-                
               </b-row>
             </b-col>
           </b-row>
         </b-col>
       </b-row>
-    </b-container>   
-   
-   
+    </b-container>
+
     <VideoLightBox
       :videos="allVideos"
       :index="videoIndex"
       :disable-scroll="true"
       @close="videoIndex = null"
     />
-
   </Layout>
 </template>
 
@@ -132,108 +162,111 @@
 
 
 <script scoped>
-import BackgroundMusic from '../components/BackgroundMusic.vue'
-import ScrollDownArrow from '../components/ScrollDownArrow.vue'
-import SlideshowImages from '../components/SlideshowImages.vue'
-import VideoLightBox from '../components/VideoLightBox.vue'
-import VideoThumbnailRoots from '../components/VideoThumbnailRoots.vue'
+import BackgroundMusic from "../components/BackgroundMusic.vue";
+import ScrollDownArrow from "../components/ScrollDownArrow.vue";
+import SlideshowImages from "../components/SlideshowImages.vue";
+import VideoLightBox from "../components/VideoLightBox.vue";
+import VideoThumbnailRoots from "../components/VideoThumbnailRoots.vue";
 
-export default { 
+export default {
   metaInfo() {
     return {
-      title: this.$page.RootsAndYouth.edges[0].node.pageTitle
-    }
+      title: this.$page.RootsAndYouth.edges[0].node.pageTitle,
+    };
   },
 
   data() {
     return {
-      videoIndex: null
-    }
+      videoIndex: null,
+    };
   },
 
   computed: {
     titleImg() {
-      return this.$page.RootsAndYouth.edges[0].node.headingImg
+      return this.$page.RootsAndYouth.edges[0].node.headingImg;
     },
     slides() {
-      return this.$page.RootsAndYouth.edges[0].node.slides
-    },  
-    mainText(){
-      return this.$page.RootsAndYouth.edges[0].node.content
+      return this.$page.RootsAndYouth.edges[0].node.slides;
+    },
+    mainText() {
+      return this.$page.RootsAndYouth.edges[0].node.content;
     },
     videos() {
-      return this.$page.RootsAndYouth.edges[0].node.videos
+      return this.$page.RootsAndYouth.edges[0].node.videos;
     },
     fullVideo() {
-      return this.$page.RootsAndYouth.edges[0].node.fullVideo
+      return this.$page.RootsAndYouth.edges[0].node.fullVideo;
     },
     allVideos() {
       const allVids = [...this.videos];
-      allVids.push(this.fullVideo)
-      return allVids
+      allVids.push(this.fullVideo);
+      return allVids;
     },
-    images() {    
-      return this.slides.map(a => a.img)
-    }
+    images() {
+      return this.slides.map((a) => a.img);
+    },
   },
 
   methods: {
     durationInMinsText(secs) {
-      let mins = Math.floor(secs / 60)
+      let mins = Math.floor(secs / 60);
       if (mins >= 60) {
-        let hrs = Math.floor(mins / 60)
-        mins = mins - (hrs * 60)
-        if (mins < 10)
-          mins = '0' + mins
-        if (hrs == 1)
-          return '1 hr ' + mins + ' min'
-        else
-          return hrs + ' hrs ' + mins + ' min'
+        let hrs = Math.floor(mins / 60);
+        mins = mins - hrs * 60;
+        if (mins < 10) mins = "0" + mins;
+        if (hrs == 1) return "1 hr " + mins + " min";
+        else return hrs + " hrs " + mins + " min";
+      } else {
+        secs = secs - mins * 60;
+        if (secs < 10) secs = "0" + secs;
+        return mins + ":" + secs + " min";
       }
-      else {
-        secs = secs - (mins * 60)
-        if (secs < 10)
-          secs = '0' + secs
-        return mins + ':' + secs + ' min'
-      }
-    }
+    },
   },
 
   components: {
-    'slideshow-images': require('../components/SlideshowImages.vue').default,
+    "slideshow-images": require("../components/SlideshowImages.vue").default,
     ScrollDownArrow,
     BackgroundMusic,
     VideoLightBox,
-    VideoThumbnailRoots
+    VideoThumbnailRoots,
   },
-}
+};
 </script>
 
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Lora:700i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lora:700i&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
 .layout {
-  background-color: #dddddd
+  background-color: #dddddd;
 }
 
 .row {
@@ -241,13 +274,13 @@ export default {
 }
 
 .main-col {
-  padding: 0 6%;   
+  padding: 0 6%;
 }
 
 .slideshowCol {
   position: relative;
-  max-height:1224px; 
-  width:auto;
+  max-height: 1224px;
+  width: auto;
   text-align: center;
 }
 
@@ -258,7 +291,7 @@ export default {
   position: absolute;
 }
 
-.slideshowOverlay .mainContent{
+.slideshowOverlay .mainContent {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -277,25 +310,23 @@ export default {
 }
 
 #mainText {
-  color: #FFFFFF;  
-  font-family: 'NeueHaasGroteskText Pro65';
-  font-feature-settings: 'liga';
+  color: #ffffff;
+  font-family: "NeueHaasGroteskText Pro65";
+  font-feature-settings: "liga";
   font-size: 1.85rem;
   font-weight: 500;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.65);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.65);
   line-height: 43px;
-  letter-spacing: 2px;    
+  letter-spacing: 2px;
 }
 
-
-
 #completeFilmContainer {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   text-align: center;
 }
 
 .completeFilmContent:hover {
-  color:	#EED047;
+  color: #eed047;
   cursor: pointer;
 }
 .completeFilmContent #fullVideoPlayImg-hover {
@@ -310,39 +341,39 @@ export default {
 }
 
 .playFilmText {
-  font-family: 'NeueHaasGroteskText Pro55';
-  font-feature-settings: 'liga';
+  font-family: "NeueHaasGroteskText Pro55";
+  font-feature-settings: "liga";
   font-weight: 500;
-  font-size: 1.125rem;   /* 18px at 16px default size */
+  font-size: 1.125rem; /* 18px at 16px default size */
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 
 .fullVideoDurationText {
-  font-family: 'Lora', serif;
+  font-family: "Lora", serif;
   font-weight: 700;
-  font-size: 0.875rem;   /* 14px at 16px default size */
+  font-size: 0.875rem; /* 14px at 16px default size */
   margin-top: -2px;
 }
 
 #completeFilmSubText {
-  font-family: 'NeueHaasGroteskText Pro65';
-  font-feature-settings: 'liga';
+  font-family: "NeueHaasGroteskText Pro65";
+  font-feature-settings: "liga";
   font-weight: 500;
-  font-size: 1.4375rem;   /* 23px at 16px default size */
+  font-size: 1.4375rem; /* 23px at 16px default size */
   letter-spacing: 1px;
   text-align: justify;
   line-height: 35px;
   max-width: 420px;
 }
 
-
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media only screen and (max-width: 575.98px) {
-  .layout, .main-col {
-    padding: 0 0;   
+  .layout,
+  .main-col {
+    padding: 0 0;
   }
   .slideshowOverlay .mainContent {
     /* padding-bottom: 0.5%; */
@@ -387,11 +418,10 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
   #mainText {
     font-size: 1.5rem;
     line-height: 33px;
   }
 }
-
 </style>
