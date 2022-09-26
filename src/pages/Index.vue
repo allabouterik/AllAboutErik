@@ -16,6 +16,7 @@
               v-if="titleImg != null"
               :src="titleImg"
               class="titleImg"
+              data-testid="title-img"
             />
             <span v-html="mainText" class="homePgMainText" />
           </div>

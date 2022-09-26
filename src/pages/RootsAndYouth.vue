@@ -30,6 +30,7 @@
                   :src="titleImg"
                   id="titleImg"
                   class="mb-md-1 mb-lg-2 mb-xl-3"
+                  data-testid="title-img"
                 />
 
                 <span v-html="mainText" id="mainText" />

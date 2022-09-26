@@ -12,7 +12,12 @@
     />
 
     <header id="header" :style="headerStyle">
-      <g-image :src="titleImg" id="titleImg" class="my-4" />
+      <g-image
+        :src="titleImg"
+        id="titleImg"
+        class="my-4"
+        data-testid="title-img"
+      />
     </header>
 
     <b-container fluid id="mainContainer" class="mb-3 pb-5 pb-xl-3 px-1">
@@ -33,6 +38,7 @@
         @mouseleave="videoIndexHover = null"
         style="cursor: pointer"
         class="mt-3"
+        data-testid="video-row"
       >
         <b-col cols="12" xl="7" class="thumbnailImgContainer">
           <g-image

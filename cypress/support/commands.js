@@ -27,8 +27,7 @@
 import 'cypress-real-events/support';
 
 Cypress.Commands.add('findPageTitleImg', (src) => {
-  cy.get('.mainContent')
-    .find('img')
+  cy.get('[data-testid="title-img"]')
     .should('have.attr', 'src')
     .should('include', src);
 });
@@ -85,11 +84,14 @@ Cypress.Commands.add('getIframeBody', (index = 0) => {
   // get the iframe > document > body and retry until the body element is not empty
   cy.log('getIframeBody');
 
-  return cy
-    .get('iframe', { log: false })
-    .eq(index)
-    .its('0.contentDocument.body', { log: false }).should('not.be.empty')
-    // wraps "body" DOM element to allow chaining more Cypress commands, like ".find(...)"
-    // https://on.cypress.io/wrap
-    .then((body) => cy.wrap(body, { log: false }))
-})
+  return (
+    cy
+      .get('iframe', { log: false })
+      .eq(index)
+      .its('0.contentDocument.body', { log: false })
+      .should('not.be.empty')
+      // wraps "body" DOM element to allow chaining more Cypress commands, like ".find(...)"
+      // https://on.cypress.io/wrap
+      .then((body) => cy.wrap(body, { log: false }))
+  );
+});
