@@ -1,51 +1,62 @@
 <template>
-  <Layout> 
-
+  <Layout>
     <BackgroundMusic
       :audioFile="$page.ShortFilms.edges[0].node.bgAudio"
       :audioDuration="$page.ShortFilms.edges[0].node.bgAudioDuration"
-      :audioFadeInDuration="$page.ShortFilms.edges[0].node.bgAudioFadeInDuration"
-      :audioFadeOutDuration="$page.ShortFilms.edges[0].node.bgAudioFadeOutDuration"
+      :audioFadeInDuration="
+        $page.ShortFilms.edges[0].node.bgAudioFadeInDuration
+      "
+      :audioFadeOutDuration="
+        $page.ShortFilms.edges[0].node.bgAudioFadeOutDuration
+      "
     />
 
     <header id="header" :style="headerStyle">
-      <g-image :src="titleImg" id="titleImg" class="my-4" />
+      <g-image
+        :src="titleImg"
+        id="titleImg"
+        class="my-4"
+      />
     </header>
 
     <b-container fluid id="mainContainer" class="mb-4 pb-5 pb-xl-3 px-1">
-
       <!-- MAIN VIDEO -->
-      <b-row no-gutters align-h="center" align-v="center" id="mainVideoContainer" class="my-2 my-sm-3 px-2 px-sm-3">
-        <b-col cols="12" 
-          align-self="center" >
-          
+      <b-row
+        no-gutters
+        align-h="center"
+        align-v="center"
+        id="mainVideoContainer"
+        class="my-2 my-sm-3 px-2 px-sm-3"
+      >
+        <b-col cols="12" align-self="center">
           <div>
-            <iframe 
-              :src="mainVideoUrl + '?autoplay=1&loop=1&muted=1&color=505050'" 
-              width="960" height="540" 
+            <iframe
+              :src="mainVideoUrl + '?autoplay=1&loop=1&muted=1&color=505050'"
+              width="960"
+              height="540"
               frameborder="0"
-              id="mainVideo" />
+              id="mainVideo"
+            />
           </div>
-
         </b-col>
       </b-row>
 
       <!-- VIDEOS -->
       <b-row no-gutters align-h="center" id="videos">
-        <b-col cols="6" sm="4" xl="3" 
-          align-self="center" 
-          v-for="(video, index) in videos" 
-          :key="video.title" 
-          @click="videoIndex = index" 
-          class="mb-2 mb-sm-3 px-2 px-sm-3" >
-          
+        <b-col
+          cols="6"
+          sm="4"
+          xl="3"
+          align-self="center"
+          v-for="(video, index) in videos"
+          :key="video.title"
+          @click="videoIndex = index"
+          class="mb-2 mb-sm-3 px-2 px-sm-3"
+        >
           <video-thumbnail-short-films :video="video" />
-
         </b-col>
       </b-row>
-
     </b-container>
-
 
     <VideoLightBox
       :videos="videos"
@@ -53,9 +64,8 @@
       :disable-scroll="true"
       @close="videoIndex = null"
     />
-    
-    <BackToTop />
 
+    <BackToTop />
   </Layout>
 </template>
 
@@ -90,41 +100,41 @@
 
 
 <script scoped>
-import BackgroundMusic from '../components/BackgroundMusic.vue'
-import VideoLightBox from '../components/VideoLightBox.vue'
-import VideoThumbnailShortFilms from '../components/VideoThumbnailShortFilms.vue'
-import BackToTop from '../components/BackToTop.vue'
+import BackgroundMusic from "../components/BackgroundMusic.vue";
+import VideoLightBox from "../components/VideoLightBox.vue";
+import VideoThumbnailShortFilms from "../components/VideoThumbnailShortFilms.vue";
+import BackToTop from "../components/BackToTop.vue";
 
-export default { 
+export default {
   metaInfo() {
     return {
-      title: this.$page.ShortFilms.edges[0].node.pageTitle
-    }
+      title: this.$page.ShortFilms.edges[0].node.pageTitle,
+    };
   },
 
   data() {
     return {
-      videoIndex: null
-    }
+      videoIndex: null,
+    };
   },
 
   computed: {
     headerBgImg() {
-      return this.$page.ShortFilms.edges[0].node.headerBgImg
+      return this.$page.ShortFilms.edges[0].node.headerBgImg;
     },
     titleImg() {
-      return this.$page.ShortFilms.edges[0].node.titleImg
-    },    
-    mainVideoUrl(){
-      return this.$page.ShortFilms.edges[0].node.mainVideoUrl
+      return this.$page.ShortFilms.edges[0].node.titleImg;
+    },
+    mainVideoUrl() {
+      return this.$page.ShortFilms.edges[0].node.mainVideoUrl;
     },
     videos() {
-      return this.$page.ShortFilms.edges[0].node.videos
+      return this.$page.ShortFilms.edges[0].node.videos;
     },
     headerStyle() {
       return {
-        '--headerBgImg': 'url(' + this.headerBgImg + ')'
-      }
+        "--headerBgImg": "url(" + this.headerBgImg + ")",
+      };
     },
   },
 
@@ -132,15 +142,14 @@ export default {
     BackgroundMusic,
     VideoLightBox,
     VideoThumbnailShortFilms,
-    BackToTop
+    BackToTop,
   },
-}
+};
 </script>
 
 
 
 <style scoped>
-
 .layout {
   padding: 0;
 }
@@ -170,9 +179,8 @@ export default {
 #mainVideo {
   max-width: 100%;
   --containerWidth: calc(100vw - 32px);
-  max-height: calc(0.5625*var(--containerWidth));
+  max-height: calc(0.5625 * var(--containerWidth));
 }
-
 
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
@@ -188,7 +196,7 @@ export default {
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 575.98px) {    
+@media only screen and (max-width: 575.98px) {
   #mainVideo {
     --containerWidth: calc(100vw - 16px);
   }
@@ -203,13 +211,12 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
 }
 
-@media only screen and (min-width: 977px) { 
+@media only screen and (min-width: 977px) {
   #mainVideoContainer {
     margin: 8px 0;
   }
 }
-
 </style>
