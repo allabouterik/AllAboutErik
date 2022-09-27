@@ -16,6 +16,7 @@
         :src="titleImg"
         id="titleImg"
         class="my-4"
+        data-testid="title-img"
       />
     </header>
 
@@ -52,6 +53,7 @@
           :key="video.title"
           @click="videoIndex = index"
           class="mb-2 mb-sm-3 px-2 px-sm-3"
+          data-testid="video-container"
         >
           <video-thumbnail-short-films :video="video" />
         </b-col>
