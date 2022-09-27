@@ -278,6 +278,9 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+@media only screen and (min-width: 992px) and (max-width: 1349.98px) {
+  .hideText {
+    display: none;
+  }
 }
 </style>
