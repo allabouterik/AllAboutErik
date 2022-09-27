@@ -1,28 +1,38 @@
 <template>
-  <div class="videoThumbnailContainer">              
+  <div class="videoThumbnailContainer">
     <div>
-      <g-image :alt="video.title" v-if="video.thumbnailImg != null" :src="video.thumbnailImg" class="thumbnailImg"/>
+      <g-image
+        :alt="video.title"
+        v-if="video.thumbnailImg != null"
+        :src="video.thumbnailImg"
+        class="thumbnailImg"
+      />
     </div>
 
     <div class="thumbnailImgTextOverlay">
       <div class="showOnHover">
         <h4 class="videoTitle mb-1 mb-sm-2 mb-lg-4">{{ video.title }}</h4>
-        <span 
-          class="videoSubText" 
-          :class="video.subText.length > 60 ? 'hideText' : ''">
+        <span
+          class="videoSubText"
+          :class="video.subText.length > 60 ? 'hideText' : ''"
+        >
           {{ video.subText }}
         </span>
       </div>
     </div>
 
     <b-container fluid class="durationBanner">
-      <b-row align-h="center" align-v="center" style="height:100%">
+      <b-row align-h="center" align-v="center" style="height: 100%">
         <b-col align-self="center">
-          <span v-if="video.duration != null" class="videoDurationText ">
-            {{ durationInMinsText(video.duration) }} 
+          <span v-if="video.duration != null" class="videoDurationText">
+            {{ durationInMinsText(video.duration) }}
           </span>
-          <br>
-          <g-image alt="Play symbol" src="~/assets/images/playarrowcircle-black.png" class="thumbnailPlayVideoImg" />
+          <br />
+          <g-image
+            alt="Play symbol"
+            src="~/assets/images/playarrowcircle-black.png"
+            class="thumbnailPlayVideoImg"
+          />
         </b-col>
       </b-row>
     </b-container>
@@ -31,51 +41,50 @@
 
 
 <script scoped>
-export default { 
-  name: 'VideoThumbnailShortFilms',
+export default {
+  name: "VideoThumbnailShortFilms",
 
   props: {
     video: {
-      type: Object
+      type: Object,
     },
   },
 
   methods: {
     durationInMinsText(secs) {
-      let mins = Math.floor(secs / 60)
+      let mins = Math.floor(secs / 60);
       if (mins >= 60) {
-        let hrs = Math.floor(mins / 60)
-        mins = mins - (hrs * 60)
-        if (mins < 10)
-          mins = '0' + mins
-        if (hrs == 1)
-          return '1 hr ' + mins + ' min'
-        else
-          return hrs + ' hrs ' + mins + ' min'
+        let hrs = Math.floor(mins / 60);
+        mins = mins - hrs * 60;
+        if (mins < 10) mins = "0" + mins;
+        if (hrs == 1) return "1 hr " + mins + " min";
+        else return hrs + " hrs " + mins + " min";
+      } else {
+        secs = secs - mins * 60;
+        if (secs < 10) secs = "0" + secs;
+        return mins + ":" + secs + " min";
       }
-      else {
-        secs = secs - (mins * 60)
-        if (secs < 10)
-          secs = '0' + secs
-        return mins + ':' + secs + ' min'
-      }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lora:700i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora:700i&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -87,14 +96,14 @@ export default {
 .thumbnailImg {
   width: 100%;
   max-width: 100%;
-  height: auto;  
+  height: auto;
   position: relative;
   opacity: 1;
   transition: opacity 0.5s ease;
 }
 
 .thumbnailImgTextOverlay {
-  color: #FFFFFF;
+  color: #ffffff;
   position: absolute;
   text-align: center;
   top: 36%;
@@ -104,8 +113,8 @@ export default {
 }
 
 .videoTitle {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "Open Sans Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 300;
   font-size: 1.875rem;
   line-height: 1.875rem;
@@ -115,8 +124,8 @@ export default {
 
 .videoSubText {
   display: inline-block;
-  font-family: 'NeueHaasGroteskText Pro65';
-  font-feature-settings: 'liga';
+  font-family: "NeueHaasGroteskText Pro65";
+  font-feature-settings: "liga";
   font-weight: 500;
   font-size: 0.9375rem;
   line-height: 1.4375rem;
@@ -124,19 +133,19 @@ export default {
 }
 
 .durationBanner {
-  color: black; 
+  color: black;
   background-color: white;
-  width: 100%; 
+  width: 100%;
   height: 0;
-  position: absolute; 
-  bottom: 0; 
+  position: absolute;
+  bottom: 0;
   font-size: 14px;
   transition: all 0.3s ease-in 0.2s;
 }
 
 .videoDurationText {
   display: inline;
-  font-family: 'Lora', serif;
+  font-family: "Lora", serif;
   font-weight: 700;
   font-size: 1rem;
 }
@@ -145,7 +154,7 @@ export default {
   width: 14.14%;
   min-width: 25px;
   max-width: 40px;
-  height: auto;  
+  height: auto;
   position: relative;
   padding-bottom: 6px;
 }
@@ -165,8 +174,6 @@ export default {
   height: 25%;
 }
 
-
-
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
 @media only screen and (max-width: 400px) {
@@ -180,9 +187,8 @@ export default {
   }
 }
 
-
 /* Extra small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 575.98px) {  
+@media only screen and (max-width: 575.98px) {
   .videoTitle {
     font-size: 5vw;
     line-height: 5vw;
@@ -222,7 +228,6 @@ export default {
     height: 32% !important;
   }
 }
-
 
 /* Small devices (landscape phones, 576px and up) */
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
@@ -273,7 +278,6 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
 }
-
 </style>
