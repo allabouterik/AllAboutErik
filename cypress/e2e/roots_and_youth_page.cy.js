@@ -38,22 +38,22 @@ describe('Roots and Youth Page - page specific tests', () => {
 
   it('clicking scroll container brings videos into view & title image out of view', () => {
     cy.get('#scrollImgContainer').click();
-    cy.get('.videoThumbnailContainer').isScrolledTo();
+    cy.get('[data-testid="video-container"]').isScrolledTo();
     cy.get('#titleImg').isOutOfView();
   });
 
   it('has four video thumbnail videos', () => {
-    cy.get('.videoThumbnailContainer').should('have.length', 4);
+    cy.get('[data-testid="video-container"]').should('have.length', 4);
   });
 
   const checkVideoThumbnail = (index, alt, src) => {
-    cy.get('.videoThumbnailContainer')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('img')
       .should('have.attr', 'alt')
       .should('include', alt);
 
-    cy.get('.videoThumbnailContainer')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('img')
       .should('have.attr', 'src')
@@ -61,43 +61,45 @@ describe('Roots and Youth Page - page specific tests', () => {
   };
 
   const checkVideoThumbnailTextOverlay = (index, title, subtext) => {
-    cy.get('.videoThumbnailContainer')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('.thumbnailImgTextOverlay .videoTitle')
+      .should('be.visible')
       .should('have.text', title);
 
-    cy.get('.videoThumbnailContainer')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('.thumbnailImgTextOverlay .videoSubText')
+      .should('be.visible')
       .should('have.text', subtext);
   };
 
   const checkVideoThumbnailHover = (index, duration) => {
-    cy.get('.videoThumbnailContainer').eq(index).realHover();
-    cy.get('.videoThumbnailContainer')
+    cy.get('[data-testid="video-container"]').eq(index).realHover();
+
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('img.thumbnailPlayVideoImg')
       .should('be.visible');
-    cy.get('.videoThumbnailContainer')
+
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('.videoDurationText')
       .should('be.visible')
       .should('contain.text', duration);
   };
 
-  const checkVideoLightbox = (index, title) => {    
+  const checkVideoLightbox = (index, title) => {
     cy.get('.video-lightbox__video-container')
       .eq(index)
       .find('.video-lightbox__text')
+      .should('be.visible')
       .should('contain.text', title);
-    
-    cy.getIframeBody(index)
-      .find('.vp-controls button.play');
 
-    cy.get('#closeImg')
-      .click()
-      .wait(500);
-  }
+    cy.getIframeBody(index).find('.vp-controls button.play');
+
+    cy.get('#closeImg').click().wait(500);
+  };
 
   const videoThumbnails = [
     {
@@ -144,10 +146,7 @@ describe('Roots and Youth Page - page specific tests', () => {
     });
 
     it(`clicking ${vid.title} thumbnail opens video lightbox with video loaded`, () => {
-      cy.get('.videoThumbnailContainer')
-        .eq(index)
-        .realHover()
-        .click();
+      cy.get('[data-testid="video-container"]').eq(index).realHover().click();
 
       cy.get('.video-lightbox')
         .find('.video-lightbox__modal')
@@ -158,8 +157,7 @@ describe('Roots and Youth Page - page specific tests', () => {
   });
 
   it(`clicking complete film container opens video lightbox with video loaded`, () => {
-    cy.get('.completeFilmContent')
-      .click();
+    cy.get('.completeFilmContent').click();
 
     cy.get('.video-lightbox')
       .find('.video-lightbox__modal')

@@ -38,7 +38,7 @@
         @mouseleave="videoIndexHover = null"
         style="cursor: pointer"
         class="mt-3"
-        data-testid="video-row"
+        data-testid="video-container"
       >
         <b-col cols="12" xl="7" class="thumbnailImgContainer">
           <g-image

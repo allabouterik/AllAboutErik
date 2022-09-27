@@ -55,6 +55,7 @@
           :key="video.title"
           @click="videoIndex = index"
           class="my-1 px-1"
+          data-testid="video-container"
         >
           <video-thumbnail-roots :video="video" />
         </b-col>

@@ -25,11 +25,16 @@ describe('The Episodes Page - page specific tests', () => {
   });
 
   it('has eight video containers', () => {
-    cy.get('[data-testid="video-row"]').should('have.length', 8);
+    cy.get('[data-testid="video-container"]').should('have.length', 8);
+  });
+
+  it('scrolling to bottom of page shows back to top button', () => {
+    cy.scrollTo('bottom', { duration: 500 });
+    cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
   const checkVideoThumbnail = (index, src) => {
-    cy.get('[data-testid="video-row"]')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('img')
       .should('have.attr', 'src')
@@ -37,17 +42,17 @@ describe('The Episodes Page - page specific tests', () => {
   };
 
   const checkVideoRowText = (index, title, subtext, duration) => {
-    cy.get('[data-testid="video-row"]')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('.videoTitle')
       .should('contain.text', title);
 
-    cy.get('[data-testid="video-row"]')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('.videoSubText')
       .should('contain.text', subtext);
 
-    cy.get('[data-testid="video-row"]')
+    cy.get('[data-testid="video-container"]')
       .eq(index)
       .find('.videoDurationText')
       .should('be.visible')
@@ -57,7 +62,8 @@ describe('The Episodes Page - page specific tests', () => {
   const checkVideoLightboxText = (index, title) => {
     cy.get('.video-lightbox__video-container')
       .eq(index)
-      .find('.video-lightbox__text')
+      .find('.video-lightbox__text', { timeout: 6000 })
+      .should('be.visible')
       .should('contain.text', title);
   };
 
@@ -146,8 +152,8 @@ describe('The Episodes Page - page specific tests', () => {
       checkVideoRowText(index, vid.title, vid.subtext, vid.duration);
     });
 
-    it(`clicking ${vid.title} row opens video lightbox with correct title`, () => {
-      cy.get('[data-testid="video-row"]').eq(index).realHover().click();
+    it(`clicking ${vid.title} container opens video lightbox with correct title`, () => {
+      cy.get('[data-testid="video-container"]').eq(index).realHover().click();
 
       cy.get('.video-lightbox')
         .find('.video-lightbox__modal')
