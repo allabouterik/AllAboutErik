@@ -1,12 +1,11 @@
 <template>
-  <Layout> 
-
+  <Layout>
     <BackgroundMusic
       :audioFile="$page.Travels.edges[0].node.bgAudio"
       :audioDuration="$page.Travels.edges[0].node.bgAudioDuration"
       :audioFadeInDuration="$page.Travels.edges[0].node.bgAudioFadeInDuration"
       :audioFadeOutDuration="$page.Travels.edges[0].node.bgAudioFadeOutDuration"
-      :maxVolume=0.9
+      :maxVolume="0.9"
       :playMusic="playMusic"
     />
 
@@ -15,7 +14,6 @@
     </header>
 
     <b-container fluid id="mainContainer" class="mb-3 pb-5 px-1">
-
       <!-- MAIN VIDEO -->
       <b-row
         no-gutters
@@ -38,18 +36,23 @@
 
       <!-- VIDEOS -->
       <b-row no-gutters align-h="center" id="videos">
-        <b-col cols="12" sm="6" lg="4" xl="3"
-          v-for="(video, index) in videos" 
-          :key="video.title" 
-          class="mb-2 mb-sm-3 px-2 px-sm-1"          
-          @click="videoIndex = index; setStorage();"
+        <b-col
+          cols="12"
+          sm="6"
+          lg="4"
+          xl="3"
+          v-for="(video, index) in videos"
+          :key="video.title"
+          class="mb-2 mb-sm-3 px-2 px-sm-1"
+          @click="
+            videoIndex = index;
+            setStorage();
+          "
         >
           <VideoThumbnailTravels :video="video" />
         </b-col>
       </b-row>
-
     </b-container>
-
 
     <VideoLightBox
       :videos="videos"
@@ -59,7 +62,6 @@
     />
 
     <BackToTop />
-
   </Layout>
 </template>
 
@@ -94,16 +96,16 @@
 
 
 <script scoped>
-import BackgroundMusic from '../components/BackgroundMusic.vue'
-import VideoLightBox from '../components/VideoLightBox.vue'
-import VideoThumbnailTravels from '../components/VideoThumbnailTravels.vue'
-import BackToTop from '../components/BackToTop.vue'
+import BackgroundMusic from "../components/BackgroundMusic.vue";
+import VideoLightBox from "../components/VideoLightBox.vue";
+import VideoThumbnailTravels from "../components/VideoThumbnailTravels.vue";
+import BackToTop from "../components/BackToTop.vue";
 
-export default { 
+export default {
   metaInfo() {
     return {
-      title: this.$page.Travels.edges[0].node.pageTitle
-    }
+      title: this.$page.Travels.edges[0].node.pageTitle,
+    };
   },
 
   data() {
@@ -119,25 +121,25 @@ export default {
 
   computed: {
     headerBgImg() {
-      return this.$page.Travels.edges[0].node.headerBgImg
+      return this.$page.Travels.edges[0].node.headerBgImg;
     },
     titleImg() {
-      return this.$page.Travels.edges[0].node.titleImg
+      return this.$page.Travels.edges[0].node.titleImg;
     },
-    mainVideoUrl(){
-      return this.$page.Travels.edges[0].node.mainVideoUrl
+    mainVideoUrl() {
+      return this.$page.Travels.edges[0].node.mainVideoUrl;
     },
-    mainVideoText(){
-      return this.$page.Travels.edges[0].node.mainVideoText
+    mainVideoText() {
+      return this.$page.Travels.edges[0].node.mainVideoText;
     },
     videos() {
-      return this.$page.Travels.edges[0].node.videos
+      return this.$page.Travels.edges[0].node.videos;
     },
     headerStyle() {
       return {
-        '--headerBgImg': 'url(' + this.headerBgImg + ')'
-      }
-    }
+        "--headerBgImg": "url(" + this.headerBgImg + ")",
+      };
+    },
   },
 
   methods: {
@@ -153,21 +155,24 @@ export default {
     BackgroundMusic,
     VideoLightBox,
     VideoThumbnailTravels,
-    BackToTop
-  }
-}
+    BackToTop,
+  },
+};
 </script>
 
 
 
 <style scoped>
-
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -200,18 +205,18 @@ export default {
 #mainVideo {
   max-width: 100%;
   --containerWidth: calc(100vw - 32px);
-  max-height: calc(0.5625*var(--containerWidth));
+  max-height: calc(0.5625 * var(--containerWidth));
 }
 
 #mainVideoText {
   color: white;
-  font-family: 'NeueHaasGroteskText Pro65';
-  font-feature-settings: 'liga';
+  font-family: "NeueHaasGroteskText Pro65";
+  font-feature-settings: "liga";
   font-weight: 500;
   font-size: 1.4375rem;
   letter-spacing: 1px;
   text-align: center;
-  text-shadow: 0px 0px 7px rgba(0,0,0,0.5),0px 0px 7px rgba(0,0,0,0.5);
+  text-shadow: 0px 0px 7px rgba(0, 0, 0, 0.5), 0px 0px 7px rgba(0, 0, 0, 0.5);
   line-height: 2.1875rem;
   position: absolute;
   bottom: 70px;
@@ -219,7 +224,6 @@ export default {
   right: 0;
   padding: 0 120px;
 }
-
 
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
@@ -235,7 +239,7 @@ export default {
 }
 
 /* Extra small devices (portrait phones, less than 576px) */
-@media only screen and (max-width: 575.98px) {    
+@media only screen and (max-width: 575.98px) {
   #mainVideo {
     --containerWidth: calc(100vw - 16px);
   }
@@ -268,7 +272,7 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
   #mainVideoText {
     font-size: 1.4rem;
     line-height: 2.125rem;
@@ -277,10 +281,9 @@ export default {
   }
 }
 
-@media only screen and (min-width: 977px) { 
+@media only screen and (min-width: 977px) {
   #mainVideoContainer {
     margin: 8px 0;
   }
 }
-
 </style>
