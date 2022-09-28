@@ -1,3 +1,6 @@
+import * as data from '../fixtures/rootsAndYouthVideos.json';
+const { rootsAndYouthVideos } = data;
+
 describe('Roots and Youth Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/roots-and-youth');
@@ -101,38 +104,7 @@ describe('Roots and Youth Page - page specific tests', () => {
     cy.get('#closeImg').click().wait(500);
   };
 
-  const videoThumbnails = [
-    {
-      title: 'Old Country',
-      alt: 'Old Country',
-      subtext: 'My relatives are all from Norway',
-      duration: '3:08 min',
-      src: 'oldcountry',
-    },
-    {
-      title: 'War Baby',
-      alt: 'War Baby',
-      subtext: 'I was just a young boy during WWII',
-      duration: '3:15 min',
-      src: 'baby',
-    },
-    {
-      title: 'Boyhood',
-      alt: 'Boyhood',
-      subtext: 'A typical mid-western boyhood',
-      duration: '10:38 min',
-      src: 'boyhood',
-    },
-    {
-      title: 'Teen Years',
-      alt: 'Teen Years',
-      subtext: 'Erik, the teenager',
-      duration: '10:32 min',
-      src: 'teenyears',
-    },
-  ];
-
-  videoThumbnails.forEach((vid, index) => {
+  rootsAndYouthVideos.forEach((vid, index) => {
     it(`has the ${vid.title} video thumbnail`, () => {
       checkVideoThumbnail(index, vid.alt, vid.src);
     });
@@ -164,6 +136,6 @@ describe('Roots and Youth Page - page specific tests', () => {
       .should('be.visible');
 
     const completeFilmTitle = 'Roots & Youth - The Complete Film';
-    checkVideoLightbox(videoThumbnails.length, completeFilmTitle);
+    checkVideoLightbox(rootsAndYouthVideos.length, completeFilmTitle);
   });
 });

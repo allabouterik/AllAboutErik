@@ -1,3 +1,6 @@
+import * as data from '../fixtures/theEpisodesVideos.json';
+const { theEpisodesVideos } = data;
+
 describe('The Episodes Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/musical-journey/the-episodes');
@@ -77,73 +80,7 @@ describe('The Episodes Page - page specific tests', () => {
     cy.get('#closeImg').click().wait(500);
   };
 
-  const videoThumbnails = [
-    {
-      title: 'How it Began',
-      subtext:
-        'Erik recounts the unique musical influences that have informed his journey',
-      duration: '4:45 min',
-      imgSrc: 'episode_1_skinnylegs',
-      videoTitle: 'Episode One - How it Began',
-    },
-    {
-      title: 'Knoblick',
-      subtext:
-        'He becomes a professional banjo player with his bluegrass group, The Knoblick Upper 10,000',
-      duration: '7:37 min',
-      imgSrc: 'episode_2_image',
-      videoTitle: 'Episode Two - Knoblick',
-    },
-    {
-      title: 'The Aspiring Entrepreneur',
-      subtext:
-        'He puts down his banjo to become a producer and publisher, and discovers John Sebastian and Tim Hardin, and records the prototypes of folk rock',
-      duration: '7:06 min',
-      imgSrc: 'episode_3_image',
-      videoTitle: 'Episode Three - The Aspiring Entrepreneur',
-    },
-    {
-      title: 'Music Magnate',
-      subtext:
-        "Wherein he hits it big with The Lovin' Spoonful and records Tim Hardin, The Charlatans, and The Sopwith Camel",
-      duration: '18:14 min',
-      imgSrc: 'episode_3_alt_image',
-      videoTitle: 'Episode Four - Music Magnate',
-    },
-    {
-      title: 'San Francisco Late Sixties',
-      subtext:
-        'Erik moves to San Francisco and goes #1 with Norman Greenbaum and others',
-      duration: '20:02 min',
-      imgSrc: 'episode_5_image',
-      videoTitle: 'Episode Five - San Francisco Late Sixties',
-    },
-    {
-      title: 'The Seventies',
-      subtext: 'He keeps on recording',
-      duration: '11:08 min',
-      imgSrc: 'episode_6_image',
-      videoTitle: 'Episode Six - The Seventies',
-    },
-    {
-      title: 'The Eighties and Onward',
-      subtext:
-        'Erik hooks up with Chris Isaak and together they produce some great work, including the classic "Wicked Game',
-      duration: '17:58 min',
-      imgSrc: 'episode_7_image',
-      videoTitle: 'Episode Seven - The Eighties and Onward',
-    },
-    {
-      title: "Erik's Musical Journey",
-      subtext:
-        'Watch all of the episodes together in the complete Musical Journey film',
-      duration: '1 hr 27 min',
-      imgSrc: 'img020-2',
-      videoTitle: "Erik's Musical Journey - The Complete Film",
-    },
-  ];
-
-  videoThumbnails.forEach((vid, index) => {
+  theEpisodesVideos.forEach((vid, index) => {
     it(`has the ${vid.title} video thumbnail`, () => {
       checkVideoThumbnail(index, vid.imgSrc);
     });
@@ -162,7 +99,7 @@ describe('The Episodes Page - page specific tests', () => {
       checkVideoLightboxText(index, vid.videoTitle);
     });
 
-    if (index < videoThumbnails.length - 1) {
+    if (index < theEpisodesVideos.length - 1) {
       it(`${vid.title} lightbox has Vimeo play button`, () => {
         checkVideoLightboxVimeoPlayBtn(index);
       });

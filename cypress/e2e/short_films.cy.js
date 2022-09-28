@@ -1,3 +1,6 @@
+import * as data from '../fixtures/shortFilmsVideos.json';
+const { shortFilmsVideos } = data;
+
 describe('Short Films Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/short-films');
@@ -66,7 +69,6 @@ describe('Short Films Page - page specific tests', () => {
       .eq(index)
       .find('.videoDurationText')
       .should('be.visible')
-      .should('be.visible')
       .should('contain.text', duration);
 
     cy.get('[data-testid="video-container"]')
@@ -87,67 +89,7 @@ describe('Short Films Page - page specific tests', () => {
     cy.get('#closeImg').click().wait(500);
   };
 
-  const videoThumbnails = [
-    {
-      title: "Fishin' Fool",
-      subtext: "I've done an awful lot of fishing.",
-      duration: '2:02 min',
-      imgSrc: '01-perch-string',
-      videoTitle: "Fishin' Fool",
-    },
-    {
-      title: 'In a Nutshell',
-      subtext: 'Erik in a nutshell',
-      duration: '5:12 min',
-      imgSrc: '02-cascade5',
-      videoTitle: 'In a Nutshell',
-    },
-    {
-      title: "Travelin' Man",
-      subtext: 'A lot of travelling.',
-      duration: '2:53 min',
-      imgSrc: '03-bamian',
-      videoTitle: "Travelin' Man",
-    },
-    {
-      title: 'Barracuda Shoal of Death',
-      subtext: 'Diving in Borneo',
-      duration: '0:54 min',
-      imgSrc: '04-erik-scuba',
-      videoTitle: 'Barracuda Shoal of Death',
-    },
-    {
-      title: 'The Blue Goose',
-      subtext: 'Living on the docks in Sausalito during the 1970s.',
-      duration: '6:54 min',
-      imgSrc: '05-bluegoose',
-      videoTitle: 'The Blue Goose',
-    },
-    {
-      title: 'Dining with Chunky',
-      subtext: "Let's eat again real soon.",
-      duration: '18:49 min',
-      imgSrc: '06-diningwithchunky',
-      videoTitle: 'Dining with Chunky',
-    },
-    {
-      title: 'Old-Time Sportsmen Book Promo',
-      subtext:
-        "Promotional piece for my fascinating self-published book featuring early 1900's hunting and fishing photography.",
-      duration: '3:23 min',
-      imgSrc: '07-573-thumbnail',
-      videoTitle: 'Old-Time Sportsmen Book Promo',
-    },
-    {
-      title: 'Alfalfa Improv 1967',
-      subtext: 'An ad-lib with Clem on the subject of alfalfa sprouts.',
-      duration: '1:27 min',
-      imgSrc: '08-alfalfasprout',
-      videoTitle: 'Alfalfa Improv 1967',
-    },
-  ];
-
-  videoThumbnails.forEach((vid, index) => {
+  shortFilmsVideos.forEach((vid, index) => {
     it(`has the ${vid.title} video thumbnail`, () => {
       checkVideoThumbnail(index, vid.imgSrc);
     });
