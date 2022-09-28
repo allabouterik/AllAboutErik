@@ -1,0 +1,14 @@
+{
+  "travelVideos": [
+    {
+      "title": "Norway - Hurtigruten Cruise",
+      "duration": "22:42 min",
+      "imgSrc": "norway"
+    },
+    {
+      "title": "Peninsular Malaysia",
+      "duration": "17:53 min",
+      "imgSrc": "malaysia"
+    }
+  ]
+}

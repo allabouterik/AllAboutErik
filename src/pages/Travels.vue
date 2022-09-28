@@ -10,7 +10,12 @@
     />
 
     <header id="header" :style="headerStyle">
-      <g-image :src="titleImg" id="titleImg" class="my-4" />
+      <g-image
+        :src="titleImg"
+        id="titleImg"
+        class="my-4"
+        data-testid="title-img"
+      />
     </header>
 
     <b-container fluid id="mainContainer" class="mb-3 pb-5 px-1">
@@ -48,6 +53,7 @@
             videoIndex = index;
             setStorage();
           "
+          data-testid="video-container"
         >
           <VideoThumbnailTravels :video="video" />
         </b-col>
