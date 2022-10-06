@@ -1,5 +1,9 @@
 <template>
-  <b-container id="outerContainer" class="" :style="outerContainerDims">
+  <b-container
+    id="outerContainer"
+    :style="outerContainerDims"
+    data-testid="friend-card"
+  >
     <b-row no-gutters class="innerContainerRow">
       <b-col
         :order="imgOrder"

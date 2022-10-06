@@ -3,7 +3,7 @@
     <img :src="backgroundImgUrl" id="bgImg" :style="bgStyles" />
 
     <header id="header" :style="headerStyles">
-      <g-image :src="titleImg" id="titleImg" />
+      <g-image :src="titleImg" id="titleImg" data-testid="title-img" />
       <span v-html="titleSubText" id="titleSubText" />
       <div v-if="!menuOnly" id="scrollDownContainer">
         <ScrollDownArrow scrollToElement="#friends" />
