@@ -4,97 +4,177 @@
       "name": "Henry Diltz",
       "link": "henry-diltz",
       "imgSrc": "Henry-Diltz-at-a-love-in",
-      "text": "My friendship with Henry started when we met as fellow banjo players at a"
+      "text": "My friendship with Henry started when we met as fellow banjo players at a",
+      "orderMobile": 1,
+      "orderTablet": 1,
+      "orderSmallDesktop": 1,
+      "orderMediumDesktop": 1,
+      "orderLargeDesktop": 1
     },
     {
       "name": "Dan Hicks",
       "link": "dan-hicks",
       "imgSrc": "Dan-Hicks",
-      "text": "I first met Dan when I got involved with the Charlatans back in 1965."
+      "text": "I first met Dan when I got involved with the Charlatans back in 1965.",
+      "orderMobile": 2,
+      "orderTablet": 2,
+      "orderSmallDesktop": 2,
+      "orderMediumDesktop": 2,
+      "orderLargeDesktop": 2
     },
     {
       "name": "Chris Isaak",
       "link": "chris-isaak",
       "imgSrc": "Chris-Isaak",
-      "text": "Finding Chris was a lucky break for me."
+      "text": "Finding Chris was a lucky break for me.",
+      "orderMobile": 3,
+      "orderTablet": 3,
+      "orderSmallDesktop": 3,
+      "orderMediumDesktop": 3,
+      "orderLargeDesktop": 3
     },
     {
       "name": "Zal Yanovsky",
       "link": "zal-yanovsky",
       "imgSrc": "Zal-Yanovsky",
-      "text": "I first met Zally on the road when the Knoblick Upper 10,000 played on the"
+      "text": "I first met Zally on the road when the Knoblick Upper 10,000 played on the",
+      "orderMobile": 4,
+      "orderTablet": 4,
+      "orderSmallDesktop": 4,
+      "orderMediumDesktop": 4,
+      "orderLargeDesktop": 4
     },
     {
       "name": "John Sebastian",
       "link": "john-sebastian",
       "imgSrc": "John-Sebastian",
-      "text": "After I moved back to The Village to stay I started making records,"
+      "text": "After I moved back to The Village to stay I started making records,",
+      "orderMobile": 5,
+      "orderTablet": 5,
+      "orderSmallDesktop": 5,
+      "orderMediumDesktop": 5,
+      "orderLargeDesktop": 5
     },
     {
       "name": "Norman Greenbaum",
       "link": "norman-greenbaum",
       "imgSrc": "Norman-Greenbaum",
-      "text": "I met Normie at open mic night at the Troubadour in Hollywood."
+      "text": "I met Normie at open mic night at the Troubadour in Hollywood.",
+      "orderMobile": 6,
+      "orderTablet": 6,
+      "orderSmallDesktop": 6,
+      "orderMediumDesktop": 6,
+      "orderLargeDesktop": 6
     },
     {
       "name": "Rita Abrams",
       "link": "rita-abrams",
       "imgSrc": "Rita-Abrams-piano",
-      "text": "One day Rita Abrams, a pretty gal I had previously met socially,"
+      "text": "One day Rita Abrams, a pretty gal I had previously met socially,",
+      "orderMobile": 7,
+      "orderTablet": 7,
+      "orderSmallDesktop": 7,
+      "orderMediumDesktop": 7,
+      "orderLargeDesktop": 7
     },
     {
       "name": "Brian Elliot",
       "link": "brian-elliot",
       "imgSrc": "Brian-Elliot",
-      "text": "A guy walked into my office on Kearny Street, claiming to be a songwriter."
+      "text": "A guy walked into my office on Kearny Street, claiming to be a songwriter.",
+      "orderMobile": 8,
+      "orderTablet": 8,
+      "orderSmallDesktop": 8,
+      "orderMediumDesktop": 8,
+      "orderLargeDesktop": 8
     },
     {
       "name": "Phil Ochs",
       "link": "phil-ochs",
       "imgSrc": "Phil-Ochs",
-      "text": "One night my group, The Knoblick Upper 10,000, shared a bill at the"
+      "text": "One night my group, The Knoblick Upper 10,000, shared a bill at the",
+      "orderMobile": 9,
+      "orderTablet": 9,
+      "orderSmallDesktop": 9,
+      "orderMediumDesktop": 9,
+      "orderLargeDesktop": 9
     },
     {
       "name": "Tim Hardin",
       "link": "tim-hardin",
       "imgSrc": "Tim-Hardin",
-      "text": "In '64 I was looking for artists to sing on my embarrassing and ill-fated"
+      "text": "In '64 I was looking for artists to sing on my embarrassing and ill-fated",
+      "orderMobile": 10,
+      "orderTablet": 10,
+      "orderSmallDesktop": 10,
+      "orderMediumDesktop": 10,
+      "orderLargeDesktop": 10
     },
     {
       "name": "Jim Wilsey",
       "link": "jim-wilsey",
       "imgSrc": "Jim-Wilsey",
-      "text": "Jimmy was playing with Chris in the band Silvertone when I first met him."
+      "text": "Jimmy was playing with Chris in the band Silvertone when I first met him.",
+      "orderMobile": 11,
+      "orderTablet": 11,
+      "orderSmallDesktop": 11,
+      "orderMediumDesktop": 11,
+      "orderLargeDesktop": 11
     },
     {
       "name": "Nick Urbanik aka Eduardo Unz",
       "link": "eduardo-unz",
       "imgSrc": "Nick-Urbanik",
-      "text": "I’m not sure how I first met Nick Urbanik, who later took the stage name"
+      "text": "I’m not sure how I first met Nick Urbanik, who later took the stage name",
+      "orderMobile": 12,
+      "orderTablet": 12,
+      "orderSmallDesktop": 12,
+      "orderMediumDesktop": 12,
+      "orderLargeDesktop": 12
     },
     {
       "name": "Alex Major",
       "link": "alex-major",
       "imgSrc": "Alex-Major",
-      "text": "A guy called me from Mississippi and asked if I’d listen to his group."
+      "text": "A guy called me from Mississippi and asked if I’d listen to his group.",
+      "orderMobile": 13,
+      "orderTablet": 15,
+      "orderSmallDesktop": 15,
+      "orderMediumDesktop": 14,
+      "orderLargeDesktop": 13
     },
     {
       "name": "Kevin Mooney",
       "link": "kevin-mooney",
       "imgSrc": "Kevin-Mooney",
-      "text": "Kevin was an intense little man that came by my office in the mid-70s."
+      "text": "Kevin was an intense little man that came by my office in the mid-70s.",
+      "orderMobile": 14,
+      "orderTablet": 16,
+      "orderSmallDesktop": 16,
+      "orderMediumDesktop": 15,
+      "orderLargeDesktop": 14
     },
     {
       "name": "Nadia",
       "link": "nadia",
       "imgSrc": "Nadia",
-      "text": "Brian and I were looking for new singers after we had the big success with"
+      "text": "Brian and I were looking for new singers after we had the big success with",
+      "orderMobile": 15,
+      "orderTablet": 14,
+      "orderSmallDesktop": 14,
+      "orderMediumDesktop": 16,
+      "orderLargeDesktop": 15
     },
     {
       "name": "Cass Elliot",
       "link": "cass-elliot",
       "imgSrc": "Cass-Elliot-bed",
-      "text": "Cass was a big, beautiful gal, sunny and funny with a wonderful voice."
+      "text": "Cass was a big, beautiful gal, sunny and funny with a wonderful voice.",
+      "orderMobile": 16,
+      "orderTablet": 13,
+      "orderSmallDesktop": 13,
+      "orderMediumDesktop": 13,
+      "orderLargeDesktop": 16
     }
   ]
 }

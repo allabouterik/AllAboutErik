@@ -19,13 +19,14 @@ describe('Musical Friends Page - standard tests', () => {
   });
 });
 
-describe('Musical Friends Page - page specific tests', () => {
-  // beforeEach(() => {
-  //   // run these tests as if in a desktop
-  //   // browser with a 720p monitor
-  //   cy.viewport(1380, 800).wait(500);
-  // });
+const convertToPascalCase = (text) => {
+  return text
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.substring(1))
+    .join('');
+};
 
+describe('Musical Friends Page - page specific tests', () => {
   it('has correct main text', () => {
     cy.get('#titleSubText').contains('...A FEW ANECDOTES');
   });
@@ -39,71 +40,62 @@ describe('Musical Friends Page - page specific tests', () => {
     cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
-  // const orderSmallDesktop = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-  const orderSmallDesktop = [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    15,
-    14,
-    12,
-    13,
+  const viewports = [
+    {
+      name: 'mobile',
+      size: 'iphone-x',
+    },
+    {
+      name: 'tablet',
+      size: 'ipad-mini',
+    },
+    {
+      name: 'small desktop',
+      size: [992, 800],
+    },
+    {
+      name: 'medium desktop',
+      size: 'macbook-15',
+    },
+    {
+      name: 'large desktop',
+      size: [1830, 800],
+    },
   ];
-  let orderIndex = 0;
 
-  // musicalFriends.forEach((friend, index) => {
-  //   if (index === 12) {
-  //     it(`the ${friend.name} card has the correct details`, () => {
-  //       // cy.viewport(1380, 800);
+  viewports.forEach((vp) => {
+    musicalFriends.forEach((friend) => {
+      it(`the ${friend.name} card has the correct details on ${vp.name}`, () => {
+        if (Cypress._.isArray(vp.size)) {
+          cy.viewport(vp.size[0], vp.size[1]).wait(500);
+        } else {
+          cy.viewport(vp.size).wait(500);
+        }
 
-  //       cy.get('[data-testid="friend-card"]')
-  //         .eq(index)
-  //         .find('.textTitle')
-  //         .should('contain.text', friend.name);
+        const orderIndex = friend[`order${convertToPascalCase(vp.name)}`] - 1;
 
-  //       cy.get('[data-testid="friend-card"]')
-  //         .eq(index)
-  //         .find('.text')
-  //         .should('contain.text', friend.text);
+        cy.get('[data-testid="friend-card"]')
+          .eq(orderIndex)
+          .find('.textTitle')
+          .should('contain.text', friend.name);
 
-  //       cy.get('[data-testid="friend-card"]')
-  //         .eq(index)
-  //         .find('.thumbnailImg')
-  //         .should('have.attr', 'src')
-  //         .should('include', friend.imgSrc);
-  //     });
-  //   }
-  // });
+        cy.get('[data-testid="friend-card"]')
+          .eq(orderIndex)
+          .find('.text')
+          .should('contain.text', friend.text);
 
-  orderSmallDesktop.forEach((friendIndex, orderIndex) => {
-    const friend = musicalFriends[friendIndex];
-    it(`the ${friend.name} card has the correct details`, () => {
-      // cy.viewport(1380, 800);
+        cy.get('[data-testid="friend-card"]')
+          .eq(orderIndex)
+          .find('.thumbnailImg')
+          .should('have.attr', 'src')
+          .should('include', friend.imgSrc);
 
-      cy.get('[data-testid="friend-card"]')
-        .eq(orderIndex)
-        .find('.textTitle')
-        .should('contain.text', friend.name);
-
-      cy.get('[data-testid="friend-card"]')
-        .eq(orderIndex)
-        .find('.text')
-        .should('contain.text', friend.text);
-
-      cy.get('[data-testid="friend-card"]')
-        .eq(orderIndex)
-        .find('.thumbnailImg')
-        .should('have.attr', 'src')
-        .should('include', friend.imgSrc);
+        cy.get('[data-testid="friend-card"]')
+          .eq(orderIndex)
+          .find('.seeMoreBtnContainer a')
+          .should('have.attr', 'href')
+          .should('include', friend.link);
+      });
     });
   });
 });
