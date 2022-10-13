@@ -47,7 +47,7 @@ describe('Musical Friends Page - page specific tests', () => {
     },
     {
       name: 'tablet',
-      size: 'ipad-mini',
+      size: [800, 800],
     },
     {
       name: 'small desktop',
@@ -55,7 +55,7 @@ describe('Musical Friends Page - page specific tests', () => {
     },
     {
       name: 'medium desktop',
-      size: 'macbook-15',
+      size: [1380, 800],
     },
     {
       name: 'large desktop',

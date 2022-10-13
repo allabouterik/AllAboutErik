@@ -650,9 +650,9 @@
     </b-container>
     <!-- END OF LAYOUT FOR SMALL DESKTOPS -->
 
-    <!-- LAYOUT FOR TABLETS -->
+    <!-- LAYOUT FOR (LARGE) TABLETS -->
     <b-container
-      v-if="windowWidth >= 768 && windowWidth < 992"
+      v-if="windowWidth >= 800 && windowWidth < 992"
       fluid
       style="max-width: 728px"
       :style="friendsOpacity"
@@ -866,9 +866,9 @@
     </b-container>
     <!-- END OF LAYOUT FOR TABLETS -->
 
-    <!-- LAYOUT FOR LANDSCAPE PHONES -->
+    <!-- LAYOUT FOR SMALL TABLETS / LANDSCAPE PHONES -->
     <b-container
-      v-if="windowWidth >= 576 && windowWidth < 768"
+      v-if="windowWidth >= 576 && windowWidth < 800"
       fluid
       style="max-width: 536px"
       :style="friendsOpacity"
@@ -1473,8 +1473,8 @@ export default {
   }
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+/* Medium devices (tablets, 800px and up) */
+@media only screen and (min-width: 800px) and (max-width: 991.98px) {
   #titleSubText {
     font-size: 24px;
     line-height: 34px;
