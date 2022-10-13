@@ -204,7 +204,7 @@
                 :friend="friends[15]"
                 :index="15"
                 :imgPosition="friends[15].imgPosition"
-                :imgContainerHeight="Number(310)"
+                :imgContainerHeight="Number(300)"
                 :imgContainerWidth="Number(731)"
                 :imgScaleToContainerWidth="true"
                 :height="Number(503.305)"
