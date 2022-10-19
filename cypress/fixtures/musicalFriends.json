@@ -9,7 +9,29 @@
       "orderTablet": 1,
       "orderSmallDesktop": 1,
       "orderMediumDesktop": 1,
-      "orderLargeDesktop": 1
+      "orderLargeDesktop": 1,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 9
+        },
+        {
+          "label": "Postcards from Henry",
+          "type": "imageGallery",
+          "count": 9
+        },
+        {
+          "label": "Home Movies Shot by Henry",
+          "type": "videoGallery",
+          "count": 3
+        },
+        {
+          "label": "Memorabilia",
+          "type": "imageGallery",
+          "count": 4
+        }
+      ]
     },
     {
       "name": "Dan Hicks",
@@ -20,7 +42,44 @@
       "orderTablet": 2,
       "orderSmallDesktop": 2,
       "orderMediumDesktop": 2,
-      "orderLargeDesktop": 2
+      "orderLargeDesktop": 2,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 10
+        },
+        {
+          "label": "Band Posters",
+          "type": "imageGallery",
+          "count": 5
+        },
+        {
+          "label": "Postcards & Letters",
+          "type": "imageGallery",
+          "count": 24
+        },
+        {
+          "label": "Gig Announcements",
+          "type": "imageGallery",
+          "count": 8
+        },
+        {
+          "label": "Live Videos at the Sweetwater",
+          "type": "videoGallery",
+          "count": 4
+        },
+        {
+          "label": "Red Dog's 50 Year Anniversary",
+          "type": "videoGallery",
+          "count": 1
+        },
+        {
+          "label": "Dan's Leonard Schaeffer Promo",
+          "type": "audioGallery",
+          "count": 2
+        }
+      ]
     },
     {
       "name": "Chris Isaak",
@@ -31,7 +90,39 @@
       "orderTablet": 3,
       "orderSmallDesktop": 3,
       "orderMediumDesktop": 3,
-      "orderLargeDesktop": 3
+      "orderLargeDesktop": 3,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 12
+        },
+        {
+          "label": "Posters",
+          "type": "imageGallery",
+          "count": 17
+        },
+        {
+          "label": "Videos from European Tour '89",
+          "type": "videoGallery",
+          "count": 47
+        },
+        {
+          "label": "Press and Awards",
+          "type": "imageGallery",
+          "count": 18
+        },
+        {
+          "label": "Promo Postcards",
+          "type": "imageGallery",
+          "count": 19
+        },
+        {
+          "label": "Sketches by Chris",
+          "type": "imageGallery",
+          "count": 7
+        }
+      ]
     },
     {
       "name": "Zal Yanovsky",
@@ -42,7 +133,14 @@
       "orderTablet": 4,
       "orderSmallDesktop": 4,
       "orderMediumDesktop": 4,
-      "orderLargeDesktop": 4
+      "orderLargeDesktop": 4,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 6
+        }
+      ]
     },
     {
       "name": "John Sebastian",
@@ -53,7 +151,24 @@
       "orderTablet": 5,
       "orderSmallDesktop": 5,
       "orderMediumDesktop": 5,
-      "orderLargeDesktop": 5
+      "orderLargeDesktop": 5,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 4
+        },
+        {
+          "label": "Lovin' Spoonful",
+          "type": "imageGallery",
+          "count": 5
+        },
+        {
+          "label": "Memorabilia",
+          "type": "imageGallery",
+          "count": 4
+        }
+      ]
     },
     {
       "name": "Norman Greenbaum",
@@ -64,7 +179,34 @@
       "orderTablet": 6,
       "orderSmallDesktop": 6,
       "orderMediumDesktop": 6,
-      "orderLargeDesktop": 6
+      "orderLargeDesktop": 6,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 15
+        },
+        {
+          "label": "Albums & Artwork",
+          "type": "imageGallery",
+          "count": 9
+        },
+        {
+          "label": "Videos",
+          "type": "videoGallery",
+          "count": 2
+        },
+        {
+          "label": "Memorabilia",
+          "type": "imageGallery",
+          "count": 4
+        },
+        {
+          "label": "Awards & Press",
+          "type": "imageGallery",
+          "count": 5
+        }
+      ]
     },
     {
       "name": "Rita Abrams",
@@ -75,7 +217,34 @@
       "orderTablet": 7,
       "orderSmallDesktop": 7,
       "orderMediumDesktop": 7,
-      "orderLargeDesktop": 7
+      "orderLargeDesktop": 7,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 11
+        },
+        {
+          "label": "Rita's Making Mill Valley Story",
+          "type": "imageGallery",
+          "count": 11
+        },
+        {
+          "label": "Music Videos",
+          "type": "videoGallery",
+          "count": 2
+        },
+        {
+          "label": "Albums & Press",
+          "type": "imageGallery",
+          "count": 4
+        },
+        {
+          "label": "Mill Valley Anniversary DVD",
+          "type": "videoGallery",
+          "count": 1
+        }
+      ]
     },
     {
       "name": "Brian Elliot",
@@ -86,7 +255,24 @@
       "orderTablet": 8,
       "orderSmallDesktop": 8,
       "orderMediumDesktop": 8,
-      "orderLargeDesktop": 8
+      "orderLargeDesktop": 8,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 15
+        },
+        {
+          "label": "Albums and Awards",
+          "type": "imageGallery",
+          "count": 4
+        },
+        {
+          "label": "Music Videos",
+          "type": "videoGallery",
+          "count": 2
+        }
+      ]
     },
     {
       "name": "Phil Ochs",
@@ -97,7 +283,19 @@
       "orderTablet": 9,
       "orderSmallDesktop": 9,
       "orderMediumDesktop": 9,
-      "orderLargeDesktop": 9
+      "orderLargeDesktop": 9,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 10
+        },
+        {
+          "label": "John Train's Big Plan",
+          "type": "imageGallery",
+          "count": 2
+        }
+      ]
     },
     {
       "name": "Tim Hardin",
@@ -108,7 +306,34 @@
       "orderTablet": 10,
       "orderSmallDesktop": 10,
       "orderMediumDesktop": 10,
-      "orderLargeDesktop": 10
+      "orderLargeDesktop": 10,
+      "mediaItems": [
+        {
+          "label": "Tim's First Photo Shoot",
+          "type": "imageGallery",
+          "count": 18
+        },
+        {
+          "label": "Photo Shoot for First Album",
+          "type": "imageGallery",
+          "count": 5
+        },
+        {
+          "label": "Photo Shoot at Lenny Bruce's",
+          "type": "imageGallery",
+          "count": 8
+        },
+        {
+          "label": "Press and Editorial",
+          "type": "imageGallery",
+          "count": 11
+        },
+        {
+          "label": "Memorabilia",
+          "type": "imageGallery",
+          "count": 5
+        }
+      ]
     },
     {
       "name": "Jim Wilsey",
@@ -119,7 +344,19 @@
       "orderTablet": 11,
       "orderSmallDesktop": 11,
       "orderMediumDesktop": 11,
-      "orderLargeDesktop": 11
+      "orderLargeDesktop": 11,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 6
+        },
+        {
+          "label": "Video Snippets",
+          "type": "videoGallery",
+          "count": 2
+        }
+      ]
     },
     {
       "name": "Nick Urbanik aka Eduardo Unz",
@@ -130,7 +367,24 @@
       "orderTablet": 12,
       "orderSmallDesktop": 12,
       "orderMediumDesktop": 12,
-      "orderLargeDesktop": 12
+      "orderLargeDesktop": 12,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 8
+        },
+        {
+          "label": "Memorabilia",
+          "type": "imageGallery",
+          "count": 2
+        },
+        {
+          "label": "Music",
+          "type": "link",
+          "url": "/musical-journey/musical-friends/eduardo-unz/music"
+        }
+      ]
     },
     {
       "name": "Alex Major",
@@ -141,7 +395,19 @@
       "orderTablet": 15,
       "orderSmallDesktop": 15,
       "orderMediumDesktop": 14,
-      "orderLargeDesktop": 13
+      "orderLargeDesktop": 13,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 5
+        },
+        {
+          "label": "Letters from Alex",
+          "type": "imageGallery",
+          "count": 28
+        }
+      ]
     },
     {
       "name": "Kevin Mooney",
@@ -152,7 +418,19 @@
       "orderTablet": 16,
       "orderSmallDesktop": 16,
       "orderMediumDesktop": 15,
-      "orderLargeDesktop": 14
+      "orderLargeDesktop": 14,
+      "mediaItems": [
+        {
+          "label": "Fishing Photo with Kevin",
+          "type": "imageGallery",
+          "count": 1
+        },
+        {
+          "label": "Kevin's Demo",
+          "type": "audioGallery",
+          "count": 2
+        }
+      ]
     },
     {
       "name": "Nadia",
@@ -163,7 +441,24 @@
       "orderTablet": 14,
       "orderSmallDesktop": 14,
       "orderMediumDesktop": 16,
-      "orderLargeDesktop": 15
+      "orderLargeDesktop": 15,
+      "mediaItems": [
+        {
+          "label": "Photos",
+          "type": "imageGallery",
+          "count": 7
+        },
+        {
+          "label": "Music",
+          "type": "link",
+          "url": "/musical-journey/musical-friends/nadia/music"
+        },
+        {
+          "label": "Music Videos",
+          "type": "videoGallery",
+          "count": 2
+        }
+      ]
     },
     {
       "name": "Cass Elliot",
