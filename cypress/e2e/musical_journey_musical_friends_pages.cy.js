@@ -14,5 +14,61 @@ describe('Musical Friends - Individual Pages', () => {
     it(`the ${friend.name} page contains the main text`, () => {
       cy.get('#mainContent').should('contain.text', friend.text);
     });
+
+    if (friend.mediaItems) {
+      friend.mediaItems.forEach((mediaItem, index) => {
+        it(`the ${friend.name} media item no. ${
+          index + 1
+        } has the correct label`, () => {
+          cy.get('.mediaItems')
+            .eq(index)
+            .find('.mediaItemsText')
+            .should('contain.text', mediaItem.label);
+        });
+
+        if (mediaItem.type === 'imageGallery') {
+          it(`the ${friend.name} media item no. ${index + 1} has ${
+            mediaItem.count
+          } images loaded`, () => {
+            cy.get('.mediaItems').eq(index).click();
+
+            for (let i = 0; i < mediaItem.count - 1; i++) {
+              cy.get('#nextImageImg').click();
+            }
+
+            cy.get('.image-lightbox__content')
+              .find('img.loaded')
+              .should('have.length', mediaItem.count);
+          });
+
+          it(`the ${friend.name} media item no. ${
+            index + 1
+          } gallery can be closed`, () => {
+            cy.get('#closeImg').click();
+          });
+        }
+
+        if (mediaItem.type === 'videoGallery') {
+          it(`the ${friend.name} media item no. ${index + 1} has ${
+            mediaItem.count
+          } vimeo videos loaded`, () => {
+            cy.get('.mediaItems').eq(index).click();
+
+            for (let i = 0; i < mediaItem.count - 1; i++) {
+              cy.getIframeBody(i).find('.vp-controls button.play');
+              if (i < mediaItem.count - 1) {
+                cy.get('#nextVideoImg').click();
+              }
+            }
+          });
+
+          it(`the ${friend.name} media item no. ${
+            index + 1
+          } gallery can be closed`, () => {
+            cy.get('#closeImg').click();
+          });
+        }
+      });
+    }
   });
 });
