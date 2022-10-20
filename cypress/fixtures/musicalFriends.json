@@ -309,19 +309,24 @@
       "orderLargeDesktop": 10,
       "mediaItems": [
         {
-          "label": "Tim's First Photo Shoot",
-          "type": "imageGallery",
-          "count": 18
-        },
-        {
-          "label": "Photo Shoot for First Album",
-          "type": "imageGallery",
-          "count": 5
-        },
-        {
-          "label": "Photo Shoot at Lenny Bruce's",
-          "type": "imageGallery",
-          "count": 8
+          "label": "Photos",
+          "subgalleries": [
+            {
+              "label": "Tim's First Photo Shoot",
+              "type": "imageGallery",
+              "count": 18
+            },
+            {
+              "label": "Photo Shoot for First Album",
+              "type": "imageGallery",
+              "count": 5
+            },
+            {
+              "label": "Photo Shoot at Lenny Bruce's",
+              "type": "imageGallery",
+              "count": 8
+            }
+          ]
         },
         {
           "label": "Press and Editorial",
