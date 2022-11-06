@@ -55,7 +55,8 @@ describe('Musical Friends - Individual Pages', () => {
             cy.get('.mediaItems').eq(index).click();
 
             for (let i = 0; i < mediaItem.count - 1; i++) {
-              cy.getIframeBody(i).find('.vp-controls button.play');
+              cy.findVimeoPlayButton(i);
+
               if (i < mediaItem.count - 1) {
                 cy.get('#nextVideoImg').click();
               }

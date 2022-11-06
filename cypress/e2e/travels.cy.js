@@ -87,7 +87,7 @@ describe('Travels Page - page specific tests', () => {
   };
 
   const checkVideoLightboxVimeoPlayBtn = (index) => {
-    cy.getIframeBody(index).find('.vp-controls button.play');
+    cy.findVimeoPlayButton(index);
     cy.get('#closeImg').click().wait(500);
   };
 

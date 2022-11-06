@@ -99,7 +99,7 @@ describe('Roots and Youth Page - page specific tests', () => {
       .should('be.visible')
       .should('contain.text', title);
 
-    cy.getIframeBody(index).find('.vp-controls button.play');
+    cy.findVimeoPlayButton(index);
 
     cy.get('#closeImg').click().wait(500);
   };
