@@ -97,5 +97,5 @@ Cypress.Commands.add('getIframeBody', (index = 0) => {
 });
 
 Cypress.Commands.add('findVimeoPlayButton', (index = 0) => {
-  return cy.getIframeBody(index).find(`.vp-controls button[aria-label='Play']`);
+  return cy.getIframeBody(index).find(`.player button[aria-label='Play']`);
 });
