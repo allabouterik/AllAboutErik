@@ -704,6 +704,7 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 .mediaItems {
+  display: inline-block;
   max-width: 295px;
 }
 .mediaItems:hover,
