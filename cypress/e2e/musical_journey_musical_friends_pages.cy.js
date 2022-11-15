@@ -69,6 +69,17 @@ describe('Musical Friends - Individual Pages', () => {
             cy.get('#closeImg').click();
           });
         }
+
+        if (mediaItem.type === 'link') {
+          it(`the ${friend.name} media item no. ${
+            index + 1
+          } contains a link with the correct url`, () => {
+            cy.get('.mediaItems')
+              .eq(index)
+              .should('have.attr', 'href')
+              .should('include', friend.link);
+          });
+        }
       });
     }
   });
