@@ -1,17 +1,22 @@
 <template>
-  <Layout> 
+  <Layout>
     <b-container class="main-col pt-5">
-      
       <div style="text-align: center">
         <h1 class="heading">{{ title }}</h1>
       </div>
 
       <div class="my-4">
-        <b-button variant="danger" @click="onPlayAllClick()">{{ playBtnText }}</b-button>
+        <b-button variant="danger" @click="onPlayAllClick()">{{
+          playBtnText
+        }}</b-button>
       </div>
-      
-      <div v-for="(track, index) in tracks" :key="index" class="mb-3">
 
+      <div
+        v-for="(track, index) in tracks"
+        :key="index"
+        class="mb-3"
+        data-testid="track-container"
+      >
         <b-row v-if="index % 2 === 0" align-h="end" align-v="center">
           <b-col>
             <p class="trackTitle textAlignEnd">{{ track.title }}</p>
@@ -24,17 +29,25 @@
           </b-col>
         </b-row>
 
-        <AudioPlayer :ref="'unzSong-'+index" :src="track.url" secondaryColor="#E7413F" padding="5px 0px" />
+        <AudioPlayer
+          :ref="'unzSong-' + index"
+          :src="track.url"
+          secondaryColor="#E7413F"
+          padding="5px 0px"
+        />
 
-        <hr class="style-two">
+        <hr class="style-two" />
       </div>
 
       <b-row align-h="center" class="text-center">
         <b-col>
-          <g-link to="/musical-journey/musical-friends/eduardo-unz" class="nav_link py-3">BACK TO UNZ</g-link>
+          <g-link
+            to="/musical-journey/musical-friends/eduardo-unz"
+            class="nav_link py-3"
+            >BACK TO UNZ</g-link
+          >
         </b-col>
       </b-row>
-
     </b-container>
   </Layout>
 </template>
@@ -59,80 +72,82 @@
 
 
 <script scoped>
-import AudioPlayer from '../../../../components/AudioPlayer'
-import { EventBus } from '../../../../event-bus'
+import AudioPlayer from "../../../../components/AudioPlayer";
+import { EventBus } from "../../../../event-bus";
 
-export default { 
+export default {
   metaInfo() {
     return {
-      title: this.$page.EduardoUnzMusic.edges[0].node.pageTitle
-    }
+      title: this.$page.EduardoUnzMusic.edges[0].node.pageTitle,
+    };
   },
 
   components: {
-    AudioPlayer
+    AudioPlayer,
   },
 
   data: () => ({
     playingAll: false,
-    playingIndex: null
+    playingIndex: null,
   }),
 
   computed: {
     title() {
-      return this.$page.EduardoUnzMusic.edges[0].node.titleText
+      return this.$page.EduardoUnzMusic.edges[0].node.titleText;
     },
     tracks() {
-      return this.$page.EduardoUnzMusic.edges[0].node.tracks
+      return this.$page.EduardoUnzMusic.edges[0].node.tracks;
     },
     playBtnText() {
-      return this.playingAll ? 'Stop' : 'Play All'
-    }
+      return this.playingAll ? "Stop" : "Play All";
+    },
   },
 
   mounted() {
-    EventBus.$on('audioEnded', this.eventBusListener)
+    EventBus.$on("audioEnded", this.eventBusListener);
   },
 
   methods: {
     onPlayAllClick() {
       if (!this.playingAll) {
-        this.playAll()
+        this.playAll();
       } else {
-        this.$refs[`unzSong-${this.playingIndex}`][0].stop()
-        this.playingAll = false
-        this.playingIndex = null
+        this.$refs[`unzSong-${this.playingIndex}`][0].stop();
+        this.playingAll = false;
+        this.playingIndex = null;
       }
     },
     playAll() {
-      this.playingAll = true
-      this.playingIndex = 0
-      this.$refs[`unzSong-${this.playingIndex}`][0].play()
+      this.playingAll = true;
+      this.playingIndex = 0;
+      this.$refs[`unzSong-${this.playingIndex}`][0].play();
     },
     eventBusListener() {
       if (this.playingAll) {
-        this.playingIndex++
+        this.playingIndex++;
         if (this.playingIndex >= this.tracks.length) {
-          this.playingAll = false
-          this.playingIndex = null
+          this.playingAll = false;
+          this.playingIndex = null;
         } else {
-          this.$refs[`unzSong-${this.playingIndex}`][0].play()
+          this.$refs[`unzSong-${this.playingIndex}`][0].play();
         }
       }
     },
-  }
-}
+  },
+};
 </script>
 
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro75Bd;
-  src: url('../../../../assets/fonts/nhaasgrotesktxpro-75bd.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../../../../assets/fonts/nhaasgrotesktxpro-75bd.ttf') format('ttf');
+  src: url("../../../../assets/fonts/nhaasgrotesktxpro-75bd.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../../../../assets/fonts/nhaasgrotesktxpro-75bd.ttf") format("ttf");
   font-weight: normal;
 }
 
@@ -142,21 +157,21 @@ export default {
 }
 
 .heading {
-  color: white; 
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  color: white;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-size: 3.125rem;
   font-weight: 400;
-  text-shadow: 1px 1px 2px rgba(28,16,23,0.83);
+  text-shadow: 1px 1px 2px rgba(28, 16, 23, 0.83);
   text-transform: uppercase;
-  letter-spacing: 2px;  
+  letter-spacing: 2px;
   margin: 0 0 20px 0;
 }
 
 .trackTitle {
-  color: #e7413f; 
-  font-family: 'NeueHaasGroteskText Pro75Bd';
-  font-feature-settings: 'liga';
+  color: #e7413f;
+  font-family: "NeueHaasGroteskText Pro75Bd";
+  font-feature-settings: "liga";
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 0;
@@ -170,35 +185,39 @@ hr.style-two {
   /* https://css-tricks.com/examples/hrs/ */
   border: 0;
   height: 1px;
-  background-image: linear-gradient(to right, rgba(231, 65, 63, 0.1), rgba(231, 65, 63, 0.75), rgba(231, 65, 63, 0.1));
+  background-image: linear-gradient(
+    to right,
+    rgba(231, 65, 63, 0.1),
+    rgba(231, 65, 63, 0.75),
+    rgba(231, 65, 63, 0.1)
+  );
 }
 
 .hideOnMobile {
-    display: block;
-  }
+  display: block;
+}
 .showOnMobile {
   display: none;
 }
 
 .nav_link {
-  color: white; 
+  color: white;
   display: block;
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 400;
   font-style: italic;
   font-size: 2rem;
   letter-spacing: 1px;
   text-align: center;
-  text-shadow: 1px 1px 2px rgba(28,16,23,0.83);
+  text-shadow: 1px 1px 2px rgba(28, 16, 23, 0.83);
   margin: 0px;
   padding: 0px;
 }
 .nav_link:hover {
-  color:	#EED047;
+  color: #eed047;
   cursor: pointer;
 }
-
 
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
@@ -209,7 +228,8 @@ hr.style-two {
     letter-spacing: 1.8px;
     margin: 0 0 15px 0;
   }
-  .trackTitle, .nav_link {
+  .trackTitle,
+  .nav_link {
     font-size: 1.5rem;
   }
   .hideOnMobile {
@@ -220,7 +240,8 @@ hr.style-two {
   }
 }
 
-@media only screen and (max-width: 340Px) {  /* for iPhone 5 etc. */
+@media only screen and (max-width: 340px) {
+  /* for iPhone 5 etc. */
   .heading {
     font-size: 2rem;
     letter-spacing: 1.6px;
@@ -228,20 +249,21 @@ hr.style-two {
   }
   .trackTitle {
     font-size: 1.25rem;
-  }  
+  }
   .nav_link {
     font-size: 1.375rem;
   }
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media only screen and (min-width: 576px) and (max-width: 767.98px) {  
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
   .heading {
     font-size: 2.8rem;
     letter-spacing: 1.8px;
     margin: 0 0 15px 0;
   }
-  .trackTitle, .nav_link {
+  .trackTitle,
+  .nav_link {
     font-size: 1.5rem;
   }
 }
@@ -253,14 +275,13 @@ hr.style-two {
     letter-spacing: 1.8px;
     margin: 0 0 15px 0;
   }
-  .trackTitle, .nav_link {
+  .trackTitle,
+  .nav_link {
     font-size: 1.75rem;
   }
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
-
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
 }
-
 </style>
