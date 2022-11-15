@@ -1,91 +1,230 @@
 <template>
   <Layout>
     <transition name="page" mode="out-in">
-      <div :key="'friend_' + nameSlug" class="background" :style="backgroundStyles"> <!-- Need a unique key for the transition above to work on route change -->
+      <div
+        :key="'friend_' + nameSlug"
+        class="background"
+        :style="backgroundStyles"
+      >
+        <!-- Need a unique key for the transition above to work on route change -->
 
         <div :style="navLinksVisibility" class="navLinksContainer">
-          <g-link :to="'/musical-journey/musical-friends/' + prev_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_friend.title" class="nav_link nav_link_small" id="nav_prev">
-            <g-image immediate alt="previous" src="../assets/images/prev-white.png" class="hideOnHover" />
-            <g-image immediate alt="previous" src="../assets/images/prev-yellow.png" class="showOnHover" />
+          <g-link
+            :to="'/musical-journey/musical-friends/' + prev_friend.link"
+            v-b-tooltip.hover="{ variant: 'secondary' }"
+            :title="prev_friend.title"
+            class="nav_link nav_link_small"
+            id="nav_prev"
+          >
+            <g-image
+              immediate
+              alt="previous"
+              src="../assets/images/prev-white.png"
+              class="hideOnHover"
+            />
+            <g-image
+              immediate
+              alt="previous"
+              src="../assets/images/prev-yellow.png"
+              class="showOnHover"
+            />
           </g-link>
 
-          <g-link :to="'/musical-journey/musical-friends/' + prev_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_friend.title" class="nav_link nav_link_big" id="nav_previous">
-            <g-image immediate alt="previous" src="../assets/images/previous-white.png" class="hideOnHover" />
-            <g-image immediate alt="previous" src="../assets/images/previous-yellow.png" class="showOnHover" />
+          <g-link
+            :to="'/musical-journey/musical-friends/' + prev_friend.link"
+            v-b-tooltip.hover="{ variant: 'secondary' }"
+            :title="prev_friend.title"
+            class="nav_link nav_link_big"
+            id="nav_previous"
+          >
+            <g-image
+              immediate
+              alt="previous"
+              src="../assets/images/previous-white.png"
+              class="hideOnHover"
+            />
+            <g-image
+              immediate
+              alt="previous"
+              src="../assets/images/previous-yellow.png"
+              class="showOnHover"
+            />
           </g-link>
 
-          <g-link :to="'/musical-journey/musical-friends/' + next_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_friend.title" class="nav_link nav_link_small" id="nav_next">
-            <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-            <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+          <g-link
+            :to="'/musical-journey/musical-friends/' + next_friend.link"
+            v-b-tooltip.hover="{ variant: 'secondary' }"
+            :title="next_friend.title"
+            class="nav_link nav_link_small"
+            id="nav_next"
+          >
+            <g-image
+              immediate
+              alt="next"
+              src="../assets/images/next-white.png"
+              class="hideOnHover"
+            />
+            <g-image
+              immediate
+              alt="next"
+              src="../assets/images/next-yellow.png"
+              class="showOnHover"
+            />
           </g-link>
 
-          <g-link :to="'/musical-journey/musical-friends/' + next_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_friend.title" class="nav_link nav_link_big" id="nav_next">
-            <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-            <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+          <g-link
+            :to="'/musical-journey/musical-friends/' + next_friend.link"
+            v-b-tooltip.hover="{ variant: 'secondary' }"
+            :title="next_friend.title"
+            class="nav_link nav_link_big"
+            id="nav_next"
+          >
+            <g-image
+              immediate
+              alt="next"
+              src="../assets/images/next-white.png"
+              class="hideOnHover"
+            />
+            <g-image
+              immediate
+              alt="next"
+              src="../assets/images/next-yellow.png"
+              class="showOnHover"
+            />
           </g-link>
         </div>
 
         <b-container fluid class="wrapper">
-
           <!-- 768px wide (iPads) and higher -->
           <template v-if="windowWidth >= 768">
-            <b-container fluid class="main-col mt-3 pt-3 mt-sm-4 pt-md-4 px-4 pb-2 mb-2"> 
-              <h1 class="heading headingMain"> {{ heading }} </h1>
+            <b-container
+              fluid
+              class="main-col mt-3 pt-3 mt-sm-4 pt-md-4 px-4 pb-2 mb-2"
+            >
+              <h1 class="heading headingMain">{{ heading }}</h1>
               <div v-html="$page.friend.content" id="mainContent" />
             </b-container>
 
             <b-container fluid class="galleriesContainer">
               <b-row align-h="center" id="mediaItemsRow">
-                <b-col v-for="(item,index) in $page.friend.mediaItems" :key="index" class="mediaItems p-2" v-b-toggle="String(index+1)" @click="mediaItemClick(item, index)">
-                  <g-image :src="item.thumbnailImg" class="mediaItemsImg" :id="'mediaItemImg'+index" />
+                <a
+                  v-for="(item, index) in $page.friend.mediaItems"
+                  :key="index"
+                  :href="item.mediaType == 'link' ? item.galleries[0].url : ''"
+                  class="mediaItems p-2"
+                  v-b-toggle="String(index + 1)"
+                  @click="mediaItemClick(item, index)"
+                >
+                  <g-image
+                    :src="item.thumbnailImg"
+                    class="mediaItemsImg"
+                    :id="'mediaItemImg' + index"
+                  />
                   <br />
-                  <span class="mediaItemsText mediaItemsLabel">{{ item.label }}</span>
-                  <b-collapse v-if="item.galleries[0].label" :id="String(index+1)" accordion="mediaItems-accordion">
-                    <div v-for="(gallery,galIndex) in item.galleries" :key="galIndex">
+                  <span class="mediaItemsText mediaItemsLabel">{{
+                    item.label
+                  }}</span>
+                  <b-collapse
+                    v-if="item.galleries[0].label"
+                    :id="String(index + 1)"
+                    accordion="mediaItems-accordion"
+                  >
+                    <div
+                      v-for="(gallery, galIndex) in item.galleries"
+                      :key="galIndex"
+                    >
                       <br />
                       <span
-                        @click="galleryIndex = galIndex; setMediaIndexToZero(item.mediaType)"
+                        @click="
+                          galleryIndex = galIndex;
+                          setMediaIndexToZero(item.mediaType);
+                        "
                         class="mediaItemsText galleriesLabel py-2 pr-2"
                       >
                         {{ gallery.label }}
                       </span>
                     </div>
                   </b-collapse>
-                </b-col>
+                </a>
               </b-row>
 
               <b-row align-h="center" class="text-center">
                 <b-col>
                   <div :style="navLinksVisibility" class="backToMenuContainer">
-                    <g-link to="/musical-journey/musical-friends/menu/" class="nav_link nav_link_big pt-3" id="nav_back">
-                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-1line-white.png" class="hideOnHover" />
-                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-1line-yellow.png" class="showOnHover" />
-                    </g-link>
-                    
-                    <g-link to="/musical-journey/musical-friends/menu/" class="nav_link nav_link_small pt-3" id="nav_back">
-                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-white.png" class="hideOnHover" />
-                      <g-image immediate alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-yellow.png" class="showOnHover" />
+                    <g-link
+                      to="/musical-journey/musical-friends/menu/"
+                      class="nav_link nav_link_big pt-3"
+                      id="nav_back"
+                    >
+                      <g-image
+                        immediate
+                        alt="Back to musical friends menu"
+                        src="../assets/images/back-to-musical-friends-menu-1line-white.png"
+                        class="hideOnHover"
+                      />
+                      <g-image
+                        immediate
+                        alt="Back to musical friends menu"
+                        src="../assets/images/back-to-musical-friends-menu-1line-yellow.png"
+                        class="showOnHover"
+                      />
                     </g-link>
 
+                    <g-link
+                      to="/musical-journey/musical-friends/menu/"
+                      class="nav_link nav_link_small pt-3"
+                      id="nav_back"
+                    >
+                      <g-image
+                        immediate
+                        alt="Back to musical friends menu"
+                        src="../assets/images/back-to-musical-friends-menu-3lines-white.png"
+                        class="hideOnHover"
+                      />
+                      <g-image
+                        immediate
+                        alt="Back to musical friends menu"
+                        src="../assets/images/back-to-musical-friends-menu-3lines-yellow.png"
+                        class="showOnHover"
+                      />
+                    </g-link>
                   </div>
                 </b-col>
               </b-row>
             </b-container>
           </template>
 
-          <!-- Mobiles and Tables less than 768px wide -->
-          <template v-else>            
+          <!-- Mobiles and Tablets less than 768px wide -->
+          <template v-else>
             <header>
               <b-container fluid>
                 <b-row class="mb-3 mb-sm-4 mb-md-0">
                   <b-col cols="" class="headerNavCol">
-                    <g-link :to="'/musical-journey/musical-friends/' + prev_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_friend.name" class="nav_link" id="nav_prev">PREV</g-link>
+                    <g-link
+                      :to="
+                        '/musical-journey/musical-friends/' + prev_friend.link
+                      "
+                      v-b-tooltip.hover="{ variant: 'secondary' }"
+                      :title="prev_friend.name"
+                      class="nav_link"
+                      id="nav_prev"
+                      >PREV</g-link
+                    >
                   </b-col>
                   <b-col cols="6" class="headerTextCol px-0">
                     <h1 class="heading headingMobile" v-html="headingMobile" />
                   </b-col>
                   <b-col cols="" class="headerNavCol">
-                    <g-link :to="'/musical-journey/musical-friends/' + next_friend.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_friend.name" class="nav_link" id="nav_next">NEXT</g-link>
+                    <g-link
+                      :to="
+                        '/musical-journey/musical-friends/' + next_friend.link
+                      "
+                      v-b-tooltip.hover="{ variant: 'secondary' }"
+                      :title="next_friend.name"
+                      class="nav_link"
+                      id="nav_next"
+                      >NEXT</g-link
+                    >
                   </b-col>
                 </b-row>
               </b-container>
@@ -98,16 +237,43 @@
                 </b-col>
               </b-row>
 
-              <b-row align-h="center" id="mediaItemsRow" class="galleriesContainer mx-0">
-                <b-col v-for="(item,index) in $page.friend.mediaItems" :key="index" class="mediaItems p-2" v-b-toggle="String(index+1)" @click="mediaItemClick(item, index)">
-                  <g-image :src="item.thumbnailImg" class="mediaItemsImg" :id="'mediaItemImg'+index" />
+              <b-row
+                align-h="center"
+                id="mediaItemsRow"
+                class="galleriesContainer mx-0"
+              >
+                <b-col
+                  v-for="(item, index) in $page.friend.mediaItems"
+                  :key="index"
+                  :href="item.mediaType == 'link' ? item.galleries[0].url : ''"
+                  class="mediaItems p-2"
+                  v-b-toggle="String(index + 1)"
+                  @click="mediaItemClick(item, index)"
+                >
+                  <g-image
+                    :src="item.thumbnailImg"
+                    class="mediaItemsImg"
+                    :id="'mediaItemImg' + index"
+                  />
                   <br />
-                  <span class="mediaItemsText mediaItemsLabel">{{ item.label }}</span>
-                  <b-collapse v-if="item.galleries[0].label" :id="String(index+1)" accordion="mediaItems-accordion">
-                    <div v-for="(gallery,galIndex) in item.galleries" :key="galIndex">
+                  <span class="mediaItemsText mediaItemsLabel">{{
+                    item.label
+                  }}</span>
+                  <b-collapse
+                    v-if="item.galleries[0].label"
+                    :id="String(index + 1)"
+                    accordion="mediaItems-accordion"
+                  >
+                    <div
+                      v-for="(gallery, galIndex) in item.galleries"
+                      :key="galIndex"
+                    >
                       <br />
                       <span
-                        @click="galleryIndex = galIndex; setMediaIndexToZero(item.mediaType)"
+                        @click="
+                          galleryIndex = galIndex;
+                          setMediaIndexToZero(item.mediaType);
+                        "
                         class="mediaItemsText galleriesLabel py-2 pr-2"
                       >
                         {{ gallery.label }}
@@ -119,19 +285,29 @@
 
               <b-row align-h="center" class="text-center galleriesContainer">
                 <b-col>
-                  <div :style="navLinksVisibility" class="backToMenuContainer">                    
-                    <g-link to="/musical-journey/musical-friends/menu/" class="nav_link nav_link_small pt-3" id="nav_back">
-                      <g-image alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-white.png" class="hideOnHover" />
-                      <g-image alt="Back to musical friends menu" src="../assets/images/back-to-musical-friends-menu-3lines-yellow.png" class="showOnHover" />
+                  <div :style="navLinksVisibility" class="backToMenuContainer">
+                    <g-link
+                      to="/musical-journey/musical-friends/menu/"
+                      class="nav_link nav_link_small pt-3"
+                      id="nav_back"
+                    >
+                      <g-image
+                        alt="Back to musical friends menu"
+                        src="../assets/images/back-to-musical-friends-menu-3lines-white.png"
+                        class="hideOnHover"
+                      />
+                      <g-image
+                        alt="Back to musical friends menu"
+                        src="../assets/images/back-to-musical-friends-menu-3lines-yellow.png"
+                        class="showOnHover"
+                      />
                     </g-link>
                   </div>
                 </b-col>
               </b-row>
             </b-container>
           </template>
-
         </b-container>
-
       </div>
     </transition>
 
@@ -140,7 +316,10 @@
       :images="images"
       :index="imageIndex"
       :disable-scroll="true"
-      @close="imageIndex = null; galleryIndex = null"
+      @close="
+        imageIndex = null;
+        galleryIndex = null;
+      "
     />
     <VideoLightBox
       v-if="videos != null"
@@ -148,7 +327,10 @@
       :index="videoIndex"
       :disable-scroll="true"
       titlePosition="center"
-      @close="videoIndex = null; galleryIndex = null"
+      @close="
+        videoIndex = null;
+        galleryIndex = null;
+      "
     />
     <AudioLightBox
       v-if="audio != null"
@@ -156,9 +338,11 @@
       :index="audioIndex"
       :disable-scroll="true"
       :show-caption="false"
-      @close="audioIndex = null; galleryIndex = null"
+      @close="
+        audioIndex = null;
+        galleryIndex = null;
+      "
     />
-
   </Layout>
 </template>
 
@@ -220,23 +404,23 @@ query ($id: ID!) {
 
 
 <script scoped>
-import ImageLightBox from '../components/ImageLightBox.vue'
-import VideoLightBox from '../components/VideoLightBox.vue'
-import AudioLightBox from '../components/AudioLightBox.vue'
+import ImageLightBox from "../components/ImageLightBox.vue";
+import VideoLightBox from "../components/VideoLightBox.vue";
+import AudioLightBox from "../components/AudioLightBox.vue";
 
-const slugify = require('@sindresorhus/slugify')
+const slugify = require("@sindresorhus/slugify");
 
 export default {
   metaInfo() {
     return {
-      title: this.name
-    }
+      title: this.name,
+    };
   },
 
   components: {
     ImageLightBox,
     VideoLightBox,
-    AudioLightBox
+    AudioLightBox,
   },
 
   data() {
@@ -247,152 +431,169 @@ export default {
       videoIndex: null,
       audioIndex: null,
       windowWidth: 0.0,
-      windowHeight: 1.0
-    }
+      windowHeight: 1.0,
+    };
   },
 
   computed: {
     name() {
-      return this.$page.friend.name
+      return this.$page.friend.name;
     },
     nameSlug() {
-      return slugify(this.name)
+      return slugify(this.name);
     },
     heading() {
-      return this.$page.friend.heading ? this.$page.friend.heading : this.name
+      return this.$page.friend.heading ? this.$page.friend.heading : this.name;
     },
     headingMobile() {
-      return this.heading.replace(/ /g, '<br>');
+      return this.heading.replace(/ /g, "<br>");
     },
     mediaItems() {
-      return this.$page.friend.mediaItems
+      return this.$page.friend.mediaItems;
     },
     images() {
-      return this.mediaItemIndex != null && this.galleryIndex != null ?
-                this.mediaItems[this.mediaItemIndex].galleries[this.galleryIndex].images : []
+      return this.mediaItemIndex != null && this.galleryIndex != null
+        ? this.mediaItems[this.mediaItemIndex].galleries[this.galleryIndex]
+            .images
+        : [];
     },
     videos() {
-      let videos = this.mediaItemIndex != null && this.galleryIndex != null ?
-                this.mediaItems[this.mediaItemIndex].galleries[this.galleryIndex].videos : []
-      
+      let videos =
+        this.mediaItemIndex != null && this.galleryIndex != null
+          ? this.mediaItems[this.mediaItemIndex].galleries[this.galleryIndex]
+              .videos
+          : [];
+
       // Get video dimensions so video component can position the captions correctly
       if (videos != []) {
-        videos.forEach(video => {
-          const vimeoVidId = video.url.substring(video.url.lastIndexOf('/') + 1)
-          const fetchPromise = fetch("https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/" + vimeoVidId);
-          fetchPromise.then(response => {
-            return response.json();
-          }).then(details => {
-            video.width = details.width
-            video.height = details.height
-          });      
+        videos.forEach((video) => {
+          const vimeoVidId = video.url.substring(
+            video.url.lastIndexOf("/") + 1
+          );
+          const fetchPromise = fetch(
+            "https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/" +
+              vimeoVidId
+          );
+          fetchPromise
+            .then((response) => {
+              return response.json();
+            })
+            .then((details) => {
+              video.width = details.width;
+              video.height = details.height;
+            });
         });
-      }      
-      return videos
+      }
+      return videos;
     },
     audio() {
-      return this.mediaItemIndex != null && this.galleryIndex != null ?
-                this.mediaItems[this.mediaItemIndex].galleries[this.galleryIndex].audio : []
-    },  
+      return this.mediaItemIndex != null && this.galleryIndex != null
+        ? this.mediaItems[this.mediaItemIndex].galleries[this.galleryIndex]
+            .audio
+        : [];
+    },
     friends() {
-      return this.$static.MusicalFriends.edges[0].node.friends
-    },    
+      return this.$static.MusicalFriends.edges[0].node.friends;
+    },
     friends_names() {
-      return this.friends.map(x => x.name);
+      return this.friends.map((x) => x.name);
     },
     prev_friend() {
-      let i = this.friends_names.indexOf(this.heading)
-      if (i === 0)
-        var prev_i = this.friends_names.length - 1
-      else
-        prev_i = i - 1
-      return this.friends[prev_i]
+      let i = this.friends_names.indexOf(this.heading);
+      if (i === 0) var prev_i = this.friends_names.length - 1;
+      else prev_i = i - 1;
+      return this.friends[prev_i];
     },
     next_friend() {
-      let i = this.friends_names.indexOf(this.heading)      
-      if (i === this.friends_names.length - 1)
-        var next_i = 0
-      else
-        next_i = i + 1
-      return this.friends[next_i]
+      let i = this.friends_names.indexOf(this.heading);
+      if (i === this.friends_names.length - 1) var next_i = 0;
+      else next_i = i + 1;
+      return this.friends[next_i];
     },
     aspectRatio() {
-      return this.windowWidth / this.windowHeight
+      return this.windowWidth / this.windowHeight;
     },
     backgroundStyles() {
-      let img = this.aspectRatio < 1.0 ? this.$page.friend.backgroundImgMobile : this.$page.friend.backgroundImg
+      let img =
+        this.aspectRatio < 1.0
+          ? this.$page.friend.backgroundImgMobile
+          : this.$page.friend.backgroundImg;
       return {
-        '--backgroundImg': 'url(' + img + ')',
-        '--backgroundOpacity': this.$page.friend.backgroundOpacity / 100
-      }
+        "--backgroundImg": "url(" + img + ")",
+        "--backgroundOpacity": this.$page.friend.backgroundOpacity / 100,
+      };
     },
     navLinksVisibility() {
-      let css = {}
-      if (this.imageIndex == null & this.videoIndex == null) {
-        css.visibility = 'visible'
-        css.opacity = 1
+      let css = {};
+      if ((this.imageIndex == null) & (this.videoIndex == null)) {
+        css.visibility = "visible";
+        css.opacity = 1;
+      } else {
+        css.visibility = "hidden";
+        css.opacity = 0;
       }
-      else {
-        css.visibility = 'hidden'
-        css.opacity = 0
-      }
-      return css
-    }
+      return css;
+    },
   },
 
   mounted() {
-    this.updateWindowDims()
-    window.addEventListener('resize', () => this.updateWindowDims())
-    window.addEventListener('orientationchange', () => this.updateWindowDims())
+    this.updateWindowDims();
+    window.addEventListener("resize", () => this.updateWindowDims());
+    window.addEventListener("orientationchange", () => this.updateWindowDims());
   },
 
   methods: {
     mediaItemClick(mediaItem, index) {
-      if (mediaItem.mediaType == 'images' || mediaItem.mediaType == 'videos' || mediaItem.mediaType == 'audio') {
-        this.mediaItemIndex = index
+      if (
+        mediaItem.mediaType == "images" ||
+        mediaItem.mediaType == "videos" ||
+        mediaItem.mediaType == "audio"
+      ) {
+        this.mediaItemIndex = index;
         if (mediaItem.galleries.length == 1) {
-          this.galleryIndex = 0
-          this.setMediaIndexToZero(mediaItem.mediaType)
+          this.galleryIndex = 0;
+          this.setMediaIndexToZero(mediaItem.mediaType);
+        } else {
+          this.$scrollTo("#mediaItemImg" + index, 500);
         }
-        else {
-          this.$scrollTo('#mediaItemImg' + index, 500)
-        }
-      }
-      else if (mediaItem.mediaType == 'link') {
-        this.$router.push(mediaItem.galleries[0].url)
       }
     },
     setMediaIndexToZero(mediaType) {
-      if (mediaType == 'images') {
-        this.imageIndex = 0
+      if (mediaType == "images") {
+        this.imageIndex = 0;
       }
-      if (mediaType == 'videos') {
-        this.videoIndex = 0
+      if (mediaType == "videos") {
+        this.videoIndex = 0;
       }
-      if (mediaType == 'audio') {
-        this.audioIndex = 0
+      if (mediaType == "audio") {
+        this.audioIndex = 0;
       }
     },
     updateWindowDims() {
-      const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; // ref: https://stackoverflow.com/a/39345914
-      this.windowWidth = (iOS) ? screen.width : window.innerWidth;
-      this.windowHeight = (iOS) ? screen.height : window.innerHeight;
+      const iOS =
+        /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; // ref: https://stackoverflow.com/a/39345914
+      this.windowWidth = iOS ? screen.width : window.innerWidth;
+      this.windowHeight = iOS ? screen.height : window.innerHeight;
     },
-  }
-}
+  },
+};
 </script>
 
 
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -405,8 +606,8 @@ export default {
 /* To fix poor scroll speed using "background-size: cover" and "background-attachment: fixed"
 Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property/ */
 .background::before {
-  content: ' ';
-  position: fixed;  /* instead of background-attachment */
+  content: " ";
+  position: fixed; /* instead of background-attachment */
   width: 100%;
   height: 100%;
   top: 0;
@@ -419,23 +620,25 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   opacity: var(--backgroundOpacity);
 }
 
-.navLinksContainer, .backToMenuContainer {
+.navLinksContainer,
+.backToMenuContainer {
   opacity: 1;
   transition: opacity 0.5s linear 1s;
 }
 .nav_link {
   color: white;
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 400;
   font-style: italic;
   font-size: 39px;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(28,16,23,0.83);
+  text-shadow: 1px 1px 2px rgba(28, 16, 23, 0.83);
   margin: 0px;
   padding: 0px;
 }
-#nav_prev, #nav_previous {
+#nav_prev,
+#nav_previous {
   position: fixed;
   top: 44%;
   left: 5%;
@@ -465,15 +668,15 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 .heading {
-  color: #FFFFFF;
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  color: #ffffff;
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 400;
   font-size: 42px;
   font-style: normal;
   text-align: left;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgba(28,16,23,0.83);
+  text-shadow: 1px 1px 2px rgba(28, 16, 23, 0.83);
   letter-spacing: 2px;
   line-height: 50px;
   margin: 0px;
@@ -489,9 +692,9 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 #mainContent {
-  color: #FFFFFF;
-  font-family: 'NeueHaasGroteskText Pro55', sans-serif;
-  font-feature-settings: 'liga';
+  color: #ffffff;
+  font-family: "NeueHaasGroteskText Pro55", sans-serif;
+  font-feature-settings: "liga";
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -505,7 +708,7 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 .mediaItems:hover,
 .mediaItems:hover .mediaItemsLabel {
-  color:	#EED047;
+  color: #eed047;
   cursor: pointer;
 }
 .mediaItemsImg {
@@ -513,15 +716,15 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   height: 193px;
 }
 .mediaItems:focus {
-  outline: none;  // remove blue border in iOS Chrome
+  outline: none; // remove blue border in iOS Chrome
 }
 .mediaItemsText {
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 400;
   text-align: left;
   text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.16);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16);
   margin: 0px;
   padding: 0px;
 }
@@ -531,16 +734,14 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   line-height: 30px;
 }
 .galleriesLabel {
-  color: #ECECEC;
+  color: #ececec;
   font-size: 17px;
   line-height: 30px;
 }
 .galleriesLabel:hover {
-  color: #2CACE4;
+  color: #2cace4;
   cursor: pointer;
 }
-
-
 
 /* Transition styles on router-view for fading the page */
 .page-enter-active {
@@ -562,8 +763,6 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   opacity: 1;
 }
 
-
-
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -571,7 +770,8 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   .navLinksContainer {
     display: none;
   }
-  .main-col, .galleriesContainer {
+  .main-col,
+  .galleriesContainer {
     max-width: 100%;
   }
   .nav_link,
@@ -592,10 +792,12 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   header {
     display: flex;
 
-    .headerNavCol, .headerTextCol {
+    .headerNavCol,
+    .headerTextCol {
       align-self: flex-end;
     }
-    #nav_prev, #nav_next {
+    #nav_prev,
+    #nav_next {
       display: block;
       position: relative;
       padding-top: 84px;
@@ -622,7 +824,8 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
     height: auto;
   }
 }
-@media only screen and (max-width: 355px) { /* e.g. for iPhone 5 etc. */
+@media only screen and (max-width: 355px) {
+  /* e.g. for iPhone 5 etc. */
   .heading {
     font-size: 27px;
   }
@@ -633,7 +836,8 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   .navLinksContainer {
     display: none;
   }
-  .main-col, .galleriesContainer {
+  .main-col,
+  .galleriesContainer {
     max-width: 100%;
   }
   .nav_link,
@@ -653,10 +857,12 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   }
   header {
     display: flex;
-    .headerNavCol, .headerTextCol {
+    .headerNavCol,
+    .headerTextCol {
       align-self: flex-end;
     }
-    #nav_prev, #nav_next {
+    #nav_prev,
+    #nav_next {
       display: block;
       position: relative;
       padding-top: 84px;
@@ -687,7 +893,8 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 
 /* Medium devices (tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
-  .main-col, .galleriesContainer {
+  .main-col,
+  .galleriesContainer {
     max-width: 61.46%;
   }
   .heading {
@@ -716,8 +923,9 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
-  .main-col, .galleriesContainer {
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+  .main-col,
+  .galleriesContainer {
     max-width: 61.46%;
   }
   .galleriesContainer {
@@ -726,7 +934,7 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Special */
-@media only screen and (max-width: 1299.98px) { 
+@media only screen and (max-width: 1299.98px) {
   #nav_previous {
     display: none;
   }
@@ -736,13 +944,13 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Special - Larger devices (desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) and (max-width: 1390.98px) { 
-  .main-col, .galleriesContainer {
+@media only screen and (min-width: 1200px) and (max-width: 1390.98px) {
+  .main-col,
+  .galleriesContainer {
     max-width: 61.46%;
   }
   .galleriesContainer {
     padding: 4px 0 20px 0;
   }
 }
-
 </style>
