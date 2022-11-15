@@ -1,0 +1,124 @@
+{
+  "musicalFriendsMusicPages": [
+    {
+      "title": "Eduardo Unz Music",
+      "url": "/musical-journey/musical-friends/eduardo-unz/music",
+      "tracks": [
+        {
+          "title": "Let's Have Lunch"
+        },
+        {
+          "title": "Talk Talk"
+        },
+        {
+          "title": "Last Kiss"
+        },
+        {
+          "title": "Rock Steady"
+        },
+        {
+          "title": "The Spell"
+        },
+        {
+          "title": "Track 2"
+        },
+        {
+          "title": "Track 3"
+        },
+        {
+          "title": "Dicky"
+        },
+        {
+          "title": "Urbaniak 1990 - Track 1 Master"
+        },
+        {
+          "title": "Urbaniak 1990 - Track 2 Master"
+        },
+        {
+          "title": "Urbaniak 1990 - Track 3 Master"
+        }
+      ]
+    },
+    {
+      "title": "Nadia Music",
+      "url": "/musical-journey/musical-friends/nadia/music",
+      "tracks": [
+        {
+          "title": "The Love Pill",
+          "caption": "Hopefully in R&D right now with a big pharmaceutical company. Soon in a drug store near you?",
+          "imgSrc": "01_Icon-Love_Pill"
+        },
+        {
+          "title": "You're Gonna Want Me Back",
+          "caption": "Eat your heart out sucker…You blew it!",
+          "imgSrc": "02_Icon-youregonna"
+        },
+        {
+          "title": "My Prayer Came Through",
+          "caption": "Dream Guy comes into her life…to stay.",
+          "imgSrc": "03_Icon-myprayer"
+        },
+        {
+          "title": "Both Ways",
+          "caption": "The Whore/Madonna Complex in music and song. Every guy’s dream?",
+          "imgSrc": "04_Icon-bothways"
+        },
+        {
+          "title": "One Heart Divided By Two",
+          "caption": "Torn. And who of us hasn’t been there? How do you choose?",
+          "imgSrc": "05_Icon-oneheartdivided"
+        },
+        {
+          "title": "Connected To You",
+          "caption": "It’s mystical, it’s magical. Sometimes we get lucky.",
+          "imgSrc": "06_Icon-connectedtoyou"
+        },
+        {
+          "title": "Yo Yo",
+          "caption": "Dancing on a string wrapped around his finger. Up and down she goes.",
+          "imgSrc": "07_Icon-yoyo"
+        },
+        {
+          "title": "Like I Will",
+          "caption": "I’m so right for you, she’s so wrong. Let me tell you all the ways.",
+          "imgSrc": "08_Icon-likeiwill"
+        },
+        {
+          "title": "In Another Life",
+          "caption": "Another poor girl caught up in an age old dilemma. “Just wait until I’m free” sez he.",
+          "imgSrc": "09_Icon-inanotherlife"
+        },
+        {
+          "title": "No U In Us",
+          "caption": "He’s already gone. He just didn’t leave yet.",
+          "imgSrc": "10_Icon-No_You_in_Us"
+        },
+        {
+          "title": "Too Right",
+          "caption": "He seems so cool, so perfect. What’s the catch?",
+          "imgSrc": "11_Icon-tooright"
+        },
+        {
+          "title": "Next",
+          "caption": "Sometimes you just gotta cut your losses. Modern Girl. No Tears. No Regrets.",
+          "imgSrc": "12_Icon-next"
+        },
+        {
+          "title": "You'll Never Use Up All Of My Love",
+          "caption": "An inexhaustible supply of the real thing",
+          "imgSrc": "13_Icon-youllnever"
+        },
+        {
+          "title": "The Goodbye In Your Eyes",
+          "caption": "She can see it in his eyes",
+          "imgSrc": "14_Icon-Goodbye_in_Eyes"
+        },
+        {
+          "title": "The Wall of China",
+          "caption": "A breaking heart needs protection",
+          "imgSrc": "15_Icon-Wall_of_China"
+        }
+      ]
+    }
+  ]
+}
