@@ -6,9 +6,12 @@
       </div>
 
       <div class="mt-4">
-        <b-button variant="danger" @click="onPlayAllClick()">{{
-          playBtnText
-        }}</b-button>
+        <b-button
+          variant="danger"
+          @click="onPlayAllClick()"
+          data-testid="play-all"
+          >{{ playBtnText }}</b-button
+        >
       </div>
 
       <div

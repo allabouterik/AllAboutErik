@@ -53,6 +53,38 @@ Cypress.Commands.add('expectPlayingAudio', () => {
     });
 });
 
+Cypress.Commands.add('expectAudioPlaying', { prevSubject: true }, (element) => {
+  cy.get(element)
+    .find('audio')
+    .should((els) => {
+      let audible = false;
+      els.each((i, el) => {
+        if (el.duration > 0 && !el.paused && !el.muted) {
+          audible = true;
+        }
+      });
+      expect(audible).to.eq(true);
+    });
+});
+
+Cypress.Commands.add(
+  'expectAudioNotPlaying',
+  { prevSubject: true },
+  (element) => {
+    cy.get(element)
+      .find('audio')
+      .should((els) => {
+        let audible = false;
+        els.each((i, el) => {
+          if (el.duration > 0 && !el.paused && !el.muted) {
+            audible = true;
+          }
+        });
+        expect(audible).to.eq(false);
+      });
+  }
+);
+
 Cypress.Commands.add('isScrolledTo', { prevSubject: true }, (element) => {
   cy.get(element).should(($el) => {
     const bottom = Cypress.$(cy.state('window')).height();
