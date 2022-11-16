@@ -12,6 +12,6 @@ describe('The Home Page', () => {
   });
 
   it('audio is playing', () => {
-    cy.expectPlayingAudio();
+    cy.expectBackgroundPlayingAudio();
   });
 });

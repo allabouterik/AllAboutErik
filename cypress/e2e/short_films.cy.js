@@ -15,7 +15,7 @@ describe('Short Films Page - standard tests', () => {
   });
 
   it('audio is playing', () => {
-    cy.expectPlayingAudio();
+    cy.expectBackgroundPlayingAudio();
   });
 });
 

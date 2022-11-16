@@ -15,7 +15,7 @@ describe('Roots and Youth Page - standard tests', () => {
   });
 
   it('audio is playing', () => {
-    cy.expectPlayingAudio();
+    cy.expectBackgroundPlayingAudio();
   });
 });
 

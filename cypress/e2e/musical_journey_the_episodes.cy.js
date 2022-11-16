@@ -15,7 +15,7 @@ describe('The Episodes Page - standard tests', () => {
   });
 
   it('audio is playing', () => {
-    cy.expectPlayingAudio();
+    cy.expectBackgroundPlayingAudio();
   });
 });
 

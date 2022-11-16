@@ -15,7 +15,7 @@ describe('Musical Friends Page - standard tests', () => {
   });
 
   it('audio is playing', () => {
-    cy.expectPlayingAudio();
+    cy.expectBackgroundPlayingAudio();
   });
 });
 

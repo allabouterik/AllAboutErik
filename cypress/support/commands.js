@@ -39,7 +39,7 @@ Cypress.Commands.add('findAudioPlayingIcon', () => {
     .should('include', 'Mute background music');
 });
 
-Cypress.Commands.add('expectPlayingAudio', () => {
+Cypress.Commands.add('expectBackgroundPlayingAudio', () => {
   cy.get('.soundIconContainer')
     .find('audio')
     .should((els) => {
