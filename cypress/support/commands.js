@@ -131,3 +131,19 @@ Cypress.Commands.add('getIframeBody', (index = 0) => {
 Cypress.Commands.add('findVimeoPlayButton', (index = 0) => {
   return cy.getIframeBody(index).find(`.player button[aria-label='Play']`);
 });
+
+function unquote(str) {
+  return str.replace(/(^")|("$)/g, '');
+}
+
+Cypress.Commands.add(
+  'after',
+  {
+    prevSubject: 'element',
+  },
+  (el, property) => {
+    const win = el[0].ownerDocument.defaultView;
+    const after = win.getComputedStyle(el[0], 'after');
+    return unquote(after.getPropertyValue(property));
+  }
+);

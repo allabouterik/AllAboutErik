@@ -39,6 +39,7 @@
           :key="'S' + iSec + 1"
           no-gutters
           class="pt-3 pb-2"
+          data-testid="production-container"
         >
           <div
             v-if="
@@ -137,7 +138,7 @@
       <!-- LAYOUT FOR DESKTOPS -->
       <div v-else>
         <!-- SECTIONS[0] - BOBO THE CHEERLEADER -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div style="flex: 1" class="mr-3">
             <music-production
               v-for="(production, iProd) in sections[0].productions"
@@ -167,7 +168,7 @@
         </b-row>
 
         <!-- SECTIONS[1] - SOUND OF SUMMER SHOWERS -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div
             style="width: 36.5%; max-width: 410px"
             v-if="sections[1].textBoxes.length > 0"
@@ -198,7 +199,7 @@
         </b-row>
 
         <!-- SECTIONS[2] - A LITTLE LOVIN' -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div style="flex: 1" class="mr-3">
             <music-production
               v-for="(production, iProd) in sections[2].productions"
@@ -228,7 +229,7 @@
         </b-row>
 
         <!-- SECTIONS[3] - THE SLURP -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div id="theSlurpTextCol" v-if="sections[3].textBoxes.length > 0">
             <music-production-text
               v-for="(textBox, iText) in sections[3].textBoxes"
@@ -273,7 +274,7 @@
         </b-row>
 
         <!-- SECTIONS[4] - ROOTY TOOT & WARM BABY -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div id="rootyTootTextBox" v-if="sections[4].textBoxes.length > 0">
             <music-production-text
               :title="sections[4].textBoxes[0].heading"
@@ -320,7 +321,7 @@
         </b-row>
 
         <!-- SECTIONS[5] - CASS, DENNY, JESTER, ZAL -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div style="flex: 1" class="mr-3">
             <music-production
               v-for="(production, iProd) in sections[5].productions"
@@ -351,7 +352,7 @@
         </b-row>
 
         <!-- SECTIONS[6] - LADY GODIVA' -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div
             style="width: 32.3%; min-width: 380px"
             v-if="sections[6].textBoxes.length > 0"
@@ -381,7 +382,7 @@
         </b-row>
 
         <!-- SECTIONS[7] - TWEEDLE DUM'S DRIVE-IN -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div style="max-width: 1095px; flex: 1" class="mr-3">
             <music-production
               v-for="(production, iProd) in sections[7].productions"
@@ -406,7 +407,7 @@
         </b-row>
 
         <!-- SECTIONS[8] - THE STRANGERS -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div
             style="width: 26.75%; max-width: 340px"
             v-if="sections[3].textBoxes.length > 0"
@@ -439,7 +440,7 @@
         </b-row>
 
         <!-- SECTIONS[9] - THE SELLOUTS -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div style="max-width: 805px; flex: 1" class="mr-3">
             <music-production
               v-for="(production, iProd) in sections[9].productions"
@@ -469,7 +470,7 @@
         </b-row>
 
         <!-- SECTIONS[10] - KEN & BOBBY FISCHLER -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div
             style="width: 32.11%; min-width: 246px"
             v-if="sections[10].textBoxes.length > 0"
@@ -499,7 +500,7 @@
         </b-row>
 
         <!-- SECTIONS[11] - RAY ROE -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div style="flex: 1" class="mr-3">
             <music-production
               v-for="(production, iProd) in sections[11].productions"
@@ -529,7 +530,7 @@
         </b-row>
 
         <!-- SECTIONS[12] - KEN MELVILLE -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div
             style="width: 29.13%; min-width: 280px"
             v-if="sections[12].textBoxes.length > 0"
@@ -559,7 +560,7 @@
         </b-row>
 
         <!-- SECTIONS[13] - TIM HARDIN -->
-        <b-row no-gutters class="py-4">
+        <b-row no-gutters class="py-4" data-testid="production-container">
           <div style="flex: 1">
             <music-production
               v-for="(production, iProd) in sections[13].productions"
@@ -587,7 +588,7 @@
         </b-row>
 
         <!-- SECTIONS[14] - PLUMB CREEK BOYS -->
-        <b-row no-gutters class="pt-4 pb-5">
+        <b-row no-gutters class="pt-4 pb-5" data-testid="production-container">
           <div
             style="width: 25.5%; min-width: 310px"
             v-if="sections[14].textBoxes.length > 0"

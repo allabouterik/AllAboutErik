@@ -1,0 +1,405 @@
+{
+  "productions": [
+    {
+      "title": "Bobo the Cheerleader's Song",
+      "imgSrc": "cheerleaders_-_Cropped",
+      "bgImgSrc": "cheerleaders_background",
+      "creditsText": "WRITER: Erik Jacobsen // ARTIST: Little Peetie Love",
+      "body": "I wrote the song and recorded it under the stage name of Little Peetie Love, don’t ask me why. Jack Holzman actually considered releasing it but look at the letter of rejection he sent me.",
+      "lightboxes": [
+        {
+          "text": "Original Lyrics",
+          "type": "image",
+          "imgSrc": "Original_Lyrics_-_bobowritten-clean"
+        },
+        {
+          "text": "Rejection Letter",
+          "type": "image",
+          "imgSrc": "Bobo_rejection_letter"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Bobo the Cheerleader's Song",
+          "time": "02:19"
+        }
+      ]
+    },
+    {
+      "title": "Sound of Summer Showers",
+      "imgSrc": "jerryyester2_-_Cropped",
+      "bgImgSrc": "sound_of_summer_showers_record_-_img_3140_background",
+      "creditsText": "WRITER: Erik Jacobsen // ARTIST: Jerry Yester",
+      "body": "Jerry Yester did a great job on a song I wrote. We recorded several other songs together. I think Henry Diltz and some other pals sang backup.",
+      "lightboxes": [
+        {
+          "text": "Original Vinyl",
+          "type": "image",
+          "imgSrc": "summershowers_vinyl"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Sound of Summer Showers",
+          "time": "02:32"
+        }
+      ]
+    },
+    {
+      "title": "A Little Lovin'",
+      "imgSrc": "dwain_story_pic_-_Cropped",
+      "bgImgSrc": "dwain_story_pic_background",
+      "creditsText": "WRITER: Erik Jacobsen // ARTIST: Dwain Story",
+      "body": "My old partner Dwain Story sang on a song I wrote called \"A Little Lovin\". I'm pretty sure some guys from The Spoonful backed him up on this one.",
+      "lightboxes": [
+        {
+          "text": "Original Vinyl",
+          "type": "image",
+          "imgSrc": "dwain-little_lovin-vinyl-lg"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "A Little Lovin'",
+          "time": "02:20"
+        }
+      ]
+    },
+    {
+      "title": "The Slurp",
+      "imgSrc": "img402-sm_-_Cropped",
+      "imgSrc2": "dwainstory_-_Cropped",
+      "bgImgSrc": "img402-sm_background",
+      "bgImgSrc2": "dwainstory_background",
+      "creditsText": "WRITER: Erik Jacobsen // ARTISTS: Dee & Zee",
+      "creditsText2": "WRITER: Erik Jacobsen // ARTIST: Dwain Story",
+      "body": "After I resigned from the banjo business I stayed in Greenwich village, trying to write songs and make some recordings, including the pathetically naive concept of starting my own dance craze, which I called The Slurp.\r\n\nI recorded several different songs and artists, including my old partner Dwain Story, as well as Dee & Z, Denny Doherty and Zal Yanovsky. Understandably none ever got released. A totally cringe worthy concept from the start.",
+      "lightboxes": [
+        {
+          "text": "Tony Studd Contract",
+          "type": "image",
+          "imgSrc": "tony_studd_contract"
+        },
+        {
+          "text": "Slurp Sound",
+          "type": "audio",
+          "audioSrc": "slurp-sound"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "The Slurp - I Got the Word",
+          "time": "02:06"
+        },
+        {
+          "title": "The Slurp",
+          "time": "01:56"
+        },
+        {
+          "title": "The Slurp - Slurpin to the East and West",
+          "time": "01:58"
+        },
+        {
+          "title": "The Slurp - #3",
+          "time": "02:30"
+        }
+      ]
+    },
+    {
+      "title": "Rooty Toot",
+      "imgSrc": "movietrivia_3540_-_Cropped",
+      "bgImgSrc": "rooty_toot_record_-_img_2323-sm_background",
+      "body": "The first of John’s songs we recorded together was called Rooty Toot, a song he had written as a teenager with his cousin. The two of us went into the studio. John played guitar, harp, and sang lead vocal. We had some vocal backup singers and we put on chimes and clapped.",
+      "title2": "Warm Baby",
+      "body2": "This was the demo version we recorded of John’s first composition, written shortly before we got the spoonful going.",
+      "creditsText": "WRITER: John Sebastian // ARTIST: John Sebastian",
+      "lightboxes": [
+        {
+          "text": "Recording Receipt",
+          "type": "image",
+          "imgSrc": "warm_baby_recording_receipt"
+        },
+        {
+          "text": "Original Vinyl",
+          "type": "image",
+          "imgSrc": "warm_baby_vinyl"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Rooty Toot",
+          "time": "00:48"
+        },
+        {
+          "title": "Warm Baby",
+          "time": "01:52"
+        }
+      ]
+    },
+    {
+      "title": "Cass, Denny Doherty, Jerry Yester, Zal",
+      "imgSrc": "cass_-_Cropped",
+      "bgImgSrc": "cass_copyfill_background",
+      "creditsText": "ARTISTS: Cass Elliot, Denny Doherty, Jerry Yester, Zal Yanovsky",
+      "body": "I recorded several tunes with this cast of characters, Cass, Denny Doherty, Jerry Yester, Zal and possibly others.",
+      "tracks": [
+        {
+          "title": "Oh Suzanna",
+          "time": "01:46"
+        },
+        {
+          "title": "Tom Dooley",
+          "time": "02:01"
+        },
+        {
+          "title": "Fun Fun - Zal & Cass",
+          "time": "02:23"
+        },
+        {
+          "title": "Hold Still - Zal & Cass",
+          "time": "02:09"
+        }
+      ]
+    },
+    {
+      "title": "Lady Godiva",
+      "imgSrc": "godivacar_-_Cropped",
+      "bgImgSrc": "godivacar_background",
+      "creditsText": "WRITER: Erik Jacobsen // ARTISTS: John Sebastian, Jerry Yester",
+      "body": "Erik goes surfin! Arrangement help from Felix Pappalardi, with John Sebastian and Jerry Yester singing lead. Henry Diltz and others in the backup vocal group.",
+      "lightboxes": [
+        {
+          "text": "Original Vinyl",
+          "type": "image",
+          "imgSrc": "godiva-vinyl"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Lady Godiva",
+          "time": "02:13"
+        }
+      ]
+    },
+    {
+      "imgSrc": "drive-thru_-_Cropped",
+      "bgImgSrc": "drive-thru_background",
+      "creditsText": "WRITERS: Erik Jacobsen & Henry Diltz // ARTIST: A Surfin' Crew",
+      "lightboxes": [
+        {
+          "text": "Original Lyrics",
+          "type": "image",
+          "imgSrc": "tweedle-lyrics"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Tweedlede Dum's Drive-In",
+          "time": "02:00"
+        }
+      ]
+    },
+    {
+      "title": "The Strangers",
+      "imgSrc": "strangers_group_pic_-_Cropped",
+      "bgImgSrc": "strangers_grouppic_background",
+      "creditsText": "ARTIST: The Strangers",
+      "body": "Talented group of guys from New York City with a sweet and singular take on Motown and R&B classics as well as some great original songs.",
+      "lightboxes": [
+        {
+          "text": "Original Vinyl",
+          "type": "image",
+          "imgSrc": "thestrangersvinyl"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "Twelve Day Lover",
+          "time": "02:36"
+        },
+        {
+          "title": "Just Friends",
+          "time": "01:55"
+        },
+        {
+          "title": "Don't Lead Me",
+          "time": "02:15"
+        },
+        {
+          "title": "Tell Her For Me",
+          "time": "02:26"
+        },
+        {
+          "title": "Land of Music",
+          "time": "02:22"
+        },
+        {
+          "title": "I Need Your Love Inside Me",
+          "time": "02:17"
+        }
+      ]
+    },
+    {
+      "title": "The Sellouts",
+      "imgSrc": "img021-eyesopen_-_Cropped",
+      "bgImgSrc": "img021-eyesopen_background",
+      "creditsText": "WRITER: Erik Jacobsen // ARTIST: The Sellouts",
+      "body": "The group, from Long Island, was the first rock band to show up in The Village, Joe Butler sang lead. I signed them and we cut these 3 sides. Before we could get going, I was distracted trying to get a rhythm section together for the Spoonful. The Sellout’s guitar player, Skip Boone, suggested his younger brother Steve for bass. Shortly thereafter, the Sellouts drummer, Joe Butler took over as the Spoonful’s drummer.",
+      "lightboxes": [
+        {
+          "text": "Original Lyrics",
+          "type": "image",
+          "imgSrc": "ill_tell_you_lyrics"
+        },
+        {
+          "text": "Original Lyrics",
+          "type": "image",
+          "imgSrc": "let_it_show_lyrics"
+        }
+      ],
+      "tracks": [
+        {
+          "title": "I'll Tell You",
+          "time": "02:22"
+        },
+        {
+          "title": "Bleecker & Macdougal (Written by Fred Neil)",
+          "time": "02:33"
+        },
+        {
+          "title": "Let It Show",
+          "time": "02:21"
+        }
+      ]
+    },
+    {
+      "title": "Ken & Bobby Fischler",
+      "imgSrc": "e4f19a583d_b_-_Cropped",
+      "bgImgSrc": "e4f19a583d_b_background",
+      "creditsText": "WRITER: Ken Fischler // ARTISTS: Ken & Bobby Fischler",
+      "body": "A one shot attempt on a nice song that didn’t make.",
+      "tracks": [
+        {
+          "title": "Down on the River Road",
+          "time": "02:04"
+        }
+      ]
+    },
+    {
+      "title": "Ray Roe",
+      "imgSrc": "cowboy-playing-guitar_-_Cropped",
+      "bgImgSrc": "cowboy-playing-guitar_background",
+      "creditsText": "WRITER: Ray Roe // ARTIST: Ray Roe",
+      "body": "I liked the songs but really couldn’t find anybody to play them for.",
+      "tracks": [
+        {
+          "title": "Dyin' a Dime at a Time",
+          "time": "02:54"
+        },
+        {
+          "title": "Think Success",
+          "time": "02:43"
+        }
+      ]
+    },
+    {
+      "title": "Ken Melville",
+      "imgSrc": "acoustic-guitar-photography-reflection_-_Cropped",
+      "bgImgSrc": "acoustic-guitar-photography-reflection_background",
+      "creditsText": "WRITER: Ken Melville // ARTIST: Ken Melville",
+      "body": "A sad tale of an aspiring musician who tried too hard to escape his frustration and pain.",
+      "tracks": [
+        {
+          "title": "Bill",
+          "time": "03:23"
+        }
+      ]
+    },
+    {
+      "title": "Tim Hardin",
+      "imgSrc": "tim-hardin-img316-cropped",
+      "bgImgSrc": "tim-hardin-img316_background",
+      "creditsText": "WRITER: Tim Hardin // ARTIST: Tim Hardin",
+      "body": "I made this demo with Timmy, in Gold Star Studios in 1966, I think. The drummer sounded like the guy we worked up \"If I Were a Carpenter\" with.  It's raggedy and loose-for interest value only.",
+      "tracks": [
+        {
+          "title": "See Where You Are and Get Out",
+          "time": "01:11"
+        },
+        {
+          "title": "He Could be a Hollywood Star",
+          "time": "03:24"
+        },
+        {
+          "title": "Child of Sunshine",
+          "time": "02:48"
+        },
+        {
+          "title": "It's Hard to Believe in Love for Long",
+          "time": "02:11"
+        },
+        {
+          "title": "Love Without Pain",
+          "time": "02:35"
+        },
+        {
+          "title": "Look at me Running",
+          "time": "03:09"
+        }
+      ]
+    },
+    {
+      "title": "Plum Creek Boys - at Oberlin College",
+      "imgSrc": "ep4_-_Cropped",
+      "bgImgSrc": "ep4_background",
+      "creditsText": "ARTIST: Plumb Creek Boys",
+      "body": "Someone sent me this tape of my Bluegrass group at college recorded a year or two before I went professional. I don’t know who all was playing or singing. We never knew who would show up to play at any given performance. Sloppy as could be, but we were going for it! You gotta start somewhere.",
+      "tracks": [
+        {
+          "title": "Track One",
+          "time": "03:19"
+        },
+        {
+          "title": "Track Two",
+          "time": "03:52"
+        },
+        {
+          "title": "Track Three",
+          "time": "03:23"
+        },
+        {
+          "title": "Track Four",
+          "time": "02:35"
+        },
+        {
+          "title": "Track Five",
+          "time": "01:43"
+        },
+        {
+          "title": "Track Six",
+          "time": "02:23"
+        },
+        {
+          "title": "Track Seven",
+          "time": "02:06"
+        },
+        {
+          "title": "Track Eight",
+          "time": "03:11"
+        },
+        {
+          "title": "Track Nine",
+          "time": "03:08"
+        },
+        {
+          "title": "Track Ten",
+          "time": "02:26"
+        },
+        {
+          "title": "Track Eleven",
+          "time": "02:14"
+        }
+      ]
+    }
+  ]
+}
