@@ -11,7 +11,11 @@
       "
     />
 
-    <div v-for="(img, index) in backgroundImages" :key="index">
+    <div
+      v-for="(img, index) in backgroundImages"
+      :key="index"
+      data-testid="background-img-container"
+    >
       <g-image
         :src="img.img"
         class="bgImg bgImgBack"
@@ -54,6 +58,7 @@
           v-for="(album, index) in albums"
           :key="index"
           class="mt-4 mb-2 mb-md-3 mb-lg-4 albumText"
+          data-testid="album-container"
         >
           <b-row>
             <b-col>
