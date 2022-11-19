@@ -163,7 +163,7 @@ describe('Early Productions Page - page specific tests', () => {
               .click();
 
             cy.get('.image-lightbox__content')
-              .find('img.loaded')
+              .find('img.loaded', { timeout: 6000 })
               .should('have.length', 1);
 
             cy.get('.image-lightbox__content')
