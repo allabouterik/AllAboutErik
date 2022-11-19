@@ -221,13 +221,11 @@ export default {
       } else return 0;
     },
     bgImgOverlayIndex() {
-      if (this.scrollGap != null) {
-        if (this.scrollY >= this.scrollGap / 2)
-          return Math.min(
-            Math.floor((this.scrollY - this.scrollGap / 2) / this.scrollGap),
-            this.backgroundImages.length - 1
-          );
-        else return null;
+      if (this.scrollGap != null && this.scrollY >= this.scrollGap / 2) {
+        return Math.min(
+          Math.floor((this.scrollY - this.scrollGap / 2) / this.scrollGap),
+          this.backgroundImages.length - 1
+        );
       } else return null;
     },
     bgStyles() {
