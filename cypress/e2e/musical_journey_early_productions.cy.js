@@ -41,6 +41,11 @@ describe('Early Productions Page - page specific tests', () => {
     cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
+  it('clicking back to top button scrolls the page to the top', () => {
+    cy.get('main').find('#scrollToTopBtn').click();
+    cy.get('#titleImg').isScrolledTo();
+  });
+
   productions.forEach((production, index) => {
     if (production.hasOwnProperty('title')) {
       it(`Production ${index + 1} has the correct title: ${
