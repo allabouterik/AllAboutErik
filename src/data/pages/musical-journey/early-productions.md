@@ -291,7 +291,7 @@ sections:
         bgColor: 'rgba(221,221,221,0.32)'
         bgImg: >-
           https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1576018297/Musical%20Journey/Early%20Productions/Production%20Sections/10%20-%20The%20Sellouts/img021-eyesopen_background_bmjlgh.png
-        bgImgPos: bottom-right
+        bgImgPos: center
         bgOpacity: 1
         image: >-
           https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1578353284/Musical%20Journey/Early%20Productions/Production%20Sections/10%20-%20The%20Sellouts/img021-eyesopen_-_Cropped_y9trmn.jpg
@@ -459,4 +459,5 @@ sections:
           given performance. Sloppy as could be, but we were going for it! You
           gotta start somewhere.
 ---
+
 When I came off the road with the Knoblick Upper 10,000, I settled down in Greenwich Village in 1964 to write songs, look for artists, and make records
