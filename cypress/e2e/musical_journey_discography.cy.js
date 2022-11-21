@@ -1,3 +1,6 @@
+import * as data from '../fixtures/discography.json';
+const { albums } = data;
+
 describe('Discography Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/musical-journey/discography');
@@ -74,5 +77,62 @@ describe('Early Productions Page - page specific tests', () => {
 
   it('has 37 albums', () => {
     cy.get('[data-testid="album-container"]').should('have.length', 37);
+  });
+
+  albums.forEach((album, albumIndex) => {
+    it(`Album ${albumIndex + 1} has the correct title: ${album.title}`, () => {
+      cy.get('[data-testid="album-container"]')
+        .eq(albumIndex)
+        .find('.albumTitle')
+        .should('contain.text', album.title);
+    });
+
+    it(`Album ${albumIndex + 1} has the correct intro text`, () => {
+      cy.get('[data-testid="album-container"]')
+        .eq(albumIndex)
+        .find('.albumIntroText')
+        .should('contain.text', album.intro);
+    });
+
+    it(`Album ${albumIndex + 1} has the correct image`, () => {
+      cy.get('[data-testid="album-container"]')
+        .eq(albumIndex)
+        .find('img')
+        .should('have.attr', 'src')
+        .should('include', album.imgSrc);
+    });
+
+    if (album.hasOwnProperty('numberOfTracksSideTwo')) {
+      it(`Album ${albumIndex + 1} has ${
+        album.numberOfTracks
+      } tracks listed for Side One`, () => {
+        cy.get('[data-testid="album-container"]')
+          .eq(albumIndex)
+          .find('.discography_albumTrackListing ol')
+          .eq(0)
+          .children()
+          .should('have.length', album.numberOfTracks);
+      });
+      it(`Album ${albumIndex + 1} has ${
+        album.numberOfTracksSideTwo
+      } tracks listed for Side Two`, () => {
+        cy.get('[data-testid="album-container"]')
+          .eq(albumIndex)
+          .find('.discography_albumTrackListing ol')
+          .eq(1)
+          .children()
+          .should('have.length', album.numberOfTracksSideTwo);
+      });
+    } else {
+      it(`Album ${albumIndex + 1} has ${
+        album.numberOfTracks
+      } tracks listed`, () => {
+        cy.get('[data-testid="album-container"]')
+          .eq(albumIndex)
+          .find('.discography_albumTrackListing ol')
+          .children()
+          .should('have.length', album.numberOfTracks);
+      });
+    }
   });
 });
