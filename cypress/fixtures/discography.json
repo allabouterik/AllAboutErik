@@ -1,4 +1,98 @@
 {
+  "backgrounds": [
+    {
+      "imgSrc": "01_erik-john-zal-header",
+      "imgOverlaySrc": "sage"
+    },
+    {
+      "imgSrc": "02_knoblick-performing-crop",
+      "imgOverlaySrc": "dr-blue"
+    },
+    {
+      "imgSrc": "03_norman-studio-crop",
+      "imgOverlaySrc": "dr-sage"
+    },
+    {
+      "imgSrc": "04_tim-and-erik-studio-1hardin-crop",
+      "imgOverlaySrc": "blue"
+    },
+    {
+      "imgSrc": "05_sp16-crop",
+      "imgOverlaySrc": "orange"
+    },
+    {
+      "imgSrc": "06_meandnormie",
+      "imgOverlaySrc": "yellow"
+    },
+    {
+      "imgSrc": "07_erik-studio-spoonful-crop2",
+      "imgOverlaySrc": "violet"
+    },
+    {
+      "imgSrc": "08_taz-studio-crop",
+      "imgOverlaySrc": "br-blue"
+    },
+    {
+      "imgSrc": "09_norman-studio3-crop",
+      "imgOverlaySrc": "dr-blue"
+    },
+    {
+      "imgSrc": "10_groupshot-crop",
+      "imgOverlaySrc": "orange"
+    },
+    {
+      "imgSrc": "11_dan-and-i",
+      "imgOverlaySrc": "red"
+    },
+    {
+      "imgSrc": "12_sp-_zal-joe-crop",
+      "imgOverlaySrc": "yellow"
+    },
+    {
+      "imgSrc": "13_chris-erik-goldrecords-crop",
+      "imgOverlaySrc": "sage"
+    },
+    {
+      "imgSrc": "14_rita-sm-crop",
+      "imgOverlaySrc": "dr-sage"
+    },
+    {
+      "imgSrc": "15_urbanik-crop",
+      "imgOverlaySrc": "blue"
+    },
+    {
+      "imgSrc": "16_chris2-crop",
+      "imgOverlaySrc": "orange"
+    },
+    {
+      "imgSrc": "17_sp13-crop",
+      "imgOverlaySrc": "sage"
+    },
+    {
+      "imgSrc": "18_norman2-crop",
+      "imgOverlaySrc": "yellow"
+    },
+    {
+      "imgSrc": "19_rita-class-split",
+      "imgOverlaySrc": "violet"
+    },
+    {
+      "imgSrc": "20_fuc-crop",
+      "imgOverlaySrc": "br-blue"
+    },
+    {
+      "imgSrc": "21_taz-show",
+      "imgOverlaySrc": "dr-blue"
+    },
+    {
+      "imgSrc": "22_brianelliot-studio",
+      "imgOverlaySrc": "dr-sage"
+    },
+    {
+      "imgSrc": "23_erik-madonna-gold",
+      "imgOverlaySrc": "red"
+    }
+  ],
   "albums": [
     {
       "title": "Knob Lick Upper 10,000 - The Introduction of Knob Lick Upper 10,000",

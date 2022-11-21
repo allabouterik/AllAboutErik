@@ -1,5 +1,5 @@
 import * as data from '../fixtures/discography.json';
-const { albums } = data;
+const { albums, backgrounds } = data;
 
 describe('Discography Page - standard tests', () => {
   it('successfully loads', () => {
@@ -134,5 +134,21 @@ describe('Early Productions Page - page specific tests', () => {
           .should('have.length', album.numberOfTracks);
       });
     }
+  });
+
+  backgrounds.forEach((bg, bgIndex) => {
+    const scrollPosY = ((100 * bgIndex) / backgrounds.length).toFixed(3) + '%';
+
+    it(`Scrolling to ${scrollPosY} shows the correct background and overlay images`, () => {
+      cy.scrollTo(0, scrollPosY);
+      cy.get('.bgImg.bgImgBack')
+        .eq(bgIndex)
+        .should('have.attr', 'src')
+        .should('include', bg.imgSrc);
+      cy.get('.bgImg.bgImgOverlay')
+        .eq(bgIndex)
+        .should('have.attr', 'src')
+        .should('include', bg.imgOverlaySrc);
+    });
   });
 });
