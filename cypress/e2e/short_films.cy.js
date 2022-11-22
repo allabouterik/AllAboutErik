@@ -21,7 +21,7 @@ describe('Short Films Page - standard tests', () => {
 
 describe('Short Films Page - page specific tests', () => {
   it('has main vimeo video autoplaying', () => {
-    cy.getIframeBody(0).find('.vp-controls button.play.state-playing');
+    cy.getIframeBody(0).find('button[aria-label="Pause"]');
   });
 
   it('has eight video containers', () => {
