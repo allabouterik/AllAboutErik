@@ -14,7 +14,7 @@ bgAudioDuration: 175
 bgAudioFadeInDuration: 3.5
 bgAudioFadeOutDuration: 3.5
 videos:
-  - duration: 1362
+  - duration: 1365
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642922/Travels/norway_wtnfj7.jpg
     title: Norway - Hurtigruten Cruise
@@ -24,17 +24,17 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/malaysia_zcxazn.jpg
     title: Peninsular Malaysia
     url: 'https://player.vimeo.com/video/298625007'
-  - duration: 1542
+  - duration: 1524
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/uae_pdtrdu.jpg
     title: Black Gold - United Arab Emirates & Oman
     url: 'https://player.vimeo.com/video/460734403'
-  - duration: 1588
+  - duration: 1590
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/samba_mofqhz.jpg
     title: Carnival in Brazil
     url: 'https://player.vimeo.com/video/129839794'
-  - duration: 1768
+  - duration: 1767
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_kmen3j.jpg
     title: India - Mumbai to the Malibar Coast
@@ -44,7 +44,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/singapore_vrzl3t.jpg
     title: Singapore
     url: 'https://player.vimeo.com/video/281884450'
-  - duration: 466
+  - duration: 465
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/seychelles_xa3hds.jpg
     title: The Seychelles
@@ -54,28 +54,28 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/capetown_njc5zv.jpg
     title: Capetown
     url: 'https://player.vimeo.com/video/342796945'
-  - duration: 1013
+  - duration: 1012
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/bali_si2btf.jpg
     title: Bali
     url: 'https://player.vimeo.com/video/212333307'
     width: 1321.33
     height: 990.992
-  - duration: 1082
+  - duration: 1069
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/cuba_fgmvfk.jpg
     title: Cuba
     url: 'https://player.vimeo.com/video/140978809'
     width: 1321.33
     height: 990.992
-  - duration: 1159
+  - duration: 1166
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/papua_viclph.jpg
     title: Papua New Guinea
     url: 'https://player.vimeo.com/video/211560875'
     width: 1321.33
     height: 990.992
-  - duration: 670
+  - duration: 674
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580647124/Travels/venice_cemorb.jpg
     title: Venice
@@ -94,7 +94,7 @@ videos:
     url: 'https://player.vimeo.com/video/211544218'
     width: 1321.33
     height: 990.992
-  - duration: 265
+  - duration: 270
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/holland_woygop.jpg
     title: Holland - Amsterdam
@@ -111,14 +111,14 @@ videos:
     url: 'https://player.vimeo.com/video/111801736'
     width: 1321.33
     height: 990.992
-  - duration: 654
+  - duration: 653
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/baltic_mvyknf.jpg
     title: The Baltic Cruise
     url: 'https://player.vimeo.com/video/213149248'
     width: 1321.33
     height: 990.992
-  - duration: 581
+  - duration: 580
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/rajaampat_vbaqi6.jpg
     title: Raja Ampat
@@ -133,7 +133,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_kmen3j.jpg
     title: India - Mumbai
     url: 'https://player.vimeo.com/video/269702189'
-  - duration: 484
+  - duration: 483
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mangalore_oxmfsl.jpg
     title: India - Mangalore
@@ -180,17 +180,17 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580647803/Travels/japan_hno20g.jpg
     title: Japan
     url: 'https://player.vimeo.com/video/386613137'
-  - duration: 475
+  - duration: 474
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588627870/Travels/Tahiti_c0p1re.jpg
     title: Tahiti
     url: 'https://player.vimeo.com/video/396573214'
-  - duration: 329
+  - duration: 331
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588627933/Travels/Capri_q1eqyf.jpg
     title: Capri & The Famous Blue Grotto
     url: 'https://player.vimeo.com/video/421757880'
-  - duration: 1076
+  - duration: 955
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1600810319/Travels/barcelona.jpg
     title: Barcelona
@@ -225,7 +225,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/mozambique-maputo.jpg
     title: Mozambique Maputo
     url: 'https://player.vimeo.com/video/543330394'
-  - duration: 442
+  - duration: 441
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/zanzibar.jpg
     title: Zanzibar
@@ -241,7 +241,7 @@ videos:
     title: China
     url: 'https://player.vimeo.com/video/562914916'
 
-  - duration: 1292
+  - duration: 1290
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1630447001/Travels/puligia.jpg
     title: Puligia
@@ -277,7 +277,7 @@ videos:
     title: Hong Kong
     url: 'https://player.vimeo.com/video/676475499'
 
-  - duration: 1052
+  - duration: 1051
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1645655192/Travels/turkey.jpg
     title: Turkey
