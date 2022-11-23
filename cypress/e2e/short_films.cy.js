@@ -84,11 +84,6 @@ describe('Short Films Page - page specific tests', () => {
       .should('contain.text', title);
   };
 
-  const checkVideoLightboxVimeoPlayBtn = (index) => {
-    cy.findVimeoPlayButton(index);
-    cy.get('#closeImg').click().wait(500);
-  };
-
   shortFilmsVideos.forEach((vid, index) => {
     it(`has the ${vid.title} video thumbnail`, () => {
       checkVideoThumbnail(index, vid.imgSrc);
@@ -109,7 +104,10 @@ describe('Short Films Page - page specific tests', () => {
     });
 
     it(`${vid.title} lightbox has Vimeo play button`, () => {
-      checkVideoLightboxVimeoPlayBtn(index + 1); // Adding 1 to account for main vimeo video at top of page
+      cy.findVimeoPlayButton(index + 1); // Adding 1 to account for main vimeo video at top of page
+    });
+    it(`${vid.title} lightbox can be closed`, () => {
+      cy.get('#closeImg').click().wait(500);
     });
   });
 });

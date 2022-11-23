@@ -120,7 +120,7 @@ Cypress.Commands.add('getIframeBody', (index = 0) => {
     cy
       .get('iframe', { log: false })
       .eq(index)
-      .its('0.contentDocument.body', { log: false })
+      .its('0.contentDocument.body', { log: false, timeout: 10000 })
       .should('not.be.empty')
       // wraps "body" DOM element to allow chaining more Cypress commands, like ".find(...)"
       // https://on.cypress.io/wrap
@@ -129,7 +129,9 @@ Cypress.Commands.add('getIframeBody', (index = 0) => {
 });
 
 Cypress.Commands.add('findVimeoPlayButton', (index = 0) => {
-  return cy.getIframeBody(index).find(`.player button[aria-label='Play']`);
+  return cy
+    .getIframeBody(index)
+    .find(`button[aria-label='Play']`, { timeout: 10000 });
 });
 
 function unquote(str) {

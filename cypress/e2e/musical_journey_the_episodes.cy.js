@@ -70,11 +70,6 @@ describe('The Episodes Page - page specific tests', () => {
       .should('contain.text', title);
   };
 
-  const checkVideoLightboxVimeoPlayBtn = (index) => {
-    cy.findVimeoPlayButton(index);
-    cy.get('#closeImg').click().wait(500);
-  };
-
   const checkVideoLightboxHasVideo = (index) => {
     cy.getIframeBody(index).find('video');
     cy.get('#closeImg').click().wait(500);
@@ -101,7 +96,10 @@ describe('The Episodes Page - page specific tests', () => {
 
     if (index < theEpisodesVideos.length - 1) {
       it(`${vid.title} lightbox has Vimeo play button`, () => {
-        checkVideoLightboxVimeoPlayBtn(index);
+        cy.findVimeoPlayButton(index);
+      });
+      it(`${vid.title} lightbox can be closed`, () => {
+        cy.get('#closeImg').click().wait(500);
       });
     } else {
       it(`${vid.title} lightbox has video loaded`, () => {
