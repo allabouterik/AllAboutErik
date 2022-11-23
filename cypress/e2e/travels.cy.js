@@ -21,7 +21,7 @@ describe('Travels Page - standard tests', () => {
 
 describe('Travels Page - page specific tests', () => {
   it('has main vimeo video autoplaying', () => {
-    cy.getIframeBody(0).find('button[aria-label="Pause"]');
+    cy.getIframeBody(0).find('button[aria-label="Pause"]', { timeout: 10000 });
   });
 
   it('has correct main text', () => {
@@ -62,19 +62,19 @@ describe('Travels Page - page specific tests', () => {
 
     cy.get('[data-testid="video-container"]')
       .eq(index)
-      .find('.playVideoText')
+      .find('.thumbnailImgTextOverlay .playVideoText', { timeout: 8000 })
       .should('be.visible')
       .should('contain.text', 'PLAY VIDEO');
 
     cy.get('[data-testid="video-container"]')
       .eq(index)
-      .find('.videoDurationText')
+      .find('.thumbnailImgTextOverlay .videoDurationText', { timeout: 8000 })
       .should('be.visible')
       .should('contain.text', duration);
 
     cy.get('[data-testid="video-container"]')
       .eq(index)
-      .find('.videoTitle')
+      .find('.captionBanner .videoTitle', { timeout: 8000 })
       .should('be.visible')
       .should('contain.text', title);
   };
@@ -82,13 +82,8 @@ describe('Travels Page - page specific tests', () => {
   const checkVideoLightboxText = (index, title) => {
     cy.get('.video-lightbox__video-container')
       .eq(index)
-      .find('.video-lightbox__text')
+      .find('.video-lightbox__text', { timeout: 8000 })
       .should('contain.text', title);
-  };
-
-  const checkVideoLightboxVimeoPlayBtn = (index) => {
-    cy.findVimeoPlayButton(index);
-    cy.get('#closeImg').click().wait(500);
   };
 
   travelVideos.forEach((vid, index) => {
@@ -101,7 +96,9 @@ describe('Travels Page - page specific tests', () => {
     });
 
     it(`clicking ${vid.title} container opens video lightbox with correct title`, () => {
-      cy.get('[data-testid="video-container"]').eq(index).realHover().click();
+      cy.get('[data-testid="video-container"]')
+        .eq(index)
+        .click({ force: true });
 
       cy.get('.video-lightbox')
         .find('.video-lightbox__modal')
@@ -111,7 +108,17 @@ describe('Travels Page - page specific tests', () => {
     });
 
     it(`${vid.title} lightbox has Vimeo play button`, () => {
-      checkVideoLightboxVimeoPlayBtn(index + 1); // Adding 1 to account for main vimeo video at top of page
+      cy.findVimeoPlayButton(index + 1); // Adding 1 to account for main vimeo video at top of page
+    });
+
+    it(`${vid.title} Vimeo has the expected duration`, () => {
+      cy.getIframeBody(index + 1) // Adding 1 to account for main vimeo video at top of page
+        .find(`.vp-controls .vp-progress`, { timeout: 10000 })
+        .should('contain.text', vid.duration.substring(0, 5).trimEnd());
+    });
+
+    it(`${vid.title} lightbox can be closed`, () => {
+      cy.get('#closeImg').click().wait(500);
     });
   });
 });
