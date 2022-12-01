@@ -1,36 +1,41 @@
 <template>
   <Layout>
-
     <BackgroundMusic
       :audioFile="$page.Collections.edges[0].node.bgAudio"
       :audioDuration="$page.Collections.edges[0].node.bgAudioDuration"
-      :audioFadeInDuration="$page.Collections.edges[0].node.bgAudioFadeInDuration"
-      :audioFadeOutDuration="$page.Collections.edges[0].node.bgAudioFadeOutDuration"
+      :audioFadeInDuration="
+        $page.Collections.edges[0].node.bgAudioFadeInDuration
+      "
+      :audioFadeOutDuration="
+        $page.Collections.edges[0].node.bgAudioFadeOutDuration
+      "
       :playMusic="playMusic"
     />
 
     <b-container fluid class="main-col">
       <b-row no-gutters class="mb-1 px-1">
         <b-col class="slideshowCol">
-
           <!-- HEADER SLIDESHOW -->
           <SlideshowKenBurnsSmall :slides="slides" :height="slideshowHeight" />
 
           <!-- SLIDESHOW OVERLAY -->
           <div class="slideshowOverlay">
             <div class="mainContent">
-
-              <g-image alt="Collections title image" v-if="titleImg != null" :src="titleImg" id="titleImg" class="mb-md-1 mb-lg-2 mb-xl-3"/>
+              <g-image
+                alt="Collections title image"
+                v-if="titleImg != null"
+                :src="titleImg"
+                id="titleImg"
+                class="mb-md-1 mb-lg-2 mb-xl-3"
+                data-testid="title-img"
+              />
 
               <div v-html="slideshowText" id="slideshowText" />
-
             </div>
           </div>
-
         </b-col>
       </b-row>
     </b-container>
-
 
     <b-container fluid class="collectionsContainer">
       <b-row no-gutters align-h="center" class="collectionsRow mb-1">
@@ -41,13 +46,12 @@
           align-self="center"
           class="collectionsCols p-0 mx-0 my-2"
         >
-          <CollectionThumbnail :collection="collection" />          
+          <CollectionThumbnail :collection="collection" />
         </b-col>
       </b-row>
     </b-container>
 
     <BackToTop />
-
   </Layout>
 </template>
 
@@ -85,23 +89,23 @@
 
 
 <script scoped>
-import BackgroundMusic from '../../components/BackgroundMusic.vue'
-import CollectionThumbnail from '../../components/CollectionThumbnail.vue'
-import BackToTop from '../../components/BackToTop.vue'
-import SlideshowKenBurnsSmall from '../../components/SlideshowKenBurnsSmall.vue'
+import BackgroundMusic from "../../components/BackgroundMusic.vue";
+import CollectionThumbnail from "../../components/CollectionThumbnail.vue";
+import BackToTop from "../../components/BackToTop.vue";
+import SlideshowKenBurnsSmall from "../../components/SlideshowKenBurnsSmall.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.Collections.edges[0].node.pageTitle
-    }
+      title: this.$page.Collections.edges[0].node.pageTitle,
+    };
   },
 
   components: {
     BackgroundMusic,
     CollectionThumbnail,
     BackToTop,
-    SlideshowKenBurnsSmall
+    SlideshowKenBurnsSmall,
   },
 
   data() {
@@ -109,110 +113,124 @@ export default {
       videoIndex: null,
       mainColHeight: 600,
       interval: null,
-      playMusic: true
-    }
+      playMusic: true,
+    };
   },
 
   computed: {
     titleImg() {
-      return this.$page.Collections.edges[0].node.titleImg
+      return this.$page.Collections.edges[0].node.titleImg;
     },
     slides() {
-      return this.$page.Collections.edges[0].node.slides
+      return this.$page.Collections.edges[0].node.slides;
     },
-    slideshowText(){
-      return this.$page.Collections.edges[0].node.content
+    slideshowText() {
+      return this.$page.Collections.edges[0].node.content;
     },
     collections() {
-      return this.$page.Collections.edges[0].node.collections
+      return this.$page.Collections.edges[0].node.collections;
     },
     slideshowHeight() {
-      let height = this.mainColHeight + 30
-      return height + 'px'
-    }
+      let height = this.mainColHeight + 30;
+      return height + "px";
+    },
   },
 
   created() {
-    if (this.$route.query.hasOwnProperty('playMusic')) {
-      this.playMusic = this.$route.query.playMusic == 'true'
+    if (this.$route.query.hasOwnProperty("playMusic")) {
+      this.playMusic = this.$route.query.playMusic == "true";
     }
   },
 
   mounted() {
-    this.observeTextBlockHeight()
+    this.observeTextBlockHeight();
 
-    setTimeout(clearInterval(this.interval), 8000)
-    
-    window.addEventListener('resize', () => {
-      let textEl = document.getElementById('slideshowText')
-      this.mainColHeight = this.getElementOffset(textEl).bottom
-    })
+    setTimeout(clearInterval(this.interval), 8000);
+
+    window.addEventListener("resize", () => {
+      let textEl = document.getElementById("slideshowText");
+      this.mainColHeight = this.getElementOffset(textEl).bottom;
+    });
   },
 
   methods: {
     observeTextBlockHeight() {
-      this.interval = setInterval(function () {    
-        let textEl = document.getElementById('slideshowText')
-        this.mainColHeight = this.getElementOffset(textEl).bottom
-        console.log('observing, ')
-      }.bind(this), 500);
+      this.interval = setInterval(
+        function () {
+          let textEl = document.getElementById("slideshowText");
+          this.mainColHeight = this.getElementOffset(textEl).bottom;
+          console.log("observing, ");
+        }.bind(this),
+        500
+      );
     },
     getElementOffset(el) {
-      let top = 0
+      let top = 0;
       // let left = 0
-      let bottom = 0
-      let element = el
-      let height = el.offsetHeight
+      let bottom = 0;
+      let element = el;
+      let height = el.offsetHeight;
 
       // Loop through the DOM tree
       // and add it's parent's offset to get page offset
       do {
         top += element.offsetTop || 0;
         // left += element.offsetLeft || 0;
-        element = element.offsetParent
-      } while (element)
+        element = element.offsetParent;
+      } while (element);
 
-      bottom = top + height
+      bottom = top + height;
 
       return {
         top,
         // left,
         bottom,
-      }
-    }
-  }
-}
+      };
+    },
+  },
+};
 </script>
 
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Lora:700i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lora:700i&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
 * {
   --collectionWidth: 357.8px;
-  --collectionScale: 1.0;
+  --collectionScale: 1;
   --maxCollectionsPerRow: 7;
   --extraMargin: 6px;
-  --collectionsDivWidth: calc(var(--maxCollectionsPerRow) * (var(--collectionScale)*var(--collectionWidth) + var(--extraMargin)));   /* Full width for a 27" screen */
+  --collectionsDivWidth: calc(
+    var(--maxCollectionsPerRow) *
+      (var(--collectionScale) * var(--collectionWidth) + var(--extraMargin))
+  ); /* Full width for a 27" screen */
 }
 
 .layout {
@@ -243,7 +261,7 @@ export default {
   z-index: 100;
 }
 
-.mainContent{
+.mainContent {
   bottom: 0;
   width: 100%;
   padding-bottom: 20px;
@@ -264,15 +282,16 @@ export default {
 }
 
 #slideshowText {
-  color: #FFFFFF;
-  font-family: 'NeueHaasGroteskText Pro55';
-  font-feature-settings: 'liga';
+  color: #ffffff;
+  font-family: "NeueHaasGroteskText Pro55";
+  font-feature-settings: "liga";
   font-size: 1.375rem;
   font-weight: 400;
   line-height: 1.75rem;
   letter-spacing: 2px;
   text-align: justify;
-  text-shadow: 0px 0px 250px #1C0F07,0px 0px 250px #1C0F07/* glow */, 1px 1px 2px rgba(28,16,23,0.89)/* drop shadow*/;
+  text-shadow: 0px 0px 250px #1c0f07, 0px 0px 250px #1c0f07 /* glow */,
+    1px 1px 2px rgba(28, 16, 23, 0.89) /* drop shadow*/;
 }
 
 .collectionsContainer {
@@ -289,7 +308,6 @@ export default {
   max-width: calc(var(--collectionsDivWidth) / var(--maxCollectionsPerRow));
 }
 
-
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -298,7 +316,8 @@ export default {
     --collectionScale: 0.65;
     --maxCollectionsPerRow: 1;
   }
-  .layout, .main-col {
+  .layout,
+  .main-col {
     padding: 0 0;
   }
   .mainContent {
@@ -306,8 +325,12 @@ export default {
     padding-right: 15%;
   }
   #slideshowText {
-    font-size: calc(1rem + 2 * (100vw - 375px) / (576 - 375) ); /* varies between 16px (1rem) and 18px */
-    line-height: calc(1.0625rem + 3 * (100vw - 375px) / (576 - 375) ); /* varies between 17px (1.0625rem) and 20px */
+    font-size: calc(
+      1rem + 2 * (100vw - 375px) / (576 - 375)
+    ); /* varies between 16px (1rem) and 18px */
+    line-height: calc(
+      1.0625rem + 3 * (100vw - 375px) / (576 - 375)
+    ); /* varies between 17px (1.0625rem) and 20px */
     margin-bottom: 0px;
   }
   #slideshowText > p {
@@ -326,7 +349,9 @@ export default {
     padding-right: 12%;
   }
   #slideshowText {
-    font-size: calc(1.125rem + 1.2 * (100vw - 576px) / (768 - 576) ); /* varies between 18px (1.125rem) and 19.2px */
+    font-size: calc(
+      1.125rem + 1.2 * (100vw - 576px) / (768 - 576)
+    ); /* varies between 18px (1.125rem) and 19.2px */
     line-height: 24px;
   }
   #slideshowText p {
@@ -345,7 +370,9 @@ export default {
     padding-right: 12%;
   }
   #slideshowText {
-    font-size: calc(1.2rem + 1.8 * (100vw - 768px) / (992 - 768) ); /* varies between 19.2px (1.2rem) and 21px */
+    font-size: calc(
+      1.2rem + 1.8 * (100vw - 768px) / (992 - 768)
+    ); /* varies between 19.2px (1.2rem) and 21px */
     line-height: 24px;
   }
 }
@@ -366,7 +393,6 @@ export default {
   }
 }
 
-
 /* Special breakpoint */
 @media only screen and (min-width: 1200px) and (max-width: 1499.98px) {
   * {
@@ -378,7 +404,6 @@ export default {
     padding-right: 12%;
   }
 }
-
 
 /* Special breakpoint */
 @media only screen and (min-width: 1500px) and (max-width: 1749.98px) {
@@ -394,5 +419,4 @@ export default {
     --maxCollectionsPerRow: 4;
   }
 }
-
 </style>
