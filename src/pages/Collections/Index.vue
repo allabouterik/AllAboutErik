@@ -45,6 +45,7 @@
           cols=""
           align-self="center"
           class="collectionsCols p-0 mx-0 my-2"
+          data-testid="collection-container"
         >
           <CollectionThumbnail :collection="collection" />
         </b-col>

@@ -1,0 +1,46 @@
+{
+  "collections": [
+    {
+      "title": "Propaganda Kimono",
+      "link": "/collections/propaganda-kimono",
+      "imgSrc": "01-propaganda-kimono",
+      "imgSrcHover": "01-propaganda-kimono-rollover"
+    },
+    {
+      "title": "Modernity Kimono",
+      "link": "/collections/modernity-kimono",
+      "imgSrc": "02-modernity-kimono",
+      "imgSrcHover": "02-modernity-kimono-rollover"
+    },
+    {
+      "title": "Pre-Columbian Textiles",
+      "link": "/collections/pre-columbian-textiles",
+      "imgSrc": "03-precolumbian-textiles",
+      "imgSrcHover": "03-precolumbian-textiles-rollover"
+    },
+    {
+      "title": "Mid-Eastern Rugs",
+      "link": "/collections/mid-eastern-rugs",
+      "imgSrc": "04-mideastern-rugs",
+      "imgSrcHover": "04-mideastern-rugs-rollover"
+    },
+    {
+      "title": "Skeleton Kimono",
+      "link": "/collections/skeleton-kimono",
+      "imgSrc": "05-skeleton-kimono",
+      "imgSrcHover": "06-skeleton-kimono-rollover"
+    },
+    {
+      "title": "Old-Time Sportsmen",
+      "link": "/collections/old-time-sportsmen",
+      "imgSrc": "06-old-time-sportsmen",
+      "imgSrcHover": "06-old-time-sportsmen-rollover"
+    },
+    {
+      "title": "Bolivian Potolo",
+      "link": "/collections/bolivian-potolo",
+      "imgSrc": "07-bolivian-potolo",
+      "imgSrcHover": "07-bolivian-potolo-rollover"
+    }
+  ]
+}
