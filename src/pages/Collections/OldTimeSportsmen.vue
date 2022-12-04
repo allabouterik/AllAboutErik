@@ -1,26 +1,30 @@
 <template>
-  <Layout>  
+  <Layout>
     <header :style="headerStyles">
       <b-container fluid class="slideshowOverlay">
         <b-row align-v="center">
-
-          <b-col cols="3" class="headerImageCol" style="text-align: right">            
-            <g-image alt="Hunter" v-if="headerLeftImg != null" :src="headerLeftImg" id="headerLeftImg" />
+          <b-col cols="3" class="headerImageCol" style="text-align: right">
+            <g-image
+              alt="Hunter"
+              v-if="headerLeftImg != null"
+              :src="headerLeftImg"
+              id="headerLeftImg"
+            />
           </b-col>
-          
-          <b-col id="headerItems">          
+
+          <b-col id="headerItems">
             <g-image :src="titleImg1Line" class="titleImg titleImg1Line" />
             <g-image :src="titleImg2Lines" class="titleImg titleImg2Lines" />
 
-            <div 
+            <div
               v-if="windowWidth < 1200"
-              class="collections_headerText pointer" 
+              class="collection_headerText pointer"
               style="font-style: italic"
               :aria-expanded="showIntro ? 'true' : 'false'"
               aria-controls="collapse-1"
               @click="showIntro = !showIntro"
             >
-              {{ showIntro ? 'Hide intro' : 'Read intro' }}
+              {{ showIntro ? "Hide intro" : "Read intro" }}
               <svg viewBox="0 0 20 20" width="20" height="20" class="arrow">
                 <line v-if="showIntro" x1="1" y1="13" x2="9" y2="4.5" />
                 <line v-if="showIntro" x1="8" y1="4.5" x2="16" y2="13" />
@@ -29,26 +33,47 @@
               </svg>
             </div>
 
-            <div v-else v-html="node.content" class="collections_headerText" />
+            <div v-else v-html="node.content" class="collection_headerText" />
 
-            <g-link :to="{ path: '/collections/', query: { playMusic: 'false' }}" class="nav_link py-2" id="nav_back">
-              <g-image immediate alt="Back to collections menu" src="../../assets/images/back-to-collections-menu-1line-black.png" class="hideOnHover" />
-              <g-image immediate alt="Back to collections menu" src="../../assets/images/back-to-collections-menu-1line-yellow.png" class="showOnHover" />
+            <g-link
+              :to="{ path: '/collections/', query: { playMusic: 'false' } }"
+              class="nav_link py-2"
+              id="nav_back"
+            >
+              <g-image
+                immediate
+                alt="Back to collections menu"
+                src="../../assets/images/back-to-collections-menu-1line-black.png"
+                class="hideOnHover"
+              />
+              <g-image
+                immediate
+                alt="Back to collections menu"
+                src="../../assets/images/back-to-collections-menu-1line-yellow.png"
+                class="showOnHover"
+              />
             </g-link>
           </b-col>
-          
-          <b-col cols="3" class="headerImageCol" style="text-align:left">            
-            <g-image alt="ducks" v-if="headerRightImg != null" :src="headerRightImg" id="headerRightImg" />
-          </b-col>
 
+          <b-col cols="3" class="headerImageCol" style="text-align: left">
+            <g-image
+              alt="ducks"
+              v-if="headerRightImg != null"
+              :src="headerRightImg"
+              id="headerRightImg"
+            />
+          </b-col>
         </b-row>
       </b-container>
     </header>
-        
-    <b-collapse v-if="windowWidth < 1200" v-model="showIntro" id="collapse-1">
-      <div v-html="node.content" class="collections_headerText" id="headerTextDevice" />
-    </b-collapse>
 
+    <b-collapse v-if="windowWidth < 1200" v-model="showIntro" id="collapse-1">
+      <div
+        v-html="node.content"
+        class="collection_headerText"
+        id="headerTextDevice"
+      />
+    </b-collapse>
 
     <CollectionViewer
       :images="images"
@@ -59,26 +84,31 @@
       :isOldTime="true"
     />
 
-
     <section class="postcardHistory">
       <b-container fluid class="slideshowOverlay">
         <b-row align-v="center">
-
-          <b-col v-if="windowWidth >= 2200" align-self="start" style="padding-top:250px">
+          <b-col
+            v-if="windowWidth >= 2200"
+            align-self="start"
+            style="padding-top: 250px"
+          >
             <slideshow-zoom :slides="people_images" />
           </b-col>
-          
-          <b-col> 
+
+          <b-col>
             <div class="postcardHistory__textDiv">
               <h2 class="title">{{ postcardHistory.title }}</h2>
               <div class="pb-2 pb-sm-3">
-                <div class="pb-4 pb-xl-2 pt-3 pt-xl-0 mb-3 mb-xl-0 pl-5 pr-3" style="float:right">
+                <div
+                  class="pb-4 pb-xl-2 pt-3 pt-xl-0 mb-3 mb-xl-0 pl-5 pr-3"
+                  style="float: right"
+                >
                   <flip-postcard
                     v-if="windowWidth > 850"
                     :imgFront="postcardHistory.postcards[0].imgFront"
                     :imgBack="postcardHistory.postcards[0].imgBack"
                     :caption="postcardHistory.postcards[0].caption"
-                    :seeTheBack=false
+                    :seeTheBack="false"
                     :width="480"
                     :height="297"
                   />
@@ -87,7 +117,7 @@
                     :imgFront="postcardHistory.postcards[0].imgFront"
                     :imgBack="postcardHistory.postcards[0].imgBack"
                     :caption="postcardHistory.postcards[0].caption"
-                    :seeTheBack=false
+                    :seeTheBack="false"
                     :width="408"
                     :height="252.45"
                   />
@@ -95,10 +125,18 @@
                 <br v-if="windowWidth >= 768" />
                 <span v-html="postcardHistory.textPt1" class="postcardText" />
 
-                <img :src="postcardHistory.images[0].img" class="py-3 pr-3" style="float:left; max-width:55%">
+                <img
+                  :src="postcardHistory.images[0].img"
+                  class="py-3 pr-3"
+                  style="float: left; max-width: 55%"
+                />
                 <span v-html="postcardHistory.textPt2" class="postcardText" />
 
-                <img :src="postcardHistory.images[1].img" class="pl-3" style="float:right; max-width:55%">
+                <img
+                  :src="postcardHistory.images[1].img"
+                  class="pl-3"
+                  style="float: right; max-width: 55%"
+                />
                 <span v-html="postcardHistory.textPt3" class="postcardText" />
               </div>
             </div>
@@ -113,9 +151,11 @@
                 :caption="postcardHistory.postcards[1].caption"
                 :width="487"
                 :height="307"
-                :seeTheBack=true
-                :backText="renderMarkdown(postcardHistory.postcards[1].backText)"
-                :backTextIsHTML=true
+                :seeTheBack="true"
+                :backText="
+                  renderMarkdown(postcardHistory.postcards[1].backText)
+                "
+                :backTextIsHTML="true"
                 class="sidePostcards"
               />
               <flip-postcard
@@ -125,9 +165,11 @@
                 :caption="postcardHistory.postcards[2].caption"
                 :width="487"
                 :height="309"
-                :seeTheBack=true
-                :backText="renderMarkdown(postcardHistory.postcards[2].backText)"
-                :backTextIsHTML=true
+                :seeTheBack="true"
+                :backText="
+                  renderMarkdown(postcardHistory.postcards[2].backText)
+                "
+                :backTextIsHTML="true"
                 class="sidePostcards"
               />
               <flip-postcard
@@ -137,21 +179,26 @@
                 :caption="postcardHistory.postcards[3].caption"
                 :width="487"
                 :height="310"
-                :seeTheBack=true
-                :backText="renderMarkdown(postcardHistory.postcards[3].backText)"
-                :backTextIsHTML=true
+                :seeTheBack="true"
+                :backText="
+                  renderMarkdown(postcardHistory.postcards[3].backText)
+                "
+                :backTextIsHTML="true"
                 class="sidePostcards"
               />
             </div>
           </b-col>
         </b-row>
 
-
         <b-row v-if="windowWidth < 2200" align-v="center" align-h="center">
-          <b-col v-if="windowWidth > 1149" align-self="start" style="padding-top:250px">
+          <b-col
+            v-if="windowWidth > 1149"
+            align-self="start"
+            style="padding-top: 250px"
+          >
             <slideshow-zoom :slides="people_images" />
           </b-col>
-          
+
           <b-col align-self="start" :style="postcardsSidebarStyles">
             <div id="postcardsSidebar" class="py-3">
               <flip-postcard
@@ -171,8 +218,10 @@
                 :width="postcardSize(1).width"
                 :height="postcardSize(1).height"
                 :seeTheBack="windowWidth >= 576"
-                :backText="renderMarkdown(postcardHistory.postcards[1].backText)"
-                :backTextIsHTML=true
+                :backText="
+                  renderMarkdown(postcardHistory.postcards[1].backText)
+                "
+                :backTextIsHTML="true"
                 class="sidePostcards"
               />
               <flip-postcard
@@ -183,8 +232,10 @@
                 :width="postcardSize(2).width"
                 :height="postcardSize(2).height"
                 :seeTheBack="windowWidth >= 576"
-                :backText="renderMarkdown(postcardHistory.postcards[2].backText)"
-                :backTextIsHTML=true
+                :backText="
+                  renderMarkdown(postcardHistory.postcards[2].backText)
+                "
+                :backTextIsHTML="true"
                 class="sidePostcards"
               />
               <flip-postcard
@@ -195,14 +246,15 @@
                 :width="postcardSize(3).width"
                 :height="postcardSize(3).height"
                 :seeTheBack="windowWidth >= 576"
-                :backText="renderMarkdown(postcardHistory.postcards[3].backText)"
-                :backTextIsHTML=true
+                :backText="
+                  renderMarkdown(postcardHistory.postcards[3].backText)
+                "
+                :backTextIsHTML="true"
                 class="sidePostcards"
               />
             </div>
           </b-col>
         </b-row>
-
 
         <b-row>
           <b-col>
@@ -213,39 +265,45 @@
           </b-col>
         </b-row>
 
-
         <b-row class="mt-4">
           <b-col>
             <div class="postcardHistory__textDiv text-justify pt-3">
               <span class="postcardText">
-                If you would like to see a large selection of the Old-Time Sportsmen collection, 
-                click the link below to open the gallery website in a new tab.
+                If you would like to see a large selection of the Old-Time
+                Sportsmen collection, click the link below to open the gallery
+                website in a new tab.
               </span>
-              <a :href="sportsmenGalleryLink" target="_blank"
+              <a
+                :href="sportsmenGalleryLink"
+                target="_blank"
                 class="sportsmenLinkText collections_headerLinkText mx-auto"
-                style="width:fit-content"
+                style="width: fit-content"
               >
-                <div class="pt-3 pb-4" style="width:fit-content; max-width:90vw">
-                  <span style="font-size:18px">SEE THE COLLECTION</span>
-                  <br>
-                  <span class="d-block mb-n4" style="font-size:28px">GALLERY WEBSITE</span>
-                  <g-image 
-                    src="https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1587596183/Publications/2.%20Old-Time%20Sportsmen/guns-crossed_imnn0f.png" 
-                    alt="Guns crossed" 
+                <div
+                  class="pt-3 pb-4"
+                  style="width: fit-content; max-width: 90vw"
+                >
+                  <span style="font-size: 18px">SEE THE COLLECTION</span>
+                  <br />
+                  <span class="d-block mb-n4" style="font-size: 28px"
+                    >GALLERY WEBSITE</span
+                  >
+                  <g-image
+                    src="https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1587596183/Publications/2.%20Old-Time%20Sportsmen/guns-crossed_imnn0f.png"
+                    alt="Guns crossed"
                     class="d-block mx-auto w-100"
                   />
                 </div>
               </a>
             </div>
-            
+
             <BackToTop :staticImg="true" />
           </b-col>
         </b-row>
-      </b-container>    
+      </b-container>
     </section>
 
     <footer :style="footerStyles" />
-
   </Layout>
 </template>
 
@@ -316,26 +374,26 @@
 
 
 <script scoped>
-import CollectionViewer from '../../components/CollectionViewer.vue'
-import FlipPostcard from '../../components/FlipPostcard.vue'
-import SlideshowZoom from '../../components/SlideshowZoom.vue'
-import BackToTop from '../../components/BackToTop.vue'
+import CollectionViewer from "../../components/CollectionViewer.vue";
+import FlipPostcard from "../../components/FlipPostcard.vue";
+import SlideshowZoom from "../../components/SlideshowZoom.vue";
+import BackToTop from "../../components/BackToTop.vue";
 
-const slugify = require('@sindresorhus/slugify')
-const MarkdownIt = require('markdown-it')
+const slugify = require("@sindresorhus/slugify");
+const MarkdownIt = require("markdown-it");
 
 export default {
   metaInfo() {
     return {
-      title: this.title
-    }
+      title: this.title,
+    };
   },
-  
+
   components: {
     CollectionViewer,
     FlipPostcard,
     SlideshowZoom,
-    BackToTop
+    BackToTop,
   },
 
   data() {
@@ -346,178 +404,181 @@ export default {
       showIntro: true,
       windowWidth: 0.0,
       postcardSizes: [
-        {width: 480, height: 297},
-        {width: 487, height: 307},
-        {width: 487, height: 309},
-        {width: 487, height: 310},
-      ]
-    }
+        { width: 480, height: 297 },
+        { width: 487, height: 307 },
+        { width: 487, height: 309 },
+        { width: 487, height: 310 },
+      ],
+    };
   },
 
   computed: {
     node() {
-      return this.$page.OldTimeSportsmen.edges[0].node
+      return this.$page.OldTimeSportsmen.edges[0].node;
     },
     title() {
-      return this.node.title
+      return this.node.title;
     },
     titleImg1Line() {
-      return this.node.titleImg1Line
+      return this.node.titleImg1Line;
     },
     titleImg2Lines() {
-      return this.node.titleImg2Lines
+      return this.node.titleImg2Lines;
     },
     headerBgImg() {
-      return this.node.headerBgImg
+      return this.node.headerBgImg;
     },
     headerBgImgOpacity() {
-      return this.node.hasOwnProperty('backgroundImgOpacity') ? this.node.backgroundImgOpacity : 0.5
+      return this.node.hasOwnProperty("backgroundImgOpacity")
+        ? this.node.backgroundImgOpacity
+        : 0.5;
     },
     headerLeftImg() {
-      return this.node.headerLeftImg
+      return this.node.headerLeftImg;
     },
     headerRightImg() {
-      return this.node.headerRightImg
+      return this.node.headerRightImg;
     },
     sportsmenSiteHoverImg() {
-      return this.node.sportsmenSiteHoverImg
+      return this.node.sportsmenSiteHoverImg;
     },
     sportsmenGalleryHoverImg() {
-      return this.node.sportsmenBookHoverImg
+      return this.node.sportsmenBookHoverImg;
     },
     sportsmenGalleryLink() {
-      return this.node.sportsmenSiteLink
+      return this.node.sportsmenSiteLink;
     },
     footerImg() {
-      return this.node.footerImg
+      return this.node.footerImg;
     },
     headerStyles() {
       return {
-        '--headerBgImg': 'url(' + this.headerBgImg + ')',
-        '--bgOpacity': this.headerBgImgOpacity / 100
-      }
+        "--headerBgImg": "url(" + this.headerBgImg + ")",
+        "--bgOpacity": this.headerBgImgOpacity / 100,
+      };
     },
     footerStyles() {
       return {
-        '--footerBgImg': 'url(' + this.footerImg + ')'
-      }
+        "--footerBgImg": "url(" + this.footerImg + ")",
+      };
     },
     postcardsSidebarStyles() {
       if (this.windowWidth < 1150) {
         return {
-          flex: 0
-        }
+          flex: 0,
+        };
       }
     },
     images() {
-      return this.node.images
+      return this.node.images;
     },
     people_images() {
-      return this.node.people
+      return this.node.people;
     },
     collections() {
-      return this.$static.Collections.edges[0].node.collections
-    },    
+      return this.$static.Collections.edges[0].node.collections;
+    },
     collection_names() {
-      return this.collections.map(x => x.title);
+      return this.collections.map((x) => x.title);
     },
     collectionIndex() {
-      return this.collection_names.indexOf(this.title)
+      return this.collection_names.indexOf(this.title);
     },
     prev_collection() {
-      const i = this.collectionIndex
-      if (i === 0)
-        var prev_i = this.collection_names.length - 1
-      else
-        prev_i = i - 1
-      let collection = {...this.collections[prev_i]}
-      collection.link = slugify(collection.title)
-      return collection
+      const i = this.collectionIndex;
+      if (i === 0) var prev_i = this.collection_names.length - 1;
+      else prev_i = i - 1;
+      let collection = { ...this.collections[prev_i] };
+      collection.link = slugify(collection.title);
+      return collection;
     },
     next_collection() {
-      const i = this.collectionIndex 
-      if (i === this.collection_names.length - 1)
-        var next_i = 0
-      else
-        next_i = i + 1
-      let collection = {...this.collections[next_i]}
-      collection.link = slugify(collection.title)
-      return collection
+      const i = this.collectionIndex;
+      if (i === this.collection_names.length - 1) var next_i = 0;
+      else next_i = i + 1;
+      let collection = { ...this.collections[next_i] };
+      collection.link = slugify(collection.title);
+      return collection;
     },
     postcardHistory() {
-      return this.node.postcardHistory
+      return this.node.postcardHistory;
     },
     about() {
-      return this.node.about
-    }
+      return this.node.about;
+    },
   },
 
   watch: {
     windowWidth: function (val) {
       if (val >= 576 && val <= 1366) {
-        this.sportsmenSiteHover = true
-        this.sportsmenGalleryHover = true
+        this.sportsmenSiteHover = true;
+        this.sportsmenGalleryHover = true;
+      } else {
+        this.sportsmenSiteHover = false;
+        this.sportsmenGalleryHover = false;
       }
-      else {
-        this.sportsmenSiteHover = false
-        this.sportsmenGalleryHover = false
-      }
-    }
+    },
   },
 
   mounted() {
-    this.windowWidth = window.innerWidth
+    this.windowWidth = window.innerWidth;
 
-    window.addEventListener('resize', () => {  
-      this.windowWidth = window.innerWidth
-    })
-    window.addEventListener('orientationchange', () => {  
-      this.windowWidth = window.innerWidth
-    })
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
+    window.addEventListener("orientationchange", () => {
+      this.windowWidth = window.innerWidth;
+    });
   },
 
-
-  methods: {    
+  methods: {
     renderMarkdown(text) {
-      const md = new MarkdownIt()
-      return md.render(text) 
+      const md = new MarkdownIt();
+      return md.render(text);
     },
     postcardSize(index) {
-      if (this.windowWidth >= 620)
-        return this.postcardSizes[index]
+      if (this.windowWidth >= 620) return this.postcardSizes[index];
       else {
-        let factor = this.windowWidth / 620
+        let factor = this.windowWidth / 620;
         return {
           width: factor * this.postcardSizes[index].width,
-          height:  factor * this.postcardSizes[index].height 
-        }
+          height: factor * this.postcardSizes[index].height,
+        };
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text:600,600i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Francois+One&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text:600,600i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Francois+One&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -532,15 +593,15 @@ header {
   padding-top: 12.5px;
   padding-bottom: 12.5px;
 }
-header:after  {
-  content : "";
+header:after {
+  content: "";
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
   background: var(--headerBgImg) no-repeat center;
   background-size: cover;
-  opacity : var(--bgOpacity);
+  opacity: var(--bgOpacity);
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -556,15 +617,15 @@ header:after  {
 }
 
 #headerItems {
-  width: 1240px; 
-  max-width: 80vw; 
+  width: 1240px;
+  max-width: 80vw;
   text-align: center;
   margin: 0 auto;
 }
-.collections_headerText {
+.collection_headerText {
   color: #000;
-  font-family: 'NeueHaasGroteskText Pro65';
-  font-feature-settings: 'liga';
+  font-family: "NeueHaasGroteskText Pro65";
+  font-feature-settings: "liga";
   font-weight: 500;
   font-size: 1rem;
   line-height: 1.25rem;
@@ -574,7 +635,7 @@ header:after  {
   padding: 0px;
   width: fit-content;
 }
-.collections_headerText > p { 
+.collection_headerText > p {
   margin: 0px;
   padding: 0px;
 }
@@ -585,8 +646,8 @@ header:after  {
 
 .collections_headerLinkText {
   color: #000;
-  font-family: 'Francois One', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "Francois One", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 400;
   font-size: 0.875rem;
   letter-spacing: 0.8px;
@@ -601,7 +662,7 @@ header:after  {
 }
 
 #headerTextDevice {
-  color:#ECECEC;
+  color: #ececec;
   font-size: 0.925rem;
   margin: 20px;
 }
@@ -617,15 +678,15 @@ header:after  {
 
 .sportsmenLinkText {
   display: block;
-  text-align: center; 
+  text-align: center;
   padding: 0;
   cursor: pointer;
 }
 
 .sportsmenSiteHoverImg {
-  max-width: 357px; 
+  max-width: 357px;
   position: absolute;
-  right: 60px; 
+  right: 60px;
   top: -7px;
   display: none;
 }
@@ -634,9 +695,9 @@ header:after  {
 }
 
 .sportsmenGalleryHoverImg {
-  max-width: 389px; 
+  max-width: 389px;
   position: absolute;
-  left: -70px; 
+  left: -70px;
   top: -6px;
   display: none;
 }
@@ -656,7 +717,6 @@ header:after  {
   display: none;
 }
 
-
 #nav_back {
   text-align: center;
   padding: 0 20px;
@@ -669,14 +729,13 @@ header:after  {
   }
 }
 
-
 footer {
   position: relative;
   text-align: center;
   padding: 0 0 346px 0;
 }
-footer:after  {
-  content : "";
+footer:after {
+  content: "";
   display: inline-block;
   position: absolute;
   bottom: 0;
@@ -688,13 +747,11 @@ footer:after  {
   z-index: -1;
 }
 
-
-
 /* To fix poor scroll speed using "background-size: cover" and "background-attachment: fixed"
 Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property/ */
 .layout::before {
-  content: ' ';
-  position: fixed;  /* instead of background-attachment */
+  content: " ";
+  position: fixed; /* instead of background-attachment */
   width: 100%;
   top: 0;
   left: 0;
@@ -705,18 +762,18 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 .postcardHistory {
-    // background-color: #E6E5DF;
-    position: relative;
-    background-color: transparent;
-    width: 100%;
+  // background-color: #E6E5DF;
+  position: relative;
+  background-color: transparent;
+  width: 100%;
 
   &__textDiv {
     width: 1058px;
     margin: 0 auto;
 
     .title {
-      font-family: 'Francois One', sans-serif;
-      font-feature-settings: 'liga';
+      font-family: "Francois One", sans-serif;
+      font-feature-settings: "liga";
       font-weight: 400;
       font-size: 2.5rem;
       line-height: 2.75rem;
@@ -728,8 +785,8 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
     }
 
     .postcardText {
-      font-family: 'Crimson Text', serif;
-      font-feature-settings: 'liga';
+      font-family: "Crimson Text", serif;
+      font-feature-settings: "liga";
       font-weight: 600;
       font-size: 1.3125rem;
       line-height: 1.5625rem;
@@ -738,9 +795,9 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
       padding: 0px;
     }
 
-    .caption {      
-      font-family: 'Crimson Text', serif;
-      font-feature-settings: 'liga';
+    .caption {
+      font-family: "Crimson Text", serif;
+      font-feature-settings: "liga";
       font-style: italic;
       font-weight: 600;
       font-size: 1.125rem;
@@ -753,21 +810,20 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   }
 }
 
-.postcardHistory:after  {
-  content : "";
+.postcardHistory:after {
+  content: "";
   display: inline-block;
   position: absolute;
   top: 0;
-  background-color: #E6E5DF;
+  background-color: #e6e5df;
   width: 100%;
   height: 100%;
   z-index: -1;
 }
 
 .sidePostcards {
-  margin:70px 0
+  margin: 70px 0;
 }
-
 
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
@@ -825,7 +881,7 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media only screen and (min-width: 768px) and (max-width: 991.98px) {  
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
   .titleImg {
     max-width: 90%;
   }
@@ -846,7 +902,7 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
   .postcardHistory {
     &__textDiv {
       width: 90%;
@@ -855,10 +911,9 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Special */
-@media only screen and (max-width: 1399.98px) { 
-  .headerImageCol {   
+@media only screen and (max-width: 1399.98px) {
+  .headerImageCol {
     display: none;
   }
 }
-
 </style>
