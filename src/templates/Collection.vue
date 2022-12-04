@@ -1,21 +1,22 @@
 <template>
   <Layout>
     <transition name="page" mode="out-in">
-      <div :key="'collection_' + titleSlug"> <!-- Need a unique key for the transition above to work on route change -->
+      <div :key="'collection_' + titleSlug">
+        <!-- Need a unique key for the transition above to work on route change -->
         <header id="header" :style="headerStyles">
           <div id="headerItems">
             <g-image :src="titleImg1Line" class="titleImg titleImg1Line" />
             <g-image :src="titleImg2Lines" class="titleImg titleImg2Lines" />
 
-            <div 
+            <div
               v-if="windowWidth < 1200"
-              class="collection_headerText pointer" 
+              class="collection_headerText pointer"
               style="font-style: italic"
               :aria-expanded="showIntro ? 'true' : 'false'"
               aria-controls="collapse-1"
               @click="showIntro = !showIntro"
             >
-              {{ showIntro ? 'Hide intro' : 'Read intro' }}
+              {{ showIntro ? "Hide intro" : "Read intro" }}
               <svg viewBox="0 0 20 20" width="20" height="20" class="arrow">
                 <line v-if="showIntro" x1="1" y1="13" x2="9" y2="4.5" />
                 <line v-if="showIntro" x1="8" y1="4.5" x2="16" y2="13" />
@@ -24,18 +25,26 @@
               </svg>
             </div>
 
-            <div v-else
-              v-html="$page.collection.content" 
-              class="collection_headerText mx-auto my-0" 
-              id="headerTextDevice" 
+            <div
+              v-else
+              v-html="$page.collection.content"
+              class="collection_headerText mx-auto my-0"
+              id="headerTextDevice"
             />
           </div>
         </header>
 
-        <b-collapse v-if="windowWidth < 1200" v-model="showIntro" id="collapse-1">
-          <div v-html="$page.collection.content" class="collection_headerText" id="headerTextDevice" />
+        <b-collapse
+          v-if="windowWidth < 1200"
+          v-model="showIntro"
+          id="collapse-1"
+        >
+          <div
+            v-html="$page.collection.content"
+            class="collection_headerText"
+            id="headerTextDevice"
+          />
         </b-collapse>
-        
 
         <CollectionViewer
           :images="images"
@@ -45,10 +54,8 @@
           :nextCollection="next_collection"
           @close="imageIndex = null"
         />
-
       </div>
     </transition>
-
   </Layout>
 </template>
 
@@ -85,120 +92,126 @@ query ($id: ID!) {
 
 
 <script scoped>
-import CollectionViewer from '../components/CollectionViewer.vue'
+import CollectionViewer from "../components/CollectionViewer.vue";
 
-const slugify = require('@sindresorhus/slugify')
+const slugify = require("@sindresorhus/slugify");
 
 export default {
   metaInfo() {
     return {
-      title: this.title
-    }
+      title: this.title,
+    };
   },
 
   components: {
-    CollectionViewer
+    CollectionViewer,
   },
 
   data() {
     return {
       imageIndex: 0,
       showIntro: true,
-      windowWidth: 0.0
-    }
+      windowWidth: 0.0,
+    };
   },
 
   computed: {
     title() {
-      return this.$page.collection.title
+      return this.$page.collection.title;
     },
     titleSlug() {
-      return slugify(this.title)
+      return slugify(this.title);
     },
     titleImg1Line() {
-      return this.$page.collection.titleImg1Line
+      return this.$page.collection.titleImg1Line;
     },
     titleImg2Lines() {
-      return this.$page.collection.titleImg2Lines
+      return this.$page.collection.titleImg2Lines;
     },
     headerBgImg() {
-      return this.$page.collection.headerBgImg
+      return this.$page.collection.headerBgImg;
     },
     headerBgImgOpacity() {
-      return this.$page.collection.hasOwnProperty('backgroundImgOpacity') ? this.$page.collection.backgroundImgOpacity : 0.5
-    },  
+      return this.$page.collection.hasOwnProperty("backgroundImgOpacity")
+        ? this.$page.collection.backgroundImgOpacity
+        : 0.5;
+    },
     headerStyles() {
       return {
-        '--headerBgImg': 'url(' + this.headerBgImg + ')',
-        '--bgOpacity': this.headerBgImgOpacity / 100
-      }
+        "--headerBgImg": `url(${this.headerBgImg})`,
+        "--bgOpacity": this.headerBgImgOpacity / 100,
+      };
     },
     images() {
-      return this.$page.collection.images
+      return this.$page.collection.images;
     },
     collections() {
-      return this.$static.Collections.edges[0].node.collections
-    },    
+      return this.$static.Collections.edges[0].node.collections;
+    },
     collection_names() {
-      return this.collections.map(x => x.title);
+      return this.collections.map((x) => x.title);
     },
     collectionIndex() {
-      return this.collection_names.indexOf(this.title)
+      return this.collection_names.indexOf(this.title);
     },
     prev_collection() {
-      const i = this.collectionIndex
-      if (i === 0)
-        var prev_i = this.collection_names.length - 1
-      else
-        prev_i = i - 1
-      let collection = {...this.collections[prev_i]}
-      collection.link = slugify(collection.title)
-      return collection
+      const i = this.collectionIndex;
+      if (i === 0) var prev_i = this.collection_names.length - 1;
+      else prev_i = i - 1;
+      let collection = { ...this.collections[prev_i] };
+      collection.link = slugify(collection.title);
+      return collection;
     },
     next_collection() {
-      const i = this.collectionIndex     
-      if (i === this.collection_names.length - 1)
-        var next_i = 0
-      else
-        next_i = i + 1
-      let collection = {...this.collections[next_i]}
-      collection.link = slugify(collection.title)
-      return collection
-    }
+      const i = this.collectionIndex;
+      if (i === this.collection_names.length - 1) var next_i = 0;
+      else next_i = i + 1;
+      let collection = { ...this.collections[next_i] };
+      collection.link = slugify(collection.title);
+      return collection;
+    },
   },
 
   mounted() {
-    this.windowWidth = window.innerWidth
+    this.windowWidth = window.innerWidth;
 
-    window.addEventListener('resize', () => {  
-      this.windowWidth = window.innerWidth
-    })
-    window.addEventListener('orientationchange', () => {  
-      this.windowWidth = window.innerWidth
-    })
-  }
-}
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
+    window.addEventListener("orientationchange", () => {
+      this.windowWidth = window.innerWidth;
+    });
+  },
+};
 </script>
 
 
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -214,31 +227,31 @@ export default {
   padding-top: 12.5px;
   padding-bottom: 12.5px;
 }
-#header:after  {
-  content : "";
+#header:after {
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   background: var(--headerBgImg) no-repeat center;
   background-size: cover;
-  transform: translate3d(0,0,0);
-  opacity : var(--bgOpacity);
+  transform: translate3d(0, 0, 0);
+  opacity: var(--bgOpacity);
   width: 100%;
   height: 100%;
   z-index: -1;
 }
 
 #headerItems {
-  width: 1240px; 
-  max-width: 90vw; 
+  width: 1240px;
+  max-width: 90vw;
   text-align: center;
   margin: 0 auto;
 }
 .collection_headerText {
-  font-family: 'NeueHaasGroteskText Pro65';
-  font-feature-settings: 'liga';
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.29);
-  color: #FFFFFF;
+  font-family: "NeueHaasGroteskText Pro65";
+  font-feature-settings: "liga";
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.29);
+  color: #ffffff;
   text-align: center;
   letter-spacing: 1px;
   line-height: 1.625rem;
@@ -255,7 +268,7 @@ export default {
 }
 
 #headerTextDevice {
-  color:#ECECEC;
+  color: #ececec;
   font-size: 0.925rem;
   margin: 20px;
 }
@@ -265,7 +278,7 @@ export default {
   margin-right: -3px;
 }
 .arrow > line {
-  stroke: rgb(203,203,201);
+  stroke: rgb(203, 203, 201);
   stroke-width: 2px;
 }
 
@@ -280,13 +293,11 @@ export default {
   display: none;
 }
 
-
-
 /* To fix poor scroll speed using "background-size: cover" and "background-attachment: fixed"
 Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-will-change-property/ */
 .layout::before {
-  content: ' ';
-  position: fixed;  /* instead of background-attachment */
+  content: " ";
+  position: fixed; /* instead of background-attachment */
   width: 100%;
   height: 100%;
   top: 0;
@@ -296,8 +307,6 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
   will-change: transform; /* creates a new paint layer */
   z-index: -1;
 }
-
-
 
 /* Transition styles on router-view for fading the page */
 .page-enter-active {
@@ -314,9 +323,6 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 .page-leave-active {
   opacity: 0;
 }
-
-
-
 
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
@@ -337,7 +343,7 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media only screen and (min-width: 576px) and (max-width: 767.98px) {  
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
   .titleImg {
     max-width: 100%;
     padding: 15px 40px 10px 70px;
@@ -358,7 +364,7 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
   .titleImg {
     padding: 0px 100px;
   }
@@ -366,9 +372,9 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 
 /* Special - Larger devices (desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) and (max-width: 1499.98px) {
-  .collection_headerText, .titleImg {
+  .collection_headerText,
+  .titleImg {
     padding: 0px 120px;
   }
 }
-
 </style>

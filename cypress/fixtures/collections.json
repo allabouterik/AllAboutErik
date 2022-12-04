@@ -4,43 +4,64 @@
       "title": "Propaganda Kimono",
       "link": "/collections/propaganda-kimono",
       "imgSrc": "01-propaganda-kimono",
-      "imgSrcHover": "01-propaganda-kimono-rollover"
+      "imgSrcHover": "01-propaganda-kimono-rollover",
+      "headerText": "In the 20's and 30's there was a rising tide of sentiment in Japan promoting the idea of military aggression and conquest. Some garments featured warlike imagery. Boats, planes, tanks, guns, battle scenes and war heroes were common themes depicted in these propaganda kimono.",
+      "numImages": 27,
+      "headerBgImg": "banner-mhj"
     },
     {
       "title": "Modernity Kimono",
       "link": "/collections/modernity-kimono",
       "imgSrc": "02-modernity-kimono",
-      "imgSrcHover": "02-modernity-kimono-rollover"
+      "imgSrcHover": "02-modernity-kimono-rollover",
+      "headerText": "These pieces celebrate various aspects of the Japanese adaptation of modern western ideas in the Early 20th century.",
+      "numImages": 25,
+      "headerBgImg": "banner-modernity"
     },
     {
       "title": "Pre-Columbian Textiles",
       "link": "/collections/pre-columbian-textiles",
       "imgSrc": "03-precolumbian-textiles",
-      "imgSrcHover": "03-precolumbian-textiles-rollover"
+      "imgSrcHover": "03-precolumbian-textiles-rollover",
+      "headerText": "I bought my first Pre-Columbian textile fragments in Lima. As I started to read up on these artifacts and cultures, I became totally intrigued, and for 25 years I was engaged in collecting and studying the history of the civilizations that produced these pieces.\nThe collection contains woven examples from almost every era of Pre-Columbian culture, spanning the years from approximately 800 BC until the arrival of the Spanish in 1532. I published three books on the subject, which can be found here on the site.\nI donated the entire collection to the Yale University Art Museum.",
+      "numImages": 28,
+      "headerBgImg": "banner-precol"
     },
     {
       "title": "Mid-Eastern Rugs",
       "link": "/collections/mid-eastern-rugs",
       "imgSrc": "04-mideastern-rugs",
-      "imgSrcHover": "04-mideastern-rugs-rollover"
+      "imgSrcHover": "04-mideastern-rugs-rollover",
+      "headerText": "I fell in love with Nomadic Mid-Eastern Rugs and Kelims. Mainly donated to the De Young Museum.",
+      "numImages": 20,
+      "headerBgImg": "banner-mideastern-rugs"
     },
     {
       "title": "Skeleton Kimono",
       "link": "/collections/skeleton-kimono",
       "imgSrc": "05-skeleton-kimono",
-      "imgSrcHover": "06-skeleton-kimono-rollover"
+      "imgSrcHover": "06-skeleton-kimono-rollover",
+      "headerText": "For centuries images of skulls, bones and skeletons played roles in the religious and popular history of Japan.\nThis collection of kimono focuses on that motif in clothing.",
+      "numImages": 17,
+      "headerBgImg": "banner_-_skeleton"
     },
     {
       "title": "Old-Time Sportsmen",
       "link": "/collections/old-time-sportsmen",
       "imgSrc": "06-old-time-sportsmen",
-      "imgSrcHover": "06-old-time-sportsmen-rollover"
+      "imgSrcHover": "06-old-time-sportsmen-rollover",
+      "headerText": "This gallery of uniquely American historical photos takes us back to a time, a century ago, when these wonderful images were captured and preserved for posterity on photo picture postcards. These vintage photographs each bear witness to memorable moments in the lives of these early 20th century American outdoorsmen and women.",
+      "numImages": 23,
+      "headerBgImg": "banner-old-time-sportsmen"
     },
     {
       "title": "Bolivian Potolo",
       "link": "/collections/bolivian-potolo",
       "imgSrc": "07-bolivian-potolo",
-      "imgSrcHover": "07-bolivian-potolo-rollover"
+      "imgSrcHover": "07-bolivian-potolo-rollover",
+      "headerText": "These clothes were woven by Bolivian Indians far off the beaten track in the department of Potosi. These are the only traditional Indian textiles there of the modern era that contain large scale drawings of people and animals. They're somewhat akin to some of the work of their Pre-Columbian ancestor. The women weave skirts, called Aksus, as well as ponchos, belts, and bags. These weavers had the artistic licenses to pursue their individual design ideas. I donated this collection to the Denver Art Museum.",
+      "numImages": 14,
+      "headerBgImg": "banner-bolivian-potolo"
     }
   ]
 }
