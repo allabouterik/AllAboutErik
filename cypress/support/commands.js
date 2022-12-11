@@ -149,3 +149,88 @@ Cypress.Commands.add(
     return unquote(after.getPropertyValue(property));
   }
 );
+
+function parseCssRotations(css) {
+  // Use a regular expression to match the rotation functions in the CSS string
+  const rotationRegex = /rotate([XYZ])\(([+-]?\d+(?:\.\d+)?)([a-z]+)\)/g;
+
+  // Create empty arrays to store the rotation directions, values, and units
+  const directions = [];
+  const values = [];
+  const units = [];
+
+  // Use the regex to match each rotation function in the CSS string
+  let match;
+  while ((match = rotationRegex.exec(css)) !== null) {
+    // Store the direction, value, and unit for each match in the corresponding arrays
+    directions.push(match[1]);
+    values.push(Number(match[2]));
+    units.push(match[3]);
+  }
+
+  // Return an object with the three arrays
+  return {
+    directions,
+    values,
+    units,
+  };
+}
+
+function rotationToMatrix3d(rotation) {
+  // Note: this function has not been checked fully for accuracy!!
+  const { directions, values, units } = parseCssRotations(rotation);
+
+  let radiansX = 0;
+  let radiansY = 0;
+  let radiansZ = 0;
+  for (let i = 0; i < values.length; i++) {
+    if (units[i] === 'deg') {
+      if (directions[i] === 'X') radiansX = (values[i] * Math.PI) / 180;
+      if (directions[i] === 'Y') radiansY = (values[i] * Math.PI) / 180;
+      if (directions[i] === 'Z') radiansZ = (values[i] * Math.PI) / 180;
+    } else if (units[i] === 'rad') {
+      if (directions[i] === 'X') radiansX = values[i];
+      if (directions[i] === 'Y') radiansY = values[i];
+      if (directions[i] === 'Z') radiansZ = values[i];
+    }
+  }
+
+  let matrixValues = [
+    Math.cos(radiansY) * Math.cos(radiansZ),
+    Math.sin(radiansX) * Math.sin(radiansY) * Math.cos(radiansZ) -
+      Math.cos(radiansX) * Math.sin(radiansZ),
+    // Math.cos(radiansX) * Math.sin(radiansY) * Math.cos(radiansZ) +
+    //   Math.sin(radiansX) * Math.sin(radiansZ),
+    -(
+      Math.cos(radiansX) * Math.sin(radiansY) * Math.cos(radiansZ) +
+      Math.sin(radiansX) * Math.sin(radiansZ)
+    ),
+    0,
+    Math.cos(radiansY) * Math.sin(radiansZ),
+    Math.sin(radiansX) * Math.sin(radiansY) * Math.sin(radiansZ) +
+      Math.cos(radiansX) * Math.cos(radiansZ),
+    Math.cos(radiansX) * Math.sin(radiansY) * Math.sin(radiansZ) -
+      Math.sin(radiansX) * Math.cos(radiansZ),
+    0,
+    // -Math.sin(radiansY),
+    Math.sin(radiansY),
+    Math.sin(radiansX) * Math.cos(radiansY),
+    Math.cos(radiansX) * Math.cos(radiansY),
+    0,
+    0,
+    0,
+    0,
+    1,
+  ];
+
+  matrixValues.forEach((value, i) => {
+    if (Math.abs(value) == 0) matrixValues[i] = 0;
+    else matrixValues[i] = Number(value.toFixed(6));
+  });
+
+  return 'matrix3d(' + matrixValues.join(', ') + ')';
+}
+
+Cypress.Commands.add('getCssMatrix3dFromRotation', (rotation) => {
+  return rotationToMatrix3d(rotation);
+});
