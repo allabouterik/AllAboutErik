@@ -1,114 +1,126 @@
 <template>
   <div class="flip-card" :style="dimStyles" @click="lightBoxOpen()">
-    <img v-if="seeTheBack" src="../assets/images/see-the-back.png" alt="See the back" class="flip-card-seeTheBack" @click="lightBoxOpen()">
+    <img
+      v-if="seeTheBack"
+      src="../assets/images/see-the-back.png"
+      alt="See the back"
+      class="flip-card-seeTheBack"
+      @click="lightBoxOpen()"
+    />
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img :src="imgFront" :alt="caption" :style="dimStyles">
+        <img :src="imgFront" :alt="caption" :style="dimStyles" />
       </div>
       <div class="flip-card-back">
-        <img :src="imgBack" :alt="caption" :style="dimStyles">
+        <img :src="imgBack" :alt="caption" :style="dimStyles" />
       </div>
     </div>
-    <p class="caption">{{ caption }}</p> 
+    <p class="caption">{{ caption }}</p>
 
-  <ImageLightBox
-    :images="postcardImage"
-    :index="postcardIndex"
-    :disable-scroll="true"
-    @close="postcardIndex = null; postcardImage = null"
-    :centreTitle=false
-  />
-
+    <ImageLightBox
+      :images="postcardImage"
+      :index="postcardIndex"
+      :disable-scroll="true"
+      @close="
+        postcardIndex = null;
+        postcardImage = null;
+      "
+      :centreTitle="false"
+    />
   </div>
 </template>
 
 
 <script scoped>
-import ImageLightBox from './ImageLightBox.vue'
+import ImageLightBox from "./ImageLightBox.vue";
 
-export default { 
-  name: 'FlipPostcard',
+export default {
+  name: "FlipPostcard",
 
   props: {
     imgFront: {
-      type: String
+      type: String,
     },
     imgBack: {
-      type: String
+      type: String,
     },
     imgBackLarge: {
-      type: String
+      type: String,
     },
     caption: {
-      type: String
+      type: String,
     },
     width: {
-      type: Number
-    }, 
+      type: Number,
+    },
     height: {
-      type: Number
+      type: Number,
     },
     seeTheBack: {
       type: Boolean,
-      default: false
+      default: false,
     },
     backText: {
-      type: String
-    },    
+      type: String,
+    },
     backTextIsHTML: {
       type: Boolean,
-      default: false
+      default: false,
     },
   },
 
   data() {
     return {
       postcardIndex: null,
-      postcardImage: null
-    }
+      postcardImage: null,
+    };
   },
 
   computed: {
     dimStyles() {
       return {
-        width: this.width + 'px',
-        height: this.height + 'px'
-      }
-    }
+        width: this.width + "px",
+        height: this.height + "px",
+        cursor: this.imgBackLarge ? "pointer" : "auto",
+      };
+    },
   },
 
-  methods: {    
+  methods: {
     lightBoxOpen() {
       if (this.backTextIsHTML) {
-        this.postcardImage = [{
-          'img': this.imgBackLarge, 
-          'HTMLcaption': this.backText
-        }]
+        this.postcardImage = [
+          {
+            img: this.imgBackLarge,
+            HTMLcaption: this.backText,
+          },
+        ];
+      } else {
+        this.postcardImage = [
+          {
+            img: this.imgBackLarge,
+            caption: this.backText,
+          },
+        ];
       }
-      else {
-        this.postcardImage = [{
-          'img': this.imgBackLarge, 
-          'caption': this.backText
-        }]
-      }
-      this.postcardIndex = 0
-    }
+      if (this.imgBackLarge) this.postcardIndex = 0;
+    },
   },
 
   components: {
-    ImageLightBox
+    ImageLightBox,
   },
-}
+};
 </script>
 
 
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css?family=Crimson+Text:600,600i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Crimson+Text:600,600i&display=swap");
 
-.caption {      
-  font-family: 'Crimson Text', serif;
-  font-feature-settings: 'liga';
+.caption {
+  font-family: "Crimson Text", serif;
+  font-feature-settings: "liga";
   font-style: italic;
   font-weight: 600;
   font-size: 1.125rem;
@@ -119,12 +131,10 @@ export default {
   padding: 12px 0;
 }
 
-
 // From: https://www.w3schools.com/howto/howto_css_flip_card.asp
 .flip-card {
   position: relative;
   background-color: transparent;
-  cursor: pointer;
 }
 .flip-card-seeTheBack {
   position: absolute;
@@ -148,7 +158,8 @@ export default {
 }
 
 /* Position the front and back side */
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -168,5 +179,4 @@ export default {
   color: white;
   transform: rotateY(180deg);
 }
-
 </style>
