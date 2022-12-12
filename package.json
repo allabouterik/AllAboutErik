@@ -36,6 +36,7 @@
     "vue-scrollto": "^2.17.1"
   },
   "devDependencies": {
+    "@frsource/cypress-plugin-visual-regression-diff": "^3.2.6",
     "cypress": "11.1.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-gridsome": "^1.5.0",

@@ -1,4 +1,7 @@
 const { defineConfig } = require('cypress');
+const {
+  initPlugin,
+} = require('@frsource/cypress-plugin-visual-regression-diff/plugins');
 
 module.exports = defineConfig({
   chromeWebSecurity: false, // for working with iframes
@@ -7,6 +10,7 @@ module.exports = defineConfig({
     baseUrl: 'https://www.allabouterik.com',
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      initPlugin(on, config);
     },
   },
 });
