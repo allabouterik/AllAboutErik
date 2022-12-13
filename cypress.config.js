@@ -1,7 +1,5 @@
 const { defineConfig } = require('cypress');
-const {
-  initPlugin,
-} = require('@frsource/cypress-plugin-visual-regression-diff/plugins');
+const { initPlugin } = require('cypress-plugin-snapshots/plugin');
 
 module.exports = defineConfig({
   chromeWebSecurity: false, // for working with iframes
