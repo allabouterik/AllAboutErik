@@ -7,24 +7,28 @@ describe('Collections - Individual Pages', () => {
       return;
     }
 
-    it(`the ${collection.title} page successfully loads`, () => {
+    it(`${collection.title} page successfully loads`, () => {
       cy.visit(collection.link);
     });
 
-    it(`the ${collection.title} page contains the main text`, () => {
+    it(`${collection.title} page matches the saved image snapshot`, () => {
+      cy.document().wait(1000).toMatchImageSnapshot();
+    });
+
+    it(`${collection.title} page contains the main text`, () => {
       cy.get('.collection_headerText').should(
         'contain.text',
         collection.headerText
       );
     });
 
-    it(`the ${collection.title} has ${collection.numImages} images loaded`, () => {
+    it(`${collection.title} has ${collection.numImages} images loaded`, () => {
       cy.get('ul.collection-viewer__content')
         .find('li')
         .should('have.length', collection.numImages);
     });
 
-    it(`the ${collection.title} has the navigation image for previous pg`, () => {
+    it(`${collection.title} has the navigation image for previous pg`, () => {
       cy.get('.collection-viewer #nav_prev.nav_link_big')
         .find('img.hideOnHover')
         .should('be.visible')
@@ -32,7 +36,7 @@ describe('Collections - Individual Pages', () => {
         .should('include', 'previous-collection-1line-white.png');
     });
 
-    it(`the ${collection.title} has the navigation image on hover for previous pg`, () => {
+    it(`${collection.title} has the navigation image on hover for previous pg`, () => {
       cy.get('.collection-viewer #nav_prev.nav_link_big')
         .realHover()
         .find('img.showOnHover')
@@ -41,7 +45,7 @@ describe('Collections - Individual Pages', () => {
         .should('include', 'previous-collection-1line-yellow.png');
     });
 
-    it(`the ${collection.title} has the navigation image for next pg`, () => {
+    it(`${collection.title} has the navigation image for next pg`, () => {
       cy.get('.collection-viewer #nav_next.nav_link_big')
         .find('img.hideOnHover')
         .should('be.visible')
@@ -49,7 +53,7 @@ describe('Collections - Individual Pages', () => {
         .should('include', 'next-collection-1line-white.png');
     });
 
-    it(`the ${collection.title} has the navigation image on hover for next pg`, () => {
+    it(`${collection.title} has the navigation image on hover for next pg`, () => {
       cy.get('.collection-viewer #nav_next.nav_link_big')
         .realHover()
         .find('img.showOnHover')
@@ -58,7 +62,7 @@ describe('Collections - Individual Pages', () => {
         .should('include', 'next-collection-1line-yellow.png');
     });
 
-    it(`the ${collection.title} has the navigation image for back to collections`, () => {
+    it(`${collection.title} has the navigation image for back to collections`, () => {
       cy.get('.collection-viewer #nav_back')
         .find('img.hideOnHover')
         .should('be.visible')
@@ -66,7 +70,7 @@ describe('Collections - Individual Pages', () => {
         .should('include', 'back-to-collections-menu-1line-white.png');
     });
 
-    it(`the ${collection.title} has the navigation image on hover for back to collections`, () => {
+    it(`${collection.title} has the navigation image on hover for back to collections`, () => {
       cy.get('.collection-viewer #nav_back')
         .realHover()
         .find('img.showOnHover')
@@ -82,6 +86,10 @@ describe('Collections - Old-Time Sportsmen', () => {
 
   it(`${collection.title} page successfully loads`, () => {
     cy.visit(collection.link);
+  });
+
+  it(`${collection.title} page matches the saved image snapshot`, () => {
+    cy.document().wait(1000).toMatchImageSnapshot();
   });
 
   it(`${collection.title} page contains the main text`, () => {
