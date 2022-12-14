@@ -6,6 +6,16 @@ describe('Short Films Page - standard tests', () => {
     cy.visit('/short-films');
   });
 
+  it('the header matches the saved image snapshot', () => {
+    cy.get('#header')
+      .wait(1000)
+      .toMatchImageSnapshot();
+  });
+
+  it('the videos container matches the saved image snapshot', () => {
+    cy.get('#videos').toMatchImageSnapshot();
+  });
+
   it('finds the Logo image', () => {
     cy.findPageTitleImg('short-films');
   });
@@ -30,7 +40,9 @@ describe('Short Films Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 500 });
-    cy.get('main').find('#scrollToTopBtn').should('be.visible');
+    cy.get('main')
+      .find('#scrollToTopBtn')
+      .should('be.visible');
   });
 
   const checkVideoThumbnail = (index, src) => {
@@ -94,7 +106,10 @@ describe('Short Films Page - page specific tests', () => {
     });
 
     it(`clicking ${vid.title} container opens video lightbox with correct title`, () => {
-      cy.get('[data-testid="video-container"]').eq(index).realHover().click();
+      cy.get('[data-testid="video-container"]')
+        .eq(index)
+        .realHover()
+        .click();
 
       cy.get('.video-lightbox')
         .find('.video-lightbox__modal')
@@ -107,7 +122,9 @@ describe('Short Films Page - page specific tests', () => {
       cy.findVimeoPlayButton(index + 1); // Adding 1 to account for main vimeo video at top of page
     });
     it(`${vid.title} lightbox can be closed`, () => {
-      cy.get('#closeImg').click().wait(500);
+      cy.get('#closeImg')
+        .click()
+        .wait(500);
     });
   });
 });

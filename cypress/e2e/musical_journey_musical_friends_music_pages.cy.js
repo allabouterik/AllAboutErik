@@ -7,6 +7,12 @@ describe('Musical Friends - Music Pages', () => {
       cy.visit(page.url);
     });
 
+    it(`the ${page.title} page matches the saved image snapshot`, () => {
+      cy.document()
+        .wait(1000)
+        .toMatchImageSnapshot();
+    });
+
     it('has correct title', () => {
       cy.get('.heading').contains(page.title);
     });
@@ -17,7 +23,9 @@ describe('Musical Friends - Music Pages', () => {
 
     it(`Track 1 on the ${page.title} page plays when the play all button is clicked`, () => {
       cy.get('button[data-testid="play-all"]').click();
-      cy.get('[data-testid="track-container"]').eq(0).expectAudioPlaying();
+      cy.get('[data-testid="track-container"]')
+        .eq(0)
+        .expectAudioPlaying();
     });
 
     it('The text on the play all button has changed to Stop', () => {
@@ -26,7 +34,9 @@ describe('Musical Friends - Music Pages', () => {
 
     it(`Track 1 on the ${page.title} page stops playing when the play all button is clicked again`, () => {
       cy.get('button[data-testid="play-all"]').click();
-      cy.get('[data-testid="track-container"]').eq(0).expectAudioNotPlaying();
+      cy.get('[data-testid="track-container"]')
+        .eq(0)
+        .expectAudioNotPlaying();
     });
 
     it('The play all button has the text Play All again', () => {
@@ -69,7 +79,9 @@ describe('Musical Friends - Music Pages', () => {
       it(`Track ${index + 1} on the ${
         page.title
       } page plays when the play button is clicked`, () => {
-        cy.get('.plyr__controls button[data-plyr="play"]').eq(index).click();
+        cy.get('.plyr__controls button[data-plyr="play"]')
+          .eq(index)
+          .click();
         cy.get('[data-testid="track-container"]')
           .eq(index)
           .expectAudioPlaying();
@@ -78,7 +90,9 @@ describe('Musical Friends - Music Pages', () => {
       it(`Track ${index + 1} on the ${
         page.title
       } page stops playing when the play button is clicked again`, () => {
-        cy.get('.plyr__controls button[data-plyr="play"]').eq(index).click();
+        cy.get('.plyr__controls button[data-plyr="play"]')
+          .eq(index)
+          .click();
         cy.get('[data-testid="track-container"]')
           .eq(index)
           .expectAudioNotPlaying();

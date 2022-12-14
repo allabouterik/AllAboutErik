@@ -6,6 +6,12 @@ describe('Roots and Youth Page - standard tests', () => {
     cy.visit('/roots-and-youth');
   });
 
+  it('the page matches the saved image snapshot', () => {
+    cy.document()
+      .wait(1000)
+      .toMatchImageSnapshot();
+  });
+
   it('finds the Logo image', () => {
     cy.findPageTitleImg('rootsandyouth');
   });
@@ -78,7 +84,9 @@ describe('Roots and Youth Page - page specific tests', () => {
   };
 
   const checkVideoThumbnailHover = (index, duration) => {
-    cy.get('[data-testid="video-container"]').eq(index).realHover();
+    cy.get('[data-testid="video-container"]')
+      .eq(index)
+      .realHover();
 
     cy.get('[data-testid="video-container"]')
       .eq(index)
@@ -101,7 +109,9 @@ describe('Roots and Youth Page - page specific tests', () => {
 
     cy.findVimeoPlayButton(index);
 
-    cy.get('#closeImg').click().wait(500);
+    cy.get('#closeImg')
+      .click()
+      .wait(500);
   };
 
   rootsAndYouthVideos.forEach((vid, index) => {
@@ -118,7 +128,10 @@ describe('Roots and Youth Page - page specific tests', () => {
     });
 
     it(`clicking ${vid.title} thumbnail opens video lightbox with video loaded`, () => {
-      cy.get('[data-testid="video-container"]').eq(index).realHover().click();
+      cy.get('[data-testid="video-container"]')
+        .eq(index)
+        .realHover()
+        .click();
 
       cy.get('.video-lightbox')
         .find('.video-lightbox__modal')

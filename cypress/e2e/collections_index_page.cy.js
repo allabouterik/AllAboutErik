@@ -6,6 +6,12 @@ describe('Collections Page - standard tests', () => {
     cy.visit('/collections');
   });
 
+  it('the page matches the saved image snapshot', () => {
+    cy.document()
+      .wait(1000)
+      .toMatchImageSnapshot();
+  });
+
   it('finds the Logo image', () => {
     cy.findPageTitleImg('collections-white');
   });
@@ -89,11 +95,15 @@ describe('Collections Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 1500 });
-    cy.get('main').find('#scrollToTopBtn').should('be.visible');
+    cy.get('main')
+      .find('#scrollToTopBtn')
+      .should('be.visible');
   });
 
   it('clicking back to top button scrolls the page to the top', () => {
-    cy.get('main').find('#scrollToTopBtn').click();
+    cy.get('main')
+      .find('#scrollToTopBtn')
+      .click();
     cy.get('[data-testid="title-img"]').isScrolledTo();
   });
 });

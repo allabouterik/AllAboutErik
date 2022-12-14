@@ -6,6 +6,16 @@ describe('Discography Page - standard tests', () => {
     cy.visit('/musical-journey/discography');
   });
 
+  it('the header matches the saved image snapshot', () => {
+    cy.get('#header')
+      .wait(1000)
+      .toMatchImageSnapshot();
+  });
+
+  it('the discography intro content matches the saved image snapshot', () => {
+    cy.get('.discography_content').toMatchImageSnapshot();
+  });
+
   it('finds the Logo image', () => {
     cy.findPageTitleImg('discography-white');
   });
@@ -19,7 +29,7 @@ describe('Discography Page - standard tests', () => {
   });
 });
 
-describe('Early Productions Page - page specific tests', () => {
+describe('Discography Page - page specific tests', () => {
   it('has correct title subtext', () => {
     cy.get('#titleSubText').contains(
       "Erik Jacobsen is an American record producer, song publisher, and artists manager, born May 19, 1940 in Oak Park Illinois on the west side of Chicago. His early musical influences were wide ranging, including a unique opportunity of listening to the first urban radio stations broadcasting polka, blues and country. He is best known for his work in the 1960s with Tim Hardin, The Lovin' Spoonful, The Charlatans, Sopwith Camel, and later with Norman Greenbaum and Chris Isaak."
@@ -52,11 +62,15 @@ describe('Early Productions Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 500 });
-    cy.get('main').find('#scrollToTopBtn').should('be.visible');
+    cy.get('main')
+      .find('#scrollToTopBtn')
+      .should('be.visible');
   });
 
   it('clicking back to top button scrolls the page to the top', () => {
-    cy.get('main').find('#scrollToTopBtn').click();
+    cy.get('main')
+      .find('#scrollToTopBtn')
+      .click();
     cy.get('#titleImg').isScrolledTo();
   });
 
@@ -80,6 +94,12 @@ describe('Early Productions Page - page specific tests', () => {
   });
 
   albums.forEach((album, albumIndex) => {
+    it(`Album ${albumIndex + 1} matches the saved image snapshot`, () => {
+      cy.get('[data-testid="album-container"]')
+        .eq(albumIndex)
+        .toMatchImageSnapshot();
+    });
+
     it(`Album ${albumIndex + 1} has the correct title: ${album.title}`, () => {
       cy.get('[data-testid="album-container"]')
         .eq(albumIndex)

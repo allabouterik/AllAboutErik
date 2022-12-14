@@ -6,6 +6,12 @@ describe('Travels Page - standard tests', () => {
     cy.visit('/travels');
   });
 
+  it('the page matches the saved image snapshot', () => {
+    cy.document()
+      .wait(1000)
+      .toMatchImageSnapshot();
+  });
+
   it('finds the Logo image', () => {
     cy.findPageTitleImg('travels');
   });
@@ -37,7 +43,9 @@ describe('Travels Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 500 });
-    cy.get('main').find('#scrollToTopBtn').should('be.visible');
+    cy.get('main')
+      .find('#scrollToTopBtn')
+      .should('be.visible');
   });
 
   const checkVideoThumbnail = (index, src, title) => {
@@ -118,7 +126,9 @@ describe('Travels Page - page specific tests', () => {
     });
 
     it(`${vid.title} lightbox can be closed`, () => {
-      cy.get('#closeImg').click().wait(500);
+      cy.get('#closeImg')
+        .click()
+        .wait(500);
     });
   });
 });
