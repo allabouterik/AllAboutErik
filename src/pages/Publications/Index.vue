@@ -1,56 +1,58 @@
 <template>
   <Layout>
-
     <BackgroundMusic
       :audioFile="$page.Publications.edges[0].node.bgAudio"
       :audioDuration="$page.Publications.edges[0].node.bgAudioDuration"
-      :audioFadeInDuration="$page.Publications.edges[0].node.bgAudioFadeInDuration"
-      :audioFadeOutDuration="$page.Publications.edges[0].node.bgAudioFadeOutDuration"
-      :maxVolume=0.78
+      :audioFadeInDuration="
+        $page.Publications.edges[0].node.bgAudioFadeInDuration
+      "
+      :audioFadeOutDuration="
+        $page.Publications.edges[0].node.bgAudioFadeOutDuration
+      "
+      :maxVolume="0.78"
       :playMusic="playMusic"
     />
 
     <b-container fluid class="main-col">
       <b-row no-gutters class="mb-1 pt-4 px-1">
         <b-col class="slideshowCol">
-
           <!-- HEADER SLIDESHOW -->
-          <SlideshowKenBurnsSmall 
-            :slides="slides" 
-            :height="slideshowHeight" 
+          <SlideshowKenBurnsSmall
+            :slides="slides"
+            :height="slideshowHeight"
             :maxImgWidth="slideshowMaxWidth"
-            :centerVertically=true
-            backgroundColor='#141414'
+            :centerVertically="true"
+            backgroundColor="#141414"
           />
 
           <!-- SLIDESHOW OVERLAY -->
           <div class="slideshowOverlay">
             <div class="mainContent">
-              <g-image 
-                alt="Publications title image" 
-                v-if="titleImg != null" 
-                :src="titleImg" 
-                id="titleImg" 
+              <g-image
+                alt="Publications title image"
+                v-if="titleImg != null"
+                :src="titleImg"
+                id="titleImg"
                 class="mb-md-1 mb-lg-2 mb-xl-3"
+                data-testid="title-img"
               />
             </div>
           </div>
-
         </b-col>
       </b-row>
     </b-container>
-
 
     <b-container v-if="windowWidth > 1200" fluid class="publicationsContainer">
       <b-row no-gutters align-h="center" class="publicationsRow mb-1">
         <b-col
           v-for="(publication, i) in publications"
-          :key="'publication'+i"
+          :key="'publication' + i"
           cols=""
           align-self="center"
           class="publicationsCols p-0 m-2 m-md-3"
+          data-testid="publication-container"
         >
-          <PublicationThumbnail :publication="publication" />          
+          <PublicationThumbnail :publication="publication" />
         </b-col>
       </b-row>
     </b-container>
@@ -59,19 +61,18 @@
       <b-row no-gutters align-h="center" class="publicationsRow mb-1">
         <b-col
           v-for="(newPublication, i) in publicationsAltOrder"
-          :key="'newPublication'+i"
+          :key="'newPublication' + i"
           cols=""
           align-self="center"
           class="publicationsCols p-0 m-2 m-md-3"
+          data-testid="publication-container"
         >
-          <PublicationThumbnail :publication="newPublication" />          
+          <PublicationThumbnail :publication="newPublication" />
         </b-col>
       </b-row>
     </b-container>
 
-
     <BackToTop />
-
   </Layout>
 </template>
 
@@ -107,114 +108,119 @@
 
 
 <script scoped>
-import BackgroundMusic from '../../components/BackgroundMusic.vue'
-import PublicationThumbnail from '../../components/PublicationThumbnail.vue'
-import BackToTop from '../../components/BackToTop.vue'
-import SlideshowKenBurnsSmall from '../../components/SlideshowKenBurnsSmall.vue'
+import BackgroundMusic from "../../components/BackgroundMusic.vue";
+import PublicationThumbnail from "../../components/PublicationThumbnail.vue";
+import BackToTop from "../../components/BackToTop.vue";
+import SlideshowKenBurnsSmall from "../../components/SlideshowKenBurnsSmall.vue";
 
 export default {
   metaInfo() {
     return {
-      title: this.$page.Publications.edges[0].node.pageTitle
-    }
+      title: this.$page.Publications.edges[0].node.pageTitle,
+    };
   },
 
   components: {
     BackgroundMusic,
     PublicationThumbnail,
     BackToTop,
-    SlideshowKenBurnsSmall
+    SlideshowKenBurnsSmall,
   },
 
   data() {
-    return {      
+    return {
       windowWidth: 0.0,
-      playMusic: true
-    }
+      playMusic: true,
+    };
   },
 
   computed: {
     titleImg() {
-      return this.$page.Publications.edges[0].node.titleImg
+      return this.$page.Publications.edges[0].node.titleImg;
     },
     slides() {
-      return this.$page.Publications.edges[0].node.slides
+      return this.$page.Publications.edges[0].node.slides;
     },
     publications() {
-      return this.$page.Publications.edges[0].node.publications
-    },    
-    publicationsAltOrder() {
-      let publicationsClone = [...this.publications]
-      let pubsAltOrder = publicationsClone.filter((val, index) => index !== 1)
-      pubsAltOrder.unshift(this.publications[1])
-      return pubsAltOrder
+      return this.$page.Publications.edges[0].node.publications;
     },
-    slideshowHeight() {      
-      if (this.windowWidth > 1000)
-        return "420px"
+    publicationsAltOrder() {
+      let publicationsClone = [...this.publications];
+      let pubsAltOrder = publicationsClone.filter((val, index) => index !== 1);
+      pubsAltOrder.unshift(this.publications[1]);
+      return pubsAltOrder;
+    },
+    slideshowHeight() {
+      if (this.windowWidth > 1000) return "420px";
       else {
-        const minImgWidth = 691
-        const maxImgHeight = 407
-        let maxWidth = 0.9 * this.windowWidth
-        let width = Math.min(maxWidth, minImgWidth)
-        let factor = width / minImgWidth
-        let height = factor * maxImgHeight
-        return height + 'px'
+        const minImgWidth = 691;
+        const maxImgHeight = 407;
+        let maxWidth = 0.9 * this.windowWidth;
+        let width = Math.min(maxWidth, minImgWidth);
+        let factor = width / minImgWidth;
+        let height = factor * maxImgHeight;
+        return height + "px";
       }
     },
     slideshowMaxWidth() {
-      if (this.windowWidth > 1000)
-        return "initial"
-      else
-        return "90vw"
-    }
+      if (this.windowWidth > 1000) return "initial";
+      else return "90vw";
+    },
   },
 
   created() {
-    if (this.$route.query.hasOwnProperty('playMusic')) {
-      this.playMusic = this.$route.query.playMusic == 'true'
+    if (this.$route.query.hasOwnProperty("playMusic")) {
+      this.playMusic = this.$route.query.playMusic == "true";
     }
   },
 
   mounted() {
-    this.windowWidth = window.innerWidth
+    this.windowWidth = window.innerWidth;
 
-    window.addEventListener('resize', () => {  
-      this.windowWidth = window.innerWidth
-    })
-    window.addEventListener('orientationchange', () => {  
-      this.windowWidth = window.innerWidth
-    })
+    window.addEventListener("resize", () => {
+      this.windowWidth = window.innerWidth;
+    });
+    window.addEventListener("orientationchange", () => {
+      this.windowWidth = window.innerWidth;
+    });
   },
-}
+};
 </script>
 
 
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Lora:700i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Lora:700i&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
 * {
   --publicationWidth: 829.7px;
-  --publicationScale: 1.0;
+  --publicationScale: 1;
   --maxPublicationsPerRow: 3;
   --publicationsDivWidth: 1900px;
 }
@@ -248,7 +254,7 @@ export default {
   width: 100%;
 }
 
-.mainContent{
+.mainContent {
   bottom: 0;
   width: 100%;
   padding-bottom: 20px;
@@ -282,7 +288,6 @@ export default {
   flex-grow: 0;
 }
 
-
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -291,7 +296,8 @@ export default {
     --publicationScale: 0.65;
     --maxPublicationsPerRow: 1;
   }
-  .layout, .main-col {
+  .layout,
+  .main-col {
     padding: 0 0;
   }
   .mainContent {
@@ -344,7 +350,6 @@ export default {
   }
 }
 
-
 /* Special breakpoint */
 @media only screen and (min-width: 1200px) and (max-width: 1499.98px) {
   * {
@@ -356,7 +361,6 @@ export default {
     padding-right: 12%;
   }
 }
-
 
 /* Special breakpoint */
 @media only screen and (min-width: 1500px) and (max-width: 1749.98px) {
@@ -372,8 +376,6 @@ export default {
     --maxPublicationsPerRow: 4;
   }
 }
-
-
 
 /* Special breakpoint */
 @media only screen and (max-width: 2100px) {
@@ -403,5 +405,4 @@ export default {
     --publicationsDivWidth: 600px;
   }
 }
-
 </style>
