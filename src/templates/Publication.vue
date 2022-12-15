@@ -957,9 +957,6 @@ Ref: https://www.fourkitchens.com/blog/article/fix-scrolling-performance-css-wil
 
 /* Special - Larger devices (desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) and (max-width: 1499.98px) {
-  .publication_headerText {
-    padding: 0px 120px;
-  }
   .titleImg1Line {
     display: none;
   }
