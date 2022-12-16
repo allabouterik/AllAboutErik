@@ -566,7 +566,7 @@ export default {
       return md.render(text);
     },
     updateSportsmenGalleryHover(val) {
-      if (this.windowWidth > 1366) this.sportsmenGalleryHover = val;
+      if (this.windowWidth >= 1400) this.sportsmenGalleryHover = val;
     },
     toggleFullscreen() {
       this.isBookFullscreen = !this.isBookFullscreen;
