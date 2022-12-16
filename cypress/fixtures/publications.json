@@ -4,28 +4,32 @@
       "title": "Old Timey Sportsmen",
       "link": "/publications/old-timey-sportsmen",
       "imgSrc": "02-old-timey-sportsman",
-      "imgSrcHover": "02-old-timey-sportsman-rollover"
+      "imgSrcHover": "02-old-timey-sportsman-rollover",
+      "pages": 97
     },
     {
       "title": "As We Are Now",
       "link": "/publications/as-we-are-now",
       "imgSrc": "01-skeleton",
       "imgSrcHover": "01-skeleton-rollover",
-      "headerText": "JACQUELINE MARX ATKINS"
+      "headerText": "JACQUELINE MARX ATKINS",
+      "pages": 141
     },
     {
       "title": "Animal Myth and Magic",
       "link": "/publications/animal-myth-and-magic",
       "imgSrc": "03-animal-myth",
       "imgSrcHover": "03-animal-myth-rollover",
-      "headerText": "VANESSA DRAKE MORAGA"
+      "headerText": "VANESSA DRAKE MORAGA",
+      "pages": 164
     },
     {
       "title": "Shamans Volume One",
       "link": "/publications/shamans-volume-one",
       "imgSrc": "04-shamans_vol1",
       "imgSrcHover": "04-shamans_vol1-rollover",
-      "headerText": "VANESSA DRAKE MORAGA"
+      "headerText": "VANESSA DRAKE MORAGA",
+      "pages": 232
     },
     {
       "title": "Shamans Volume Two",
@@ -33,14 +37,16 @@
       "imgSrc": "05-shamans_vol2",
       "imgSrcHover": "05-shamans_vol2-rollover",
       "headerText": "VANESSA DRAKE MORAGA",
-      "headerText2": "Volume Two: Tiwanaku Pukara, Wari, Huarmey, Chimú, Chancay, Pachacamac"
+      "headerText2": "Volume Two: Tiwanaku Pukara, Wari, Huarmey, Chimú, Chancay, Pachacamac",
+      "pages": 310
     },
     {
       "title": "Dreams of Empire",
       "link": "/publications/dreams-of-empire",
       "imgSrc": "06-dreams-of-empire",
       "imgSrcHover": "06-dreams-of-empire-rollover",
-      "headerText": "BARAK KUSHNER"
+      "headerText": "BARAK KUSHNER",
+      "pages": 44
     }
   ]
 }
