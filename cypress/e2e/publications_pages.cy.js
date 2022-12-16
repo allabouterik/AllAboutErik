@@ -406,5 +406,29 @@ describe('Publications - Individual Pages', () => {
         'fullscreenContainer'
       );
     });
+
+    if (publication.title === 'Old Timey Sportsmen') {
+      it(`the ${publication.title} header guns image only shows on hover at >1400px`, () => {
+        cy.viewport(1400, 660);
+
+        cy.get('header')
+          .find('.sportsmenLinkText img')
+          .should('exist')
+          .should('not.be.visible');
+
+        cy.get('header')
+          .find('.sportsmenLinkText')
+          .realHover();
+
+        cy.get('header')
+          .find('.sportsmenLinkText img')
+          .should('exist')
+          .should('be.visible');
+      });
+
+      it(`the ${publication.title} page has the Vimeo play button`, () => {
+        cy.findVimeoPlayButton();
+      });
+    }
   });
 });
