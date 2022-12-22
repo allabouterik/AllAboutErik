@@ -1,17 +1,30 @@
 <template>
   <Layout>
     <div v-on:[eventName]="closeLargeImg()" class="pb-5">
-
-      <g-link to="/archives/menu" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="Back to Archives menu" class="backToArchives">
-        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-0 pt-md-2" />
-        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-0 pt-md-2" />
-      </g-link>
-      
       <header id="header">
+        <g-link
+          to="/archives/menu"
+          v-b-tooltip.hover.bottom="{ variant: 'secondary' }"
+          title="Back to Archives menu"
+          class="backToArchives"
+        >
+          <g-image
+            immediate
+            alt="Back to Archives"
+            src="~/assets/images/back-to-archives-single-line.png"
+            class="backToArchivesImg pt-0 pt-md-2"
+          />
+          <g-image
+            immediate
+            alt="Back to Archives"
+            src="~/assets/images/back-to-archives-single-line-yellow.png"
+            class="backToArchivesImg-hover pt-0 pt-md-2"
+          />
+        </g-link>
 
         <!-- STATIC HEADER IMAGES -->
         <div v-if="!isPortrait && node.headerImages" class="headerWrapper">
-          <div 
+          <div
             v-for="(headerImg, iImg) in node.headerImages"
             :key="iImg"
             class="headerBox"
@@ -20,17 +33,25 @@
 
             <img :src="headerImg.img" />
 
-            <div v-if="iImg == 1" class="headerOverlay headerOverlayBtm pb-4" :style="overlayStylesBtm">
-              <g-image :src="titleImg" :alt="node.title + ' title image'" class="titleImg mt-4 mt-sm-0" />
+            <div
+              v-if="iImg == 1"
+              class="headerOverlay headerOverlayBtm pb-4"
+              :style="overlayStylesBtm"
+            >
+              <g-image
+                :src="titleImg"
+                :alt="node.title + ' title image'"
+                class="titleImg mt-4 mt-sm-0"
+              />
               <p class="headerText mt-n1 mt-sm-0">SCROLL</p>
               <p class="headerText">TO VIEW THE GALLERY</p>
             </div>
 
-            <g-link 
-              v-if="iImg == 4" 
-              :to="`/archives/${titleSlug}`" 
-              v-b-tooltip.hover.bottom="{ variant: 'secondary' }" 
-              title="Click to see the gallery" 
+            <g-link
+              v-if="iImg == 4"
+              :to="`/archives/${titleSlug}`"
+              v-b-tooltip.hover.bottom="{ variant: 'secondary' }"
+              title="Click to see the gallery"
               class="headerOverlay link pt-3"
             >
               <p class="headerText mt-n1 mt-sm-0">CLICK</p>
@@ -41,23 +62,33 @@
         </div>
 
         <!-- PORTRAIT SLIDESHOW -->
-        <div v-else-if="isPortrait && node.headerMobileImages" class="headerWrapperPortrait">
-          <SlideshowImages 
-            :slides="node.headerMobileImages" 
-            :interval="4500" 
-            borderRadius="15px" 
-            ref="portraitSlideshow" 
-            class="headerBoxPortrait" 
+        <div
+          v-else-if="isPortrait && node.headerMobileImages"
+          class="headerWrapperPortrait"
+        >
+          <SlideshowImages
+            :slides="node.headerMobileImages"
+            :interval="4500"
+            borderRadius="15px"
+            ref="portraitSlideshow"
+            class="headerBoxPortrait"
           >
-            <div class="headerOverlay headerOverlayBtm" :style="overlayStylesBtm">
-              <g-image :src="titleImg" :alt="node.title + ' title image'" class="titleImg" />
+            <div
+              class="headerOverlay headerOverlayBtm"
+              :style="overlayStylesBtm"
+            >
+              <g-image
+                :src="titleImg"
+                :alt="node.title + ' title image'"
+                class="titleImg"
+              />
               <p class="headerText">SCROLL</p>
               <p class="headerText">TO VIEW THE GALLERY</p>
 
-              <g-link 
-                :to="`/archives/${titleSlug}`" 
-                v-b-tooltip.hover.bottom="{ variant: 'secondary' }" 
-                title="Click to see the gallery" 
+              <g-link
+                :to="`/archives/${titleSlug}`"
+                v-b-tooltip.hover.bottom="{ variant: 'secondary' }"
+                title="Click to see the gallery"
                 class="link"
               >
                 <p class="headerText mt-n1 mt-sm-0">CLICK</p>
@@ -69,33 +100,34 @@
         </div>
       </header>
 
-
       <div id="mainContent" class="px-3 pt-5 mt-4" :style="mainContentStyles">
         <!-- IMAGE GALLERY SECTIONS -->
-        <div 
-          v-for="(section, iSect) in sections" 
+        <div
+          v-for="(section, iSect) in sections"
           :key="iSect"
           class="pb-5 mb-5"
         >
           <h2 class="sectionHeading pb-3">{{ section.heading }}</h2>
-          
+
           <div class="galleryWrapper">
-            <div 
-              v-for="(img, iImg) in section.images" 
-              :key="'img'+iImg" 
+            <div
+              v-for="(img, iImg) in section.images"
+              :key="'img' + iImg"
               class="galleryBox"
               @click.prevent="onGalleryImgClick(`${iSect}_${iImg}`)"
             >
-              <img 
+              <img
                 :src="img"
                 :id="`galleryImage_${iSect}_${iImg}`"
-                class="galleryImage" 
-                :class="{ 'centerPos': applyLargeImgStyles && zoomedImgIndex == `${iSect}_${iImg}` }"
+                class="galleryImage"
+                :class="{
+                  centerPos:
+                    applyLargeImgStyles && zoomedImgIndex == `${iSect}_${iImg}`,
+                }"
                 :style="zoomedImgStyles"
               />
             </div>
           </div>
-          
         </div>
       </div>
 
@@ -137,24 +169,24 @@ query ($id: ID!) {
 
 
 <script scoped>
-import BackToTop from '../components/BackToTop.vue'
-import SlideshowImages from '../components/SlideshowImages.vue'
-const slugify = require('@sindresorhus/slugify')
+import BackToTop from "../components/BackToTop.vue";
+import SlideshowImages from "../components/SlideshowImages.vue";
+const slugify = require("@sindresorhus/slugify");
 
 const keyMap = {
-  ESC: 27
+  ESC: 27,
 };
 
 export default {
   metaInfo() {
     return {
-      title: this.title
-    }
+      title: this.title,
+    };
   },
 
   components: {
     BackToTop,
-    'SlideshowImages': require('../components/SlideshowImages.vue').default,
+    SlideshowImages: require("../components/SlideshowImages.vue").default,
   },
 
   data() {
@@ -162,169 +194,188 @@ export default {
       zoomedImgIndex: null,
       imgCenterPos: {
         top: 0,
-        left: 0
+        left: 0,
       },
       applyLargeImgStyles: false,
-      eventName: null,      
+      eventName: null,
       portraitTablet: {
-        maxAspect: 0.85
+        maxAspect: 0.85,
       },
       windowWidth: 0.0,
-      windowHeight: 0.0
-    }
+      windowHeight: 0.0,
+    };
   },
 
   computed: {
     title() {
-      return this.$page.archive.title
+      return this.$page.archive.title;
     },
     titleSlug() {
-      return slugify(this.title)
+      return slugify(this.title);
     },
     node() {
-      return this.$page.archive
+      return this.$page.archive;
     },
     titleImg() {
-      return this.node.titleImg.singleLine != '' ? this.node.titleImg.singleLine : this.node.titleImg.doubleLine
+      return this.node.titleImg.singleLine != ""
+        ? this.node.titleImg.singleLine
+        : this.node.titleImg.doubleLine;
     },
     aspectRatio() {
-      return this.windowWidth / this.windowHeight
+      return this.windowWidth / this.windowHeight;
     },
     isPortrait() {
-      return this.aspectRatio < this.portraitTablet.maxAspect || this.windowWidth < 992
+      return (
+        this.aspectRatio < this.portraitTablet.maxAspect ||
+        this.windowWidth < 992
+      );
     },
     overlayStylesBtm() {
-      let css = {}
-      css['--titleMaxWidth'] = this.node.titleImg.maxWidth + '%'
-      css.bottom = '0px'
-      return css
+      let css = {};
+      css["--titleMaxWidth"] = this.node.titleImg.maxWidth + "%";
+      css.bottom = "0px";
+      return css;
     },
     galleryImgUrls() {
-      if (this.node.imageGallery == null)
-        return null
-      let urls = []
+      if (this.node.imageGallery == null) return null;
+      let urls = [];
       for (let i = 1; i <= this.node.imageGallery.numImages; i++) {
-        let url = this.node.imageGallery.commonPath + i + '.jpg'
-        urls.push(url)
+        let url = this.node.imageGallery.commonPath + i + ".jpg";
+        urls.push(url);
       }
-      return urls
+      return urls;
     },
     sections() {
-      let sections = this.node.imageGallerySections
-      sections.forEach(s => {
-        s.images = this.galleryImgUrls.slice(s.imageStartNo - 1, s.imageStartNo + s.numImages - 1)
+      let sections = this.node.imageGallerySections;
+      sections.forEach((s) => {
+        s.images = this.galleryImgUrls.slice(
+          s.imageStartNo - 1,
+          s.imageStartNo + s.numImages - 1
+        );
       });
-      return sections
+      return sections;
     },
     zoomedImgStyles() {
-      let absCenterTop = this.windowHeight / 2 - this.imgCenterPos.top + 175
-      let absCenterLeft = this.windowWidth / 2 - this.imgCenterPos.left + 175
+      let absCenterTop = this.windowHeight / 2 - this.imgCenterPos.top + 175;
+      let absCenterLeft = this.windowWidth / 2 - this.imgCenterPos.left + 175;
       return {
-        '--absCenterTop': absCenterTop.toFixed(2) + 'px',
-        '--absCenterLeft': absCenterLeft.toFixed(2) + 'px'
-      }
+        "--absCenterTop": absCenterTop.toFixed(2) + "px",
+        "--absCenterLeft": absCenterLeft.toFixed(2) + "px",
+      };
     },
     numItems() {
-      return this.galleryImgUrls ? this.galleryImgUrls.length : 0
+      return this.galleryImgUrls ? this.galleryImgUrls.length : 0;
     },
     mainContentStyles() {
-      let css = {}
+      let css = {};
       if (this.numItems <= 8) {
-        css['--maxPerRow'] = 1
-        css['--boxSize'] = '480px'
-        css['--gridGap'] = '30px'
+        css["--maxPerRow"] = 1;
+        css["--boxSize"] = "480px";
+        css["--gridGap"] = "30px";
       } else {
-        css['--maxPerRow'] = 5
-        css['--boxSize'] = '350px'
-        css['--gridGap'] = '30px'
+        css["--maxPerRow"] = 5;
+        css["--boxSize"] = "350px";
+        css["--gridGap"] = "30px";
       }
-      return css
-    }
+      return css;
+    },
   },
 
   mounted() {
-    this.updateWindowDims()
-    this.bindEvents()
+    this.updateWindowDims();
+    this.bindEvents();
   },
 
   beforeDestroy() {
-    this.unbindEvents()
+    this.unbindEvents();
   },
 
   methods: {
     bindEvents() {
-      window.addEventListener('resize', this.updateWindowDims, false)
-      window.addEventListener('orientationchange', this.updateWindowDims, false)
-      document.addEventListener('keydown', this.keyDownHandler, false)
-      document.addEventListener('scroll', this.scrollHandler, false)
+      window.addEventListener("resize", this.updateWindowDims, false);
+      window.addEventListener(
+        "orientationchange",
+        this.updateWindowDims,
+        false
+      );
+      document.addEventListener("keydown", this.keyDownHandler, false);
+      document.addEventListener("scroll", this.scrollHandler, false);
     },
     unbindEvents() {
-      window.removeEventListener('resize', this.updateWindowDims, false)
-      window.removeEventListener('orientationchange', this.updateWindowDims, false)
-      document.removeEventListener('keydown', this.keyDownHandler, false)
-      document.removeEventListener('scroll', this.scrollHandler, false)
+      window.removeEventListener("resize", this.updateWindowDims, false);
+      window.removeEventListener(
+        "orientationchange",
+        this.updateWindowDims,
+        false
+      );
+      document.removeEventListener("keydown", this.keyDownHandler, false);
+      document.removeEventListener("scroll", this.scrollHandler, false);
     },
     onGalleryImgClick(img_Id) {
       if (this.zoomedImgIndex == img_Id || this.windowWidth < 768) {
-        return
+        return;
       }
-      
-      const imgEl = document.getElementById('galleryImage_' + img_Id)
-      const elemRect = imgEl.getBoundingClientRect()
-      this.imgCenterPos.top = elemRect.top + (elemRect.height / 2)
-      this.imgCenterPos.left = elemRect.left + (elemRect.width / 2)
+
+      const imgEl = document.getElementById("galleryImage_" + img_Id);
+      const elemRect = imgEl.getBoundingClientRect();
+      this.imgCenterPos.top = elemRect.top + elemRect.height / 2;
+      this.imgCenterPos.left = elemRect.left + elemRect.width / 2;
 
       this.$nextTick(() => {
-        this.zoomedImgIndex = img_Id
-        this.applyLargeImgStyles = true
-      })
-      
-      this.eventName = 'click'
+        this.zoomedImgIndex = img_Id;
+        this.applyLargeImgStyles = true;
+      });
+
+      this.eventName = "click";
     },
     closeLargeImg() {
       if (this.applyLargeImgStyles) {
-        this.applyLargeImgStyles = false        
+        this.applyLargeImgStyles = false;
 
         this.$nextTick(() => {
-          this.eventName = null
-          this.zoomedImgIndex = null
-        })
+          this.eventName = null;
+          this.zoomedImgIndex = null;
+        });
       }
     },
     keyDownHandler(event) {
       switch (event.keyCode) {
         case keyMap.ESC:
-          this.closeLargeImg()
-          break
+          this.closeLargeImg();
+          break;
         default:
-          break
+          break;
       }
     },
-    scrollHandler() {      
+    scrollHandler() {
       if (this.zoomedImgIndex !== null) {
-        this.closeLargeImg()
+        this.closeLargeImg();
       }
     },
-    updateWindowDims() {      
-      this.windowWidth = window.innerWidth
-      this.windowHeight = window.innerHeight
-    }
-  }
-}
+    updateWindowDims() {
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
+    },
+  },
+};
 </script>
 
 
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -371,15 +422,15 @@ export default {
   margin: 0 auto;
   padding: 130px 50px 0px 50px !important;
 }
-#header:after  {
-  content : "";
+#header:after {
+  content: "";
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
   background: var(--headerBgImg) no-repeat center;
   background-size: cover;
-  opacity : var(--bgOpacity);
+  opacity: var(--bgOpacity);
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -424,7 +475,7 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 40;
-  background-color: #3E2E20;
+  background-color: #3e2e20;
   opacity: 0.29;
 }
 .headerOverlay {
@@ -454,16 +505,16 @@ export default {
 }
 
 .headerText {
-  color: #FFF;
-  font-family: 'Lora', serif;
-  font-feature-settings: 'liga';
+  color: #fff;
+  font-family: "Lora", serif;
+  font-feature-settings: "liga";
   font-weight: 400;
 
   --font-size: 1.25rem;
   font-size: var(--font-size);
   line-height: calc(1.35 * var(--font-size));
   letter-spacing: calc(0.29 * var(--font-size));
-  
+
   text-align: center;
   text-transform: uppercase;
   margin: 0px;
@@ -474,11 +525,14 @@ export default {
   cursor: pointer;
 }
 .headerOverlay.link:hover .headerText {
-  color: #EECF49;
+  color: #eecf49;
 }
 
 #mainContent {
-  max-width: calc(var(--maxPerRow) * var(--boxSize) + (var(--maxPerRow - 1) * var(--gridGap)) + 2 * 16px);
+  max-width: calc(
+    var(--maxPerRow) * var(--boxSize) + (var(--maxPerRow - 1) * var(--gridGap)) +
+      2 * 16px
+  );
   width: 70%;
   margin: 0 auto;
 }
@@ -503,8 +557,8 @@ export default {
 
 .sectionHeading {
   color: white;
-  font-family: 'Lora', serif;
-  font-feature-settings: 'liga';
+  font-family: "Lora", serif;
+  font-feature-settings: "liga";
   font-weight: 400;
   font-size: 36px;
   letter-spacing: 3px;
@@ -536,8 +590,6 @@ export default {
   transition: all 0.3s linear;
 }
 
-
-
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
 /* Extra small devices (portrait phones, less than 576px) */
@@ -549,7 +601,7 @@ export default {
     grid-gap: 16px;
     justify-content: center;
   }
-  #header {  
+  #header {
     padding: 110px 16px 0px 16px !important;
   }
 
@@ -587,7 +639,7 @@ export default {
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media only screen and (min-width: 576px) and (max-width: 767.98px) {  
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
   .backToArchives {
     top: 27px;
     right: 27px;
@@ -630,7 +682,7 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
   .galleryWrapper {
     justify-content: center;
     grid-gap: 24px;
@@ -653,7 +705,7 @@ export default {
 }
 
 /* Large devices (desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) { 
+@media only screen and (min-width: 1200px) {
   .backToArchivesImg,
   .backToArchivesImg-hover {
     max-width: 300px;
@@ -674,5 +726,4 @@ export default {
     top: calc(175px - 16px);
   }
 }
-
 </style>
