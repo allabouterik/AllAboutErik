@@ -106,7 +106,9 @@
       "link": "/archives/my-dad-earl",
       "imgSrc": "15-icon-earle",
       "imgSrcHover": "15-icon-earle-bright",
-      "isNarrativePage": true
+      "isNarrativePage": true,
+      "hasSeparateGalleryPage": true,
+      "galleryPgNumImages": 66
     },
     {
       "title": "My Uncle Wesley",
