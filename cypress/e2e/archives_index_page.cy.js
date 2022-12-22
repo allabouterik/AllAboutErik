@@ -1,3 +1,6 @@
+import * as data from '../fixtures/archives.json';
+const { archives } = data;
+
 describe('Archives Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/archives');
@@ -51,5 +54,72 @@ describe('Archives Page - page specific tests', () => {
   it('clicking back to top button scrolls the page to the top', () => {
     cy.get('main').find('#scrollToTopBtn').click();
     cy.get('[data-testid="title-img"]').isScrolledTo();
+  });
+
+  const checkArchiveThumbnail = (index, archive) => {
+    cy.get('[data-testid="archive-container"]')
+      .eq(index)
+      .find('a')
+      .should('have.attr', 'href')
+      .should('include', archive.link);
+
+    cy.get('[data-testid="archive-container"]')
+      .eq(index)
+      .find('img.hideOnHover')
+      .should('have.attr', 'src')
+      .should('include', archive.imgSrc);
+
+    cy.get('[data-testid="archive-container"]')
+      .eq(index)
+      .find('img.hideOnHover')
+      .should('be.visible')
+      .and('have.prop', 'naturalWidth')
+      .should('be.greaterThan', 0);
+  };
+
+  const checkArchiveThumbnailTextOverlay = (index, archive) => {
+    cy.get('[data-testid="archive-container"]')
+      .eq(index)
+      .find('a.thumbnailContainer')
+      .realHover()
+      .find('img.showOnHover')
+      .should('have.attr', 'src')
+      .should('include', archive.imgSrcHover);
+
+    cy.get('[data-testid="archive-container"]')
+      .eq(index)
+      .find('a.thumbnailContainer')
+      .realHover()
+      .find('img.showOnHover')
+      .should('be.visible')
+      .and('have.prop', 'naturalWidth')
+      .should('be.greaterThan', 0);
+
+    cy.get('[data-testid="archive-container"]')
+      .eq(index)
+      .find('a.thumbnailContainer')
+      .realHover()
+      .find('.thumbnailImgTextOverlay .showOnHover img')
+      .and('have.attr', 'src')
+      .should('include', 'eye.png');
+
+    cy.get('[data-testid="archive-container"]')
+      .eq(index)
+      .find('a.thumbnailContainer')
+      .realHover()
+      .find('.thumbnailImgTextOverlay .showOnHover img')
+      .should('be.visible')
+      .and('have.prop', 'naturalWidth')
+      .should('be.greaterThan', 0);
+  };
+
+  archives.forEach((archive, index) => {
+    it(`has the ${archive.title} archive thumbnail`, () => {
+      checkArchiveThumbnail(index, archive);
+    });
+
+    it(`has the ${archive.title} archive thumbnail overlay`, () => {
+      checkArchiveThumbnailTextOverlay(index, archive);
+    });
   });
 });
