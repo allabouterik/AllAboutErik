@@ -52,6 +52,7 @@
                   :src="titleImg"
                   :alt="node.title + ' title image'"
                   class="titleImg"
+                  data-testid="title-img"
                 />
                 <simplebar
                   class="simple-scrollbar"
@@ -94,6 +95,7 @@
                   :src="titleImg"
                   :alt="node.title + ' title image'"
                   class="titleImg"
+                  data-testid="title-img"
                 />
                 <simplebar
                   class="simple-scrollbar"

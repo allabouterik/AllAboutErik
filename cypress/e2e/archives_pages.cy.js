@@ -11,6 +11,10 @@ describe('Archives - Individual Pages', () => {
       }
     });
 
+    it(`${archive.title} has the title image`, () => {
+      cy.findPageTitleImg(archive.titleImg);
+    });
+
     if (archive.hasOwnProperty('headerText')) {
       it(`${archive.title} page contains the header text`, () => {
         cy.get('.archive_headerText').should(

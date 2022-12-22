@@ -42,6 +42,7 @@
                 :src="titleImg"
                 :alt="node.title + ' title image'"
                 class="titleImg mt-4 mt-sm-0"
+                data-testid="title-img"
               />
               <p class="headerText mt-n1 mt-sm-0">SCROLL</p>
               <p class="headerText">TO VIEW THE GALLERY</p>
@@ -81,6 +82,7 @@
                 :src="titleImg"
                 :alt="node.title + ' title image'"
                 class="titleImg"
+                data-testid="title-img"
               />
               <p class="headerText">SCROLL</p>
               <p class="headerText">TO VIEW THE GALLERY</p>
