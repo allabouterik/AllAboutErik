@@ -20,29 +20,54 @@ module.exports = function (api) {
   const slugify = require('@sindresorhus/slugify')
 
   // create the individual Friends pages
-  api.createPages(async ({ graphql, createPage }) => {
-    const { data } = await graphql(`{
-      allFriends {
-        edges {
-          node {
-            id
-            name
+  api.createManagedPages(async ({ graphql, createPage, removePageByPath }) => {
+    const { data } = await graphql(`
+      {
+        allFriends {
+          edges {
+            node {
+              id
+              name
+            }
           }
         }
       }
-    }`)
+    `);
     data.allFriends.edges.forEach(({ node }) => {
-      pageSlug = slugify(node.name)
+      pageSlug = slugify(node.name);
       createPage({
         path: `/musical-journey/musical-friends/${pageSlug}`,
         component: './src/templates/Friend.vue',
         context: {
-          id: node.id
-        }
-      })
-    })
-  })
+          id: node.id,
+        },
+      });
 
+      // Musical Friends music pages (workaround for file-based routing not working in
+      // `gridsome develop` after upgrading to gridsome v0.7.23)
+      if (pageSlug === 'nadia' || pageSlug === 'eduardo-unz') {
+        createPage({
+          path: `/musical-journey/musical-friends/${pageSlug}/music`,
+          component: `./src/pages/Musical Journey/Musical Friends/${node.name}/Music.vue`,
+        });
+        removePageByPath(`/musical-journey-musical-friends-${pageSlug}/music`);
+      }
+    });
+  });
+
+  // Musical Friends index (workaround for file-based routing not working
+  // properly in `gridsome develop` after upgrading to gridsome v0.7.23)
+  api.createManagedPages(async ({ createPage, removePageByPath }) => {
+    createPage({
+      path: '/musical-journey/musical-friends/',
+      component: './src/pages/Musical Journey/Musical Friends/Index.vue',
+    });
+    createPage({
+      path: '/musical-journey/musical-friends/menu',
+      component: './src/pages/Musical Journey/Musical Friends/Menu.vue',
+    });
+    removePageByPath('/musical-journey-musical-friends/');
+  });
 
   // create the individual Collections pages
   api.createPages(async ({ graphql, createPage }) => {
