@@ -1,12 +1,20 @@
 <template>
   <b-container fluid id="tilesContainer">
-    <b-row no-gutters align-h="center" id="tilesRow" class="mx-3 mx-sm-0 mb-5 pb-4">
+    <b-row
+      no-gutters
+      align-h="center"
+      id="tilesRow"
+      class="mx-3 mx-sm-0 mb-5 pb-4"
+    >
       <b-col
         v-for="(tile, index) in tiles"
         :key="index"
-        cols="12" md="5" xl="3"
+        cols="12"
+        md="5"
+        xl="3"
         align-self="center"
         class="tilesCols p-0 m-2 m-sm-3"
+        data-testid="archive-container"
       >
         <ArchivesThumbnail :thumbnailObj="tile" />
       </b-col>
@@ -16,28 +24,27 @@
 
 
 <script scoped>
-import ArchivesThumbnail from './ArchivesThumbnail.vue'
+import ArchivesThumbnail from "./ArchivesThumbnail.vue";
 
-export default { 
-  name: 'ArchivesTiles',
+export default {
+  name: "ArchivesTiles",
 
   components: {
-    ArchivesThumbnail
+    ArchivesThumbnail,
   },
 
   props: {
     tiles: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 
 
 <style scoped lang="scss">
-
 #tilesContainer {
   width: 100%;
   max-width: 2048px;

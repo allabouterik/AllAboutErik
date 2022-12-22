@@ -30,6 +30,11 @@ Cypress.Commands.add('findPageTitleImg', (src) => {
   cy.get('[data-testid="title-img"]')
     .should('have.attr', 'src')
     .should('include', src);
+
+  cy.get('[data-testid="title-img"]')
+    .should('be.visible')
+    .and('have.prop', 'naturalWidth')
+    .should('be.greaterThan', 0);
 });
 
 Cypress.Commands.add('findAudioPlayingIcon', () => {
@@ -84,6 +89,26 @@ Cypress.Commands.add(
       });
   }
 );
+
+Cypress.Commands.add('hasScrollImages', () => {
+  cy.get('#scrollImgContainer')
+    .find('img#scrollImg')
+    .should('have.attr', 'alt')
+    .should('include', 'Scroll text');
+
+  cy.get('#scrollImgContainer')
+    .find('img#scrollImg')
+    .should('be.visible')
+    .and('have.prop', 'naturalWidth')
+    .should('be.greaterThan', 0);
+});
+
+Cypress.Commands.add('hasKenBurnsSlideshow', (numImages) => {
+  cy.get('.SlideshowKenBurns img')
+    .should('have.length', numImages)
+    .and('have.prop', 'naturalWidth')
+    .should('be.greaterThan', 0);
+});
 
 Cypress.Commands.add('isScrolledTo', { prevSubject: true }, (element) => {
   cy.get(element).should(($el) => {

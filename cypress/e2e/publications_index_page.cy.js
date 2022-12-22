@@ -21,17 +21,11 @@ describe('Publications Page - standard tests', () => {
 
 describe('Publications Page - page specific tests', () => {
   it('there is a slideshow with four images loaded', () => {
-    cy.get('.SlideshowKenBurns img')
-      .should('have.length', 4)
-      .should('be.visible')
-      .and('have.prop', 'naturalWidth')
-      .should('be.greaterThan', 0);
+    cy.hasKenBurnsSlideshow(4);
   });
 
   it('the publications thumbnails section matches the saved image snapshot', () => {
-    cy.get('.publicationsRow')
-      .wait(1000)
-      .toMatchImageSnapshot();
+    cy.get('.publicationsRow').wait(1000).toMatchImageSnapshot();
   });
 
   it('has six publication thumbnail links', () => {
@@ -95,15 +89,11 @@ describe('Publications Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 1500 });
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .should('be.visible');
+    cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
   it('clicking back to top button scrolls the page to the top', () => {
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .click();
+    cy.get('main').find('#scrollToTopBtn').click();
     cy.get('[data-testid="title-img"]').isScrolledTo();
   });
 });

@@ -7,9 +7,7 @@ describe('Discography Page - standard tests', () => {
   });
 
   it('the header matches the saved image snapshot', () => {
-    cy.get('#header')
-      .wait(1000)
-      .toMatchImageSnapshot();
+    cy.get('#header').wait(1000).toMatchImageSnapshot();
   });
 
   it('the discography intro content matches the saved image snapshot', () => {
@@ -43,15 +41,7 @@ describe('Discography Page - page specific tests', () => {
   });
 
   it('has scroll images', () => {
-    cy.get('#scrollImgContainer')
-      .find('img#scrollImg')
-      .should('have.attr', 'alt')
-      .should('include', 'Scroll text');
-
-    cy.get('#scrollImgContainer')
-      .find('img#scrollArrowImg')
-      .should('have.attr', 'alt')
-      .should('include', 'Scroll arrow');
+    cy.hasScrollImages();
   });
 
   it('clicking scroll container brings main text body column into view & title image out of view', () => {
@@ -62,15 +52,11 @@ describe('Discography Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 500 });
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .should('be.visible');
+    cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
   it('clicking back to top button scrolls the page to the top', () => {
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .click();
+    cy.get('main').find('#scrollToTopBtn').click();
     cy.get('#titleImg').isScrolledTo();
   });
 
