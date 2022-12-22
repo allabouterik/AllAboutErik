@@ -5,7 +5,7 @@
       "link": "/archives/music-biz",
       "imgSrc": "01_icon_music_biz",
       "imgSrcHover": "01_icon_music_biz-bright",
-      "numImages": 115,
+      "numImages": 119,
       "headerText": "Here’s a bunch of stuff pertaining to my “career” in the music biz."
     },
     {
@@ -36,7 +36,7 @@
       "link": "/archives/my-amazing-mom",
       "imgSrc": "14-icon-mom",
       "imgSrcHover": "14-icon-mom-bright",
-      "headerText": "SCROLL TO READ MY RECOLLECTIONS"
+      "isNarrativePage": true
     },
     {
       "title": "Erik's Flowers",
@@ -51,7 +51,7 @@
       "link": "/archives/lots-of-fishing",
       "imgSrc": "07-icon-fishing",
       "imgSrcHover": "07-icon-fishing-bright",
-      "numImages": 411,
+      "numImages": 409,
       "headerText": "My dad grew up in Norway and took me fishing at an early age at our country club. I got the bug and just never stopped. In the Midwest we fished in lakes, rivers, and ponds for bluegills, sunfish, bullheads, perch, bass, pike, and carp.  As a teenager I loved going to Florida to fish in the saltwater. Later I started going to Mexico and I’ve been to Baja fishing 50 times. My buddy Mike and I have shared a Boston Whaler for a half century. We do San Francisco Bay and the ocean for salmon, halibut, stripers, and sturgeon. I enjoy being out on the water. I love catching and eating fish. It’s been a lifelong passion."
     },
     {
@@ -83,7 +83,7 @@
       "link": "/archives/boyhood",
       "imgSrc": "11-icon-boyhood",
       "imgSrcHover": "11-icon-boyhood-bright",
-      "numImages": 93,
+      "numImages": 92,
       "headerText": "An idyllic midwestern boyhood"
     },
     {
@@ -91,7 +91,7 @@
       "link": "/archives/family-trip-to-europe-57",
       "imgSrc": "20-icon-trip",
       "imgSrcHover": "20-icon-trip-bright",
-      "headerText": "SCROLL TO READ MY RECOLLECTIONS"
+      "isNarrativePage": true
     },
     {
       "title": "Relatives",
@@ -106,14 +106,14 @@
       "link": "/archives/my-dad-earl",
       "imgSrc": "15-icon-earle",
       "imgSrcHover": "15-icon-earle-bright",
-      "headerText": "SCROLL TO READ MY RECOLLECTIONS"
+      "isNarrativePage": true
     },
     {
       "title": "My Uncle Wesley",
       "link": "/archives/my-uncle-wesley",
       "imgSrc": "16-icon-wesley",
       "imgSrcHover": "16-icon-wesley-bright",
-      "headerText": "SCROLL TO READ MY RECOLLECTIONS"
+      "isNarrativePage": true
     },
     {
       "title": "My Sister Ellen",
@@ -161,7 +161,7 @@
       "imgSrc": "24-icon-nico",
       "imgSrcHover": "24-icon-nico-bright",
       "numImages": 587,
-      "headerText": "My younger son Nico is the result of my love affair with his mom Kim Wilkins. He was born in 1987. He’s a talented and creative guy. He lives in Brooklyn. He produces and DJ’s a kind of music he calls “Techno Trance”. He’s also been working for a clothing company as a “Cultural Concierge”, scouting locations, doing interviews, and writing critiques on art, food and music. He’s an expert on *uni* and expensive bottles of organic wine. He’s always traveling around in one capacity or another."
+      "headerText": "My younger son Nico is the result of my love affair with his mom Kim Wilkins. He was born in 1987. He’s a talented and creative guy. He lives in Brooklyn. He produces and DJ’s a kind of music he calls “Techno Trance”. He’s also been working for a clothing company as a “Cultural Concierge”, scouting locations, doing interviews, and writing critiques on art, food and music. He’s an expert on uni and expensive bottles of organic wine. He’s always traveling around in one capacity or another."
     },
     {
       "title": "The \"Writer\"",
