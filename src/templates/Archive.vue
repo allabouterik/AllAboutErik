@@ -1,60 +1,79 @@
 <template>
   <Layout>
     <div v-on:[eventName]="closeLargeImg()" class="pb-5">
-
-      <g-link to="/archives/menu" v-b-tooltip.hover.bottom="{ variant: 'secondary' }" title="Back to Archives menu" class="backToArchives">
-        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line.png" class="backToArchivesImg pt-3 pt-md-2" />
-        <g-image immediate alt="Back to Archives" src="~/assets/images/back-to-archives-single-line-yellow.png" class="backToArchivesImg-hover pt-3 pt-md-2" />
-      </g-link>
-
       <header id="header" class="px-3">
+        <g-link
+          to="/archives/menu"
+          v-b-tooltip.hover.bottom="{ variant: 'secondary' }"
+          title="Back to Archives menu"
+          class="backToArchives"
+        >
+          <g-image
+            immediate
+            alt="Back to Archives"
+            src="~/assets/images/back-to-archives-single-line.png"
+            class="backToArchivesImg pt-3 pt-md-2"
+          />
+          <g-image
+            immediate
+            alt="Back to Archives"
+            src="~/assets/images/back-to-archives-single-line-yellow.png"
+            class="backToArchivesImg-hover pt-3 pt-md-2"
+          />
+        </g-link>
         <div class="headerWrapper">
-
           <!-- SLIDESHOWS -->
           <template v-if="slideshowLeftImgs != null">
-            <SlideshowImages 
+            <SlideshowImages
               v-show="windowWidth >= 1200"
-              :slides="slideshowLeftImgs" 
-              :interval="4500" 
-              borderRadius="15px" 
-              ref="slideshowLeft" 
-              id="slideshowLeft" 
-              class="headerBox" 
+              :slides="slideshowLeftImgs"
+              :interval="4500"
+              borderRadius="15px"
+              ref="slideshowLeft"
+              id="slideshowLeft"
+              class="headerBox"
             />
 
-            <SlideshowImages 
-              :slides="slideshowCenterImgs"  
-              :interval="4500" 
-              borderRadius="15px" 
-              ref="slideshowCenter" 
+            <SlideshowImages
+              :slides="slideshowCenterImgs"
+              :interval="4500"
+              borderRadius="15px"
+              ref="slideshowCenter"
               id="slideshowCenter"
               class="headerBox"
             >
-              <div 
-                v-if="node.applyCenterFilter !== false" 
-                class="headerFilter" 
+              <div
+                v-if="node.applyCenterFilter !== false"
+                class="headerFilter"
               />
-              
+
               <div class="headerOverlay" :style="overlayStyles">
-                <g-image 
+                <g-image
                   :src="titleImg"
-                  :alt="node.title + ' title image'" 
-                  class="titleImg" 
+                  :alt="node.title + ' title image'"
+                  class="titleImg"
                 />
-                <simplebar class="simple-scrollbar" data-simplebar-auto-hide="false">
-                  <span id="archive_headerText" :style="headerTextStyles" v-html="node.content" />
+                <simplebar
+                  class="simple-scrollbar"
+                  data-simplebar-auto-hide="false"
+                >
+                  <span
+                    class="archive_headerText"
+                    :style="headerTextStyles"
+                    v-html="node.content"
+                  />
                 </simplebar>
               </div>
             </SlideshowImages>
 
-            <SlideshowImages 
+            <SlideshowImages
               v-show="windowWidth >= 1200"
-              :slides="slideshowRightImgs" 
-              :interval="4500" 
-              borderRadius="15px" 
-              ref="slideshowRight" 
-              id="slideshowRight" 
-              class="headerBox" 
+              :slides="slideshowRightImgs"
+              :interval="4500"
+              borderRadius="15px"
+              ref="slideshowRight"
+              id="slideshowRight"
+              class="headerBox"
             />
           </template>
 
@@ -65,16 +84,26 @@
             </div>
 
             <div class="headerBox">
-              <div v-if="node.applyCenterFilter !== false" class="headerFilter" />
+              <div
+                v-if="node.applyCenterFilter !== false"
+                class="headerFilter"
+              />
               <img :src="node.headerImgCentre" />
               <div class="headerOverlay" :style="overlayStyles">
-                <g-image 
+                <g-image
                   :src="titleImg"
-                  :alt="node.title + ' title image'" 
-                  class="titleImg" 
+                  :alt="node.title + ' title image'"
+                  class="titleImg"
                 />
-                <simplebar class="simple-scrollbar" data-simplebar-auto-hide="false">
-                  <span id="archive_headerText" :style="headerTextStyles" v-html="node.content" />
+                <simplebar
+                  class="simple-scrollbar"
+                  data-simplebar-auto-hide="false"
+                >
+                  <span
+                    class="archive_headerText"
+                    :style="headerTextStyles"
+                    v-html="node.content"
+                  />
                 </simplebar>
               </div>
             </div>
@@ -83,58 +112,118 @@
               <img :src="node.headerImgRight" />
             </div>
           </template>
-
         </div>
 
-        <b-container fluid style="padding:0">        
+        <b-container fluid style="padding: 0">
           <b-row no-gutters align-v="center" id="navLinksRow" class="pt-2">
-            <b-col style="text-align:left">
-              <g-link :to="'/archives/' + prev_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_archive.title" class="nav_link nav_link_big" id="nav_previous">
-                <g-image immediate alt="previous" src="../assets/images/previous-white.png" class="hideOnHover" />
-                <g-image immediate alt="previous" src="../assets/images/previous-yellow.png" class="showOnHover" />
+            <b-col style="text-align: left">
+              <g-link
+                :to="'/archives/' + prev_archive.link"
+                v-b-tooltip.hover="{ variant: 'secondary' }"
+                :title="prev_archive.title"
+                class="nav_link nav_link_big"
+                id="nav_previous"
+              >
+                <g-image
+                  immediate
+                  alt="previous"
+                  src="../assets/images/previous-white.png"
+                  class="hideOnHover"
+                />
+                <g-image
+                  immediate
+                  alt="previous"
+                  src="../assets/images/previous-yellow.png"
+                  class="showOnHover"
+                />
               </g-link>
 
-              <g-link :to="'/archives/' + prev_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="prev_archive.title" class="nav_link nav_link_small" id="nav_prev">
-                <g-image immediate alt="previous" src="../assets/images/prev-white.png" class="hideOnHover" />
-                <g-image immediate alt="previous" src="../assets/images/prev-yellow.png" class="showOnHover" />
+              <g-link
+                :to="'/archives/' + prev_archive.link"
+                v-b-tooltip.hover="{ variant: 'secondary' }"
+                :title="prev_archive.title"
+                class="nav_link nav_link_small"
+                id="nav_prev"
+              >
+                <g-image
+                  immediate
+                  alt="previous"
+                  src="../assets/images/prev-white.png"
+                  class="hideOnHover"
+                />
+                <g-image
+                  immediate
+                  alt="previous"
+                  src="../assets/images/prev-yellow.png"
+                  class="showOnHover"
+                />
               </g-link>
             </b-col>
-            
-            <b-col style="text-align:right">
-              <g-link :to="'/archives/' + next_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_archive.title" class="nav_link nav_link_big" id="nav_next">
-                <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-                <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+
+            <b-col style="text-align: right">
+              <g-link
+                :to="'/archives/' + next_archive.link"
+                v-b-tooltip.hover="{ variant: 'secondary' }"
+                :title="next_archive.title"
+                class="nav_link nav_link_big"
+                id="nav_next"
+              >
+                <g-image
+                  immediate
+                  alt="next"
+                  src="../assets/images/next-white.png"
+                  class="hideOnHover"
+                />
+                <g-image
+                  immediate
+                  alt="next"
+                  src="../assets/images/next-yellow.png"
+                  class="showOnHover"
+                />
               </g-link>
-              
-              <g-link :to="'/archives/' + next_archive.link" v-b-tooltip.hover="{ variant: 'secondary' }" :title="next_archive.title" class="nav_link nav_link_small" id="nav_next">
-                <g-image immediate alt="next" src="../assets/images/next-white.png" class="hideOnHover" />
-                <g-image immediate alt="next" src="../assets/images/next-yellow.png" class="showOnHover" />
+
+              <g-link
+                :to="'/archives/' + next_archive.link"
+                v-b-tooltip.hover="{ variant: 'secondary' }"
+                :title="next_archive.title"
+                class="nav_link nav_link_small"
+                id="nav_next"
+              >
+                <g-image
+                  immediate
+                  alt="next"
+                  src="../assets/images/next-white.png"
+                  class="hideOnHover"
+                />
+                <g-image
+                  immediate
+                  alt="next"
+                  src="../assets/images/next-yellow.png"
+                  class="showOnHover"
+                />
               </g-link>
             </b-col>
           </b-row>
         </b-container>
       </header>
 
-
-      
-
-      
       <div id="mainContent" class="px-3 pb-5" :style="mainContentStyles">
         <div class="galleryWrapper">
-
           <!-- IMAGE GALLERY -->
           <template v-if="galleryImgUrls != null">
-            <div 
-              v-for="(img, iImg) in galleryImgUrls" 
-              :key="'img'+iImg" 
+            <div
+              v-for="(img, iImg) in galleryImgUrls"
+              :key="'img' + iImg"
               class="galleryBox"
               @click.prevent="onGalleryImgClick(iImg)"
             >
-              <img 
+              <img
                 :src="img"
                 :id="'galleryImage_' + iImg"
-                class="galleryImage" 
-                :class="{ 'centerPos': applyLargeImgStyles && zoomedImgIndex == iImg }"
+                class="galleryImage"
+                :class="{
+                  centerPos: applyLargeImgStyles && zoomedImgIndex == iImg,
+                }"
                 :style="zoomedImgStyles"
               />
             </div>
@@ -142,33 +231,47 @@
 
           <!-- AUDIOS & ARTICLES GALLERY -->
           <template v-if="audiosAndArticles != null">
-            <div 
-              v-for="(item, iItem) in audiosAndArticles" 
-              :key="'item'+iItem" 
+            <div
+              v-for="(item, iItem) in audiosAndArticles"
+              :key="'item' + iItem"
               class="galleryBox"
               @click.prevent="onGalleryMediaClick(iItem)"
             >
-              <div 
+              <div
                 class="mediaBox"
-                :style="'background: transparent url(' + item.thumbnailImg + ') no-repeat left top'"
+                :style="
+                  'background: transparent url(' +
+                  item.thumbnailImg +
+                  ') no-repeat left top'
+                "
               />
               <div class="boxOverlay mb-5">
                 <transition name="fade">
-                  <span class="thumbnailCaption absCenter hideOnHover">{{ item.caption }}</span>
+                  <span class="thumbnailCaption absCenter hideOnHover">{{
+                    item.caption
+                  }}</span>
                 </transition>
-                
+
                 <transition name="fade">
-                  <g-image v-if="item.type == 'audio'" alt="Play symbol" src="~/assets/images/music_symbol_circle.png" class="absCenter showOnHover" />
-                  <g-image v-else alt="Eye icon" src="~/assets/images/eye.png" class="absCenter showOnHover" />
+                  <g-image
+                    v-if="item.type == 'audio'"
+                    alt="Play symbol"
+                    src="~/assets/images/music_symbol_circle.png"
+                    class="absCenter showOnHover"
+                  />
+                  <g-image
+                    v-else
+                    alt="Eye icon"
+                    src="~/assets/images/eye.png"
+                    class="absCenter showOnHover"
+                  />
                 </transition>
               </div>
-
             </div>
           </template>
-          
         </div>
       </div>
-      
+
       <AudioLightBox
         v-if="audioTracks != null"
         :audios="audioTracks"
@@ -178,20 +281,18 @@
         @close="audioIndex = null"
       />
 
-      <BookViewer 
+      <BookViewer
         v-show="isBookFullscreen"
-        :pages="bookImagesUrlsStdRes" 
+        :pages="bookImagesUrlsStdRes"
         :isFullscreen="isBookFullscreen"
         :showSinglePage="bookShowSinglePage"
-        :key="'bookViewer'+bookKey" 
-        @toggleFullscreen="toggleFullscreen()" 
-        @reload="reloadBook()" 
+        :key="'bookViewer' + bookKey"
+        @toggleFullscreen="toggleFullscreen()"
+        @reload="reloadBook()"
       />
 
       <BackToTop />
-      
     </div>
-
   </Layout>
 </template>
 
@@ -263,31 +364,31 @@ query ($id: ID!) {
 
 
 <script scoped>
-import AudioLightBox from '../components/AudioLightBox.vue'
-import BookViewer from '../components/BookViewer.vue'
-import BackToTop from '../components/BackToTop.vue'
-import SlideshowImages from '../components/SlideshowImages.vue'
-import simplebar from 'simplebar-vue'
-import 'simplebar/dist/simplebar.min.css'
-const slugify = require('@sindresorhus/slugify')
+import AudioLightBox from "../components/AudioLightBox.vue";
+import BookViewer from "../components/BookViewer.vue";
+import BackToTop from "../components/BackToTop.vue";
+import SlideshowImages from "../components/SlideshowImages.vue";
+import simplebar from "simplebar-vue";
+import "simplebar/dist/simplebar.min.css";
+const slugify = require("@sindresorhus/slugify");
 
 const keyMap = {
-  ESC: 27
+  ESC: 27,
 };
 
 export default {
   metaInfo() {
     return {
-      title: this.title
-    }
+      title: this.title,
+    };
   },
 
   components: {
     AudioLightBox,
     BookViewer,
     BackToTop,
-    'SlideshowImages': require('../components/SlideshowImages.vue').default,
-    simplebar
+    SlideshowImages: require("../components/SlideshowImages.vue").default,
+    simplebar,
   },
 
   data() {
@@ -296,110 +397,114 @@ export default {
       zoomedImgIndex: null,
       imgCenterPos: {
         top: 0,
-        left: 0
+        left: 0,
       },
       applyLargeImgStyles: false,
       eventName: null,
       windowWidth: 0.0,
-      windowHeight: 0.0,      
+      windowHeight: 0.0,
       articleIndex: null,
       isBookFullscreen: false,
       bookShowSinglePage: false,
-      bookKey: 1
-    }
+      bookKey: 1,
+    };
   },
 
   computed: {
     title() {
-      return this.$page.archive.title
+      return this.$page.archive.title;
     },
     titleSlug() {
-      return slugify(this.title)
+      return slugify(this.title);
     },
     node() {
-      return this.$page.archive
+      return this.$page.archive;
     },
     titleImg() {
-      return this.node.titleImg1Line != '' ? this.node.titleImg1Line : this.node.titleImg2Lines
+      return this.node.titleImg1Line != ""
+        ? this.node.titleImg1Line
+        : this.node.titleImg2Lines;
     },
     headerTextStyles() {
-      let css = {}
-      css.textAlign = this.node.content.length < 80 ? 'center' : 'justify'
-      return css
+      let css = {};
+      css.textAlign = this.node.content.length < 80 ? "center" : "justify";
+      return css;
     },
     slideshowLeftImgs() {
-      if (this.node.headerSlideshowLeft == null)
-        return null
-      let imgs = []
+      if (this.node.headerSlideshowLeft == null) return null;
+      let imgs = [];
       for (let i = 1; i <= this.node.headerSlideshowLeft.numImages; i++) {
-        let url = this.node.headerSlideshowLeft.commonPath + i + '.jpg'
-        imgs.push({img: url})
+        let url = this.node.headerSlideshowLeft.commonPath + i + ".jpg";
+        imgs.push({ img: url });
       }
-      return imgs
+      return imgs;
     },
     slideshowCenterImgs() {
-      if (this.node.headerSlideshowCenter == null)
-        return null
-      let imgs = []
+      if (this.node.headerSlideshowCenter == null) return null;
+      let imgs = [];
       for (let i = 1; i <= this.node.headerSlideshowCenter.numImages; i++) {
-        let url = this.node.headerSlideshowCenter.commonPath + i + '.jpg'
-        imgs.push({img: url})
+        let url = this.node.headerSlideshowCenter.commonPath + i + ".jpg";
+        imgs.push({ img: url });
       }
-      return imgs
+      return imgs;
     },
     overlayStyles() {
-      let css = {}
+      let css = {};
       if (this.windowWidth < 576)
-        var topOffset = Math.min(50, this.node.titleImgTopOffset)
+        var topOffset = Math.min(50, this.node.titleImgTopOffset);
       else if (this.windowWidth < 768)
-        topOffset = Math.min(60, this.node.titleImgTopOffset)
-      else
-        topOffset = this.node.titleImgTopOffset
-      css['--titleTopOffset'] = topOffset + '%'
-      css['--titleMaxWidth'] = this.node.titleImgMaxWidth + '%'
-      return css
+        topOffset = Math.min(60, this.node.titleImgTopOffset);
+      else topOffset = this.node.titleImgTopOffset;
+      css["--titleTopOffset"] = topOffset + "%";
+      css["--titleMaxWidth"] = this.node.titleImgMaxWidth + "%";
+      return css;
     },
     slideshowRightImgs() {
-      if (this.node.headerSlideshowRight == null)
-        return null
-      let imgs = []
+      if (this.node.headerSlideshowRight == null) return null;
+      let imgs = [];
       for (let i = 1; i <= this.node.headerSlideshowRight.numImages; i++) {
-        let url = this.node.headerSlideshowRight.commonPath + i + '.jpg'
-        imgs.push({img: url})
+        let url = this.node.headerSlideshowRight.commonPath + i + ".jpg";
+        imgs.push({ img: url });
       }
-      return imgs
+      return imgs;
     },
     galleryImgUrls() {
-      if (this.node.imageGallery == null)
-        return null
-      let urls = []
+      if (this.node.imageGallery == null) return null;
+      let urls = [];
       for (let i = 1; i <= this.node.imageGallery.numImages; i++) {
-        let url = this.node.imageGallery.commonPath + i + '.jpg'
-        if ((this.titleSlug === 'lots-of-fishing' && (i == 356 || i == 379)) ||
-           (this.titleSlug === 'boyhood' && (i == 57))) {
-          continue
+        let url = this.node.imageGallery.commonPath + i + ".jpg";
+        if (
+          (this.titleSlug === "lots-of-fishing" && (i == 356 || i == 379)) ||
+          (this.titleSlug === "boyhood" && i == 57)
+        ) {
+          continue;
         } else {
-          urls.push(url)
+          urls.push(url);
         }
       }
-      return urls
+      return urls;
     },
     zoomedImgStyles() {
-      let absCenterTop = this.windowHeight / 2 - this.imgCenterPos.top + 175
-      let absCenterLeft = this.windowWidth / 2 - this.imgCenterPos.left + 175
+      let absCenterTop = this.windowHeight / 2 - this.imgCenterPos.top + 175;
+      let absCenterLeft = this.windowWidth / 2 - this.imgCenterPos.left + 175;
       return {
-        '--absCenterTop': absCenterTop.toFixed(2) + 'px',
-        '--absCenterLeft': absCenterLeft.toFixed(2) + 'px'
-      }
+        "--absCenterTop": absCenterTop.toFixed(2) + "px",
+        "--absCenterLeft": absCenterLeft.toFixed(2) + "px",
+      };
     },
     audioTracks() {
-      return this.node.audioGallery.map(obj => ({ ...obj, type: 'audio' }))
+      return this.node.audioGallery.map((obj) => ({ ...obj, type: "audio" }));
     },
     articles() {
-      return this.node.articleGallery.map(obj => ({ ...obj, type: 'article' }))
+      return this.node.articleGallery.map((obj) => ({
+        ...obj,
+        type: "article",
+      }));
     },
     audiosAndArticles() {
-      return [...this.audioTracks, ...this.articles].sort((a, b) => (a.orderNo > b.orderNo) ? 1 : -1); 
+      return [...this.audioTracks, ...this.articles].sort((a, b) =>
+        a.orderNo > b.orderNo ? 1 : -1
+      );
     },
     // numItems() {
     //   let num = 0
@@ -408,178 +513,201 @@ export default {
     //   return num
     // },
     mainContentStyles() {
-      let css = {}
+      let css = {};
       if (this.windowWidth < 375) {
-        css['--maxPerRow'] = 1
-        const boxSize = this.windowWidth - 32
-        css['--boxSize'] = boxSize + 'px'
+        css["--maxPerRow"] = 1;
+        const boxSize = this.windowWidth - 32;
+        css["--boxSize"] = boxSize + "px";
       } else {
-        css['--maxPerRow'] = 5
-        css['--boxSize'] = '350px'
+        css["--maxPerRow"] = 5;
+        css["--boxSize"] = "350px";
       }
-      css['--gridGap'] = '30px'
-      return css
+      css["--gridGap"] = "30px";
+      return css;
     },
     bookImagesUrlsStdRes() {
-      if (this.articles == null || this.articleIndex == null)
-        return []
-      const book = this.articles[this.articleIndex]
-      let pages = []
-      let urlCommon = book.commonPathStdRes + book.commonFilenameStdRes
-      for (let i = book.commonFilenameStartNum; i <= book.commonFilenameLastNum; i++) {
-        let url = urlCommon + i + '.jpg'
-        pages.push(url)
+      if (this.articles == null || this.articleIndex == null) return [];
+      const book = this.articles[this.articleIndex];
+      let pages = [];
+      let urlCommon = book.commonPathStdRes + book.commonFilenameStdRes;
+      for (
+        let i = book.commonFilenameStartNum;
+        i <= book.commonFilenameLastNum;
+        i++
+      ) {
+        let url = urlCommon + i + ".jpg";
+        pages.push(url);
       }
-      return pages
+      return pages;
     },
     archives() {
-      let archives = []
-      this.$static.Archives.edges[0].node.tiles.forEach(tile => {
+      let archives = [];
+      this.$static.Archives.edges[0].node.tiles.forEach((tile) => {
         archives.push({
           title: tile.text,
-          link: slugify(tile.text, {customReplacements: [['\'', '']]})
+          link: slugify(tile.text, { customReplacements: [["'", ""]] }),
         });
       });
-      return archives
+      return archives;
     },
     currentIndex() {
       for (let i = 0; i < this.archives.length; i++) {
-        if (this.archives[i].link == slugify(this.title, {customReplacements: [['\'', '']]}))
-          return i
+        if (
+          this.archives[i].link ==
+          slugify(this.title, { customReplacements: [["'", ""]] })
+        )
+          return i;
       }
     },
     prev_archive() {
-      const prev_i = this.currentIndex === 0 ? this.archives.length - 1 : this.currentIndex - 1
-      return this.archives[prev_i]
+      const prev_i =
+        this.currentIndex === 0
+          ? this.archives.length - 1
+          : this.currentIndex - 1;
+      return this.archives[prev_i];
     },
     next_archive() {
-      const next_i = this.currentIndex === this.archives.length - 1 ? 0 : this.currentIndex + 1
-      return this.archives[next_i]
-    }
+      const next_i =
+        this.currentIndex === this.archives.length - 1
+          ? 0
+          : this.currentIndex + 1;
+      return this.archives[next_i];
+    },
   },
 
   mounted() {
     if (this.node.headerSlideshowLeft != null) {
-      this.$refs.slideshowLeft.pause()
-      this.$refs.slideshowCenter.pause()
-      this.$refs.slideshowRight.pause()
-      this.staggerSlideshowStarts()
+      this.$refs.slideshowLeft.pause();
+      this.$refs.slideshowCenter.pause();
+      this.$refs.slideshowRight.pause();
+      this.staggerSlideshowStarts();
     }
-    this.updateWindowDims()
-    this.bindEvents()
+    this.updateWindowDims();
+    this.bindEvents();
   },
 
   beforeDestroy() {
-    this.unbindEvents()
+    this.unbindEvents();
   },
 
   methods: {
     bindEvents() {
-      window.addEventListener('resize', this.updateWindowDims, false)
-      window.addEventListener('orientationchange', this.updateWindowDims, false)
-      document.addEventListener('keydown', this.keyDownHandler, false)
-      document.addEventListener('scroll', this.scrollHandler, false)
+      window.addEventListener("resize", this.updateWindowDims, false);
+      window.addEventListener(
+        "orientationchange",
+        this.updateWindowDims,
+        false
+      );
+      document.addEventListener("keydown", this.keyDownHandler, false);
+      document.addEventListener("scroll", this.scrollHandler, false);
     },
     unbindEvents() {
-      window.removeEventListener('resize', this.updateWindowDims, false)
-      window.removeEventListener('orientationchange', this.updateWindowDims, false)
-      document.removeEventListener('keydown', this.keyDownHandler, false)
-      document.removeEventListener('scroll', this.scrollHandler, false)
+      window.removeEventListener("resize", this.updateWindowDims, false);
+      window.removeEventListener(
+        "orientationchange",
+        this.updateWindowDims,
+        false
+      );
+      document.removeEventListener("keydown", this.keyDownHandler, false);
+      document.removeEventListener("scroll", this.scrollHandler, false);
     },
     delay(ms) {
-      return new Promise(res => setTimeout(res, ms))
+      return new Promise((res) => setTimeout(res, ms));
     },
     async staggerSlideshowStarts() {
-      this.$refs.slideshowLeft.start()
+      this.$refs.slideshowLeft.start();
 
-      await this.delay(1500)
-      this.$refs.slideshowRight.start()
+      await this.delay(1500);
+      this.$refs.slideshowRight.start();
 
-      await this.delay(1500)
-      this.$refs.slideshowCenter.start()
+      await this.delay(1500);
+      this.$refs.slideshowCenter.start();
     },
     onGalleryImgClick(iImg) {
       if (this.zoomedImgIndex == iImg || this.windowWidth < 768) {
-        return
+        return;
       }
-      
-      const imgEl = document.getElementById('galleryImage_' + iImg)
-      const elemRect = imgEl.getBoundingClientRect()
-      this.imgCenterPos.top = elemRect.top + (elemRect.height / 2)
-      this.imgCenterPos.left = elemRect.left + (elemRect.width / 2)
+
+      const imgEl = document.getElementById("galleryImage_" + iImg);
+      const elemRect = imgEl.getBoundingClientRect();
+      this.imgCenterPos.top = elemRect.top + elemRect.height / 2;
+      this.imgCenterPos.left = elemRect.left + elemRect.width / 2;
 
       this.$nextTick(() => {
-        this.zoomedImgIndex = iImg
-        this.applyLargeImgStyles = true
-      })
-      
-      this.eventName = 'click'
+        this.zoomedImgIndex = iImg;
+        this.applyLargeImgStyles = true;
+      });
+
+      this.eventName = "click";
     },
     closeLargeImg() {
       if (this.applyLargeImgStyles) {
-        this.applyLargeImgStyles = false        
+        this.applyLargeImgStyles = false;
 
         this.$nextTick(() => {
-          this.eventName = null
-          this.zoomedImgIndex = null
-        })
+          this.eventName = null;
+          this.zoomedImgIndex = null;
+        });
       }
     },
     keyDownHandler(event) {
       switch (event.keyCode) {
         case keyMap.ESC:
-          this.closeLargeImg()
-          break
+          this.closeLargeImg();
+          break;
         default:
-          break
+          break;
       }
     },
-    scrollHandler() {      
+    scrollHandler() {
       if (this.zoomedImgIndex !== null) {
-        this.closeLargeImg()
+        this.closeLargeImg();
       }
     },
     onGalleryMediaClick(iItem) {
-      const item = this.audiosAndArticles[iItem]
+      const item = this.audiosAndArticles[iItem];
       function callback(arrItem) {
-        return arrItem.thumbnailImg == item.thumbnailImg
+        return arrItem.thumbnailImg == item.thumbnailImg;
       }
-      if (item.type == 'audio') {
-        const index = this.audioTracks.findIndex(callback)
-        this.audioIndex = index >= 0 ? index : null
-      }
-      else if (item.type == 'article') {
-        const index = this.articles.findIndex(callback)
-        this.articleIndex = index >= 0 ? index : null
-        this.toggleFullscreen()
+      if (item.type == "audio") {
+        const index = this.audioTracks.findIndex(callback);
+        this.audioIndex = index >= 0 ? index : null;
+      } else if (item.type == "article") {
+        const index = this.articles.findIndex(callback);
+        this.articleIndex = index >= 0 ? index : null;
+        this.toggleFullscreen();
       }
     },
-    updateWindowDims() {      
-      this.windowWidth = window.innerWidth
-      this.windowHeight = window.innerHeight
+    updateWindowDims() {
+      this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
     },
     toggleFullscreen() {
-      this.isBookFullscreen = !this.isBookFullscreen
-      this.reloadBook()
+      this.isBookFullscreen = !this.isBookFullscreen;
+      this.reloadBook();
     },
     reloadBook() {
-      this.bookKey += 1 // increment component key to force reload between toggle of fullscreen / normal-screen
+      this.bookKey += 1; // increment component key to force reload between toggle of fullscreen / normal-screen
     },
-  }
-}
+  },
+};
 </script>
 
 
 
 <style scoped lang="scss">
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-65md.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -626,15 +754,15 @@ export default {
   width: 100%;
   margin: 0 auto;
 }
-#header:after  {
-  content : "";
+#header:after {
+  content: "";
   display: inline-block;
   position: absolute;
   top: 0;
   left: 0;
   background: var(--headerBgImg) no-repeat center;
   background-size: cover;
-  opacity : var(--bgOpacity);
+  opacity: var(--bgOpacity);
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -662,7 +790,7 @@ export default {
   width: 100%;
   height: 100%;
   z-index: 40;
-  background-color: #3E2E20;
+  background-color: #3e2e20;
   opacity: 0.29;
 }
 .headerOverlay {
@@ -688,7 +816,7 @@ export default {
   padding: 0 0 16px 0;
 }
 
-#archive_headerText { 
+.archive_headerText {
   padding-right: 0px;
   padding-left: 0px;
   // see styles.css for more
@@ -698,7 +826,6 @@ export default {
   height: inherit;
 }
 
-
 .nav_link {
   width: min-content;
   img {
@@ -707,7 +834,10 @@ export default {
 }
 
 #mainContent {
-  max-width: calc(var(--maxPerRow) * var(--boxSize) + (var(--maxPerRow - 1) * var(--gridGap)) + 2 * 16px);
+  max-width: calc(
+    var(--maxPerRow) * var(--boxSize) + (var(--maxPerRow - 1) * var(--gridGap)) +
+      2 * 16px
+  );
   width: 100%;
   margin: 0 auto;
 }
@@ -746,7 +876,8 @@ export default {
   right: 0px;
   bottom: 0px;
   left: 0px;
-  box-shadow: inset 0px 0px 150px rgba(0,0,0,0.5), inset 0px 0px 150px rgba(0,0,0,0.5);
+  box-shadow: inset 0px 0px 150px rgba(0, 0, 0, 0.5),
+    inset 0px 0px 150px rgba(0, 0, 0, 0.5);
   pointer-events: none;
   transition: box-shadow 0.2s ease;
 }
@@ -762,8 +893,8 @@ export default {
   transform: translate3d(-50%, -50%, 0);
   object-fit: contain;
   margin: auto;
-  top: calc(var(--boxSize)/2);
-  left: calc(var(--boxSize)/2);
+  top: calc(var(--boxSize) / 2);
+  left: calc(var(--boxSize) / 2);
   width: var(--boxSize);
   height: var(--boxSize);
   z-index: 10;
@@ -782,14 +913,14 @@ export default {
 
 .thumbnailCaption {
   color: white;
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "Open Sans Condensed", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 300;
   font-size: 46px;
   line-height: 46px;
   letter-spacing: 6px;
   text-align: center;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.32);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.32);
   text-transform: uppercase;
   transition: inherit;
   width: 100%;
@@ -817,10 +948,12 @@ export default {
   width: 100%;
 }
 
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to {
+.fade-enter,
+.fade-leave-to {
   opacity: 0;
 }
 .boxOverlay .hideOnHover {
@@ -837,8 +970,6 @@ export default {
 .galleryBox:hover .boxOverlay .showOnHover {
   opacity: 1;
 }
-
-
 
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
@@ -867,7 +998,7 @@ export default {
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media only screen and (min-width: 576px) and (max-width: 767.98px) {  
+@media only screen and (min-width: 576px) and (max-width: 767.98px) {
   .backToArchives {
     top: 27px;
     right: 27px;
@@ -901,7 +1032,7 @@ export default {
 }
 
 /* Large devices (desktops, 992px and up) */
-@media only screen and (min-width: 992px) and (max-width: 1199.98px) { 
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
   .galleryWrapper {
     grid-gap: 24px;
   }
@@ -918,7 +1049,7 @@ export default {
 }
 
 /* Large devices (desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) { 
+@media only screen and (min-width: 1200px) {
   .backToArchivesImg-hover,
   .backToArchivesImg {
     max-width: 300px;
@@ -936,7 +1067,7 @@ export default {
   }
   .galleryImage {
     height: calc(var(--boxSize));
-    top: calc(var(--boxSize)/2);
+    top: calc(var(--boxSize) / 2);
   }
 }
 
@@ -946,5 +1077,4 @@ export default {
     grid-template-columns: 1fr;
   }
 }
-
 </style>
