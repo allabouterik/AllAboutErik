@@ -210,11 +210,20 @@
       </header>
 
       <div id="mainContent" class="px-3 pb-5" :style="mainContentStyles">
-        <div class="galleryWrapper">
-          <!-- IMAGE GALLERY -->
-          <template v-if="galleryImgUrls != null">
+        <!-- IMAGE GALLERY -->
+        <template v-if="galleryImgUrls != null">
+          <div
+            v-for="n in parseInt(
+              galleryImgUrls.length / maxImagesGalleryWrapper + 1
+            )"
+            :key="'galleryWrapper_' + n"
+            class="galleryWrapper"
+            :id="'galleryWrapper_' + n"
+          >
             <div
-              v-for="(img, iImg) in galleryImgUrls"
+              v-for="(img, iImg) in galleryImgUrls.filter(
+                (_d, i) => parseInt(i / maxImagesGalleryWrapper) === n - 1
+              )"
               :key="'img' + iImg"
               class="galleryBox"
               @click.prevent="onGalleryImgClick(iImg)"
@@ -229,10 +238,14 @@
                 :style="zoomedImgStyles"
               />
             </div>
-          </template>
+          </div>
+        </template>
 
-          <!-- AUDIOS & ARTICLES GALLERY -->
-          <template v-if="audiosAndArticles != null">
+        <!-- AUDIOS & ARTICLES GALLERY -->
+        <template
+          v-if="audiosAndArticles !== null && audiosAndArticles.length > 0"
+        >
+          <div class="galleryWrapper">
             <div
               v-for="(item, iItem) in audiosAndArticles"
               :key="'item' + iItem"
@@ -270,8 +283,8 @@
                 </transition>
               </div>
             </div>
-          </template>
-        </div>
+          </div>
+        </template>
       </div>
 
       <AudioLightBox
@@ -369,7 +382,6 @@ query ($id: ID!) {
 import AudioLightBox from "../components/AudioLightBox.vue";
 import BookViewer from "../components/BookViewer.vue";
 import BackToTop from "../components/BackToTop.vue";
-import SlideshowImages from "../components/SlideshowImages.vue";
 import simplebar from "simplebar-vue";
 import "simplebar/dist/simplebar.min.css";
 const slugify = require("@sindresorhus/slugify");
@@ -409,6 +421,7 @@ export default {
       isBookFullscreen: false,
       bookShowSinglePage: false,
       bookKey: 1,
+      maxImagesGalleryWrapper: 120,
     };
   },
 
@@ -852,6 +865,10 @@ export default {
   align-items: center;
   justify-content: center;
 }
+.galleryWrapper:not(:last-of-type) {
+  margin-bottom: var(--gridGap);
+}
+
 .galleryBox {
   background-color: black;
   width: 100%;
