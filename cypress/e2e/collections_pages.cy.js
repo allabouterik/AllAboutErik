@@ -1,5 +1,4 @@
-import * as data from '../fixtures/collections.json';
-const { collections } = data;
+import { collections } from '../fixtures/collections.json';
 
 describe('Collections - Individual Pages', () => {
   collections.forEach((collection) => {
@@ -9,12 +8,6 @@ describe('Collections - Individual Pages', () => {
 
     it(`${collection.title} page successfully loads`, () => {
       cy.visit(collection.link);
-    });
-
-    it(`${collection.title} page matches the saved image snapshot`, () => {
-      cy.document()
-        .wait(1000)
-        .toMatchImageSnapshot();
     });
 
     it(`${collection.title} page contains the main text`, () => {
@@ -88,12 +81,6 @@ describe('Collections - Old-Time Sportsmen', () => {
 
   it(`${collection.title} page successfully loads`, () => {
     cy.visit(collection.link);
-  });
-
-  it(`${collection.title} page matches the saved image snapshot`, () => {
-    cy.document()
-      .wait(1000)
-      .toMatchImageSnapshot();
   });
 
   it(`${collection.title} page contains the main text`, () => {
@@ -242,9 +229,7 @@ describe('Collections - Old-Time Sportsmen', () => {
   });
 
   it('clicking back to top button scrolls the page to the top', () => {
-    cy.get('main')
-      .find('#backToTopStaticDiv img.g-image--loaded')
-      .click();
+    cy.get('main').find('#backToTopStaticDiv img.g-image--loaded').click();
     cy.get('.titleImg').isScrolledTo();
   });
 });

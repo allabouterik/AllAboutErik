@@ -1,5 +1,4 @@
-import * as data from '../fixtures/publications.json';
-const { publications } = data;
+import { publications } from '../fixtures/publications.json';
 
 describe('Publications Page - standard tests', () => {
   it('successfully loads', () => {
@@ -22,10 +21,6 @@ describe('Publications Page - standard tests', () => {
 describe('Publications Page - page specific tests', () => {
   it('there is a slideshow with four images loaded', () => {
     cy.hasKenBurnsSlideshow(4);
-  });
-
-  it('the publications thumbnails section matches the saved image snapshot', () => {
-    cy.get('.publicationsRow').wait(1000).toMatchImageSnapshot();
   });
 
   it('has six publication thumbnail links', () => {

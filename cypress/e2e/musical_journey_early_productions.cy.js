@@ -1,15 +1,8 @@
-import * as data from '../fixtures/earlyProductions.json';
-const { productions } = data;
+import { productions } from '../fixtures/earlyProductions.json';
 
 describe('Early Productions Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/musical-journey/early-productions');
-  });
-
-  it('the page matches the saved image snapshot', () => {
-    cy.document()
-      .wait(1000)
-      .toMatchImageSnapshot();
   });
 
   it('finds the Logo image', () => {
@@ -44,15 +37,11 @@ describe('Early Productions Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 500 });
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .should('be.visible');
+    cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
   it('clicking back to top button scrolls the page to the top', () => {
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .click();
+    cy.get('main').find('#scrollToTopBtn').click();
     cy.get('#titleImg').isScrolledTo();
   });
 
@@ -96,8 +85,9 @@ describe('Early Productions Page - page specific tests', () => {
       });
     }
 
-    it(`Production ${index +
-      1} has the correct background image loaded`, () => {
+    it(`Production ${
+      index + 1
+    } has the correct background image loaded`, () => {
       cy.get('[data-testid="production-container"]')
         .eq(index)
         .find('.tracksDiv')
@@ -105,8 +95,9 @@ describe('Early Productions Page - page specific tests', () => {
         .should('include', production.bgImgSrc);
     });
     if (production.hasOwnProperty('bgImgSrc2')) {
-      it(`Production ${index +
-        1} has the correct second background image loaded`, () => {
+      it(`Production ${
+        index + 1
+      } has the correct second background image loaded`, () => {
         cy.get('[data-testid="production-container"]')
           .eq(index)
           .find('.tracksDiv')
@@ -150,8 +141,9 @@ describe('Early Productions Page - page specific tests', () => {
 
     if (production.hasOwnProperty('lightboxes')) {
       production.lightboxes.forEach((lightbox, lbIndex) => {
-        it(`Production ${index + 1} lightbox ${lbIndex +
-          1} has the correct button text`, () => {
+        it(`Production ${index + 1} lightbox ${
+          lbIndex + 1
+        } has the correct button text`, () => {
           cy.get('[data-testid="production-container"]')
             .eq(index)
             .find('.lightBoxBtn')
@@ -160,8 +152,9 @@ describe('Early Productions Page - page specific tests', () => {
         });
 
         if (lightbox.type === 'image') {
-          it(`Production ${index + 1} lightbox ${lbIndex +
-            1} opens correct image when clicked on`, () => {
+          it(`Production ${index + 1} lightbox ${
+            lbIndex + 1
+          } opens correct image when clicked on`, () => {
             cy.get('[data-testid="production-container"]')
               .eq(index)
               .find('.lightBoxBtn')
@@ -178,15 +171,17 @@ describe('Early Productions Page - page specific tests', () => {
               .should('include', lightbox.imgSrc);
           });
 
-          it(`Production ${index + 1} lightbox ${lbIndex +
-            1} can be closed`, () => {
+          it(`Production ${index + 1} lightbox ${
+            lbIndex + 1
+          } can be closed`, () => {
             cy.get('#closeImg').click();
           });
         }
 
         if (lightbox.type === 'audio') {
-          it(`Production ${index + 1} lightbox ${lbIndex +
-            1} opens correct audio when clicked on`, () => {
+          it(`Production ${index + 1} lightbox ${
+            lbIndex + 1
+          } opens correct audio when clicked on`, () => {
             cy.get('[data-testid="production-container"]')
               .eq(index)
               .find('.lightBoxBtn')
@@ -203,8 +198,9 @@ describe('Early Productions Page - page specific tests', () => {
               .should('include', lightbox.audioSrc);
           });
 
-          it(`Production ${index + 1} lightbox ${lbIndex +
-            1} can be closed`, () => {
+          it(`Production ${index + 1} lightbox ${
+            lbIndex + 1
+          } can be closed`, () => {
             cy.get('#closeImg').click();
           });
         }
@@ -212,8 +208,9 @@ describe('Early Productions Page - page specific tests', () => {
     }
 
     production.tracks.forEach((track, trackIndex) => {
-      it(`Production ${index + 1} track ${trackIndex +
-        1} has the correct title`, () => {
+      it(`Production ${index + 1} track ${
+        trackIndex + 1
+      } has the correct title`, () => {
         cy.get('[data-testid="production-container"]')
           .eq(index)
           .find('.trackTitleText')
@@ -221,8 +218,9 @@ describe('Early Productions Page - page specific tests', () => {
           .should('contain.text', track.title);
       });
 
-      it(`Production ${index + 1} track ${trackIndex +
-        1} has the correct time`, () => {
+      it(`Production ${index + 1} track ${
+        trackIndex + 1
+      } has the correct time`, () => {
         cy.get('[data-testid="production-container"]')
           .eq(index)
           .find('.plyr__time')

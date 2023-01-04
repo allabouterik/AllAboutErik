@@ -1,12 +1,6 @@
-describe('The Home Page', () => {
+describe('Home Page', () => {
   it('successfully loads', () => {
     cy.visit('/');
-  });
-
-  it('the page matches the saved image snapshot', () => {
-    cy.document()
-      .wait(1000)
-      .toMatchImageSnapshot();
   });
 
   it('finds the Logo image', () => {

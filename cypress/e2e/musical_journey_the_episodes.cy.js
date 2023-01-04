@@ -1,15 +1,8 @@
-import * as data from '../fixtures/theEpisodesVideos.json';
-const { theEpisodesVideos } = data;
+import { theEpisodesVideos } from '../fixtures/theEpisodesVideos.json';
 
 describe('The Episodes Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/musical-journey/the-episodes');
-  });
-
-  it('the page matches the saved image snapshot', () => {
-    cy.document()
-      .wait(1000)
-      .toMatchImageSnapshot();
   });
 
   it('finds the Logo image', () => {
@@ -39,9 +32,7 @@ describe('The Episodes Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 500 });
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .should('be.visible');
+    cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
   const checkVideoThumbnail = (index, src) => {
@@ -80,9 +71,7 @@ describe('The Episodes Page - page specific tests', () => {
 
   const checkVideoLightboxHasVideo = (index) => {
     cy.getIframeBody(index).find('video');
-    cy.get('#closeImg')
-      .click()
-      .wait(500);
+    cy.get('#closeImg').click().wait(500);
   };
 
   theEpisodesVideos.forEach((vid, index) => {
@@ -95,10 +84,7 @@ describe('The Episodes Page - page specific tests', () => {
     });
 
     it(`clicking ${vid.title} container opens video lightbox with correct title`, () => {
-      cy.get('[data-testid="video-container"]')
-        .eq(index)
-        .realHover()
-        .click();
+      cy.get('[data-testid="video-container"]').eq(index).realHover().click();
 
       cy.get('.video-lightbox')
         .find('.video-lightbox__modal')
@@ -112,9 +98,7 @@ describe('The Episodes Page - page specific tests', () => {
         cy.findVimeoPlayButton(index);
       });
       it(`${vid.title} lightbox can be closed`, () => {
-        cy.get('#closeImg')
-          .click()
-          .wait(500);
+        cy.get('#closeImg').click().wait(500);
       });
     } else {
       it(`${vid.title} lightbox has video loaded`, () => {

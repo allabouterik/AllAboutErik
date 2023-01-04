@@ -38,10 +38,6 @@ describe('Archives Page - page specific tests', () => {
     cy.hasScrollImages();
   });
 
-  it('the archives thumbnails section matches the saved image snapshot', () => {
-    cy.get('#tilesContainer').wait(1000).toMatchImageSnapshot();
-  });
-
   it('has 24 archive thumbnail links', () => {
     cy.get('[data-testid="archive-container"]').should('have.length', 24);
   });

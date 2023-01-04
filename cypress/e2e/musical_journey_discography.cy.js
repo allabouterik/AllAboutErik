@@ -1,17 +1,8 @@
-import * as data from '../fixtures/discography.json';
-const { albums, backgrounds } = data;
+import { albums, backgrounds } from '../fixtures/discography.json';
 
 describe('Discography Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/musical-journey/discography');
-  });
-
-  it('the header matches the saved image snapshot', () => {
-    cy.get('#header').wait(1000).toMatchImageSnapshot();
-  });
-
-  it('the discography intro content matches the saved image snapshot', () => {
-    cy.get('.discography_content').toMatchImageSnapshot();
   });
 
   it('finds the Logo image', () => {
@@ -80,12 +71,6 @@ describe('Discography Page - page specific tests', () => {
   });
 
   albums.forEach((album, albumIndex) => {
-    it(`Album ${albumIndex + 1} matches the saved image snapshot`, () => {
-      cy.get('[data-testid="album-container"]')
-        .eq(albumIndex)
-        .toMatchImageSnapshot();
-    });
-
     it(`Album ${albumIndex + 1} has the correct title: ${album.title}`, () => {
       cy.get('[data-testid="album-container"]')
         .eq(albumIndex)

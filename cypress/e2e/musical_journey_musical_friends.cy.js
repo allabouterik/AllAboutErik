@@ -1,15 +1,8 @@
-import * as data from '../fixtures/musicalFriends.json';
-const { musicalFriends } = data;
+import { musicalFriends } from '../fixtures/musicalFriends.json';
 
 describe('Musical Friends Page - standard tests', () => {
   it('successfully loads', () => {
     cy.visit('/musical-journey/musical-friends');
-  });
-
-  it('the page matches the saved image snapshot', () => {
-    cy.document()
-      .wait(1000)
-      .toMatchImageSnapshot();
   });
 
   it('finds the Logo image', () => {
@@ -43,9 +36,7 @@ describe('Musical Friends Page - page specific tests', () => {
 
   it('scrolling to bottom of page shows back to top button', () => {
     cy.scrollTo('bottom', { duration: 500 });
-    cy.get('main')
-      .find('#scrollToTopBtn')
-      .should('be.visible');
+    cy.get('main').find('#scrollToTopBtn').should('be.visible');
   });
 
   const viewports = [

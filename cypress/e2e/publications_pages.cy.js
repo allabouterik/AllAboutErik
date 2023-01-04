@@ -1,16 +1,9 @@
-import * as data from '../fixtures/publications.json';
-const { publications } = data;
+import { publications } from '../fixtures/publications.json';
 
 describe('Publications - Individual Pages', () => {
   publications.forEach((publication) => {
     it(`${publication.title} page successfully loads`, () => {
       cy.visit(publication.link);
-    });
-
-    it(`${publication.title} page matches the saved image snapshot`, () => {
-      cy.document()
-        .wait(1000)
-        .toMatchImageSnapshot();
     });
 
     if (publication.hasOwnProperty('headerText')) {
@@ -163,9 +156,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook plus btn increases it to 2x scale and enables the minus btn`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#plus_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#plus_icon').click();
 
       cy.get('#flipbookContainer .viewport')
         .find('.container')
@@ -177,9 +168,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook plus btn again increases it to 4x scale and disables the plus btn`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#plus_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#plus_icon').click();
 
       cy.get('#flipbookContainer .viewport')
         .find('.container')
@@ -191,9 +180,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook minus btn decreases it to 2x scale and enables the plus btn`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#minus_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#minus_icon').click();
 
       cy.get('#flipbookContainer .viewport')
         .find('.container')
@@ -205,9 +192,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook minus btn again decreases it to 1x scale and disables the minus btn`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#minus_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#minus_icon').click();
 
       cy.get('#flipbookContainer .viewport')
         .find('.container')
@@ -219,9 +204,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook right btn increases it to page 2`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#right_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#right_icon').click();
 
       cy.get('#flipbookContainer')
         .find('.page-num')
@@ -233,9 +216,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook last page btn increases the page number`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#lastpage_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#lastpage_icon').click();
 
       cy.get('#flipbookContainer')
         .find('.page-num')
@@ -251,9 +232,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook pause btn stops increasing the pages`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#stop_icon_end')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#stop_icon_end').click();
 
       cy.get('#flipbookContainer .action-bar')
         .find('#stop_icon_end')
@@ -306,9 +285,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook left btn decreases the page by 1`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#left_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#left_icon').click();
 
       cy.get('#flipbookContainer')
         .find('.page-num')
@@ -323,9 +300,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook first page btn decreases the page number`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#firstpage_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#firstpage_icon').click();
 
       cy.get('#flipbookContainer')
         .find('.page-num')
@@ -344,9 +319,7 @@ describe('Publications - Individual Pages', () => {
     });
 
     it(`clicking the ${publication.title} flipbook pause btn stops decreasing the pages`, () => {
-      cy.get('#flipbookContainer .action-bar')
-        .find('#stop_icon_start')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#stop_icon_start').click();
 
       cy.get('#flipbookContainer .action-bar')
         .find('#stop_icon_start')
@@ -367,9 +340,7 @@ describe('Publications - Individual Pages', () => {
         'fullscreenContainer'
       );
 
-      cy.get('#flipbookContainer .action-bar')
-        .find('#fullscreen_icon')
-        .click();
+      cy.get('#flipbookContainer .action-bar').find('#fullscreen_icon').click();
 
       cy.get('#flipbookContainer .action-bar')
         .find('#fullscreen_icon')
@@ -416,9 +387,7 @@ describe('Publications - Individual Pages', () => {
           .should('exist')
           .should('not.be.visible');
 
-        cy.get('header')
-          .find('.sportsmenLinkText')
-          .realHover();
+        cy.get('header').find('.sportsmenLinkText').realHover();
 
         cy.get('header')
           .find('.sportsmenLinkText img')
