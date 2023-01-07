@@ -1,46 +1,73 @@
 <template>
   <Layout>
     <div class="container">
-      
-      <g-image :src="titleImg1Line" class="titleImg titleImg1Line py-5" />
-      <g-image :src="titleImg2Lines" class="titleImg titleImg2Lines py-4 my-3" />
+      <g-image
+        :src="titleImg1Line"
+        class="titleImg titleImg1Line py-5"
+        data-testid="title-img"
+      />
+      <g-image
+        :src="titleImg2Lines"
+        class="titleImg titleImg2Lines py-4 my-3"
+        data-testid="title-img"
+      />
 
       <span v-html="mainText" class="text-main" />
-      
+
       <!-- CONTACT FORM -->
       <div class="form-container mb-4 mb-md-5">
-        <form name="contact" method="POST" netlify data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" /> <!-- Hidden honeypot field to prevent against bot spam -->
+        <form
+          name="contact"
+          method="POST"
+          netlify
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <!-- Hidden honeypot field to prevent against bot spam -->
 
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name..">
+          <input type="text" id="name" name="name" placeholder="Your name.." />
 
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="Your email..">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email.."
+          />
 
           <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Your message.." style="height:200px"></textarea>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your message.."
+            style="height: 200px"
+          ></textarea>
 
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" />
         </form>
       </div>
 
       <!-- CREDITS -->
-      <div class="pb-4">        
-        <div v-for="(creditSection, i) in credits" :key="'creditSection'+i">
-          <p v-if="creditSection.heading" class="text-titles">{{ creditSection.heading }}</p>
-          <span v-html="renderMarkdown(creditSection.text)" class="text-main contact_renderedContent" />
-          <br>
+      <div class="pb-4">
+        <div v-for="(creditSection, i) in credits" :key="'creditSection' + i">
+          <p v-if="creditSection.heading" class="text-titles">
+            {{ creditSection.heading }}
+          </p>
+          <span
+            v-html="renderMarkdown(creditSection.text)"
+            class="text-main contact_renderedContent"
+          />
+          <br />
         </div>
-      </div>    
+      </div>
     </div>
 
-  	<!-- BACKGROUND VIDEO -->
+    <!-- BACKGROUND VIDEO -->
     <video autoplay loop muted id="contactBgVideo">
-      <source :src="bgVideo.videoSrcWebm" type="video/webm">
-      <source :src="bgVideo.videoSrcMP4" type="video/mp4">
+      <source :src="bgVideo.videoSrcWebm" type="video/webm" />
+      <source :src="bgVideo.videoSrcMP4" type="video/mp4" />
     </video>
-
   </Layout>
 </template>
 
@@ -71,54 +98,57 @@
 
 
 <script>
-const MarkdownIt = require('markdown-it')
+const MarkdownIt = require("markdown-it");
 
 export default {
   metaInfo() {
     return {
-      title: this.node.pageTitle
-    }
+      title: this.node.pageTitle,
+    };
   },
 
   computed: {
     node() {
-      return this.$page.Contact.edges[0].node
+      return this.$page.Contact.edges[0].node;
     },
     titleImg1Line() {
-      return this.node.headingImg
+      return this.node.headingImg;
     },
     titleImg2Lines() {
-      return this.node.headingImg2Lines
+      return this.node.headingImg2Lines;
     },
-    mainText(){
-      return this.node.content
+    mainText() {
+      return this.node.content;
     },
-    credits(){
-      return this.node.credits
+    credits() {
+      return this.node.credits;
     },
-    bgVideo(){
-      return this.node.bgVideo
-    }
+    bgVideo() {
+      return this.node.bgVideo;
+    },
   },
 
   methods: {
     renderMarkdown(text) {
-      const md = new MarkdownIt()
-      return md.render(text) 
-    }
-  }
-}
+      const md = new MarkdownIt();
+      return md.render(text);
+    },
+  },
+};
 </script>
 
 
 <style lang="scss" scoped>
-
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
-  src: url('../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.woff') format('woff'), /* Pretty Modern Browsers */
-       url('../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg') format('svg'); /* Legacy iOS */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
+  src: url("../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-55rg.woff")
+      format("woff"),
+    /* Pretty Modern Browsers */
+      url("../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
+      format("svg"); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -160,56 +190,62 @@ export default {
 }
 
 /* Style inputs with type="text", select elements and textareas */
-input[type=text], input[type=email], textarea {
+input[type="text"],
+input[type="email"],
+textarea {
   width: 100%; /* Full width */
-  padding: 12px; /* Some padding */ 
+  padding: 12px; /* Some padding */
   border: 1px solid #ccc; /* Gray border */
   border-radius: 4px; /* Rounded borders */
   box-sizing: border-box; /* Make sure that padding and width stays in place */
   margin-top: 6px; /* Add a top margin */
   margin-bottom: 16px; /* Bottom margin */
   resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
-  color: #91465A;
-  background-color: #DDD;
+  color: #91465a;
+  background-color: #ddd;
   font-family: Helvetica, "Helvetica Neue", Arial, sans-serif;
   font-size: 1rem;
   font-style: italic;
 }
-input[type=text]:hover, input[type=email]:hover, textarea:hover,
-input[type=text]:focus, input[type=email]:focus, textarea:focus {
-  background-color: #FFF;
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover,
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  background-color: #fff;
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit] {
+input[type="submit"] {
   background-color: #406689;
   color: white;
   padding: 12px 20px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-family: 'NeueHaasGroteskText Pro55', sans-serif;
+  font-family: "NeueHaasGroteskText Pro55", sans-serif;
   font-weight: 400;
   font-size: 1.125em;
   letter-spacing: 5px;
   text-transform: uppercase;
 }
-input[type=submit]:focus {
-  outline: none;  // remove blue border in iOS Chrome
+input[type="submit"]:focus {
+  outline: none; // remove blue border in iOS Chrome
 }
 
 /* When moving the mouse over the submit button, add a darker green color */
-input[type=submit]:hover {
-  color: #EECF49;
+input[type="submit"]:hover {
+  color: #eecf49;
 }
 
 label,
 .text-titles,
 .text-main {
-  font-family: 'NeueHaasGroteskText Pro55', sans-serif;
-  font-feature-settings: 'liga';
+  font-family: "NeueHaasGroteskText Pro55", sans-serif;
+  font-feature-settings: "liga";
   font-weight: 400;
-  text-shadow: 6px 6px 8px rgba(0,0,0,0.5);
+  text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
 }
 label {
   color: #406689;
@@ -220,10 +256,10 @@ label {
 }
 .text-titles,
 .text-main {
-  color: #F2F2F2;
+  color: #f2f2f2;
   margin: 0px;
   padding: 0px;
-  text-shadow: 6px 6px 8px rgba(0,0,0,0.5);
+  text-shadow: 6px 6px 8px rgba(0, 0, 0, 0.5);
 }
 .text-titles {
   font-size: 1.3125rem;
@@ -241,20 +277,19 @@ li.text-main {
   padding: 4.5px 0;
 }
 
-
 /* Responsive breakpoints ref: https://getbootstrap.com/docs/4.3/layout/overview/ */
 
 /* Extra small devices (portrait phones, < 576px) */
 @media only screen and (max-width: 575.98px) {
-/* @media only screen and (min-width: 400px) and (max-width: 575.98px) { */
+  /* @media only screen and (min-width: 400px) and (max-width: 575.98px) { */
   label,
-  input[type=submit],
+  input[type="submit"],
   .text-titles {
     font-size: 1.0625rem;
     letter-spacing: 4px;
     margin-bottom: 1rem;
   }
-  input[type=submit] {
+  input[type="submit"] {
     line-height: 23px;
   }
   .text-main {
@@ -279,12 +314,12 @@ li.text-main {
 /* Small devices (landscape phones, 576 - 768px) */
 @media only screen and (min-width: 576px) and (max-width: 767.98px) {
   label,
-  input[type=submit],
+  input[type="submit"],
   .text-titles {
     font-size: 1.0625rem;
     letter-spacing: 4px;
   }
-  input[type=submit] {
+  input[type="submit"] {
     line-height: 23px;
   }
   .text-main {
@@ -299,12 +334,12 @@ li.text-main {
 /* Medium devices (tablets, 768 - 992px) */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
   label,
-  input[type=submit],
+  input[type="submit"],
   .text-titles {
     font-size: 1.0625rem;
     letter-spacing: 4px;
   }
-  input[type=submit] {
+  input[type="submit"] {
     line-height: 23px;
   }
   .text-main {
@@ -318,11 +353,9 @@ li.text-main {
 
 /* Large devices (desktops, 992 - 1200px) */
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
-
 }
 
 /* X-large devices (large desktops, 1200 - 1500px) */
 @media only screen and (min-width: 1200px) and (max-width: 1499.98px) {
-
 }
 </style>
