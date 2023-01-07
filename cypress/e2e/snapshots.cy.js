@@ -15,7 +15,7 @@ describe('Home Page', () => {
   });
 });
 
-describe('Roots and Youth', () => {
+describe('Roots & Youth', () => {
   it('successfully loads', () => {
     cy.visit('/roots-and-youth');
   });
@@ -215,5 +215,15 @@ describe('Archives', () => {
           });
       });
     }
+  });
+});
+
+describe('Contact & Credits', () => {
+  it('successfully loads', () => {
+    cy.visit('/contact');
+  });
+
+  it('the page matches the saved image snapshot', () => {
+    cy.document().wait(1000).toMatchImageSnapshot();
   });
 });
