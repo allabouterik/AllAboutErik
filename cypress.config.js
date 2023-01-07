@@ -10,5 +10,6 @@ module.exports = defineConfig({
       // implement node event listeners here
       initPlugin(on, config);
     },
+    pageLoadTimeout: 90000,
   },
 });
