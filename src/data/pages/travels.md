@@ -306,6 +306,8 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1660855444/Travels/belize.jpg
     title: Belize
     url: 'https://player.vimeo.com/video/732268984'
+    width: 1071.39
+    height: 708.13
 
   - duration: 682
     thumbnailImg: >-
