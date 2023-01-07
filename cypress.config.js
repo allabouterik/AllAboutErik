@@ -4,8 +4,8 @@ const { initPlugin } = require('cypress-plugin-snapshots/plugin');
 module.exports = defineConfig({
   chromeWebSecurity: false, // for working with iframes
   e2e: {
-    // baseUrl: 'http://localhost:8080'
-    baseUrl: 'https://www.allabouterik.com',
+    // baseUrl: 'https://www.allabouterik.com',
+    baseUrl: 'http://localhost:8080',
     setupNodeEvents(on, config) {
       // implement node event listeners here
       initPlugin(on, config);
