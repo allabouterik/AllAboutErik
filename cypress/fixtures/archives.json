@@ -16,7 +16,12 @@
       "imgSrcHover": "02-icon-spoonful-bright",
       "titleImg": "titleImg2Line_spoonful-nite-owl.png",
       "headerText": "After quitting the banjo, I moved back to New York City permanently. I was trying to produce records and had been working with John Sebastian for a while when he joined forces with Zal. We were hot to form a band but needed a rhythm section. I was producing a group called the Sellouts and their guitar player recommended his little brother Steve for bass guitar. We auditioned Steve and hired him on the spot. Before we got Joe on drums, the band played with a drummer named Jan Buchner. With him playing the drums I recorded this tape at the Nite Owl Cafe on one of the very first gigs they ever did. This tape is a loose gung-ho garage band style rock effort from before the Spoonful personnel was finalized. You got to start somewhere. From that point on we went into the studio and everything we recorded was well played and pretty carefully crafted.",
-      "mediaText": "Listen to the Recording"
+      "mediaItems": [
+        {
+          "title": "Listen to the Recording",
+          "type": "soundcloud"
+        }
+      ]
     },
     {
       "title": "Knob Lick Upper 10,000",
@@ -41,7 +46,8 @@
       "imgSrc": "14-icon-mom",
       "imgSrcHover": "14-icon-mom-bright",
       "titleImg": "my_amazing_mom.png",
-      "isNarrativePage": true
+      "isNarrativePage": true,
+      "numSectionsLandscapeLayout": 47
     },
     {
       "title": "Erik's Flowers",
@@ -103,7 +109,8 @@
       "imgSrc": "20-icon-trip",
       "imgSrcHover": "20-icon-trip-bright",
       "titleImg": "family_trip_to_europe.png",
-      "isNarrativePage": true
+      "isNarrativePage": true,
+      "numSectionsLandscapeLayout": 37
     },
     {
       "title": "Relatives",
@@ -122,7 +129,8 @@
       "titleImg": "my_dad_earl.png",
       "isNarrativePage": true,
       "hasSeparateGalleryPage": true,
-      "galleryPgNumImages": 66
+      "galleryPgNumImages": 66,
+      "numSectionsLandscapeLayout": 28
     },
     {
       "title": "My Uncle Wesley",
@@ -130,7 +138,8 @@
       "imgSrc": "16-icon-wesley",
       "imgSrcHover": "16-icon-wesley-bright",
       "titleImg": "my_uncle_wesley.png",
-      "isNarrativePage": true
+      "isNarrativePage": true,
+      "numSectionsLandscapeLayout": 26
     },
     {
       "title": "My Sister Ellen",
@@ -202,7 +211,45 @@
       "imgSrcHover": "05-icon-interviews-bright",
       "titleImg": "interviews.png",
       "headerText": "A scattered few",
-      "mediaText": "Listen to the Recording"
+      "mediaItems": [
+        {
+          "title": "Selvin in the City",
+          "type": "soundcloud"
+        },
+        {
+          "title": "Richie Unterburg",
+          "type": "flipbook",
+          "pages": 6
+        },
+        {
+          "title": "Russ Gary Remembers Erik",
+          "type": "soundcloud"
+        },
+        {
+          "title": "Rolling Stone Magazine",
+          "type": "flipbook",
+          "pages": 1
+        },
+        {
+          "title": "BBC Interview About Tim Hardin",
+          "type": "soundcloud"
+        },
+        {
+          "title": "Plug In Article",
+          "type": "flipbook",
+          "pages": 8
+        },
+        {
+          "title": "Interview With Lewis Shiner",
+          "type": "flipbook",
+          "pages": 13
+        },
+        {
+          "title": "Flip's Underground Magazine",
+          "type": "flipbook",
+          "pages": 2
+        }
+      ]
     },
     {
       "title": "Documentation",

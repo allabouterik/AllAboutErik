@@ -31,6 +31,88 @@ describe('Archives - Individual Pages', () => {
           .and('have.prop', 'naturalWidth')
           .should('be.greaterThan', 0);
       });
+
+      it(`${archive.title} page first image can be clicked on and is centred on screen`, () => {
+        cy.get('#mainContent .galleryBox img')
+          .eq(0)
+          .should('not.have.class', 'centerPos');
+
+        cy.get('#mainContent .galleryBox img').eq(0).click();
+
+        cy.get('#mainContent .galleryBox img')
+          .eq(0)
+          .should('have.class', 'centerPos');
+      });
+    }
+
+    if (archive.mediaItems) {
+      it(`${archive.title} page contains ${archive.mediaItems.length} media Items`, () => {
+        cy.get('#mainContent .galleryWrapper .galleryBox').should(
+          'have.length',
+          archive.mediaItems.length
+        );
+      });
+
+      archive.mediaItems.forEach((mediaItem, mediaItemIndex) => {
+        it(`${archive.title} page, media item ${
+          mediaItemIndex + 1
+        }, has the correct title`, () => {
+          cy.get('#mainContent .galleryWrapper .galleryBox')
+            .eq(mediaItemIndex)
+            .find('.thumbnailCaption')
+            .should('contain.text', mediaItem.title);
+        });
+
+        if (mediaItem.type === 'soundcloud') {
+          it(`${archive.title} page, media item ${
+            mediaItemIndex + 1
+          }, opens the ${mediaItem.type} lightbox when clicked on`, () => {
+            cy.get('#mainContent .galleryWrapper .galleryBox')
+              .eq(mediaItemIndex)
+              .click();
+
+            cy.getIframeBody(0).find(
+              `.visualAudible .soundHeader button[title='Play']`,
+              { timeout: 5000 }
+            );
+          });
+
+          it(`${archive.title} page, media item ${
+            mediaItemIndex + 1
+          }, lightbox can be closed`, () => {
+            cy.get('#closeImg').click();
+          });
+        }
+
+        if (mediaItem.type === 'flipbook') {
+          it(`${archive.title} page, media item ${
+            mediaItemIndex + 1
+          }, opens a flipbook with ${
+            mediaItem.pages
+          } pages when clicked on`, () => {
+            cy.get('#mainContent .galleryWrapper .galleryBox')
+              .eq(mediaItemIndex)
+              .click();
+
+            cy.get('#flipbookContainer')
+              .find('.page-num')
+              .should('contain.text', `Page 1 of ${mediaItem.pages}`);
+          });
+
+          it(`${archive.title} page, media item ${
+            mediaItemIndex + 1
+          }, flipbook can be closed`, () => {
+            cy.get('#flipbookContainer .action-bar')
+              .find('#fullscreenExit_icon')
+              .click();
+
+            cy.get('#flipbookContainer').should(
+              'not.have.class',
+              'fullscreenContainer'
+            );
+          });
+        }
+      });
     }
 
     it(`${archive.title} has a link back to archives menu`, () => {
@@ -139,6 +221,13 @@ describe('Archives - Individual Pages', () => {
           .should('contain.text', 'SCROLL')
           .and('contain.text', 'TO READ MY')
           .and('contain.text', 'RECOLLECTIONS');
+      });
+
+      it(`${archive.title} page contains ${archive.numSectionsLandscapeLayout} scroll sections`, () => {
+        cy.get('.ksvuefp-sections').should(
+          'have.length',
+          archive.numSectionsLandscapeLayout + 1
+        );
       });
     }
 
