@@ -1,7 +1,9 @@
 {
-    "eslint.alwaysShowStatus": true,
-    "vetur.grammar.customBlocks": {
-        "page-query": "graphql",
-        "static-query": "graphql"
-    },
+  "eslint.alwaysShowStatus": true,
+  "vetur.grammar.customBlocks": {
+    "page-query": "graphql",
+    "static-query": "graphql"
+  },
+  "editor.formatOnSave": true,
+  "prettier.enable": true
 }
