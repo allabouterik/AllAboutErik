@@ -1266,7 +1266,6 @@ body {
 @media only screen and (max-width: 575.98px) {
   .backToArchives {
     top: 48px;
-    // top: 128px;
     right: 20px;
   }
   #header {
@@ -1312,6 +1311,13 @@ body {
   #header {
     padding: 130px 30px 30px 30px !important;
   }
+  .galleryBox {
+    height: 35vw;
+    width: 35vw;
+  }
+  .thumbnailCaption {
+    --fontSize: 4vw;
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -1325,6 +1331,13 @@ body {
   }
   .thumbnailCaption {
     --fontSize: 3vw;
+  }
+  .galleryBox {
+    height: 30vw;
+    width: 30vw;
+  }
+  .thumbnailCaption {
+    --fontSize: 3.5vw;
   }
 }
 
@@ -1343,6 +1356,13 @@ body {
   }
   #header {
     padding: 130px 50px 30px 50px !important;
+  }
+  .galleryBox {
+    height: 26vw;
+    width: 26vw;
+  }
+  .thumbnailCaption {
+    --fontSize: 2.85vw;
   }
 }
 
