@@ -2,6 +2,7 @@ const { defineConfig } = require('cypress');
 const { initPlugin } = require('cypress-plugin-snapshots/plugin');
 
 module.exports = defineConfig({
+  projectId: '9c6bem',
   chromeWebSecurity: false, // for working with iframes
   e2e: {
     // baseUrl: 'https://www.allabouterik.com',
