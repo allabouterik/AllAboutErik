@@ -371,8 +371,8 @@ landscapeLayout:
 
   galleryItems:
     - sectionNo: 29
-      posX: 80%
-      posY: -35vh
+      posX: 74%
+      posY: -45vh
       caption: Read notes from Elsi's visit
       thumbnailImg: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1597280413/Archives/05.%20My%20Amazing%20Mom/Notes%20from%20Elsi%27s%20Visit/Notes_from_trip_thumbnail.jpg
       commonPathStdRes: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1597280414/Archives/05.%20My%20Amazing%20Mom/Notes%20from%20Elsi%27s%20Visit/Notes_from_trip_
@@ -1095,7 +1095,7 @@ squareLayout:
 
   galleryItems:
     - sectionNo: 49
-      posX: 70%
+      posX: 66%
       posY: -35vh
       caption: Read notes from Elsi's visit
       thumbnailImg: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1597280413/Archives/05.%20My%20Amazing%20Mom/Notes%20from%20Elsi%27s%20Visit/Notes_from_trip_thumbnail.jpg
@@ -1479,7 +1479,7 @@ portraitLayout:
 
   galleryItems:
     - sectionNo: 56
-      posX: 37.5%
+      posX: 32.5%
       posY: 25vh
       caption: Read notes from Elsi's visit
       thumbnailImg: https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1597280413/Archives/05.%20My%20Amazing%20Mom/Notes%20from%20Elsi%27s%20Visit/Notes_from_trip_thumbnail.jpg
