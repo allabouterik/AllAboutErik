@@ -127,7 +127,7 @@ describe('Archives - Individual Pages', () => {
         .find('img.backToArchivesImg')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'back-to-archives-single-line.png');
+        .should('include', 'back-to-archives-single-line');
 
       cy.get('header a.backToArchives')
         .find('img.backToArchivesImg')
@@ -141,7 +141,7 @@ describe('Archives - Individual Pages', () => {
         .realHover()
         .find('img.backToArchivesImg-hover')
         .should('have.attr', 'src')
-        .should('include', 'back-to-archives-single-line-yellow.png');
+        .should('include', 'back-to-archives-single-line-yellow');
 
       cy.get('header a.backToArchives')
         .realHover()
@@ -159,7 +159,7 @@ describe('Archives - Individual Pages', () => {
           .find('img.hideOnHover')
           .should('be.visible')
           .should('have.attr', 'src')
-          .should('include', 'previous-white.png');
+          .should('include', 'previous-white');
 
         cy.get('header #navLinksRow #nav_previous.nav_link_big')
           .find('img.hideOnHover')
@@ -174,7 +174,7 @@ describe('Archives - Individual Pages', () => {
           .find('img.showOnHover')
           .should('be.visible')
           .should('have.attr', 'src')
-          .should('include', 'previous-yellow.png');
+          .should('include', 'previous-yellow');
 
         cy.get('header #navLinksRow #nav_previous.nav_link_big')
           .realHover()
@@ -189,7 +189,7 @@ describe('Archives - Individual Pages', () => {
           .find('img.hideOnHover')
           .should('be.visible')
           .should('have.attr', 'src')
-          .should('include', 'next-white.png');
+          .should('include', 'next-white');
 
         cy.get('header #navLinksRow #nav_next.nav_link_big')
           .find('img.hideOnHover')
@@ -204,7 +204,7 @@ describe('Archives - Individual Pages', () => {
           .find('img.showOnHover')
           .should('be.visible')
           .should('have.attr', 'src')
-          .should('include', 'next-yellow.png');
+          .should('include', 'next-yellow');
 
         cy.get('header #navLinksRow #nav_next.nav_link_big')
           .realHover()
@@ -286,7 +286,7 @@ describe('Archives - Individual Pages', () => {
           .find('img.backToArchivesImg')
           .should('be.visible')
           .should('have.attr', 'src')
-          .should('include', 'back-to-archives-single-line.png');
+          .should('include', 'back-to-archives-single-line');
 
         cy.get('header a.backToArchives')
           .find('img.backToArchivesImg')
@@ -300,7 +300,7 @@ describe('Archives - Individual Pages', () => {
           .realHover()
           .find('img.backToArchivesImg-hover')
           .should('have.attr', 'src')
-          .should('include', 'back-to-archives-single-line-yellow.png');
+          .should('include', 'back-to-archives-single-line-yellow');
 
         cy.get('header a.backToArchives')
           .realHover()

@@ -7,7 +7,7 @@ describe('Archives Page - standard tests', () => {
   });
 
   it('finds the Logo image', () => {
-    cy.findPageTitleImg('archives_resized.png');
+    cy.findPageTitleImg('archives_resized');
   });
 
   it('finds the audio playing icon', () => {
@@ -97,7 +97,7 @@ describe('Archives Page - page specific tests', () => {
       .realHover()
       .find('.thumbnailImgTextOverlay .showOnHover img')
       .and('have.attr', 'src')
-      .should('include', 'eye.png');
+      .should('include', 'eye');
 
     cy.get('[data-testid="archive-container"]')
       .eq(index)

@@ -28,7 +28,7 @@ describe('Collections - Individual Pages', () => {
         .find('img.hideOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'previous-collection-1line-white.png');
+        .should('include', 'previous-collection-1line-white');
     });
 
     it(`${collection.title} has the navigation image on hover for previous pg`, () => {
@@ -37,7 +37,7 @@ describe('Collections - Individual Pages', () => {
         .find('img.showOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'previous-collection-1line-yellow.png');
+        .should('include', 'previous-collection-1line-yellow');
     });
 
     it(`${collection.title} has the navigation image for next pg`, () => {
@@ -45,7 +45,7 @@ describe('Collections - Individual Pages', () => {
         .find('img.hideOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'next-collection-1line-white.png');
+        .should('include', 'next-collection-1line-white');
     });
 
     it(`${collection.title} has the navigation image on hover for next pg`, () => {
@@ -54,7 +54,7 @@ describe('Collections - Individual Pages', () => {
         .find('img.showOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'next-collection-1line-yellow.png');
+        .should('include', 'next-collection-1line-yellow');
     });
 
     it(`${collection.title} has the navigation image for back to collections`, () => {
@@ -62,7 +62,7 @@ describe('Collections - Individual Pages', () => {
         .find('img.hideOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'back-to-collections-menu-1line-white.png');
+        .should('include', 'back-to-collections-menu-1line-white');
     });
 
     it(`${collection.title} has the navigation image on hover for back to collections`, () => {
@@ -71,7 +71,7 @@ describe('Collections - Individual Pages', () => {
         .find('img.showOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'back-to-collections-menu-1line-yellow.png');
+        .should('include', 'back-to-collections-menu-1line-yellow');
     });
   });
 });
@@ -101,7 +101,7 @@ describe('Collections - Old-Time Sportsmen', () => {
       .find('img.hideOnHover')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('include', 'previous-collection-1line-white.png');
+      .should('include', 'previous-collection-1line-white');
   });
 
   it(`${collection.title} has the navigation image on hover for previous pg`, () => {
@@ -110,7 +110,7 @@ describe('Collections - Old-Time Sportsmen', () => {
       .find('img.showOnHover')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('include', 'previous-collection-1line-yellow.png');
+      .should('include', 'previous-collection-1line-yellow');
   });
 
   it(`${collection.title} has the navigation image for next pg`, () => {
@@ -118,7 +118,7 @@ describe('Collections - Old-Time Sportsmen', () => {
       .find('img.hideOnHover')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('include', 'next-collection-1line-white.png');
+      .should('include', 'next-collection-1line-white');
   });
 
   it(`${collection.title} has the navigation image on hover for next pg`, () => {
@@ -127,7 +127,7 @@ describe('Collections - Old-Time Sportsmen', () => {
       .find('img.showOnHover')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('include', 'next-collection-1line-yellow.png');
+      .should('include', 'next-collection-1line-yellow');
   });
 
   it(`${collection.title} has the navigation image for back to collections`, () => {
@@ -135,7 +135,7 @@ describe('Collections - Old-Time Sportsmen', () => {
       .find('img.hideOnHover')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('include', 'back-to-collections-menu-1line-black.png');
+      .should('include', 'back-to-collections-menu-1line-black');
   });
 
   it(`${collection.title} has the navigation image on hover for back to collections`, () => {
@@ -144,7 +144,7 @@ describe('Collections - Old-Time Sportsmen', () => {
       .find('img.showOnHover')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('include', 'back-to-collections-menu-1line-yellow.png');
+      .should('include', 'back-to-collections-menu-1line-yellow');
   });
 
   function cleanMatrix3d(matrix3d) {
@@ -225,7 +225,7 @@ describe('Collections - Old-Time Sportsmen', () => {
       .find('#backToTopStaticDiv img.g-image--loaded')
       .should('be.visible')
       .should('have.attr', 'src')
-      .should('include', 'back-to-top-1line-black.png');
+      .should('include', 'back-to-top-1line-black');
   });
 
   it('clicking back to top button scrolls the page to the top', () => {

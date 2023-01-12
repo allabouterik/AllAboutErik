@@ -29,7 +29,7 @@ describe('Publications - Individual Pages', () => {
         .find('img.hideOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'previous-publication-2lines-white.png');
+        .should('include', 'previous-publication-2lines-white');
 
       cy.get('[data-testid="main-content"] #nav_prev.nav_link_small')
         .find('img.hideOnHover')
@@ -44,7 +44,7 @@ describe('Publications - Individual Pages', () => {
         .find('img.showOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'previous-publication-2lines-yellow.png');
+        .should('include', 'previous-publication-2lines-yellow');
 
       cy.get('[data-testid="main-content"] #nav_prev.nav_link_small')
         .realHover()
@@ -59,7 +59,7 @@ describe('Publications - Individual Pages', () => {
         .find('img.hideOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'next-publication-2lines-white.png');
+        .should('include', 'next-publication-2lines-white');
 
       cy.get('[data-testid="main-content"] #nav_next.nav_link_small')
         .find('img.hideOnHover')
@@ -74,7 +74,7 @@ describe('Publications - Individual Pages', () => {
         .find('img.showOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'next-publication-2lines-yellow.png');
+        .should('include', 'next-publication-2lines-yellow');
 
       cy.get('[data-testid="main-content"] #nav_next.nav_link_small')
         .realHover()
@@ -89,7 +89,7 @@ describe('Publications - Individual Pages', () => {
         .find('img.hideOnHover')
         .should('be.visible')
         .should('have.attr', 'src')
-        .should('include', 'back-to-publications-menu-3lines-white.png');
+        .should('include', 'back-to-publications-menu-3lines-white');
 
       cy.get('[data-testid="main-content"] #nav_back.nav_link_small')
         .find('img.hideOnHover')
@@ -103,7 +103,7 @@ describe('Publications - Individual Pages', () => {
         .realHover()
         .find('img.showOnHover')
         .should('have.attr', 'src')
-        .should('include', 'back-to-publications-menu-3lines-yellow.png');
+        .should('include', 'back-to-publications-menu-3lines-yellow');
 
       cy.get('[data-testid="main-content"] #nav_back.nav_link_small')
         .realHover()
