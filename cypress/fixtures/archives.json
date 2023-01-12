@@ -47,7 +47,7 @@
       "imgSrcHover": "14-icon-mom-bright",
       "titleImg": "my_amazing_mom.png",
       "isNarrativePage": true,
-      "numSectionsLandscapeLayout": 47
+      "numSectionsFiveBySevenLayout": 66
     },
     {
       "title": "Erik's Flowers",
@@ -110,7 +110,7 @@
       "imgSrcHover": "20-icon-trip-bright",
       "titleImg": "family_trip_to_europe.png",
       "isNarrativePage": true,
-      "numSectionsLandscapeLayout": 37
+      "numSectionsFiveBySevenLayout": 37
     },
     {
       "title": "Relatives",
@@ -130,7 +130,7 @@
       "isNarrativePage": true,
       "hasSeparateGalleryPage": true,
       "galleryPgNumImages": 66,
-      "numSectionsLandscapeLayout": 28
+      "numSectionsFiveBySevenLayout": 28
     },
     {
       "title": "My Uncle Wesley",
@@ -139,7 +139,7 @@
       "imgSrcHover": "16-icon-wesley-bright",
       "titleImg": "my_uncle_wesley.png",
       "isNarrativePage": true,
-      "numSectionsLandscapeLayout": 26
+      "numSectionsFiveBySevenLayout": 27
     },
     {
       "title": "My Sister Ellen",

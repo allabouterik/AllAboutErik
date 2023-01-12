@@ -223,10 +223,10 @@ describe('Archives - Individual Pages', () => {
           .and('contain.text', 'RECOLLECTIONS');
       });
 
-      it(`${archive.title} page contains ${archive.numSectionsLandscapeLayout} scroll sections`, () => {
-        cy.get('.ksvuefp-sections').should(
+      it(`${archive.title} page contains ${archive.numSectionsFiveBySevenLayout} scroll sections`, () => {
+        cy.get('.ksvuefp-section').should(
           'have.length',
-          archive.numSectionsLandscapeLayout + 1
+          archive.numSectionsFiveBySevenLayout + 1
         );
       });
     }
