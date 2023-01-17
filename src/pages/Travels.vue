@@ -1,14 +1,5 @@
 <template>
   <Layout>
-    <BackgroundMusic
-      :audioFile="$page.Travels.edges[0].node.bgAudio"
-      :audioDuration="$page.Travels.edges[0].node.bgAudioDuration"
-      :audioFadeInDuration="$page.Travels.edges[0].node.bgAudioFadeInDuration"
-      :audioFadeOutDuration="$page.Travels.edges[0].node.bgAudioFadeOutDuration"
-      :maxVolume="0.9"
-      :playMusic="playMusic"
-    />
-
     <header id="header" :style="headerStyle">
       <g-image
         :src="titleImg"
@@ -82,10 +73,6 @@
         titleImg
         mainVideoUrl
         mainVideoText
-        bgAudio
-        bgAudioDuration
-        bgAudioFadeInDuration
-        bgAudioFadeOutDuration
         videos {
           title
           url
@@ -102,7 +89,6 @@
 
 
 <script scoped>
-import BackgroundMusic from "../components/BackgroundMusic.vue";
 import VideoLightBox from "../components/VideoLightBox.vue";
 import VideoThumbnailTravels from "../components/VideoThumbnailTravels.vue";
 import BackToTop from "../components/BackToTop.vue";
@@ -117,12 +103,7 @@ export default {
   data() {
     return {
       videoIndex: null,
-      playMusic: true,
     };
-  },
-
-  beforeMount() {
-    this.playMusic = !this.videoPreviouslyViewed();
   },
 
   computed: {
@@ -158,7 +139,6 @@ export default {
   },
 
   components: {
-    BackgroundMusic,
     VideoLightBox,
     VideoThumbnailTravels,
     BackToTop,
