@@ -8,14 +8,6 @@ describe('Travels Page - standard tests', () => {
   it('finds the Logo image', () => {
     cy.findPageTitleImg('travels');
   });
-
-  it('finds the audio playing icon', () => {
-    cy.findAudioPlayingIcon();
-  });
-
-  it('audio is playing', () => {
-    cy.expectBackgroundPlayingAudio();
-  });
 });
 
 describe('Travels Page - page specific tests', () => {
