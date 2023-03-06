@@ -36,7 +36,7 @@ videos:
     url: 'https://player.vimeo.com/video/129839794'
   - duration: 1767
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_kmen3j.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678124712/Travels/mumbai_malabar-2.jpg
     title: India - Mumbai to the Malibar Coast
     url: 'https://player.vimeo.com/video/309568795'
   - duration: 717
@@ -317,19 +317,19 @@ videos:
 
   - duration: 894
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1677192935/Travels/rome.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678123948/Travels/rome-2.jpg
     title: Rome
     url: 'https://player.vimeo.com/video/801733580'
 
   - duration: 643
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1677192935/Travels/gothic-france.jpg
-    title: Gothic France
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678123948/Travels/gothic-france-2.jpg
+    title: Gothic Cathedrals
     url: 'https://player.vimeo.com/video/791347459'
 
   - duration: 428
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1677192935/Travels/normandy-mont-saint-michele.jpg
-    title: Normandy & Mont Saint Michel
+    title: Mont Saint Michel
     url: 'https://player.vimeo.com/video/791347272'
 ---
