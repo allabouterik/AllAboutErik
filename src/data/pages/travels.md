@@ -332,4 +332,16 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1677192935/Travels/normandy-mont-saint-michele.jpg
     title: Mont Saint Michel
     url: 'https://player.vimeo.com/video/791347272'
+
+  - duration: 1152
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684854951/Travels/the-rivieras.jpg
+    title: The Rivieras
+    url: 'https://player.vimeo.com/video/828151694'
+
+  - duration: 955
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684854951/Travels/long-ago-and-far-away.jpg
+    title: Long Ago and Far Away
+    url: 'https://player.vimeo.com/video/828154238'
 ---
