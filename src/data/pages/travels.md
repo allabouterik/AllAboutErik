@@ -344,4 +344,40 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684854951/Travels/long-ago-and-far-away.jpg
     title: Long Ago and Far Away
     url: 'https://player.vimeo.com/video/828154238'
+
+  - duration: 313
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684872755/Travels/muscat.jpg
+    title: Muscat
+    url: 'https://player.vimeo.com/video/810514887'
+
+  - duration: 229
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684872755/Travels/fujairah.jpg
+    title: Fujairah
+    url: 'https://player.vimeo.com/video/810492629'
+
+  - duration: 257
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684874213/Travels/abu-dhabi.jpg
+    title: Abu Dhabi
+    url: 'https://player.vimeo.com/video/810489559'
+
+  - duration: 236
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684872755/Travels/goa.jpg
+    title: Goa
+    url: 'https://player.vimeo.com/video/810896227'
+
+  - duration: 504
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684872755/Travels/rio.jpg
+    title: Rio Carnival
+    url: 'https://player.vimeo.com/video/819305279'
+
+  - duration: 447
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684872755/Travels/pelourinho.jpg
+    title: Pelourinho Carnival
+    url: 'https://player.vimeo.com/video/819306663'
 ---
