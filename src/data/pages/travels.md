@@ -305,8 +305,14 @@ videos:
   - duration: 1290
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1630447001/Travels/puligia.jpg
-    title: Puligia
+    title: Puglia
     url: 'https://player.vimeo.com/video/594832524'
+
+  - duration: 497
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1690327550/Travels/pukhet.jpg
+    title: Pukhet & The Andaman Islands
+    url: 'https://player.vimeo.com/video/842018769'
 
   - duration: 580
     thumbnailImg: >-
