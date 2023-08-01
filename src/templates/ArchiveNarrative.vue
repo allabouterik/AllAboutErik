@@ -477,9 +477,7 @@ export default {
         duration: 850,
         easing: "easeInOut",
         overlay: false,
-        dotNavEnabled: false,
-        // dotNavEnabled: true,
-        // animationType: 'slideX',
+        dotNavEnabled: true,
       },
       portraitMobile: {
         maxAspect: 0.85,
