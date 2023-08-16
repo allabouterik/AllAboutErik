@@ -34,6 +34,12 @@ videos:
     width: 1321.33
     height: 990.992
 
+  - duration: 606
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1692220701/Travels/bangkok.jpg
+    title: Bangkok
+    url: 'https://player.vimeo.com/video/854845355'
+
   - duration: 955
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1600810319/Travels/barcelona.jpg
@@ -97,6 +103,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1623968393/Travels/china.jpg
     title: China
     url: 'https://player.vimeo.com/video/562914916'
+
+  - duration: 80
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1692222171/Travels/crazy-little-japanese-monkey.jpg
+    title: Crazy Little Japanese Monkey
+    url: 'https://player.vimeo.com/video/854844195'
 
   - duration: 1069
     thumbnailImg: >-
@@ -308,9 +320,9 @@ videos:
     title: Puglia
     url: 'https://player.vimeo.com/video/594832524'
 
-  - duration: 497
+  - duration: 499
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1690327550/Travels/pukhet.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1692221427/Travels/pukhet-2.jpg
     title: Pukhet & The Andaman Islands
     url: 'https://player.vimeo.com/video/842018769'
 
@@ -371,12 +383,6 @@ videos:
     url: 'https://player.vimeo.com/video/211557056'
     width: 1321.33
     height: 990.992
-
-  - duration: 1090
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1660855444/Travels/thailand.jpg
-    title: Thailand
-    url: 'https://player.vimeo.com/video/738795454'
 
   - duration: 653
     thumbnailImg: >-
