@@ -11,7 +11,10 @@
       "
     />
 
-    <header id="header" :style="headerStyle">
+    <header
+      id="header"
+      :style="headerStyle"
+    >
       <g-image
         :src="titleImg"
         id="titleImg"
@@ -20,11 +23,24 @@
       />
     </header>
 
-    <b-container fluid id="mainContainer" class="mb-3 pb-5 pb-xl-3 px-1">
-      <b-row no-gutters class="mt-2">
+    <b-container
+      fluid
+      id="mainContainer"
+      class="mb-3 pb-5 pb-xl-3 px-1"
+    >
+      <b-row
+        no-gutters
+        class="mt-2"
+      >
         <b-col>
-          <g-image :src="mainImg" id="mainImg" />
-          <span v-html="mainText" id="mainImgText" />
+          <g-image
+            :src="mainImg"
+            id="mainImg"
+          />
+          <span
+            v-html="mainText"
+            id="mainImgText"
+          />
         </b-col>
       </b-row>
 
@@ -40,7 +56,11 @@
         class="mt-3"
         data-testid="video-container"
       >
-        <b-col cols="12" xl="7" class="thumbnailImgContainer">
+        <b-col
+          cols="12"
+          xl="7"
+          class="thumbnailImgContainer"
+        >
           <g-image
             :alt="video.title"
             v-if="video.thumbnailImg != null"
@@ -48,7 +68,10 @@
             class="thumbnailImg"
           />
 
-          <span v-if="index < videos.length - 1" class="imgNumberText">
+          <span
+            v-if="index < videos.length - 1"
+            class="imgNumberText"
+          >
             {{ index + 1 }}
           </span>
 
@@ -70,14 +93,25 @@
           </div>
         </b-col>
 
-        <b-col cols="12" xl="5" class="videoContentContainer px-5">
+        <b-col
+          cols="12"
+          xl="5"
+          class="videoContentContainer px-5"
+        >
           <b-row
             align-v="center"
             align-h="center"
             class="mb-0 pt-2 pt-md-3 pt-xl-4"
           >
-            <b-col cols="auto" id="videoTextContainer" class="mt-2">
-              <h2 v-if="video.title != null" class="videoTitle mb-4">
+            <b-col
+              cols="auto"
+              id="videoTextContainer"
+              class="mt-2"
+            >
+              <h2
+                v-if="video.title != null"
+                class="videoTitle mb-4"
+              >
                 {{ video.shortTitle }}
               </h2>
               <p
@@ -90,7 +124,10 @@
             </b-col>
           </b-row>
 
-          <b-row align-h="center" class="playIconRow mb-0 py-2 py-md-3 py-xl-4">
+          <b-row
+            align-h="center"
+            class="playIconRow mb-0 py-2 py-md-3 py-xl-4"
+          >
             <b-col
               cols="auto"
               id="playIconCol"
@@ -114,11 +151,22 @@
               style="text-align: left"
               class="playIconTextCol pl-1"
             >
-              <p v-if="index < videos.length - 1" class="playVideoText mb-0">
+              <p
+                v-if="index < videos.length - 1"
+                class="playVideoText mb-0"
+              >
                 PLAY EPISODE
               </p>
-              <p v-else class="playVideoText mb-0">PLAY FILM</p>
-              <p v-if="video.duration != null" class="videoDurationText mb-2">
+              <p
+                v-else
+                class="playVideoText mb-0"
+              >
+                PLAY FILM
+              </p>
+              <p
+                v-if="video.duration != null"
+                class="videoDurationText mb-2"
+              >
                 {{ durationInMinsText(video.duration) }}
               </p>
             </b-col>
@@ -168,11 +216,10 @@
 }
 </page-query>
 
-
 <script scoped>
-import BackgroundMusic from "../../components/BackgroundMusic.vue";
-import VideoLightBox from "../../components/VideoLightBox.vue";
-import BackToTop from "../../components/BackToTop.vue";
+import BackgroundMusic from '../../components/BackgroundMusic.vue';
+import VideoLightBox from '../../components/VideoLightBox.vue';
+import BackToTop from '../../components/BackToTop.vue';
 
 export default {
   metaInfo() {
@@ -206,7 +253,7 @@ export default {
     },
     headerStyle() {
       return {
-        "--headerBgImg": "url(" + this.headerBgImg + ")",
+        '--headerBgImg': 'url(' + this.headerBgImg + ')',
       };
     },
   },
@@ -217,21 +264,21 @@ export default {
       if (mins >= 60) {
         let hrs = Math.floor(mins / 60);
         mins = mins - hrs * 60;
-        if (mins < 10) mins = "0" + mins;
-        if (hrs == 1) return "1 hr " + mins + " min";
-        else return hrs + " hrs " + mins + " min";
+        if (mins < 10) mins = '0' + mins;
+        if (hrs == 1) return '1 hr ' + mins + ' min';
+        else return hrs + ' hrs ' + mins + ' min';
       } else {
         secs = secs - mins * 60;
-        if (secs < 10) secs = "0" + secs;
-        return mins + ":" + secs + " min";
+        if (secs < 10) secs = '0' + secs;
+        return mins + ':' + secs + ' min';
       }
     },
     shortText(text) {
       if (text.length <= 30) {
         return {
-          textAlign: "center",
-          marginTop: "32px",
-          marginBottom: "32px",
+          textAlign: 'center',
+          marginTop: '32px',
+          marginBottom: '32px',
         };
       }
     },
@@ -247,35 +294,33 @@ export default {
 };
 </script>
 
-
-
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Lora:700i&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Lora:700i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Condensed&display=swap');
 
 @font-face {
   font-family: NeueHaasGroteskText Pro55;
-  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot"); /* IE9 Compat Modes */
-  src: url("../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-55rg.woff")
-      format("woff"),
+  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot'); /* IE9 Compat Modes */
+  src: url('../../assets/fonts/nhaasgrotesktxpro-55rg.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../assets/fonts/nhaasgrotesktxpro-55rg.woff')
+      format('woff'),
     /* Pretty Modern Browsers */
-      url("../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg")
-      format("svg"); /* Legacy iOS */
+      url('../../assets/fonts/nhaasgrotesktxpro-55rg.svg#NHaasGroteskTXPro-55Rg')
+      format('svg'); /* Legacy iOS */
   font-weight: normal;
 }
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
-  src: url("../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("../../assets/fonts/nhaasgrotesktxpro-65md.woff")
-      format("woff"),
+  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
+  src: url('../../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('../../assets/fonts/nhaasgrotesktxpro-65md.woff')
+      format('woff'),
     /* Pretty Modern Browsers */
-      url("../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
-      format("svg"); /* Legacy iOS */
+      url('../../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg')
+      format('svg'); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -312,8 +357,8 @@ export default {
 
 #mainImgText {
   color: white;
-  font-family: "NeueHaasGroteskText Pro65";
-  font-feature-settings: "liga";
+  font-family: 'NeueHaasGroteskText Pro65';
+  font-feature-settings: 'liga';
   font-weight: 500;
   font-size: 1.75rem; /* 28px with 16px default size */
   letter-spacing: 1px;
@@ -338,8 +383,8 @@ export default {
 
 .imgNumberText {
   color: white;
-  font-family: "NeueHaasGroteskText Pro65";
-  font-feature-settings: "liga";
+  font-family: 'NeueHaasGroteskText Pro65';
+  font-feature-settings: 'liga';
   font-weight: 500;
   font-size: 8.125rem; /* 130px with 16px default size   */
   /* font-size: 11vw; */
@@ -375,7 +420,7 @@ export default {
 }
 
 .thumbnailImgOverlay .videoDurationText {
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-weight: 700;
   font-size: 1.6rem;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.65);
@@ -387,8 +432,8 @@ export default {
 }
 
 .videoTitle {
-  font-family: "Ubuntu Condensed", sans-serif;
-  font-feature-settings: "liga";
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-feature-settings: 'liga';
   font-weight: 400;
   font-size: 2.9375rem; /* 47px with 16px default size */
   line-height: 47px;
@@ -399,8 +444,8 @@ export default {
 }
 
 .videoSubText {
-  font-family: "NeueHaasGroteskText Pro65";
-  font-feature-settings: "liga";
+  font-family: 'NeueHaasGroteskText Pro65';
+  font-feature-settings: 'liga';
   font-weight: 500;
   font-size: 1.4375rem; /* 23px with 16px default size */
   line-height: 35px;
@@ -422,8 +467,8 @@ export default {
 }
 
 .playVideoText {
-  font-family: "NeueHaasGroteskText Pro55";
-  font-feature-settings: "liga";
+  font-family: 'NeueHaasGroteskText Pro55';
+  font-feature-settings: 'liga';
   font-weight: 500;
   font-size: 1.125rem; /* 18px at 16px default size */
   text-transform: uppercase;
@@ -431,7 +476,7 @@ export default {
 }
 
 .videoDurationText {
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
   font-weight: 700;
   font-size: 0.875rem; /* 14px at 16px default size */
   margin-top: -2px;

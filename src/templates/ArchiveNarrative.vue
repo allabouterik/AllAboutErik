@@ -1,7 +1,10 @@
 <template>
   <Layout>
     <ClientOnly>
-      <ksvuefp :options="options" :sections="sections">
+      <ksvuefp
+        :options="options"
+        :sections="sections"
+      >
         <ksvuefp-section
           v-for="(s, iSec) in sections"
           :section="s"
@@ -12,9 +15,15 @@
           :class="{ containImg: containBgImg(s) }"
         >
           <!-- HEADER -->
-          <header v-if="s.header" id="header">
+          <header
+            v-if="s.header"
+            id="header"
+          >
             <!-- STATIC HEADER IMAGES -->
-            <div v-if="!isPortrait && node.headerImages" class="headerWrapper">
+            <div
+              v-if="!isPortrait && node.headerImages"
+              class="headerWrapper"
+            >
               <div
                 v-for="(headerImg, iImg) in node.headerImages"
                 :key="iImg"
@@ -68,7 +77,10 @@
                 ref="portraitSlideshow"
                 class="headerBoxPortrait"
               >
-                <div class="headerOverlay" :style="overlayStyles">
+                <div
+                  class="headerOverlay"
+                  :style="overlayStyles"
+                >
                   <g-image
                     :src="titleImg"
                     :alt="node.title + ' title image'"
@@ -199,7 +211,10 @@
             class="slideTextContainer"
             :style="slideTextContainerStyles(txtObj)"
           >
-            <div class="slideTextDiv" :style="slideTextDivStyles(txtObj)">
+            <div
+              class="slideTextDiv"
+              :style="slideTextDivStyles(txtObj)"
+            >
               <simplebar
                 v-if="
                   (txtObj.hasOwnProperty('showScrollbar') &&
@@ -209,7 +224,10 @@
                 class="simple-scrollbar"
                 data-simplebar-auto-hide="false"
               >
-                <transition appear name="textAnimation">
+                <transition
+                  appear
+                  name="textAnimation"
+                >
                   <span
                     v-show="$ksvuefp.canAnimContent(iSec, true)"
                     v-html="renderMarkdown(txtObj.text)"
@@ -219,7 +237,11 @@
                 </transition>
               </simplebar>
 
-              <transition v-else appear name="textAnimation">
+              <transition
+                v-else
+                appear
+                name="textAnimation"
+              >
                 <span
                   v-show="$ksvuefp.canAnimContent(iSec, true)"
                   v-html="renderMarkdown(txtObj.text)"
@@ -284,7 +306,6 @@
     />
   </Layout>
 </template>
-
 
 <page-query>
 query ($id: ID!) {
@@ -443,14 +464,13 @@ query ($id: ID!) {
 }
 </page-query>
 
-
 <script scoped>
-import BookViewer from "../components/BookViewer.vue";
-import SlideshowImages from "../components/SlideshowImages.vue";
-import simplebar from "simplebar-vue";
-import "simplebar/dist/simplebar.min.css";
-const MarkdownIt = require("markdown-it");
-const slugify = require("@sindresorhus/slugify");
+import BookViewer from '../components/BookViewer.vue';
+import SlideshowImages from '../components/SlideshowImages.vue';
+import simplebar from 'simplebar-vue';
+import 'simplebar/dist/simplebar.min.css';
+const MarkdownIt = require('markdown-it');
+const slugify = require('@sindresorhus/slugify');
 
 export default {
   metaInfo() {
@@ -461,7 +481,7 @@ export default {
 
   components: {
     BookViewer,
-    SlideshowImages: require("../components/SlideshowImages.vue").default,
+    SlideshowImages: require('../components/SlideshowImages.vue').default,
     simplebar,
   },
 
@@ -475,7 +495,7 @@ export default {
       bookKey: 1,
       options: {
         duration: 850,
-        easing: "easeInOut",
+        easing: 'easeInOut',
         overlay: false,
         dotNavEnabled: false,
       },
@@ -524,7 +544,7 @@ export default {
       return this.$page.archive;
     },
     titleImg() {
-      return this.node.titleImg.singleLine != ""
+      return this.node.titleImg.singleLine != ''
         ? this.node.titleImg.singleLine
         : this.node.titleImg.doubleLine;
     },
@@ -569,14 +589,14 @@ export default {
       else if (this.windowWidth < 992)
         topOffset = Math.min(65, this.node.titleImg.topOffset);
       else topOffset = this.node.titleImg.topOffset;
-      css["--titleTopOffset"] = topOffset + "%";
-      css["--titleMaxWidth"] = this.node.titleImg.maxWidth + "%";
+      css['--titleTopOffset'] = topOffset + '%';
+      css['--titleMaxWidth'] = this.node.titleImg.maxWidth + '%';
       return css;
     },
     overlayStylesBtm() {
       let css = {};
-      css["--titleMaxWidth"] = this.node.titleImg.maxWidth + "%";
-      css.bottom = "0px";
+      css['--titleMaxWidth'] = this.node.titleImg.maxWidth + '%';
+      css.bottom = '0px';
       return css;
     },
     sections() {
@@ -584,16 +604,16 @@ export default {
       let s = 1; // section no.
 
       // add section for header
-      sections.push({ id: "section" + s++, header: true });
+      sections.push({ id: 'section' + s++, header: true });
 
       const layout = this.currentLayout;
 
       // get sections (background images) from CMS
-      if (layout.hasOwnProperty("noSections")) {
+      if (layout.hasOwnProperty('noSections')) {
         for (let i = 1; i <= layout.noSections; i++) {
           let section = {
-            id: "section" + s++,
-            img_url: layout.commonPath + i + ".jpg",
+            id: 'section' + s++,
+            img_url: layout.commonPath + i + '.jpg',
             txtArr: [],
             galleryItems: [],
           };
@@ -606,11 +626,11 @@ export default {
       }
 
       // add text from CMS to sections
-      if (layout.hasOwnProperty("textList")) {
+      if (layout.hasOwnProperty('textList')) {
         for (let t = 0; t < layout.textList.length; t++) {
           const txtObj = layout.textList[t];
           if (
-            !txtObj.hasOwnProperty("sectionNo") ||
+            !txtObj.hasOwnProperty('sectionNo') ||
             txtObj.sectionNo > sections.length - 1
           )
             continue;
@@ -620,11 +640,11 @@ export default {
       }
 
       // add gallery items from CMS to sections
-      if (layout.hasOwnProperty("galleryItems")) {
+      if (layout.hasOwnProperty('galleryItems')) {
         for (let i = 0; i < layout.galleryItems.length; i++) {
           const galObj = layout.galleryItems[i];
           if (
-            !galObj.hasOwnProperty("sectionNo") ||
+            !galObj.hasOwnProperty('sectionNo') ||
             galObj.sectionNo > sections.length
           )
             continue;
@@ -644,19 +664,19 @@ export default {
         i <= book.commonFilenameLastNum;
         i++
       ) {
-        let url = book.commonPathStdRes + i + ".jpg";
+        let url = book.commonPathStdRes + i + '.jpg';
         pages.push(url);
       }
       return pages;
     },
     showGalleryLink() {
-      return this.titleSlug === "my-dad-earl";
+      return this.titleSlug === 'my-dad-earl';
     },
   },
 
   mounted() {
-    window.Velocity = require("velocity-animate"); // needed for KsVueFullpage (ref: https://github.com/pirony/ks-vue-fullpage)
-    window.Hammer = require("hammerjs/hammer.js"); // needed for KsVueFullpage
+    window.Velocity = require('velocity-animate'); // needed for KsVueFullpage (ref: https://github.com/pirony/ks-vue-fullpage)
+    window.Hammer = require('hammerjs/hammer.js'); // needed for KsVueFullpage
 
     this.updateWindowDims();
     this.bindEvents();
@@ -668,17 +688,17 @@ export default {
 
   methods: {
     bindEvents() {
-      window.addEventListener("resize", this.updateWindowDims, false);
+      window.addEventListener('resize', this.updateWindowDims, false);
       window.addEventListener(
-        "orientationchange",
+        'orientationchange',
         this.updateWindowDims,
         false
       );
     },
     unbindEvents() {
-      window.removeEventListener("resize", this.updateWindowDims, false);
+      window.removeEventListener('resize', this.updateWindowDims, false);
       window.removeEventListener(
-        "orientationchange",
+        'orientationchange',
         this.updateWindowDims,
         false
       );
@@ -688,9 +708,9 @@ export default {
     },
     containBgImg(section) {
       if (
-        section.hasOwnProperty("txtArr") &&
+        section.hasOwnProperty('txtArr') &&
         section.txtArr.length > 0 &&
-        section.txtArr[0].hasOwnProperty("bgImgContain")
+        section.txtArr[0].hasOwnProperty('bgImgContain')
       ) {
         return section.txtArr[0].bgImgContain;
       } else return false;
@@ -701,31 +721,31 @@ export default {
     },
     slideTextContainerStyles(txtObj) {
       let css = {};
-      if (txtObj.hasOwnProperty("pos") && txtObj.pos) {
+      if (txtObj.hasOwnProperty('pos') && txtObj.pos) {
         // default values (left)
-        css.left = "0%";
-        css.top = "-50vh";
-        css.width = "35%";
-        css.height = "100vh";
+        css.left = '0%';
+        css.top = '-50vh';
+        css.width = '35%';
+        css.height = '100vh';
 
         // presets
-        if (txtObj.pos == "right") {
-          css.left = "65.0%";
+        if (txtObj.pos == 'right') {
+          css.left = '65.0%';
           // css.left = txtObj.posX ? txtObj.posX : '65.0%'
-        } else if (txtObj.pos == "center") {
-          css.left = "32.5%";
-          css.top = "-37vh";
-          css.height = "87vh";
-        } else if (txtObj.pos == "bottom") {
-          css.left = "0%";
-          css.top = "17vh";
-          css.width = "100%";
-          css.height = "33vh";
-          css.display = "flex";
+        } else if (txtObj.pos == 'center') {
+          css.left = '32.5%';
+          css.top = '-37vh';
+          css.height = '87vh';
+        } else if (txtObj.pos == 'bottom') {
+          css.left = '0%';
+          css.top = '17vh';
+          css.width = '100%';
+          css.height = '33vh';
+          css.display = 'flex';
           // css.flexDirection = 'column-reverse'
-        } else if (txtObj.pos == "top") {
-          css.width = "100%";
-          css.height = "33vh";
+        } else if (txtObj.pos == 'top') {
+          css.width = '100%';
+          css.height = '33vh';
         }
 
         // overwrites
@@ -734,23 +754,23 @@ export default {
         if (txtObj.width) css.width = txtObj.width;
         if (txtObj.height) css.height = txtObj.height;
       } else {
-        css.left = txtObj.posX ? txtObj.posX : "0.5%";
-        css.top = txtObj.posY ? txtObj.posY : "-11vh";
-        css.width = txtObj.width ? txtObj.width : "38%";
-        css.height = "100%";
+        css.left = txtObj.posX ? txtObj.posX : '0.5%';
+        css.top = txtObj.posY ? txtObj.posY : '-11vh';
+        css.width = txtObj.width ? txtObj.width : '38%';
+        css.height = '100%';
       }
-      if (txtObj.hasOwnProperty("applyFilter") && txtObj.applyFilter == true) {
-        css.backgroundColor = "rgb(0,0,0,0.47)";
+      if (txtObj.hasOwnProperty('applyFilter') && txtObj.applyFilter == true) {
+        css.backgroundColor = 'rgb(0,0,0,0.47)';
       }
       return css;
     },
     slideTextDivStyles(txtObj) {
       let css = {};
-      css.width = "100%";
+      css.width = '100%';
 
-      if (txtObj.hasOwnProperty("pos") && txtObj.pos) {
-        if (txtObj.pos == "bottom") {
-          css.height = "calc(100% - 8px)";
+      if (txtObj.hasOwnProperty('pos') && txtObj.pos) {
+        if (txtObj.pos == 'bottom') {
+          css.height = 'calc(100% - 8px)';
         }
       }
       return css;
@@ -759,28 +779,28 @@ export default {
       const layout = this.currentLayout;
       const scale = this.windowScale;
       let css = {};
-      if (txtObj.hasOwnProperty("pos") && txtObj.pos) {
-        css.display = "flex";
-        css.flexDirection = "column";
+      if (txtObj.hasOwnProperty('pos') && txtObj.pos) {
+        css.display = 'flex';
+        css.flexDirection = 'column';
 
-        if (txtObj.pos == "bottom") {
-          css.height = "100%";
+        if (txtObj.pos == 'bottom') {
+          css.height = '100%';
         } else {
-          css.height = "100vh";
+          css.height = '100vh';
         }
 
-        css.alignItems = txtObj.alignItems ? txtObj.alignItems : "start";
+        css.alignItems = txtObj.alignItems ? txtObj.alignItems : 'start';
 
         // padding
         if (txtObj.padding) {
           var paddingPx =
-            scale * parseFloat(txtObj.padding.replace(/[^0-9.]/g, ""));
+            scale * parseFloat(txtObj.padding.replace(/[^0-9.]/g, ''));
         } else {
           paddingPx = scale * layout.padding;
         }
-        if (txtObj.pos !== "bottom") {
+        if (txtObj.pos !== 'bottom') {
           css.padding = `${paddingPx}px`;
-        } else if (txtObj.hasOwnProperty("applyFilter") && txtObj.applyFilter) {
+        } else if (txtObj.hasOwnProperty('applyFilter') && txtObj.applyFilter) {
           css.padding = `${paddingPx}px ${paddingPx}px`;
         } else {
           css.padding = `0px ${paddingPx}px`;
@@ -790,25 +810,25 @@ export default {
       // font-size
       if (txtObj.fontSize) {
         var fontSizePx =
-          scale * parseFloat(txtObj.fontSize.replace(/[^0-9.]/g, ""));
+          scale * parseFloat(txtObj.fontSize.replace(/[^0-9.]/g, ''));
       } else {
         fontSizePx = layout.maxFontSize
           ? Math.min(scale * layout.fontSize, layout.maxFontSize)
           : scale * layout.fontSize;
       }
-      css.fontSize = fontSizePx + "px";
+      css.fontSize = fontSizePx + 'px';
 
       // line-height
       if (txtObj.lineHeight) {
         var lineHeightPx =
-          scale * parseFloat(txtObj.lineHeight.replace(/[^0-9.]/g, ""));
+          scale * parseFloat(txtObj.lineHeight.replace(/[^0-9.]/g, ''));
       } else {
         lineHeightPx = 1.444 * fontSizePx;
       }
-      css.lineHeight = lineHeightPx + "px";
+      css.lineHeight = lineHeightPx + 'px';
 
       // text-align
-      css.textAlign = txtObj.textAlign ? txtObj.textAlign : "justify";
+      css.textAlign = txtObj.textAlign ? txtObj.textAlign : 'justify';
 
       return css;
     },
@@ -833,22 +853,20 @@ export default {
 };
 </script>
 
-
-
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700&display=swap');
 
 @font-face {
   font-family: NeueHaasGroteskText Pro65;
-  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot"); /* IE9 Compat Modes */
-  src: url("../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix")
-      format("embedded-opentype"),
-    /* IE6-IE8 */ url("../assets/fonts/nhaasgrotesktxpro-65md.woff")
-      format("woff"),
+  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot'); /* IE9 Compat Modes */
+  src: url('../assets/fonts/nhaasgrotesktxpro-65md.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('../assets/fonts/nhaasgrotesktxpro-65md.woff')
+      format('woff'),
     /* Pretty Modern Browsers */
-      url("../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg")
-      format("svg"); /* Legacy iOS */
+      url('../assets/fonts/nhaasgrotesktxpro-65md.svg#NHaasGroteskTXPro-55Rg')
+      format('svg'); /* Legacy iOS */
   font-weight: normal;
 }
 
@@ -966,7 +984,7 @@ export default {
   padding: 130px 60px 30px 60px !important;
 }
 #header:after {
-  content: "";
+  content: '';
   display: inline-block;
   position: absolute;
   top: 0;
@@ -1053,8 +1071,8 @@ export default {
 }
 .headerText {
   color: #fff;
-  font-family: "Lora", serif;
-  font-feature-settings: "liga";
+  font-family: 'Lora', serif;
+  font-feature-settings: 'liga';
   font-weight: 400;
 
   --font-size: 1.25rem;
@@ -1091,7 +1109,7 @@ export default {
   background-size: contain;
 }
 .galleryBox .mediaBox::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   right: 0px;
@@ -1137,8 +1155,8 @@ export default {
 
 .thumbnailCaption {
   color: white;
-  font-family: "Open Sans Condensed", sans-serif;
-  font-feature-settings: "liga";
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-feature-settings: 'liga';
   font-weight: 300;
   text-align: center;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.32);
@@ -1242,8 +1260,8 @@ body {
 .slideText {
   display: block;
   color: #fff;
-  font-family: "Lora", serif;
-  font-feature-settings: "liga";
+  font-family: 'Lora', serif;
+  font-feature-settings: 'liga';
   font-weight: 400;
   margin: 0px;
   padding: 0px;
