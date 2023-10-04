@@ -358,7 +358,7 @@ videos:
     title: Rivieras
     url: 'https://player.vimeo.com/video/828151694'
 
-  - duration: 870863837
+  - duration: 851
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1696456975/Travels/romania.jpg
     title: Romania
