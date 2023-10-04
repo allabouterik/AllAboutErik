@@ -34,6 +34,14 @@ videos:
     width: 1321.33
     height: 990.992
 
+  - duration: 653
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/baltic_mvyknf.jpg
+    title: Baltic Cruise
+    url: 'https://player.vimeo.com/video/213149248'
+    width: 1321.33
+    height: 990.992
+
   - duration: 606
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1692220701/Travels/bangkok.jpg
@@ -67,6 +75,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/uae_pdtrdu.jpg
     title: Black Gold - United Arab Emirates & Oman
     url: 'https://player.vimeo.com/video/460734403'
+
+  - duration: 410
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1696456969/Travels/buenos-aires.jpg
+    title: Buenos Aires
+    url: 'https://player.vimeo.com/video/870863146'
 
   - duration: 386
     thumbnailImg: >-
@@ -338,6 +352,18 @@ videos:
     title: Rio Carnival
     url: 'https://player.vimeo.com/video/819305279'
 
+  - duration: 1152
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684854951/Travels/the-rivieras.jpg
+    title: Rivieras
+    url: 'https://player.vimeo.com/video/828151694'
+
+  - duration: 870863837
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1696456975/Travels/romania.jpg
+    title: Romania
+    url: 'https://player.vimeo.com/video/870863837'
+
   - duration: 894
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678123948/Travels/rome-2.jpg
@@ -383,20 +409,6 @@ videos:
     url: 'https://player.vimeo.com/video/211557056'
     width: 1321.33
     height: 990.992
-
-  - duration: 653
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/baltic_mvyknf.jpg
-    title: The Baltic Cruise
-    url: 'https://player.vimeo.com/video/213149248'
-    width: 1321.33
-    height: 990.992
-
-  - duration: 1152
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684854951/Travels/the-rivieras.jpg
-    title: The Rivieras
-    url: 'https://player.vimeo.com/video/828151694'
 
   - duration: 465
     thumbnailImg: >-
