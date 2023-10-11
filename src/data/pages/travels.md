@@ -20,6 +20,12 @@ videos:
     title: Abu Dhabi
     url: 'https://player.vimeo.com/video/810489559'
 
+  - duration: 705
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1697053737/Travels/amalfi-coast.jpg
+    title: Amalfi Coast
+    url: 'https://player.vimeo.com/video/872590107'
+
   - duration: 220
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1639097272/Travels/angkor.jpg
@@ -75,6 +81,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/uae_pdtrdu.jpg
     title: Black Gold - United Arab Emirates & Oman
     url: 'https://player.vimeo.com/video/460734403'
+
+  - duration: 661
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1697053737/Travels/budapest.jpg
+    title: Budapest
+    url: 'https://player.vimeo.com/video/872599720'
 
   - duration: 410
     thumbnailImg: >-
@@ -187,6 +199,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678123948/Travels/gothic-france-2.jpg
     title: Gothic Cathedrals
     url: 'https://player.vimeo.com/video/791347459'
+
+  - duration: 298
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1697053737/Travels/hawaii.jpg
+    title: Hawaii
+    url: 'https://player.vimeo.com/video/872593061'
 
   - duration: 270
     thumbnailImg: >-
