@@ -40,10 +40,7 @@
           v-for="(video, index) in videos"
           :key="video.title"
           class="mb-2 mb-sm-3 px-2 px-sm-1"
-          @click="
-            videoIndex = index;
-            setStorage();
-          "
+          @click="videoIndex = index"
           data-testid="video-container"
         >
           <VideoThumbnailTravels :video="video" />
@@ -129,15 +126,6 @@ export default {
     },
   },
 
-  methods: {
-    setStorage() {
-      sessionStorage.setItem("travelVideoViewed", "true");
-    },
-    videoPreviouslyViewed() {
-      return sessionStorage.getItem("travelVideoViewed") === "true";
-    },
-  },
-
   components: {
     VideoLightBox,
     VideoThumbnailTravels,
@@ -145,8 +133,6 @@ export default {
   },
 };
 </script>
-
-
 
 <style scoped>
 @font-face {
