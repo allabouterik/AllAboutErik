@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <BackgroundMusic
+    <!-- <BackgroundMusic
       :audioFile="$page.RootsAndYouth.edges[0].node.bgAudio"
       :audioDuration="$page.RootsAndYouth.edges[0].node.bgAudioDuration"
       :audioFadeInDuration="
@@ -9,7 +9,7 @@
       :audioFadeOutDuration="
         $page.RootsAndYouth.edges[0].node.bgAudioFadeOutDuration
       "
-    />
+    /> -->
 
     <b-container fluid class="main-col">
       <!-- HEADER SLIDESHOW -->
@@ -164,7 +164,7 @@
 
 
 <script scoped>
-import BackgroundMusic from "../components/BackgroundMusic.vue";
+// import BackgroundMusic from "../components/BackgroundMusic.vue";
 import ScrollDownArrow from "../components/ScrollDownArrow.vue";
 import SlideshowImages from "../components/SlideshowImages.vue";
 import VideoLightBox from "../components/VideoLightBox.vue";
@@ -229,7 +229,7 @@ export default {
   components: {
     "slideshow-images": require("../components/SlideshowImages.vue").default,
     ScrollDownArrow,
-    BackgroundMusic,
+    // BackgroundMusic,
     VideoLightBox,
     VideoThumbnailRoots,
   },

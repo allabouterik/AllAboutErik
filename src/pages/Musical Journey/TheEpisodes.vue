@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <BackgroundMusic
+    <!-- <BackgroundMusic
       :audioFile="$page.TheEpisodes.edges[0].node.bgAudio"
       :audioDuration="$page.TheEpisodes.edges[0].node.bgAudioDuration"
       :audioFadeInDuration="
@@ -9,7 +9,7 @@
       :audioFadeOutDuration="
         $page.TheEpisodes.edges[0].node.bgAudioFadeOutDuration
       "
-    />
+    /> -->
 
     <header
       id="header"
@@ -217,7 +217,7 @@
 </page-query>
 
 <script scoped>
-import BackgroundMusic from '../../components/BackgroundMusic.vue';
+// import BackgroundMusic from '../../components/BackgroundMusic.vue';
 import VideoLightBox from '../../components/VideoLightBox.vue';
 import BackToTop from '../../components/BackToTop.vue';
 
@@ -287,7 +287,7 @@ export default {
   mounted() {},
 
   components: {
-    BackgroundMusic,
+    // BackgroundMusic,
     VideoLightBox,
     BackToTop,
   },

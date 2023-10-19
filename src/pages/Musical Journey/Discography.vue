@@ -1,6 +1,6 @@
 <template>
   <Layout class="pb-5">
-    <BackgroundMusic
+    <!-- <BackgroundMusic
       :audioFile="$page.Discography.edges[0].node.bgAudio"
       :audioDuration="$page.Discography.edges[0].node.bgAudioDuration"
       :audioFadeInDuration="
@@ -9,7 +9,7 @@
       :audioFadeOutDuration="
         $page.Discography.edges[0].node.bgAudioFadeOutDuration
       "
-    />
+    /> -->
 
     <div
       v-for="(img, index) in backgroundImages"
@@ -169,7 +169,7 @@
 
 
 <script scoped>
-import BackgroundMusic from "../../components/BackgroundMusic.vue";
+// import BackgroundMusic from "../../components/BackgroundMusic.vue";
 import ScrollDownArrow from "../../components/ScrollDownArrow.vue";
 import BackToTop from "../../components/BackToTop.vue";
 
@@ -404,7 +404,7 @@ export default {
   },
 
   components: {
-    BackgroundMusic,
+    // BackgroundMusic,
     ScrollDownArrow,
     BackToTop,
   },

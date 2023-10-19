@@ -1,12 +1,12 @@
 <template>
   <Layout>
-    <BackgroundMusic
+    <!-- <BackgroundMusic
       :audioFile="node.bgAudio"
       :audioDuration="node.bgAudioDuration"
       :audioFadeInDuration="node.bgAudioFadeInDuration"
       :audioFadeOutDuration="node.bgAudioFadeOutDuration"
       :maxVolume="1.0"
-    />
+    /> -->
 
     <b-container fluid class="main-col m-0, p-0">
       <b-row no-gutters class="mb-1 px-1">
@@ -82,7 +82,7 @@
 
 <script scoped>
 import ArchivesTiles from "../../components/ArchivesTiles.vue";
-import BackgroundMusic from "../../components/BackgroundMusic.vue";
+// import BackgroundMusic from "../../components/BackgroundMusic.vue";
 import ScrollDownArrow from "../../components/ScrollDownArrow.vue";
 import BackToTop from "../../components/BackToTop.vue";
 import SlideshowKenBurnsSmall from "../../components/SlideshowKenBurnsSmall.vue";
@@ -96,7 +96,7 @@ export default {
 
   components: {
     ArchivesTiles,
-    BackgroundMusic,
+    // BackgroundMusic,
     ScrollDownArrow,
     BackToTop,
     SlideshowKenBurnsSmall,

@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <BackgroundMusic
+    <!-- <BackgroundMusic
       :audioFile="$page.Collections.edges[0].node.bgAudio"
       :audioDuration="$page.Collections.edges[0].node.bgAudioDuration"
       :audioFadeInDuration="
@@ -10,7 +10,7 @@
         $page.Collections.edges[0].node.bgAudioFadeOutDuration
       "
       :playMusic="playMusic"
-    />
+    /> -->
 
     <b-container fluid class="main-col">
       <b-row no-gutters class="mb-1 px-1">
@@ -90,7 +90,7 @@
 
 
 <script scoped>
-import BackgroundMusic from "../../components/BackgroundMusic.vue";
+// import BackgroundMusic from "../../components/BackgroundMusic.vue";
 import CollectionThumbnail from "../../components/CollectionThumbnail.vue";
 import BackToTop from "../../components/BackToTop.vue";
 import SlideshowKenBurnsSmall from "../../components/SlideshowKenBurnsSmall.vue";
@@ -103,7 +103,7 @@ export default {
   },
 
   components: {
-    BackgroundMusic,
+    // BackgroundMusic,
     CollectionThumbnail,
     BackToTop,
     SlideshowKenBurnsSmall,

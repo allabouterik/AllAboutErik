@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <BackgroundMusic
+    <!-- <BackgroundMusic
       :audioFile="$page.ShortFilms.edges[0].node.bgAudio"
       :audioDuration="$page.ShortFilms.edges[0].node.bgAudioDuration"
       :audioFadeInDuration="
@@ -9,7 +9,7 @@
       :audioFadeOutDuration="
         $page.ShortFilms.edges[0].node.bgAudioFadeOutDuration
       "
-    />
+    /> -->
 
     <header id="header" :style="headerStyle">
       <g-image
@@ -102,7 +102,7 @@
 
 
 <script scoped>
-import BackgroundMusic from "../components/BackgroundMusic.vue";
+// import BackgroundMusic from "../components/BackgroundMusic.vue";
 import VideoLightBox from "../components/VideoLightBox.vue";
 import VideoThumbnailShortFilms from "../components/VideoThumbnailShortFilms.vue";
 import BackToTop from "../components/BackToTop.vue";
@@ -141,7 +141,7 @@ export default {
   },
 
   components: {
-    BackgroundMusic,
+    // BackgroundMusic,
     VideoLightBox,
     VideoThumbnailShortFilms,
     BackToTop,
