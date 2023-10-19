@@ -213,24 +213,25 @@
         <!-- IMAGE GALLERY -->
         <template v-if="galleryImgUrls != null">
           <div
-            v-for="n in parseInt(
+            v-for="iWrapper in parseInt(
               galleryImgUrls.length / maxImagesGalleryWrapper + 1
             )"
-            :key="'galleryWrapper_' + n"
+            :key="'galleryWrapper_' + iWrapper"
             class="galleryWrapper"
-            :id="'galleryWrapper_' + n"
+            :id="'galleryWrapper_' + iWrapper"
           >
             <div
               v-for="(img, iImg) in galleryImgUrls.filter(
-                (_d, i) => parseInt(i / maxImagesGalleryWrapper) === n - 1
+                (_d, i) =>
+                  parseInt(i / maxImagesGalleryWrapper) === iWrapper - 1
               )"
               :key="'img' + iImg"
               class="galleryBox"
-              @click.prevent="onGalleryImgClick(iImg)"
+              @click.prevent="onGalleryImgClick(iWrapper, iImg)"
             >
               <img
                 :src="img"
-                :id="'galleryImage_' + iImg"
+                :id="`gW_${iWrapper}-galleryImage_${iImg}`"
                 class="galleryImage"
                 :class="{
                   centerPos: applyLargeImgStyles && zoomedImgIndex == iImg,
@@ -638,12 +639,14 @@ export default {
       await this.delay(1500);
       this.$refs.slideshowCenter.start();
     },
-    onGalleryImgClick(iImg) {
+    onGalleryImgClick(iWrapper, iImg) {
       if (this.zoomedImgIndex == iImg || this.windowWidth < 768) {
         return;
       }
 
-      const imgEl = document.getElementById("galleryImage_" + iImg);
+      const imgEl = document.getElementById(
+        `gW_${iWrapper}-galleryImage_${iImg}`
+      );
       const elemRect = imgEl.getBoundingClientRect();
       this.imgCenterPos.top = elemRect.top + elemRect.height / 2;
       this.imgCenterPos.left = elemRect.left + elemRect.width / 2;
