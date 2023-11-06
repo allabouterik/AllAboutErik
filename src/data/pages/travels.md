@@ -26,6 +26,12 @@ videos:
     title: Amalfi Coast
     url: 'https://player.vimeo.com/video/872590107'
 
+  - duration: 270
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/holland_woygop.jpg
+    title: Amsterdam
+    url: 'https://player.vimeo.com/video/171630592'
+
   - duration: 220
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1639097272/Travels/angkor.jpg
@@ -76,12 +82,6 @@ videos:
     width: 1321.33
     height: 990.992
 
-  - duration: 1525
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/uae_pdtrdu.jpg
-    title: Black Gold - United Arab Emirates & Oman
-    url: 'https://player.vimeo.com/video/460734403'
-
   - duration: 661
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1697053737/Travels/budapest.jpg
@@ -99,6 +99,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1645655192/Travels/burma.jpg
     title: Burma
     url: 'https://player.vimeo.com/video/670871116'
+
+  - duration: 347
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580646274/Travels/jagalchi-fish-market-south-korea_vhkmuw.jpg
+    title: 'Busan Fish Market'
+    url: 'https://player.vimeo.com/video/356978104'
 
   - duration: 1589
     thumbnailImg: >-
@@ -133,7 +139,7 @@ videos:
   - duration: 80
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1692222171/Travels/crazy-little-japanese-monkey.jpg
-    title: Crazy Little Japanese Monkey
+    title: Crazy Little Monkey
     url: 'https://player.vimeo.com/video/854844195'
 
   - duration: 1088
@@ -206,12 +212,6 @@ videos:
     title: Hawaii
     url: 'https://player.vimeo.com/video/872593061'
 
-  - duration: 270
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/holland_woygop.jpg
-    title: Holland - Amsterdam
-    url: 'https://player.vimeo.com/video/171630592'
-
   - duration: 467
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1699228390/Travels/holy-land.jpg
@@ -230,6 +230,12 @@ videos:
     title: India - Kochi
     url: 'https://player.vimeo.com/video/269707078'
 
+  - duration: 1765
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678124712/Travels/mumbai_malabar-2.jpg
+    title: India - Malibar Coast
+    url: 'https://player.vimeo.com/video/309568795'
+
   - duration: 481
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mangalore_oxmfsl.jpg
@@ -241,18 +247,6 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_kmen3j.jpg
     title: India - Mumbai
     url: 'https://player.vimeo.com/video/269702189'
-
-  - duration: 1765
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678124712/Travels/mumbai_malabar-2.jpg
-    title: India - Mumbai to the Malibar Coast
-    url: 'https://player.vimeo.com/video/309568795'
-
-  - duration: 347
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580646274/Travels/jagalchi-fish-market-south-korea_vhkmuw.jpg
-    title: 'Jagalchi Fish Market - Busan, South Korea'
-    url: 'https://player.vimeo.com/video/356978104'
 
   - duration: 1955
     thumbnailImg: >-
@@ -317,7 +311,7 @@ videos:
   - duration: 1365
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642922/Travels/norway_wtnfj7.jpg
-    title: Norway - Hurtigruten Cruise
+    title: Norwegian Cruise
     url: 'https://player.vimeo.com/video/174731877'
 
   - duration: 1166
@@ -358,12 +352,6 @@ videos:
     title: Puglia
     url: 'https://player.vimeo.com/video/594832524'
 
-  - duration: 499
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1692221427/Travels/pukhet-2.jpg
-    title: Pukhet & The Andaman Islands
-    url: 'https://player.vimeo.com/video/842018769'
-
   - duration: 580
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/rajaampat_vbaqi6.jpg
@@ -400,11 +388,11 @@ videos:
     title: Singapore
     url: 'https://player.vimeo.com/video/281884450'
 
-  - duration: 1677
+  - duration: 499
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/swahili-coast.jpg
-    title: Spice, Slaves, and Ivory. The Swahili Coast.
-    url: 'https://player.vimeo.com/video/542393976'
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1692221427/Travels/pukhet-2.jpg
+    title: Southern Thailand
+    url: 'https://player.vimeo.com/video/842018769'
 
   - duration: 903
     thumbnailImg: >-
@@ -413,6 +401,12 @@ videos:
     url: 'https://player.vimeo.com/video/211544218'
     width: 1321.33
     height: 990.992
+
+  - duration: 1677
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/swahili-coast.jpg
+    title: Swahili Coast
+    url: 'https://player.vimeo.com/video/542393976'
 
   - duration: 480
     thumbnailImg: >-
@@ -434,6 +428,12 @@ videos:
     width: 1321.33
     height: 990.992
 
+  - duration: 1525
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/uae_pdtrdu.jpg
+    title: The Emirates & Oman
+    url: 'https://player.vimeo.com/video/460734403'
+
   - duration: 465
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/seychelles_xa3hds.jpg
@@ -443,7 +443,7 @@ videos:
   - duration: 487
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/tsukijistill_ygyyv8.jpg
-    title: Tsukiji Fish Market - Seafood Lovers Paradise
+    title: Tsukiji Fish Market
     url: 'https://player.vimeo.com/video/281891606'
 
   - duration: 1051
