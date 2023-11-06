@@ -212,6 +212,12 @@ videos:
     title: Holland - Amsterdam
     url: 'https://player.vimeo.com/video/171630592'
 
+  - duration: 467
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1699228390/Travels/holy-land.jpg
+    title: Holy Land
+    url: 'https://player.vimeo.com/video/880709335'
+
   - duration: 750
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1644861509/Travels/hong-kong.jpg
