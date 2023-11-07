@@ -82,6 +82,12 @@ videos:
     width: 1321.33
     height: 990.992
 
+  - duration: 1265
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580646524/Travels/malaysian-borneo_gmgghz.jpg
+    title: Borneo
+    url: 'https://player.vimeo.com/video/363913467'
+
   - duration: 661
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1697053737/Travels/budapest.jpg
@@ -117,12 +123,6 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642924/Travels/capetown_njc5zv.jpg
     title: Capetown
     url: 'https://player.vimeo.com/video/342796945'
-
-  - duration: 331
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588627933/Travels/Capri_q1eqyf.jpg
-    title: Capri & The Famous Blue Grotto
-    url: 'https://player.vimeo.com/video/421757880'
 
   - duration: 1582
     thumbnailImg: >-
@@ -224,30 +224,6 @@ videos:
     title: Hong Kong
     url: 'https://player.vimeo.com/video/676475499'
 
-  - duration: 485
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_malabar_gwxbtk.jpg
-    title: India - Kochi
-    url: 'https://player.vimeo.com/video/269707078'
-
-  - duration: 1765
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678124712/Travels/mumbai_malabar-2.jpg
-    title: India - Malibar Coast
-    url: 'https://player.vimeo.com/video/309568795'
-
-  - duration: 481
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mangalore_oxmfsl.jpg
-    title: India - Mangalore
-    url: 'https://player.vimeo.com/video/269710035'
-
-  - duration: 588
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_kmen3j.jpg
-    title: India - Mumbai
-    url: 'https://player.vimeo.com/video/269702189'
-
   - duration: 1955
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580647803/Travels/japan_hno20g.jpg
@@ -259,6 +235,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1639097272/Travels/java.jpg
     title: Jogjakarta, Java
     url: 'https://player.vimeo.com/video/646241946'
+
+  - duration: 485
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_malabar_gwxbtk.jpg
+    title: Kochi
+    url: 'https://player.vimeo.com/video/269707078'
 
   - duration: 955
     thumbnailImg: >-
@@ -272,11 +254,23 @@ videos:
     title: Madagascar
     url: 'https://player.vimeo.com/video/543313401'
 
-  - duration: 1265
+  - duration: 764
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580646524/Travels/malaysian-borneo_gmgghz.jpg
-    title: Malaysian Borneo
-    url: 'https://player.vimeo.com/video/363913467'
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/malaysia_zcxazn.jpg
+    title: Malaysia
+    url: 'https://player.vimeo.com/video/732565570'
+
+  - duration: 1765
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1678124712/Travels/mumbai_malabar-2.jpg
+    title: Malibar Coast
+    url: 'https://player.vimeo.com/video/309568795'
+
+  - duration: 481
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mangalore_oxmfsl.jpg
+    title: Mangalore
+    url: 'https://player.vimeo.com/video/269710035'
 
   - duration: 428
     thumbnailImg: >-
@@ -295,6 +289,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1620341217/Travels/mozambique-maputo.jpg
     title: Mozambique Maputo
     url: 'https://player.vimeo.com/video/543330394'
+
+  - duration: 588
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/mumbai_kmen3j.jpg
+    title: Mumbai
+    url: 'https://player.vimeo.com/video/269702189'
 
   - duration: 313
     thumbnailImg: >-
@@ -333,12 +333,6 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1684872755/Travels/pelourinho.jpg
     title: Pelourinho Carnival
     url: 'https://player.vimeo.com/video/819306663'
-
-  - duration: 764
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1580642923/Travels/malaysia_zcxazn.jpg
-    title: Peninsular Malaysia
-    url: 'https://player.vimeo.com/video/732565570'
 
   - duration: 219
     thumbnailImg: >-
@@ -427,6 +421,12 @@ videos:
     url: 'https://player.vimeo.com/video/211557056'
     width: 1321.33
     height: 990.992
+
+  - duration: 331
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1588627933/Travels/Capri_q1eqyf.jpg
+    title: The Blue Grotto, Capri
+    url: 'https://player.vimeo.com/video/421757880'
 
   - duration: 1525
     thumbnailImg: >-
