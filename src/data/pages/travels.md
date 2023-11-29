@@ -226,7 +226,7 @@ videos:
 
   - duration: 1955
     thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/japan_hno20g.jpg
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/japan.jpg
     title: Japan
     url: 'https://player.vimeo.com/video/386613137'
 
