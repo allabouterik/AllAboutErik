@@ -82,6 +82,12 @@ videos:
     width: 1321.33
     height: 990.992
 
+  - duration: 331
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/Capri_q1eqyf.jpg
+    title: Blue Grotto, Capri
+    url: 'https://player.vimeo.com/video/421757880'
+
   - duration: 1265
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/malaysian-borneo_gmgghz.jpg
@@ -175,6 +181,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/egypt.jpg
     title: Egypt
     url: 'https://player.vimeo.com/video/703897109'
+
+  - duration: 1525
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/uae_pdtrdu.jpg
+    title: Emirates & Oman
+    url: 'https://player.vimeo.com/video/460734403'
 
   - duration: 1078
     thumbnailImg: >-
@@ -376,6 +388,12 @@ videos:
     title: Rome
     url: 'https://player.vimeo.com/video/801733580'
 
+  - duration: 465
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/seychelles_xa3hds.jpg
+    title: Seychelles
+    url: 'https://player.vimeo.com/video/272460323'
+
   - duration: 732
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/singapore_vrzl3t.jpg
@@ -421,24 +439,6 @@ videos:
     url: 'https://player.vimeo.com/video/211557056'
     width: 1321.33
     height: 990.992
-
-  - duration: 331
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/Capri_q1eqyf.jpg
-    title: The Blue Grotto, Capri
-    url: 'https://player.vimeo.com/video/421757880'
-
-  - duration: 1525
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/uae_pdtrdu.jpg
-    title: The Emirates & Oman
-    url: 'https://player.vimeo.com/video/460734403'
-
-  - duration: 465
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/seychelles_xa3hds.jpg
-    title: The Seychelles
-    url: 'https://player.vimeo.com/video/272460323'
 
   - duration: 487
     thumbnailImg: >-
