@@ -200,6 +200,12 @@ videos:
     title: Florence
     url: 'https://player.vimeo.com/video/581294680'
 
+  - duration: 1196
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/fresh-seafood-busan.jpg
+    title: Fresh Seafood
+    url: 'https://player.vimeo.com/video/913546991'
+
   - duration: 229
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/fujairah.jpg
@@ -326,6 +332,12 @@ videos:
     title: Norwegian Cruise
     url: 'https://player.vimeo.com/video/174731877'
 
+  - duration: 765
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/oman-muscat.jpg
+    title: Oman
+    url: 'https://player.vimeo.com/video/810514887'
+
   - duration: 1166
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/papua_viclph.jpg
@@ -351,6 +363,12 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/petra.jpg
     title: Petra, the Lost City
     url: 'https://player.vimeo.com/video/653020718'
+
+  - duration: 364
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/portugal.jpg
+    title: Portugal
+    url: 'https://player.vimeo.com/video/791347632'
 
   - duration: 1290
     thumbnailImg: >-
@@ -470,3 +488,4 @@ videos:
     title: Zanzibar
     url: 'https://player.vimeo.com/video/543292227'
 ---
+ 
