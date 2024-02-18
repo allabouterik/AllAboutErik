@@ -312,12 +312,6 @@ videos:
     title: Mumbai
     url: 'https://player.vimeo.com/video/269702189'
 
-  - duration: 313
-    thumbnailImg: >-
-      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/muscat.jpg
-    title: Muscat
-    url: 'https://player.vimeo.com/video/810514887'
-
   - duration: 682
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/northern-spain.jpg
