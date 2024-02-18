@@ -115,7 +115,7 @@ videos:
   - duration: 347
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/jagalchi-fish-market-south-korea_vhkmuw.jpg
-    title: 'Busan Fish Market'
+    title: Busan Fish Market
     url: 'https://player.vimeo.com/video/356978104'
 
   - duration: 1589
@@ -161,8 +161,6 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/diningwithchunky_pvl2mo.jpg
     title: Dining with Chunky
     url: 'https://player.vimeo.com/video/111801736'
-    width: 1321.33
-    height: 990.992
 
   - duration: 771
     thumbnailImg: >-
