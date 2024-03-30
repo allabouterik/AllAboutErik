@@ -404,6 +404,12 @@ videos:
     title: Seychelles
     url: 'https://player.vimeo.com/video/272460323'
 
+  - duration: 288
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/shops-and-markets.jpg
+    title: Shops
+    url: 'https://player.vimeo.com/video/926457316'
+
   - duration: 732
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/singapore_vrzl3t.jpg
