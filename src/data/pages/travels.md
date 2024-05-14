@@ -192,6 +192,12 @@ videos:
     title: Fiji
     url: 'https://player.vimeo.com/video/372450494'
 
+  - duration: 327
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/fire-run.jpg
+    title: Fire Run
+    url: 'https://player.vimeo.com/video/945991835'
+
   - duration: 293
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/florence.jpg
@@ -311,6 +317,18 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/mumbai_kmen3j.jpg
     title: Mumbai
     url: 'https://player.vimeo.com/video/269702189'
+
+  - duration: 1069
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/musical-moments-vol1.jpg
+    title: 'Musical Moments: Vol. 1'
+    url: 'https://player.vimeo.com/video/943853351'
+
+  - duration: 823
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/musical-moments-vol2.jpg
+    title: 'Musical Moments: Vol. 2'
+    url: 'https://player.vimeo.com/video/943853433'
 
   - duration: 682
     thumbnailImg: >-
@@ -486,4 +504,3 @@ videos:
     title: Zanzibar
     url: 'https://player.vimeo.com/video/543292227'
 ---
- 
