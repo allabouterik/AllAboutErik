@@ -192,6 +192,12 @@ videos:
     title: Fiji
     url: 'https://player.vimeo.com/video/372450494'
 
+  - duration: 887
+    thumbnailImg: >-
+      https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/final-chapter.jpg
+    title: Final Chapter
+    url: 'https://player.vimeo.com/video/956804246'
+
   - duration: 327
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/Travels/fire-run.jpg
