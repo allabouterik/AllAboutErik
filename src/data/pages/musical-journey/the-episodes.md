@@ -83,7 +83,7 @@ videos:
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483854/Musical%20Journey/The%20Episodes/img020-2-alt-sm_tb2qbs.jpg
     title: Erik's Musical Journey - The Complete Film
-    url: 'https://vimeo.com/309199328'
+    url: 'https://player.vimeo.com/video/309199328'
 ---
 
 Watch these documentary episodes which span my musical journey, from early music fan to musician, writer, producer and publisher.
