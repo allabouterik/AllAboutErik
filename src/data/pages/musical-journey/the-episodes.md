@@ -12,7 +12,7 @@ bgAudioDuration: 142
 bgAudioFadeInDuration: 3.5
 bgAudioFadeOutDuration: 3.5
 videos:
-  - duration: 285
+  - duration: 286
     orderNo: 1
     shortTitle: How it Began
     subText: Erik recounts the unique musical influences that have informed his journey
@@ -20,7 +20,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483855/Musical%20Journey/The%20Episodes/episode_1_skinnylegs-wider-sm_jhukql.jpg
     title: Episode One - How it Began
     url: 'https://player.vimeo.com/video/355344620'
-  - duration: 457
+  - duration: 462
     orderNo: 2
     shortTitle: Knoblick
     subText: >-
@@ -30,7 +30,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483855/Musical%20Journey/The%20Episodes/episode_2_image-sm_bfzp1e.jpg
     title: Episode Two - Knoblick
     url: 'https://player.vimeo.com/video/307147559'
-  - duration: 426
+  - duration: 428
     orderNo: 3
     shortTitle: The Aspiring Entrepreneur
     subText: >-
@@ -40,7 +40,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483855/Musical%20Journey/The%20Episodes/episode_3_image-sm_vw6737.jpg
     title: Episode Three - The Aspiring Entrepreneur
     url: 'https://player.vimeo.com/video/307144869'
-  - duration: 1094
+  - duration: 1095
     orderNo: 4
     shortTitle: Music Magnate
     subText: >-
@@ -50,7 +50,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483855/Musical%20Journey/The%20Episodes/episode_3_alt_image-sm_uygknc.jpg
     title: Episode Four - Music Magnate
     url: 'https://player.vimeo.com/video/312158722'
-  - duration: 1202
+  - duration: 797
     orderNo: 5
     shortTitle: San Francisco Late Sixties
     subText: 'Erik moves to San Francisco and goes #1 with Norman Greenbaum and others'
@@ -58,7 +58,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483854/Musical%20Journey/The%20Episodes/episode_5_image-sm_y19ybi.jpg
     title: Episode Five - San Francisco Late Sixties
     url: 'https://player.vimeo.com/video/308610019'
-  - duration: 668
+  - duration: 601
     orderNo: 6
     shortTitle: The Seventies
     subText: He keeps on recording
@@ -66,7 +66,7 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483855/Musical%20Journey/The%20Episodes/episode_6_image-sm_yby9ms.jpg
     title: Episode Six - The Seventies
     url: 'https://player.vimeo.com/video/311567599'
-  - duration: 1078
+  - duration: 1047
     orderNo: 7
     shortTitle: The Eighties and Onward
     subText: >-
@@ -76,14 +76,14 @@ videos:
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483854/Musical%20Journey/The%20Episodes/episode_7_image-sm_gxdzlw.jpg
     title: Episode Seven - The Eighties and Onward
     url: 'https://player.vimeo.com/video/309169773'
-  - duration: 5231
+  - duration: 4718
     orderNo: 8
     shortTitle: Erik's Musical Journey
     subText: Watch all of the episodes together in the complete Musical Journey film
     thumbnailImg: >-
       https://res.cloudinary.com/all-about-erik/image/upload/f_auto/v1570483854/Musical%20Journey/The%20Episodes/img020-2-alt-sm_tb2qbs.jpg
     title: Erik's Musical Journey - The Complete Film
-    url: 'https://www.dropbox.com/s/2zxkeua3op8dpaq/MusicalJourney_FullLength_V2.mp4?raw=1'
+    url: 'https://vimeo.com/309199328'
 ---
 
 Watch these documentary episodes which span my musical journey, from early music fan to musician, writer, producer and publisher.
